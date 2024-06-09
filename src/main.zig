@@ -1,13 +1,9 @@
-const constants = @import("consts.zig");
-const drlg = @import("drlg/drlg.zig");
-const game = @import("game.zig");
-const std = @import("std");
-
+const consts = @import("consts.zig");
 const debug = std.debug;
+const drlg = @import("drlg.zig");
+const game = @import("game.zig");
 const heap = std.heap;
-const Act = constants.Act;
-const Difficulty = constants.Difficulty;
-const TownId = constants.TownId;
+const std = @import("std");
 
 pub fn main() !void {
 	var gpa = heap.GeneralPurposeAllocator(.{}){};
@@ -16,41 +12,33 @@ pub fn main() !void {
 	defer arena.deinit();
 	const allocator = arena.allocator();
 
-	const dwInitSeed: u32 = 0;
-	const nDifficulty = Difficulty.normal;
-	const nAct = Act.I;
-	const nTownId: TownId =
-		@enumFromInt(@typeInfo(@typeInfo(TownId).Optional.child).Enum.fields[@intFromEnum(nAct)].value);
-	debug.print("{} {} {} {?}\n", .{ dwInitSeed, nDifficulty, nAct, nTownId });
-
 	const pAct = try allocator.create(drlg.ActStrc);
-	pAct.* = .{
-		.allocator = allocator,
-		.nAct = nAct,
-		.dwInitSeed = dwInitSeed,
-		.nTownId = nTownId,
+	pAct.* = blk: {
+		const nAct = consts.Act.I;
+		break :blk .{
+			.allocator = allocator,
+			.dwInitSeed = 0,
+			.nAct = nAct,
+			.nTownId = consts.townIds[@intFromEnum(nAct)],
+		};
 	};
 
 	const pGame = try allocator.create(game.Strc);
 	pGame.* = .{
 		.allocator = allocator,
-		.dwInitSeed = dwInitSeed,
+		.dwInitSeed = pAct.dwInitSeed,
 		.bExpansion = true,
 	};
 
 	const pDrlg = try allocator.create(drlg.Strc);
-	pDrlg.* = drlg.Strc.init(
-		pAct,
-		nAct,
-		dwInitSeed,
-		nTownId,
+	pDrlg.* = try pAct.initDrlg(
 		drlg.Flags{
 			.onClient = false,
 			.refresh = false,
 		},
 		pGame,
-		nDifficulty,
+		consts.Difficulty.normal,
 	);
 
-	debug.print("{}\n", .{pDrlg});
+	debug.print("{any}\n", .{pDrlg.tStatusRoomsLists});
 }
