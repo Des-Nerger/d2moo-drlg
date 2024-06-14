@@ -30,8 +30,7 @@ pub fn main() !void {
 		.bExpansion = true,
 	};
 
-	const pDrlg = try allocator.create(drlg.Strc);
-	pDrlg.* = try pAct.initDrlg(
+	const pDrlg = try pAct.allocDrlg(
 		drlg.Flags{
 			.onClient = false,
 			.refresh = false,
