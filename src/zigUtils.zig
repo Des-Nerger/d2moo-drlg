@@ -1,11 +1,14 @@
 const fields = @import("std").meta.fields;
 
-pub fn asArrayOf(comptime T: type, comptime tuples: anytype) [tuples.len]T {
-	var structs: [tuples.len]T = undefined;
+pub fn arrayOfStructs(
+	comptime Struct: type,
+	comptime structFieldNames: [fields(Struct).len][]const u8,
+	comptime tuples: anytype,
+) [tuples.len]Struct {
+	var structs: [tuples.len]Struct = undefined;
 	for (&structs, tuples) |*@"struct", tuple| {
-		inline for (fields(T), fields(@TypeOf(tuple))) |structField, tupleField| {
-			@field(@"struct", structField.name) = @field(tuple, tupleField.name);
-		}
+		inline for (structFieldNames, fields(@TypeOf(tuple))) |structFieldName, tupleField|
+			@field(@"struct", structFieldName) = @field(tuple, tupleField.name);
 	}
 	return structs;
 }

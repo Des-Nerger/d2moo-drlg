@@ -56,12 +56,13 @@ const RoomStrc = struct {
 pub const Strc = struct {
 	allocator: mem.Allocator,
 	dwFlags: Flags,
+	dwGameLowSeed: u32,
 	dwStartSeed: u32,
 	nAct: consts.Act,
 	nDifficulty: consts.Difficulty,
-	oLevel: ?*LevelStrc, // Latest added level
 	pAct: *ActStrc,
 	pGame: *game.Strc,
+	pLevel: ?*LevelStrc, // Latest added level
 	tSeed: seed.Strc,
 	tStatusRoomsLists: [fields(RoomStatus).len]RoomStrc,
 
@@ -71,8 +72,8 @@ pub const Strc = struct {
 	const Self = @This();
 
 	fn getLevel(pDrlg: *Self, nLevelId: dataTbls.LevelId) !*LevelStrc {
-		var oLevel = pDrlg.oLevel;
-		while (oLevel) |pLevel| : (oLevel = pLevel.oNextLevel)
+		var pNextLevel = pDrlg.pLevel;
+		while (pNextLevel) |pLevel| : (pNextLevel = pLevel.pNextLevel)
 			if (pLevel.nLevelId == nLevelId)
 				return pLevel;
 		return pDrlg.allocLevel(nLevelId);
@@ -82,9 +83,9 @@ pub const Strc = struct {
 		const pLevel = try pDrlg.allocator.create(LevelStrc);
 		pLevel.* = .{
 			.nLevelId = nLevelId,
-			.oNextLevel = pDrlg.oLevel,
+			.pNextLevel = pDrlg.pLevel,
 		};
-		pDrlg.oLevel = pLevel;
+		pDrlg.pLevel = pLevel;
 		return pLevel;
 	}
 };
@@ -112,8 +113,9 @@ pub const ActStrc = struct {
 			.dwStartSeed = @truncate(pDrlg.tSeed.rollRandomNumber()),
 			.dwFlags = dwFlags,
 			.pGame = pGame,
+			.dwGameLowSeed = pAct.dwInitSeed,
 			.nDifficulty = nDifficulty,
-			.oLevel = null,
+			.pLevel = null,
 			.tStatusRoomsLists = undefined,
 		};
 		pDrlg.initializeRoomExStatusLists();
@@ -126,7 +128,7 @@ pub const ActStrc = struct {
 
 pub const LevelStrc = struct {
 	nLevelId: dataTbls.LevelId,
-	oNextLevel: ?*Self,
+	pNextLevel: ?*Self,
 
 	pub usingnamespace outPlace.LevelExt;
 

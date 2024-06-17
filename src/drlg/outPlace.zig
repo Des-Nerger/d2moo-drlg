@@ -1,5 +1,5 @@
+const arrayOfStructs = @import("../zigUtils.zig").arrayOfStructs;
 const assert = debug.assert;
-const asArrayOf = @import("../zigUtils.zig").asArrayOf;
 const consts = @import("../consts.zig");
 const dataTbls = struct {
 	usingnamespace @import("../dataTbls/level_ids.zig");
@@ -60,13 +60,14 @@ pub const LevelLinkData_Ext = struct {
 	}
 
 	// zig fmt: off
-	const act1WildernessDrlgLink = &asArrayOf(drlg.LinkStrc, .{
-		.{ sub_6FD81330,      .stonyField, -1, -1 },
-		.{ sub_6FD81380,      .coldPlains,  0, -1 },
-		.{ sub_6FD81950,       .bloodMoor,  1, -1 },
-		.{ sub_6FD81720, .rogueEncampment,  2, -1 },
-		.{ sub_6FD81380,   .burialGrounds,  1, -1 },
-	});
+	const act1WildernessDrlgLink = &arrayOfStructs(drlg.LinkStrc,
+		.{      "fnLinker",         "nLevel", "nLevelLink", "nLevelLinkEx"    },
+		.{ .{ sub_6FD81330,      .stonyField,           -1,             -1 },
+		   .{ sub_6FD81380,      .coldPlains,            0,             -1 },
+		   .{ sub_6FD81950,       .bloodMoor,            1,             -1 },
+		   .{ sub_6FD81720, .rogueEncampment,            2,             -1 },
+		   .{ sub_6FD81380,   .burialGrounds,            1,             -1 }, },
+	);
 	// zig fmt: on
 
 	fn sub_6FD81330(pLevelLinkData: *Self) bool {
