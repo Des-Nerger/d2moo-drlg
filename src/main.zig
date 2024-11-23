@@ -1,43 +1,27 @@
-const consts = @import("consts.zig");
+const assert = debug.assert;
+const c = @import("c.zig");
 const debug = std.debug;
-const drlg = @import("drlg.zig");
-const game = @import("game.zig");
-const heap = std.heap;
 const std = @import("std");
 
-pub fn main() !void {
-	var gpa = heap.GeneralPurposeAllocator(.{}){};
-	defer _ = gpa.deinit();
-	var arena = heap.ArenaAllocator.init(gpa.allocator());
-	defer arena.deinit();
-	const allocator = arena.allocator();
-
-	const pAct = try allocator.create(drlg.ActStrc);
-	pAct.* = blk: {
-		const nAct = consts.Act.I;
-		break :blk .{
-			.allocator = allocator,
-			.dwInitSeed = 0,
-			.nAct = nAct,
-			.nTownId = consts.townIds[@intFromEnum(nAct)],
-		};
-	};
-
-	const pGame = try allocator.create(game.Strc);
-	pGame.* = .{
-		.allocator = allocator,
-		.dwInitSeed = pAct.dwInitSeed,
-		.bExpansion = true,
-	};
-
-	const pDrlg = try pAct.allocDrlg(
-		drlg.Flags{
-			.onClient = false,
-			.refresh = false,
-		},
-		pGame,
-		consts.Difficulty.normal,
-	);
-
-	debug.print("{any}\n", .{pDrlg.tStatusRoomsLists});
+pub fn main() void {
+    debug.print("Hello, world.\n", .{});
+    var act = c.D2DrlgAct{
+        .nAct = c.ACT_I,
+        .dwInitSeed = 0,
+        .nTownId = c.D2TOWN_ROGUECAMP,
+    };
+    const pDrlg = c.DRLG_AllocDrlg(
+        &act,
+        act.nAct,
+        null, // archive
+        act.dwInitSeed,
+        act.nTownId,
+        0, // flags
+        null, // game
+        c.DIFFMODE_NORMAL,
+        null, // auto_map
+        null, // town_auto_map
+    ).?;
+    defer c.DRLG_FreeDrlg(pDrlg);
+    assert(pDrlg.*.nAct == act.nAct);
 }

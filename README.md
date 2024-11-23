@@ -1,4 +1,4 @@
-# d2moo_drlg
+# d2moo-drlg
 
 Derived from https://github.com/ThePhrozenKeep/D2MOO
 
