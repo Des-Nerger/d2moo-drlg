@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CommonDefinitions.h"
+#include "D2CommonDefinitions.h"
 #include "D2DrlgDrlg.h"
 #include "D2DrlgDrlgGrid.h"
 
@@ -43,56 +43,56 @@ enum D2C_RoomTileConstants
 #pragma pack()
 
 //D2Common.0x6FD88860
-struct D2TileLibraryEntry* DRLGROOMTILE_GetTileCache(struct D2DrlgRoom* pDrlgRoom, int nType, uint32_t nPackedTileInformation);
+struct D2TileLibraryEntry* __fastcall DRLGROOMTILE_GetTileCache(struct D2DrlgRoom* pDrlgRoom, int nType, uint32_t nPackedTileInformation);
 //D2Common.0x6FD889C0
-struct D2DrlgTileData* DRLGROOMTILE_InitWallTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData** ppTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry, int nTileType);
+struct D2DrlgTileData* __fastcall DRLGROOMTILE_InitWallTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData** ppTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry, int nTileType);
 //D2Common.0x6FD88AC0
-void DRLGROOMTILE_InitializeTileDataFlags(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, uint32_t nTileFlags, int nType, int nX, int nY);
+void __fastcall DRLGROOMTILE_InitializeTileDataFlags(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, uint32_t nTileFlags, int nType, int nX, int nY);
 //D2Common.0x6FD88BE0
-void DRLGROOMTILE_AddTilePresetUnits(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, uint32_t nPackedTileInformation, int nX, int nY, int nTileType);
+void __fastcall DRLGROOMTILE_AddTilePresetUnits(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, uint32_t nPackedTileInformation, int nX, int nY, int nTileType);
 //D2Common.0x6FD88DD0
-void DRLGROOMTILE_InitTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry);
+void __fastcall DRLGROOMTILE_InitTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry);
 //D2Common.0x6FD88E60
-struct D2DrlgTileData* DRLGROOMTILE_InitFloorTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData** ppTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry);
+struct D2DrlgTileData* __fastcall DRLGROOMTILE_InitFloorTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData** ppTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry);
 //D2Common.0x6FD88F10
-struct D2DrlgTileData* DRLGROOMTILE_InitShadowTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData** ppTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry);
+struct D2DrlgTileData* __fastcall DRLGROOMTILE_InitShadowTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData** ppTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry);
 //D2Common.0x6FD88FD0
-void DRLGROOMTILE_InitTileShadow(struct D2DrlgRoom* pDrlgRoom, int nX, int nY, uint32_t nPackedTileInformation);
+void __fastcall DRLGROOMTILE_InitTileShadow(struct D2DrlgRoom* pDrlgRoom, int nX, int nY, uint32_t nPackedTileInformation);
 //D2Common.0x6FD89000
-void DRLGROOMTILE_LoadInitRoomTiles(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pTilePackedInfoGrid, struct D2DrlgGrid* pTileTypeGrid, BOOL bFillBlanks, BOOL bKillEdgeX, BOOL bKillEdgeY);
+void __fastcall DRLGROOMTILE_LoadInitRoomTiles(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pTilePackedInfoGrid, struct D2DrlgGrid* pTileTypeGrid, BOOL bFillBlanks, BOOL bKillEdgeX, BOOL bKillEdgeY);
 //D2Common.0x6FD89360
-BOOL DRLGROOMTILE_AddWarp(struct D2DrlgRoom* pDrlgRoom, int nX, int nY, uint32_t nPackedTileInformation, int nTileType);
+BOOL __fastcall DRLGROOMTILE_AddWarp(struct D2DrlgRoom* pDrlgRoom, int nX, int nY, uint32_t nPackedTileInformation, int nTileType);
 //D2Common.0x6FD89410
-void DRLGROOMTILE_LoadWallWarpTiles(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, uint32_t nPackedTileInformation, int nTileType);
+void __fastcall DRLGROOMTILE_LoadWallWarpTiles(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, uint32_t nPackedTileInformation, int nTileType);
 //D2Common.0x6FD89590
-void DRLGROOMTILE_LoadFloorWarpTiles(struct D2DrlgRoom* pDrlgRoom, int nX, int nY, uint32_t nPackedTileInformation, int nTileType);
+void __fastcall DRLGROOMTILE_LoadFloorWarpTiles(struct D2DrlgRoom* pDrlgRoom, int nX, int nY, uint32_t nPackedTileInformation, int nTileType);
 //D2Common.0x6FD897E0
-struct D2DrlgTileData* DRLGROOMTILE_GetLinkedTileData(struct D2DrlgRoom* pDrlgRoom, BOOL bFloor, uint32_t nPackedTileInformation, int nX, int nY, struct D2DrlgRoom** ppDrlgRoom);
+struct D2DrlgTileData* __fastcall DRLGROOMTILE_GetLinkedTileData(struct D2DrlgRoom* pDrlgRoom, BOOL bFloor, uint32_t nPackedTileInformation, int nX, int nY, struct D2DrlgRoom** ppDrlgRoom);
 //D2Common.0x6FD89930
-void DRLGROOMTILE_AddLinkedTileData(void* pMemPool, struct D2DrlgRoom* pDrlgRoom, int nTileType, uint32_t nPackedTileInformation, int nX, int nY);
+void __fastcall DRLGROOMTILE_AddLinkedTileData(void* pMemPool, struct D2DrlgRoom* pDrlgRoom, int nTileType, uint32_t nPackedTileInformation, int nX, int nY);
 //D2Common.0x6FD89AF0
-void DRLGROOMTILE_LinkedTileDataManager(void* pMemPool, struct D2DrlgRoom* pDrlgRoom1, struct D2DrlgRoom* pDrlgRoom2, struct D2DrlgTileData* pTileData, int nTileType, uint32_t nPackedTileInformation, int nX, int nY);
+void __fastcall DRLGROOMTILE_LinkedTileDataManager(void* pMemPool, struct D2DrlgRoom* pDrlgRoom1, struct D2DrlgRoom* pDrlgRoom2, struct D2DrlgTileData* pTileData, int nTileType, uint32_t nPackedTileInformation, int nX, int nY);
 //D2Common.0x6FD89CC0
-void DRLGROOMTILE_GetCreateLinkedTileData(void* pMemPool, struct D2DrlgRoom* pDrlgRoom, int nTileType, uint32_t nPackedTileInformation, int nX, int nY);
+void __fastcall DRLGROOMTILE_GetCreateLinkedTileData(void* pMemPool, struct D2DrlgRoom* pDrlgRoom, int nTileType, uint32_t nPackedTileInformation, int nX, int nY);
 //D2Common.0x6FD89E30
-void DRLGROOMTILE_CountAllTileTypes(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pTileInfoGrid, BOOL bCheckCoordinatesValidity, BOOL bKillEdgeX, BOOL bKillEdgeY);
+void __fastcall DRLGROOMTILE_CountAllTileTypes(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pTileInfoGrid, BOOL bCheckCoordinatesValidity, BOOL bKillEdgeX, BOOL bKillEdgeY);
 //D2Common.0x6FD89F00
-void DRLGROOMTILE_CountWallWarpTiles(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pTileInfoGrid, struct D2DrlgGrid* pTileTypeGrid, BOOL bKillEdgeX, BOOL bKillEdgeY);
+void __fastcall DRLGROOMTILE_CountWallWarpTiles(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pTileInfoGrid, struct D2DrlgGrid* pTileTypeGrid, BOOL bKillEdgeX, BOOL bKillEdgeY);
 //D2Common.0x6FD89FA0
-void DRLGROOMTILE_InitRoomGrids(struct D2DrlgRoom* pDrlgRoom);
+void __fastcall DRLGROOMTILE_InitRoomGrids(struct D2DrlgRoom* pDrlgRoom);
 //D2Common.0x6FD89FD0
-void DRLGROOMTILE_AddRoomMapTiles(struct D2DrlgRoom* pDrlgRoom);
+void __fastcall DRLGROOMTILE_AddRoomMapTiles(struct D2DrlgRoom* pDrlgRoom);
 //D2Common.0x6FD8A010
-void DRLGROOMTILE_AllocTileGrid(struct D2DrlgRoom* pDrlgRoom);
+void __fastcall DRLGROOMTILE_AllocTileGrid(struct D2DrlgRoom* pDrlgRoom);
 //D2Common.0x6FD8A050
-void DRLGROOMTILE_AllocTileData(struct D2DrlgRoom* pDrlgRoom);
+void __fastcall DRLGROOMTILE_AllocTileData(struct D2DrlgRoom* pDrlgRoom);
 //D2Common.0x6FD8A130
-void DRLGROOMTILE_ReallocRoofTileGrid(void* pMemPool, struct D2DrlgTileGrid* pTileGrid, int nAdditionalRoofs);
+void __fastcall DRLGROOMTILE_ReallocRoofTileGrid(void* pMemPool, struct D2DrlgTileGrid* pTileGrid, int nAdditionalRoofs);
 //D2Common.0x6FD8A1B0 (#10017)
-D2COMMON_DLL_DECL int DRLGROOMTILE_GetNumberOfShadowsFromRoom(struct D2ActiveRoom* pRoom);
+D2COMMON_DLL_DECL int __fastcall DRLGROOMTILE_GetNumberOfShadowsFromRoom(struct D2ActiveRoom* pRoom);
 //D2Common.0x6FD8A1D0
-void DRLGROOMTILE_FreeTileGrid(struct D2DrlgRoom* pDrlgRoom);
+void __fastcall DRLGROOMTILE_FreeTileGrid(struct D2DrlgRoom* pDrlgRoom);
 //D2Common.0x6FD8A2E0
-void DRLGROOMTILE_FreeRoom(struct D2DrlgRoom* pDrlgRoom, BOOL bKeepRoom);
+void __fastcall DRLGROOMTILE_FreeRoom(struct D2DrlgRoom* pDrlgRoom, BOOL bKeepRoom);
 //D2Common.0x6FD8A380
-void DRLGROOMTILE_LoadDT1FilesForRoom(struct D2DrlgRoom* pDrlgRoom);
+void __fastcall DRLGROOMTILE_LoadDT1FilesForRoom(struct D2DrlgRoom* pDrlgRoom);

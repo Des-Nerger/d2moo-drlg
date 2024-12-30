@@ -29,6 +29,7 @@
 #pragma once
 
 #include <stddef.h>
+#include <windows.h>
 
 // TODO: Replace this include with the header file that defines
 // HSFILE.
@@ -58,7 +59,7 @@ typedef struct HD2ARCHIVE__* HD2ARCHIVE; // NOLINT(bugprone-reserved-identifier)
  * 1.13c: Inline
  * 1.14c: Game.0x00514B24
  */
-BOOL ARCHIVE_OpenFile(HD2ARCHIVE hArchive, const char* szFilePath, HSFILE* phFile, BOOL bFileNotFoundLogSkipped);
+BOOL __fastcall ARCHIVE_OpenFile(HD2ARCHIVE hArchive, const char* szFilePath, HSFILE* phFile, BOOL bFileNotFoundLogSkipped);
 
 /**
  * Closes a file handle to a file from the MPQ archives.
@@ -71,7 +72,7 @@ BOOL ARCHIVE_OpenFile(HD2ARCHIVE hArchive, const char* szFilePath, HSFILE* phFil
  * 1.13c: Inline
  * 1.14c: Game.0x00514B60
  */
-void ARCHIVE_CloseFile(HD2ARCHIVE hArchive, HSFILE hFile);
+void __fastcall ARCHIVE_CloseFile(HD2ARCHIVE hArchive, HSFILE hFile);
 
 /**
  * Gets the uncompressed size of a file in the MPQ archives.
@@ -85,7 +86,7 @@ void ARCHIVE_CloseFile(HD2ARCHIVE hArchive, HSFILE hFile);
  * 1.14c: Game.0x00514B87
  * D2XBeta: D2Server.dll.0x10009C76
  */
-uint32_t ARCHIVE_GetFileSize(HD2ARCHIVE hArchive, HSFILE hFile, uint32_t* pdwFileSizeHigh);
+uint32_t __fastcall ARCHIVE_GetFileSize(HD2ARCHIVE hArchive, HSFILE hFile, uint32_t* pdwFileSizeHigh);
 
 /**
  * Sets the file pointer of a file in the MPQ archives.
@@ -95,7 +96,7 @@ uint32_t ARCHIVE_GetFileSize(HD2ARCHIVE hArchive, HSFILE hFile, uint32_t* pdwFil
  * Static library; may be defined in multiple places than ones listed:
  * 1.10: D2CMP.0x6FE0047A
  */
-uint32_t ARCHIVE_SetFilePointer(HD2ARCHIVE hArchive, HSFILE hFile, int32_t lDistanceToMove, int32_t* lpDistanceToMoveHigh, uint32_t dwMoveMethod);
+uint32_t __fastcall ARCHIVE_SetFilePointer(HD2ARCHIVE hArchive, HSFILE hFile, int32_t lDistanceToMove, int32_t* lpDistanceToMoveHigh, uint32_t dwMoveMethod);
 
 /**
  * Reads a file from the MPQ archives into a specified buffer.
@@ -108,7 +109,7 @@ uint32_t ARCHIVE_SetFilePointer(HD2ARCHIVE hArchive, HSFILE hFile, int32_t lDist
  * 1.13c: D2Lang.0x6FC07C00
  * 1.14c: Game.0x00514C61
  */
-void ARCHIVE_ReadFileToBuffer(HD2ARCHIVE hArchive, HSFILE hFile, void* pBuffer, size_t dwBytesToRead);
+void __fastcall ARCHIVE_ReadFileToBuffer(HD2ARCHIVE hArchive, HSFILE hFile, void* pBuffer, size_t dwBytesToRead);
 
 /**
  * Reads a file from the MPQ archives into a buffer allocated by
@@ -123,13 +124,13 @@ void ARCHIVE_ReadFileToBuffer(HD2ARCHIVE hArchive, HSFILE hFile, void* pBuffer, 
  * 1.13c: D2Lang.0x6FC07EF0
  * 1.14c: Game.0x00514D55
  */
-void* ARCHIVE_ReadFileToAllocBuffer(HD2ARCHIVE hArchive, const char* szFilePath, size_t* pdwBytesWritten, const char* szSrcPath, int nLine);
+void* __fastcall ARCHIVE_AllocateBufferAndReadFile(HD2ARCHIVE hArchive, const char* szFilePath, size_t* pdwBytesWritten, const char* szSrcPath, int nLine);
 
-#define ARCHIVE_READ_FILE_TO_ALLOC_BUFFER(hArchive, szFilePath, pBytesWritten) ARCHIVE_ReadFileToAllocBuffer(hArchive, szFilePath, pBytesWritten, __FILE__, __LINE__)
+#define ARCHIVE_ALLOC_BUFFER_AND_READ_FILE_TO_IT(hArchive, szFilePath, pBytesWritten) ARCHIVE_AllocateBufferAndReadFile(hArchive, szFilePath, pBytesWritten, __FILE__, __LINE__)
 
-typedef BOOL (*ARCHIVE_ShowMessageFunctionPtr)();
+typedef BOOL (__stdcall *ARCHIVE_ShowMessageFunctionPtr)();
 
 //1.10f: D2Win.0x6F8B2399
-struct D2ArchiveHandle* ARCHIVE_LoadMPQFile(const char* szModuleName, const char* szFileName, const char* szLabel, int a4, HANDLE hFile, ARCHIVE_ShowMessageFunctionPtr pfShowMessage, int nPriority);
+struct D2ArchiveHandle* __fastcall ARCHIVE_LoadMPQFile(const char* szModuleName, const char* szFileName, const char* szLabel, int a4, HANDLE hFile, ARCHIVE_ShowMessageFunctionPtr pfShowMessage, int nPriority);
 //1.10f: D2Win.0x6F8B2548
-void ARCHIVE_UnloadMPQFile(struct D2ArchiveHandle* pMPQHandle);
+void __fastcall ARCHIVE_UnloadMPQFile(struct D2ArchiveHandle* pMPQHandle);

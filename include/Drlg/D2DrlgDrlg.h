@@ -1,7 +1,8 @@
 #pragma once
 
-#include "CommonDefinitions.h"
+#include "D2CommonDefinitions.h"
 #include <D2Seed.h>
+#include <D2CMP.h>
 #include "D2DrlgDrlgVer.h"
 #include <Archive.h>
 
@@ -152,8 +153,8 @@ enum D2MapTileFlags
 	MAPTILE_WALL_LAYER_MASK = 0b111 << MAPTILE_WALL_LAYER_BIT, // 0x1C000: 3bits value indicating the wall layer + 1 (0 indicates no wall?)
 };
 // Helper function
-static inline bool HasMapTileLayer(uint32_t nMapTileFlags) { return (nMapTileFlags & MAPTILE_WALL_LAYER_MASK) != 0; }
-static inline int32_t GetMapTileLayer(uint32_t nMapTileFlags) { return (int32_t)((nMapTileFlags & MAPTILE_WALL_LAYER_MASK) >> MAPTILE_WALL_LAYER_BIT) - 1; }
+inline bool HasMapTileLayer(uint32_t nMapTileFlags) { return (nMapTileFlags & MAPTILE_WALL_LAYER_MASK) != 0; }
+inline int32_t GetMapTileLayer(uint32_t nMapTileFlags) { return (int32_t)((nMapTileFlags & MAPTILE_WALL_LAYER_MASK) >> MAPTILE_WALL_LAYER_BIT) - 1; }
 
 struct D2DrlgCoords
 {
@@ -209,7 +210,7 @@ struct D2DrlgRoom // Used to be called struct D2RoomEx
 	struct D2DrlgRoom* pDrlgRoomNext;				//0xE8
 };
 
-typedef int32_t(* ROOMCALLBACKFN)(struct D2ActiveRoom*, void*);
+typedef int32_t(__stdcall* ROOMCALLBACKFN)(struct D2ActiveRoom*, void*);
 
 struct D2DrlgDelete
 {
@@ -254,8 +255,8 @@ struct D2RoomTile
 	struct D2RoomTile* pNext;					//0x14
 };
 
-typedef void(* AUTOMAPFN)(struct D2ActiveRoom*);
-typedef void(* TOWNAUTOMAPFN)(int32_t, int32_t, int32_t, int32_t);
+typedef void(__stdcall* AUTOMAPFN)(struct D2ActiveRoom*);
+typedef void(__stdcall* TOWNAUTOMAPFN)(int32_t, int32_t, int32_t, int32_t);
 
 struct D2RoomCoordList
 {
@@ -316,7 +317,7 @@ struct D2DrlgTileData
 	int32_t unk0x2C;						//0x2C
 };
 
-typedef void(* ACTCALLBACKFN)(struct D2ActiveRoom*);
+typedef void(__fastcall* ACTCALLBACKFN)(struct D2ActiveRoom*);
 
 struct D2DrlgAct
 {
@@ -533,56 +534,56 @@ struct D2DrlgWarp
 #pragma pack()
 
 //D2Common.0x6FD74120 (#10014)
-D2COMMON_DLL_DECL struct D2Drlg* DRLG_AllocDrlg(struct D2DrlgAct* pAct, uint8_t nActNo, HD2ARCHIVE hArchive, uint32_t nInitSeed, int nLevelId, uint32_t nFlags, struct D2Game* pGame, uint8_t nDifficulty, AUTOMAPFN pfAutoMap, TOWNAUTOMAPFN pfTownAutoMap);
+D2COMMON_DLL_DECL struct D2Drlg* __fastcall DRLG_AllocDrlg(struct D2DrlgAct* pAct, uint8_t nActNo, HD2ARCHIVE hArchive, uint32_t nInitSeed, int nLevelId, uint32_t nFlags, struct D2Game* pGame, uint8_t nDifficulty, AUTOMAPFN pfAutoMap, TOWNAUTOMAPFN pfTownAutoMap);
 //D2Common.0x6FD743B0 (#10012)
-D2COMMON_DLL_DECL void DRLG_FreeDrlg(struct D2Drlg* pDrlg);
+D2COMMON_DLL_DECL void __fastcall DRLG_FreeDrlg(struct D2Drlg* pDrlg);
 //D2Common.0x6FD74440
-void DRLG_FreeLevel(void* pMemPool, struct D2DrlgLevel* pLevel, BOOL bAlloc);
+void __fastcall DRLG_FreeLevel(void* pMemPool, struct D2DrlgLevel* pLevel, BOOL bAlloc);
 //D2Common.0x6FD745C0
-void sub_6FD745C0(struct D2DrlgRoom* pDrlgRoom1, struct D2DrlgRoom* pDrlgRoom2);
+void __fastcall sub_6FD745C0(struct D2DrlgRoom* pDrlgRoom1, struct D2DrlgRoom* pDrlgRoom2);
 //D2Common.0x6FD74700
-void DRLG_UpdateAndFreeInactiveRooms(struct D2Drlg* pDrlg);
+void __fastcall DRLG_UpdateAndFreeInactiveRooms(struct D2Drlg* pDrlg);
 //D2Common.0x6FD748D0 (#10013)
-D2COMMON_DLL_DECL struct D2DrlgLevel* DRLG_AllocLevel(struct D2Drlg* pDrlg, int nLevelId);
+D2COMMON_DLL_DECL struct D2DrlgLevel* __fastcall DRLG_AllocLevel(struct D2Drlg* pDrlg, int nLevelId);
 //D2Common.0x6FD749A0 (#10005)
-D2COMMON_DLL_DECL struct D2DrlgLevel* DRLG_GetLevel(struct D2Drlg* pDrlg, int nLevelId);
+D2COMMON_DLL_DECL struct D2DrlgLevel* __stdcall DRLG_GetLevel(struct D2Drlg* pDrlg, int nLevelId);
 //D2Common.0x6FD749D0
-int DRLG_GetHoradricStaffTombLevelId(struct D2Drlg* pDrlg);
+int __fastcall DRLG_GetHoradricStaffTombLevelId(struct D2Drlg* pDrlg);
 //D2Common.0x6FD749E0
-int DRLG_GetDirectionFromCoordinates(struct D2DrlgCoord* pDrlgCoord1, struct D2DrlgCoord* pDrlgCoord2);
+int __fastcall DRLG_GetDirectionFromCoordinates(struct D2DrlgCoord* pDrlgCoord1, struct D2DrlgCoord* pDrlgCoord2);
 //D2Common.0x6FD74A40
-void DRLG_CreateRoomForRoomEx(struct D2Drlg* pDrlg, struct D2DrlgRoom* pDrlgRoom);
+void __fastcall DRLG_CreateRoomForRoomEx(struct D2Drlg* pDrlg, struct D2DrlgRoom* pDrlgRoom);
 //D2Common.0x6FD74B30
-int* DRLG_GetRoomCenterX_RoomWarpXFromRoom(struct D2DrlgRoom* pDrlgRoom);
+int* __fastcall DRLG_GetRoomCenterX_RoomWarpXFromRoom(struct D2DrlgRoom* pDrlgRoom);
 //D2Common.0x6FD74B40
-void DRLG_ComputeLevelWarpInfo(struct D2DrlgLevel* pLevel);
+void __fastcall DRLG_ComputeLevelWarpInfo(struct D2DrlgLevel* pLevel);
 //D2Common.0x6FD74C10 (#10006)
-D2COMMON_DLL_DECL void DRLG_InitLevel(struct D2DrlgLevel* pLevel);
+D2COMMON_DLL_DECL void __stdcall DRLG_InitLevel(struct D2DrlgLevel* pLevel);
 //D2Common.0x6FD74D50
-int DRLG_GetNumberOfPopulatedRoomsInLevel(struct D2Drlg* pDrlg, int nLevelId);
+int __fastcall DRLG_GetNumberOfPopulatedRoomsInLevel(struct D2Drlg* pDrlg, int nLevelId);
 //D2Common.0x6FD74D90
-void DRLG_GetMinAndMaxCoordinatesFromLevel(struct D2DrlgLevel* pLevel, int* pTileMinX, int* pTileMinY, int* pTileMaxX, int* pTileMaxY);
+void __fastcall DRLG_GetMinAndMaxCoordinatesFromLevel(struct D2DrlgLevel* pLevel, int* pTileMinX, int* pTileMinY, int* pTileMaxX, int* pTileMaxY);
 //D2Common.0x6FD74E10
-void DRLG_UpdateRoomExCoordinates(struct D2DrlgLevel* pLevel);
+void __fastcall DRLG_UpdateRoomExCoordinates(struct D2DrlgLevel* pLevel);
 //D2Common.0x6FD74EF0
-struct D2DrlgRoom* DRLG_GetRoomExFromLevelAndCoordinates(struct D2DrlgLevel* pLevel, int nX, int nY);
+struct D2DrlgRoom* __fastcall DRLG_GetRoomExFromLevelAndCoordinates(struct D2DrlgLevel* pLevel, int nX, int nY);
 //D2Common.0x6FD74F70
-struct D2DrlgRoom* DRLG_GetRoomExFromCoordinates(int nX, int nY, struct D2Drlg* pDrlg, struct D2DrlgRoom* pDrlgRoom, struct D2DrlgLevel* pLevel);
+struct D2DrlgRoom* __fastcall DRLG_GetRoomExFromCoordinates(int nX, int nY, struct D2Drlg* pDrlg, struct D2DrlgRoom* pDrlgRoom, struct D2DrlgLevel* pLevel);
 //D2Common.0x6FD751C0
-BOOL DRLG_IsTownLevel(int nLevelId);
+BOOL __fastcall DRLG_IsTownLevel(int nLevelId);
 //D2Common.0x6FD75260 (#10000)
-D2COMMON_DLL_DECL int DRLG_GetLevelTypeFromLevelId(int nLevelId);
+D2COMMON_DLL_DECL int __stdcall DRLG_GetLevelTypeFromLevelId(int nLevelId);
 //D2Common.0x6FD75270
-void DRLG_SetLevelPositionAndSize(struct D2Drlg* pDrlg, struct D2DrlgLevel* pLevel);
+void __fastcall DRLG_SetLevelPositionAndSize(struct D2Drlg* pDrlg, struct D2DrlgLevel* pLevel);
 //D2Common.0x6FD75300 (#10001)
-D2COMMON_DLL_DECL uint8_t DRLG_GetActNoFromLevelId(int nLevelId);
+D2COMMON_DLL_DECL uint8_t __stdcall DRLG_GetActNoFromLevelId(int nLevelId);
 //D2Common.0x6FD75330 (#10004)
-D2COMMON_DLL_DECL int DRLG_GetSaveMonstersFromLevelId(int nLevelId);
+D2COMMON_DLL_DECL int __stdcall DRLG_GetSaveMonstersFromLevelId(int nLevelId);
 //D2Common.0x6FD75350 (#10002)
-D2COMMON_DLL_DECL int DRLG_GetLOSDrawFromLevelId(int nLevelId);
+D2COMMON_DLL_DECL int __stdcall DRLG_GetLOSDrawFromLevelId(int nLevelId);
 //D2Common.0x6FD75370
-struct D2DrlgWarp* DRLG_GetDrlgWarpFromLevelId(struct D2Drlg* pDrlg, int nLevelId);
+struct D2DrlgWarp* __fastcall DRLG_GetDrlgWarpFromLevelId(struct D2Drlg* pDrlg, int nLevelId);
 //D2Common.0x6FD753F0
-void DRLG_SetWarpId(struct D2DrlgWarp* pDrlgWarp, int nVis, int nWarp, int nId);
+void __fastcall DRLG_SetWarpId(struct D2DrlgWarp* pDrlgWarp, int nVis, int nWarp, int nId);
 //D2Common.0x6FD75450
-int DRLG_IsOnClient(struct D2Drlg* pDrlg);
+int __fastcall DRLG_IsOnClient(struct D2Drlg* pDrlg);

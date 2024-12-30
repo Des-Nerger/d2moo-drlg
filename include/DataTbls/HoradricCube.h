@@ -108,21 +108,21 @@ struct D2CubeMainTxt
 #pragma pack()
 
 //D2Common.0x6FD523E0
-void DATATBLS_CubeMainInputLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
+void __fastcall DATATBLS_CubeMainInputLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
 //D2Common.0x6FD52410
-BOOL DATATBLS_CubeMainInputParser(struct D2CubeInputItem* pCubeInput, char* szInput, int nTxtRow, int nItemId);
+BOOL __fastcall DATATBLS_CubeMainInputParser(struct D2CubeInputItem* pCubeInput, char* szInput, int nTxtRow, int nItemId);
 //D2Common.0x6FD528D0
-void DATATBLS_CubeMainOutputLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
+void __fastcall DATATBLS_CubeMainOutputLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
 //D2Common.0x6FD52910
-BOOL DATATBLS_CubeMainOutputParser(struct D2CubeOutputItem* pCubeOutputParam, char* szOutput, int nTxtRow, int nItemId);
+BOOL __fastcall DATATBLS_CubeMainOutputParser(struct D2CubeOutputItem* pCubeOutputParam, char* szOutput, int nTxtRow, int nItemId);
 //D2Common.0x6FD52FC0
-void DATATBLS_CubeMainParamLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
+void __fastcall DATATBLS_CubeMainParamLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
 //D2Common.0x6FD53030
-void DATATBLS_LoadCubeMainTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadCubeMainTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD54250
-void DATATBLS_UnloadCubeMainTxt();
+void __fastcall DATATBLS_UnloadCubeMainTxt();
 //D2Common.0x6FD54260 (#11232)
-D2COMMON_DLL_DECL struct D2CubeMainTxt* DATATBLS_GetCubemainTxtRecord(int nIndex);
+D2COMMON_DLL_DECL struct D2CubeMainTxt* __stdcall DATATBLS_GetCubemainTxtRecord(int nIndex);
 //D2Common.0x6FD542C0 (#11233)
-D2COMMON_DLL_DECL int DATATBLS_GetCubemainTxtRecordCount();
+D2COMMON_DLL_DECL int __fastcall DATATBLS_GetCubemainTxtRecordCount();
 

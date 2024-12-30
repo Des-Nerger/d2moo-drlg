@@ -1,25 +1,16 @@
 #pragma once
 
-#include <ctype.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <windows.h>
 
 typedef int32_t BOOL;
-#define FALSE 0
-#define TRUE (!0)
-
-#define MIN(a,b) (((a)<(b))?(a):(b))
-#define MAX(a,b) (((a)>(b))?(a):(b))
-
-#define wsprintfA sprintf
-#define strcpy_s strcpy
-#define strncpy_s strncpy
-#define GetTickCount() 0
 
 // We want all of the structures to be packed since they come from reverse engineering
 // This also means that if we use external headers, they should be included before this header.
 #pragma warning(error:4820 4121)
 #pragma warning(error:4189) // A variable is declared and initialized but not used.
+#pragma warning(error:4456) // declaration of 'identifier' hides previous local declaration
 #pragma warning(disable:28612) // "The enum type 'xxxx' is unscoped. Prefer 'enum class' over 'enum'"
 
 // Windows.h defines its own, replace it
@@ -30,7 +21,6 @@ typedef int32_t BOOL;
 #undef LODWORD
 #undef HIDWORD
 
-#define DWORD uint32_t
 #define LOBYTE(w)           ((uint8_t ) (( (uint16_t)(w))        & 0xff  ))
 #define HIBYTE(w)           ((uint8_t ) ((((uint16_t)(w)) >>  8) & 0xff  ))
 #define LOWORD(l)           ((uint16_t) (( (uint32_t)(l))        & 0xffff))
@@ -68,45 +58,6 @@ typedef int32_t BOOL;
 #define ARRAY_SIZE(Array) (sizeof((Array)) / sizeof((Array)[0]))
 
 #define D2_MAYBE_UNUSED(x) (void)(x)
-
-#define LPCRITICAL_SECTION void *
-static inline void LeaveCriticalSection(LPCRITICAL_SECTION lpCriticalSection) {}
-#define HANDLE void *
-typedef void *PVOID;
-typedef unsigned long ULONG_PTR;
-static inline long InterlockedIncrement(long volatile *Addend) {
-    return __sync_add_and_fetch(Addend, 1);
-}
-static inline long InterlockedDecrement(long volatile *Addend) {
-   return __sync_sub_and_fetch(Addend, 1);
-}
-typedef struct {
-    ULONG_PTR Internal;
-    ULONG_PTR InternalHigh;
-    union {
-        struct {
-            DWORD Offset;
-            DWORD OffsetHigh;
-        } DUMMYSTRUCTNAME;
-        PVOID Pointer;
-    } DUMMYUNIONNAME;
-    HANDLE hEvent;
-} OVERLAPPED;
-#define MAX_PATH 260
-typedef long LONG;
-typedef struct {
-    LONG left;
-    LONG top;
-    LONG right;
-    LONG bottom;
-} RECT;
-typedef uint8_t BYTE;
-typedef struct {
-    BYTE peRed;
-    BYTE peGreen;
-    BYTE peBlue;
-    BYTE peFlags;
-} PALETTEENTRY;
 
 #pragma pack(push, 1)
 

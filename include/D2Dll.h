@@ -9,9 +9,7 @@
 #define D2FUNC_DLL_NP(DLL, NAME, RETURN, CONV, ARGS, OFFSET) \
 	DLL##_DLL_DECL RETURN CONV NAME ARGS;
 
-
 /*
-
 template <typename T>
 constexpr auto default_or_void() -> T { return {}; }
 template <>
@@ -29,7 +27,6 @@ constexpr auto default_or_void<void>() -> void {}
 		OutputDebugStringA(#NAME);                     \
 		return default_or_void<RETURN>();             \
 	}													   
-
 */
 
 // Useful if you do not have an import library or want to use LoadLibray
@@ -41,7 +38,7 @@ constexpr auto default_or_void<void>() -> void {}
 	typedef TYPE DLL##_##NAME##_vt; \
 	static DLL##_##NAME##_vt * DLL##_##NAME = (DLL##_##NAME##_vt *)(uintptr_t(delayed##DLL##DllBaseGet()) + (OFFSET));
 
-#define D2PTR(DLL, NAME, OFFSET) \
-	static PVOID NAME = (uintptr_t(delayed##DLL##DllBaseGet()) + (OFFSET));
+#define D2PTR(DLL, NAME, TYPE, OFFSET) \
+	static TYPE* DLL##_##NAME = (TYPE*)(uintptr_t(delayed##DLL##DllBaseGet()) + (OFFSET));
 
 // NOLINTEND

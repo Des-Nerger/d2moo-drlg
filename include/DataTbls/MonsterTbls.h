@@ -453,7 +453,29 @@ struct D2MonStats2Txt
 	int32_t nBaseW;							//0x10 - Maybe union?
 	//char szBaseW[4];						//0x10
 	uint8_t nHitClass;						//0x14
-	uint8_t unk0x15[16];					//0x15 - see CompositLinker
+	union
+	{
+		struct
+		{
+			uint8_t nHD_ChoiceCount;					//0x15
+			uint8_t nTR_ChoiceCount;					//0x16
+			uint8_t nLG_ChoiceCount;					//0x17
+			uint8_t nRa_ChoiceCount;					//0x18
+			uint8_t nLa_ChoiceCount;					//0x19
+			uint8_t nRH_ChoiceCount;					//0x1A
+			uint8_t nLH_ChoiceCount;					//0x1B
+			uint8_t nSH_ChoiceCount;					//0x1C
+			uint8_t nS1_ChoiceCount;					//0x1D
+			uint8_t nS2_ChoiceCount;					//0x1E
+			uint8_t nS3_ChoiceCount;					//0x1F
+			uint8_t nS4_ChoiceCount;					//0x20
+			uint8_t nS5_ChoiceCount;					//0x21
+			uint8_t nS6_ChoiceCount;					//0x22
+			uint8_t nS7_ChoiceCount;					//0x23
+			uint8_t nS8_ChoiceCount;					//0x24
+		};
+		uint8_t nComponentChoiceCounts[16];		//0x15 - see CompositLinker
+	};
 	uint8_t unk0x25;						//0x25 - see CompositLinker
 	struct D2UnkMonComp unk0x26[16];			//0x26 - see CompositLinker
 	uint8_t pad0xE6[2];						//0xE6
@@ -659,114 +681,114 @@ struct D2MonStatsInit
 
 
 //Inlined in some functions
-uint32_t DATATBLS_StringToCode(char* szText);
+uint32_t __fastcall DATATBLS_StringToCode(char* szText);
 //D2Common.0x6FD64C40 (#10592)
-D2COMMON_DLL_DECL int DATATBLS_GetMonsterChainInfo(int nMonsterId, int* pMaxChainId, int* pChainId);
+D2COMMON_DLL_DECL int __stdcall DATATBLS_GetMonsterChainInfo(int nMonsterId, int* pMaxChainId, int* pChainId);
 //D2Common.0x6FD64CD0
-void DATATBLS_MonStatsSkillModeLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
+void __fastcall DATATBLS_MonStatsSkillModeLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
 //D2Common.0x6FD64DF0
-void DATATBLS_LoadMonStatsTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadMonStatsTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD67BD0 (#11261)
-D2COMMON_DLL_DECL BOOL DATATBLS_CalculateMonsterStatsByLevel(int nMonsterId, int nGameType, int nDifficulty, int nLevel, short nFlags, struct D2MonStatsInit* pMonStatsInit);
+D2COMMON_DLL_DECL BOOL __stdcall DATATBLS_CalculateMonsterStatsByLevel(int nMonsterId, int nGameType, int nDifficulty, int nLevel, short nFlags, struct D2MonStatsInit* pMonStatsInit);
 //D2Common.0x6FD689B0 (#10642)
-D2COMMON_DLL_DECL void DATATBLS_SetVelocityInMonStatsTxtRecord(int nMonsterId, short nVelocity);
+D2COMMON_DLL_DECL void __stdcall DATATBLS_SetVelocityInMonStatsTxtRecord(int nMonsterId, short nVelocity);
 //D2Common.0x6FD68A00
-void DATATBLS_ResetGlobalDefaultUnicodeString();
+void __stdcall DATATBLS_ResetGlobalDefaultUnicodeString();
 //D2Common.0x6FD68A10 (#10651)
-D2COMMON_DLL_DECL const struct Unicode* DATATBLS_RollRandomUniqueTitleString(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL const struct Unicode* __fastcall DATATBLS_RollRandomUniqueTitleString(struct D2Unit* pUnit);
 //D2Common.0x6FD68A80 (#10652)
-D2COMMON_DLL_DECL const struct Unicode* DATATBLS_RollRandomUniquePrefixString(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL const struct Unicode* __fastcall DATATBLS_RollRandomUniquePrefixString(struct D2Unit* pUnit);
 //D2Common.0x6FD68AF0 (#10653)
-D2COMMON_DLL_DECL const struct Unicode* DATATBLS_RollRandomUniqueSuffixString(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL const struct Unicode* __fastcall DATATBLS_RollRandomUniqueSuffixString(struct D2Unit* pUnit);
 //D2Common.0x6FD68B60 (#10654)
-D2COMMON_DLL_DECL const struct Unicode* DATATBLS_RollRandomUniqueAppellationString(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL const struct Unicode* __fastcall DATATBLS_RollRandomUniqueAppellationString(struct D2Unit* pUnit);
 //D2Common.0x6FD68BD0
-void DATATBLS_ReallocTCExInfo(struct D2TCExShort* pTCExShort, int nNewRecordCount);
+void __fastcall DATATBLS_ReallocTCExInfo(struct D2TCExShort* pTCExShort, int nNewRecordCount);
 //D2Common.0x6FD68C40
-void DATATBLS_UpdateTreasureClassProbabilities(struct D2TCExShort* pTCExShort, struct D2TCExInfo* pTCExInfo, int nProbability, BOOL bExpansion);
+void __fastcall DATATBLS_UpdateTreasureClassProbabilities(struct D2TCExShort* pTCExShort, struct D2TCExInfo* pTCExInfo, int nProbability, BOOL bExpansion);
 //D2Common.0x6FD68D40
-int DATATBLS_ApplyRatio(signed int nValue, signed int nMultiplier, signed int nDivisor);
+int __fastcall DATATBLS_ApplyRatio(signed int nValue, signed int nMultiplier, signed int nDivisor);
 //D2Common.0x6FD68DC0 (#10658)
-D2COMMON_DLL_DECL struct D2TCExShort* DATATBLS_GetTreasureClassExRecordFromName(char* szText);
+D2COMMON_DLL_DECL struct D2TCExShort* __stdcall DATATBLS_GetTreasureClassExRecordFromName(char* szText);
 //D2Common.0x6FD68DF0 (#10659)
-D2COMMON_DLL_DECL struct D2TCExShort* DATATBLS_GetTreasureClassExRecordFromIdAndLevel(uint16_t wTCId, int nLvl);
+D2COMMON_DLL_DECL struct D2TCExShort* __stdcall DATATBLS_GetTreasureClassExRecordFromIdAndLevel(uint16_t wTCId, int nLvl);
 //D2Common.0x6FD68E50 (#10660)
-D2COMMON_DLL_DECL struct D2TCExShort* DATATBLS_GetTreasureClassExRecordFromActAndDifficulty(int nDifficulty, int nAct, int nIndex);
+D2COMMON_DLL_DECL struct D2TCExShort* __stdcall DATATBLS_GetTreasureClassExRecordFromActAndDifficulty(int nDifficulty, int nAct, int nIndex);
 //D2Common.0x6FD68EC0
-void DATATBLS_LoadTreasureClassExTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadTreasureClassExTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD69B70 (#10656)
-D2COMMON_DLL_DECL int DATATBLS_ShouldNeverCallInExpansion();
+D2COMMON_DLL_DECL int __stdcall DATATBLS_ShouldNeverCallInExpansion();
 //D2Common.0x6FD69B90
-void DATATBLS_LoadMonItemPercentTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadMonItemPercentTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD69C40
-void DATATBLS_UnloadMonItemPercentTxt();
+void __fastcall DATATBLS_UnloadMonItemPercentTxt();
 //D2Common.0x6FD69C50 (#10662)
-D2COMMON_DLL_DECL struct D2MonItemPercentDataTbl* DATATBLS_GetMonItemPercentDataTables();
+D2COMMON_DLL_DECL struct D2MonItemPercentDataTbl* __fastcall DATATBLS_GetMonItemPercentDataTables();
 //D2Common.0x6FD69C60 (#10663)
-D2COMMON_DLL_DECL struct D2MonItemPercentTxt* DATATBLS_GetMonItemPercentTxtRecord(int nId);
+D2COMMON_DLL_DECL struct D2MonItemPercentTxt* __stdcall DATATBLS_GetMonItemPercentTxtRecord(int nId);
 //D2Common.0x6FD69CD0
-void DATATBLS_LoadMonUModTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadMonUModTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD69FA0
-void DATATBLS_LoadSuperUniquesTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadSuperUniquesTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD6A440 (#10668)
-D2COMMON_DLL_DECL struct D2SuperUniquesTxt* DATATBLS_GetSuperUniquesTxtRecord(int nSuperUniqueId);
+D2COMMON_DLL_DECL struct D2SuperUniquesTxt* __stdcall DATATBLS_GetSuperUniquesTxtRecord(int nSuperUniqueId);
 //D2Common.0x6FD6A470 (#11257)
-D2COMMON_DLL_DECL int DATATBLS_GetSuperUniquesTxtRecordCount();
+D2COMMON_DLL_DECL int __fastcall DATATBLS_GetSuperUniquesTxtRecordCount();
 //D2Common.0x6FD6A480
-void DATATBLS_LoadHirelingTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadHirelingTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD6B1A0
-struct D2ItemTypesTxt* DATATBLS_GetItemTypesTxtRecord(int nItemType);
+struct D2ItemTypesTxt* __fastcall DATATBLS_GetItemTypesTxtRecord(int nItemType);
 //D2Common.0x6FD6B1D0 (#10583)
-D2COMMON_DLL_DECL struct D2HirelingTxt* DATATBLS_GetHirelingTxtRecordFromIdAndLevel(BOOL bExpansion, int nId, int nLevel);
+D2COMMON_DLL_DECL struct D2HirelingTxt* __stdcall DATATBLS_GetHirelingTxtRecordFromIdAndLevel(BOOL bExpansion, int nId, int nLevel);
 //D2Common.0x6FD6B270 (#10585)
-D2COMMON_DLL_DECL struct D2HirelingTxt* DATATBLS_GetNextHirelingTxtRecordFromNameId(BOOL bExpansion, uint16_t nNameId, struct D2HirelingTxt* pOldRecord);
+D2COMMON_DLL_DECL struct D2HirelingTxt* __stdcall DATATBLS_GetNextHirelingTxtRecordFromNameId(BOOL bExpansion, uint16_t nNameId, struct D2HirelingTxt* pOldRecord);
 //D2Common.0x6FD6B310 (#10586)
-D2COMMON_DLL_DECL struct D2HirelingTxt* DATATBLS_GetNextHirelingTxtRecordFromClassId(BOOL bExpansion, int nClass, struct D2HirelingTxt* pOldRecord);
+D2COMMON_DLL_DECL struct D2HirelingTxt* __stdcall DATATBLS_GetNextHirelingTxtRecordFromClassId(BOOL bExpansion, int nClass, struct D2HirelingTxt* pOldRecord);
 //D2Common.0x6FD6B3A0 (#10587)
-D2COMMON_DLL_DECL struct D2HirelingTxt* DATATBLS_GetNextHirelingTxtRecordFromVendorIdAndDifficulty(BOOL bExpansion, int nVendorId, int nDifficulty, struct D2HirelingTxt* pOldRecord);
+D2COMMON_DLL_DECL struct D2HirelingTxt* __stdcall DATATBLS_GetNextHirelingTxtRecordFromVendorIdAndDifficulty(BOOL bExpansion, int nVendorId, int nDifficulty, struct D2HirelingTxt* pOldRecord);
 //D2Common.0x6FD6B440 (#10584)
-D2COMMON_DLL_DECL struct D2HirelingTxt* DATATBLS_GetNextHirelingTxtRecordFromActAndDifficulty(BOOL bExpansion, int nAct, int nDifficulty, struct D2HirelingTxt* pOldRecord);
+D2COMMON_DLL_DECL struct D2HirelingTxt* __stdcall DATATBLS_GetNextHirelingTxtRecordFromActAndDifficulty(BOOL bExpansion, int nAct, int nDifficulty, struct D2HirelingTxt* pOldRecord);
 //D2Common.0x6FD6B4F0
-void DATATBLS_LoadNpcTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadNpcTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD6B820 (#10588)
-D2COMMON_DLL_DECL struct D2NpcTxt* DATATBLS_GetNpcTxtRecord(uint32_t dwNpcId);
+D2COMMON_DLL_DECL struct D2NpcTxt* __stdcall DATATBLS_GetNpcTxtRecord(uint32_t dwNpcId);
 //D2Common.0x6FD6B850
-void DATATBLS_LoadMonSoundsTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadMonSoundsTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD6BF50 (#11252)
-D2COMMON_DLL_DECL struct D2MonSoundsTxt* DATATBLS_GetMonSoundsTxtRecordFromSoundId(int nSoundId);
+D2COMMON_DLL_DECL struct D2MonSoundsTxt* __stdcall DATATBLS_GetMonSoundsTxtRecordFromSoundId(int nSoundId);
 //D2Common.0x6FD6BF80 (#11250)
-D2COMMON_DLL_DECL struct D2MonSoundsTxt* DATATBLS_GetMonSoundsTxtRecordFromMonsterId(int nMonsterId);
+D2COMMON_DLL_DECL struct D2MonSoundsTxt* __stdcall DATATBLS_GetMonSoundsTxtRecordFromMonsterId(int nMonsterId);
 //D2Common.0x6FD6BFE0
-void DATATBLS_MonStats2CompositLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
+void __fastcall DATATBLS_MonStats2CompositLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
 //D2Common.0x6FD6C150
-void DATATBLS_LoadMonStats2Txt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadMonStats2Txt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD6D660
-int DATATBLS_CheckNestedMonsterTypes(int nMonType1, int nMonType2);
+int __fastcall DATATBLS_CheckNestedMonsterTypes(int nMonType1, int nMonType2);
 //D2Common.0x6FD6D730
-void DATATBLS_LoadMonTypeTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadMonTypeTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD6D910
-void DATATBLS_UnloadMonTypeTxt();
+void __fastcall DATATBLS_UnloadMonTypeTxt();
 //D2Common.0x6FD6D960
-void DATATBLS_LoadMonPropTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadMonPropTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD6E8E0
-void DATATBLS_LoadMonLvlTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadMonLvlTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD6EDE0
-void DATATBLS_MonPresetPlaceLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
+void __fastcall DATATBLS_MonPresetPlaceLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
 //D2Common.0x6FD6EE60
-void DATATBLS_LoadMonPresetTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadMonPresetTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD6EF30 (#11256)
-D2COMMON_DLL_DECL struct D2MonPresetTxt* DATATBLS_GetMonPresetTxtActSection(int nAct, int* pRecordCount);
+D2COMMON_DLL_DECL struct D2MonPresetTxt* __stdcall DATATBLS_GetMonPresetTxtActSection(int nAct, int* pRecordCount);
 //D2Common.0x6FD6EF70 (#11258)
-D2COMMON_DLL_DECL int DATATBLS_MapSuperUniqueId(int nType, int nSuperUnique);
+D2COMMON_DLL_DECL int __stdcall DATATBLS_MapSuperUniqueId(int nType, int nSuperUnique);
 //D2Common.0x6FD6EFA0
-void DATATBLS_LoadSoundsTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadSoundsTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD6F020
-void DATATBLS_UnloadSoundsTxt();
+void __fastcall DATATBLS_UnloadSoundsTxt();
 //D2Common.0x6FD6F230
-void DATATBLS_LoadMonEquipTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadMonEquipTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD6F580
-void DATATBLS_LoadSomeMonsterTxts(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadSomeMonsterTxts(HD2ARCHIVE hArchive);
 //D2Common.0x6FD6F810
-void DATATBLS_CreateItemTypeTreasureClasses();
+void __fastcall DATATBLS_CreateItemTypeTreasureClasses();
 //D2Common.0x6FD6FBB0
-void DATATBLS_UnloadSomeMonsterTxts();
+void __fastcall DATATBLS_UnloadSomeMonsterTxts();

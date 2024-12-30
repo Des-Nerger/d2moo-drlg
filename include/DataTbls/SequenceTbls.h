@@ -40,18 +40,18 @@ struct D2PlayerWeaponSequences
 #pragma pack()
 
 //D2Common.0x6FD727A0 (#10682)
-D2COMMON_DLL_DECL struct D2AnimSeqTxt* DATATBLS_GetMonSeqTxtRecordFromUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL struct D2AnimSeqTxt* __stdcall DATATBLS_GetMonSeqTxtRecordFromUnit(struct D2Unit* pUnit);
 //D2Common.0x6FD727C0
-struct D2AnimSeqRecord* DATATBLS_GetSeqRecordFromUnit(struct D2Unit* pUnit);
+struct D2AnimSeqRecord* __fastcall DATATBLS_GetSeqRecordFromUnit(struct D2Unit* pUnit);
 //D2Common.0x6FD728A0 (#10683)
-D2COMMON_DLL_DECL int DATATBLS_GetSeqFramePointsCount(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __stdcall DATATBLS_GetSeqFramePointsCount(struct D2Unit* pUnit);
 //D2Common.0x6FD728C0 (#10684)
-D2COMMON_DLL_DECL int DATATBLS_GetSeqFrameCount(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __stdcall DATATBLS_GetSeqFrameCount(struct D2Unit* pUnit);
 //D2Common.0x6FD728E0 (#10685)
-D2COMMON_DLL_DECL void DATATBLS_ComputeSequenceAnimation(struct D2AnimSeqTxt* pMonSeqTxt, int nTargetFramePoint, int nCurrentFramePoint, unsigned int* pMode, unsigned int* pFrame, int* pDirection, int* pEvent);
+D2COMMON_DLL_DECL void __stdcall DATATBLS_ComputeSequenceAnimation(struct D2AnimSeqTxt* pMonSeqTxt, int nTargetFramePoint, int nCurrentFramePoint, unsigned int* pMode, unsigned int* pFrame, int* pDirection, int* pEvent);
 //D2Common.0x6FD72990 (#10686)
-D2COMMON_DLL_DECL void DATATBLS_GetSequenceEvent(struct D2AnimSeqTxt* pMonSeqTxt, int nSeqFramePoint, int* pEvent);
+D2COMMON_DLL_DECL void __stdcall DATATBLS_GetSequenceEvent(struct D2AnimSeqTxt* pMonSeqTxt, int nSeqFramePoint, int* pEvent);
 //D2Common.0x6FD6F050
-void DATATBLS_LoadMonSeqTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadMonSeqTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD6F200 (#11262)
-D2COMMON_DLL_DECL struct D2AnimSeqRecord* DATATBLS_GetMonSeqTableRecord(int nSequence);
+D2COMMON_DLL_DECL struct D2AnimSeqRecord* __stdcall DATATBLS_GetMonSeqTableRecord(int nSequence);

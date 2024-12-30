@@ -50,24 +50,24 @@ struct D2OverlayTxt
 #pragma pack()
 
 //D2Common.0x6FD720A0
-void DATATBLS_LoadOverlayTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadOverlayTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD72500
-void DATATBLS_UnloadOverlayTxt();
+void __fastcall DATATBLS_UnloadOverlayTxt();
 //D2Common.0x6FD72530 (#10674)
-D2COMMON_DLL_DECL uint32_t DATATBLS_GetFramesFromOverlayTxt(int nOverlayId);
+D2COMMON_DLL_DECL uint32_t __stdcall DATATBLS_GetFramesFromOverlayTxt(int nOverlayId);
 //D2Common.0x6FD72570 (#10675)
-D2COMMON_DLL_DECL int DATABLS_GetPreDrawFromOverlayTxt(int nOverlayId);
+D2COMMON_DLL_DECL int __stdcall DATABLS_GetPreDrawFromOverlayTxt(int nOverlayId);
 //D2Common.0x6FD725B0 (#10676)
-D2COMMON_DLL_DECL uint32_t DATATBLS_GetOffsetXFromOverlayTxt(int nOverlayId);
+D2COMMON_DLL_DECL uint32_t __stdcall DATATBLS_GetOffsetXFromOverlayTxt(int nOverlayId);
 //D2Common.0x6FD725F0 (#10677)
-D2COMMON_DLL_DECL uint32_t DATATBLS_GetOffsetYFromOverlayTxt(int nOverlayId);
+D2COMMON_DLL_DECL uint32_t __stdcall DATATBLS_GetOffsetYFromOverlayTxt(int nOverlayId);
 //D2Common.0x6FD72630 (#10678)
-D2COMMON_DLL_DECL int DATATBLS_GetTransFromOverlayTxt(int nOverlayId);
+D2COMMON_DLL_DECL int __stdcall DATATBLS_GetTransFromOverlayTxt(int nOverlayId);
 //D2Common.0x6FD72670 (#10679)
-D2COMMON_DLL_DECL int DATATBLS_GetRadiusAndColorFromOverlayTxt(int nOverlayId, int* pInitRadius, int* pRadius, uint8_t* pRed, uint8_t* pGreen, uint8_t* pBlue);
+D2COMMON_DLL_DECL int __stdcall DATATBLS_GetRadiusAndColorFromOverlayTxt(int nOverlayId, int* pInitRadius, int* pRadius, uint8_t* pRed, uint8_t* pGreen, uint8_t* pBlue);
 //D2Common.0x6FD72720 (#10680)
-D2COMMON_DLL_DECL uint32_t DATATBLS_Get1OfNFromOverlayTxt(int nOverlayId);
+D2COMMON_DLL_DECL uint32_t __stdcall DATATBLS_Get1OfNFromOverlayTxt(int nOverlayId);
 //D2Common.0x6FD72760 (#10681)
-D2COMMON_DLL_DECL int DATATBLS_GetDirFromOverlayTxt(int nOverlayId);
+D2COMMON_DLL_DECL int __stdcall DATATBLS_GetDirFromOverlayTxt(int nOverlayId);
 //Inlined at various places
-struct D2OverlayTxt* DATATBLS_GetOverlayTxtRecord(int nOverlay);
+struct D2OverlayTxt* __fastcall DATATBLS_GetOverlayTxtRecord(int nOverlay);

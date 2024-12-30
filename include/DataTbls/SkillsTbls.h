@@ -297,21 +297,21 @@ struct D2SkillsTxt
 #pragma pack()
 
 //D2Common.0x6FD498D0
-int DATATBLS_MapSkillsTxtKeywordToNumber(char* szKey);
+int __fastcall DATATBLS_MapSkillsTxtKeywordToNumber(char* szKey);
 //D2Common.0x6FD49980
-int sub_6FD49980(int nValue);
+int __fastcall sub_6FD49980(int nValue);
 //D2Common.0x6FD49990
-int sub_6FD49990(char* szText, int* a2, int a3, int nKeywordNumber);
+int __fastcall sub_6FD49990(char* szText, int* a2, int a3, int nKeywordNumber);
 //D2Common.0x6FD49D20
-void DATATBLS_SkillCalcLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
+void __fastcall DATATBLS_SkillCalcLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
 //D2Common.0x6FD49E40
-void DATATBLS_SkillDescCalcLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
+void __fastcall DATATBLS_SkillDescCalcLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
 //D2Common.0x6FD49F60
-void DATATBLS_LoadSkills_SkillDescTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadSkills_SkillDescTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD4E350
-void DATATBLS_UnloadSkills_SkillDescTxt();
+void __fastcall DATATBLS_UnloadSkills_SkillDescTxt();
 //Inlined at various places
-struct D2SkillsTxt* DATATBLS_GetSkillsTxtRecord(int nSkillId);
+struct D2SkillsTxt* __fastcall DATATBLS_GetSkillsTxtRecord(int nSkillId);
 //Inlined at various places
-struct D2SkillDescTxt* DATATBLS_GetSkillDescTxtRecord(int nSkillDesc);
+struct D2SkillDescTxt* __fastcall DATATBLS_GetSkillDescTxtRecord(int nSkillDesc);
 

@@ -82,30 +82,30 @@ struct D2CompCodeTxt
 #pragma pack()
 
 //D2Common.0x6FD729C0
-void DATATBLS_LoadPlrType_ModeTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadPlrType_ModeTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD72B30
-void DATATBLS_LoadMonModeTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadMonModeTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD72E50
-void DATATBLS_LoadObjType_ModeTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadObjType_ModeTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD72FC0
-void DATATBLS_LoadCompositTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadCompositTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD73040
-void DATATBLS_LoadArmTypeTxt(HD2ARCHIVE hArchive);
+void __fastcall DATATBLS_LoadArmTypeTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD730C0
-void DATATBLS_UnloadPlrMode_Type_MonMode_ObjMode_Type_Composit_ArmtypeTxt();
+void __fastcall DATATBLS_UnloadPlrMode_Type_MonMode_ObjMode_Type_Composit_ArmtypeTxt();
 //D2Common.0x6FD73150 (#10643)
-D2COMMON_DLL_DECL struct D2PlrModeDataTbl* DATATBLS_GetPlrMode_TypeDataTables();
+D2COMMON_DLL_DECL struct D2PlrModeDataTbl* __fastcall DATATBLS_GetPlrMode_TypeDataTables();
 //D2Common.0x6FD73160 (#10644)
-D2COMMON_DLL_DECL struct D2MonModeDataTbl* DATATBLS_GetMonModeDataTables();
+D2COMMON_DLL_DECL struct D2MonModeDataTbl* __fastcall DATATBLS_GetMonModeDataTables();
 //D2Common.0x6FD73170 (#10645)
-D2COMMON_DLL_DECL struct D2ObjModeDataTbl* DATATBLS_GetObjMode_TypeDataTables();
+D2COMMON_DLL_DECL struct D2ObjModeDataTbl* __fastcall DATATBLS_GetObjMode_TypeDataTables();
 //D2Common.0x6FD73180 (#10646)
-D2COMMON_DLL_DECL struct D2PlrModeTypeTxt* DATATBLS_GetPlrModeTypeTxtRecord(int nIndex, int bGetMode);
+D2COMMON_DLL_DECL struct D2PlrModeTypeTxt* __stdcall DATATBLS_GetPlrModeTypeTxtRecord(int nIndex, int bGetMode);
 //D2Common.0x6FD73230 (#10647)
-D2COMMON_DLL_DECL struct D2MonModeTxt* DATATBLS_GetMonModeTxtRecord(int nIndex, int bGetMode);
+D2COMMON_DLL_DECL struct D2MonModeTxt* __stdcall DATATBLS_GetMonModeTxtRecord(int nIndex, int bGetMode);
 //D2Common.0x6FD732B0 (#10648)
-D2COMMON_DLL_DECL struct D2ObjModeTypeTxt* DATATBLS_GetObjModeTypeTxtRecord(int nIndex, int bGetMode);
+D2COMMON_DLL_DECL struct D2ObjModeTypeTxt* __stdcall DATATBLS_GetObjModeTypeTxtRecord(int nIndex, int bGetMode);
 //D2Common.0x6FD73330 (#10649)
-D2COMMON_DLL_DECL struct D2CompositTxt* DATATBLS_GetCompositTxtRecord(int nComposit);
+D2COMMON_DLL_DECL struct D2CompositTxt* __stdcall DATATBLS_GetCompositTxtRecord(int nComposit);
 //D2Common.0x6FD73370 (#10650)
-D2COMMON_DLL_DECL struct D2ArmTypeTxt* DATATBLS_GetArmTypeTxtRecord(int nId);
+D2COMMON_DLL_DECL struct D2ArmTypeTxt* __stdcall DATATBLS_GetArmTypeTxtRecord(int nId);

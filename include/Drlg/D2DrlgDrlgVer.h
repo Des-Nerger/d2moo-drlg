@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CommonDefinitions.h"
+#include "D2CommonDefinitions.h"
 
 struct D2DrlgOrth;
 
@@ -27,10 +27,10 @@ struct D2DrlgVertex
 #pragma pack()
 
 //D2Common.0x6FD782A0
-struct D2DrlgVertex* DRLGVER_AllocVertex(void* pMemPool, uint8_t nDirection);
+struct D2DrlgVertex* __fastcall DRLGVER_AllocVertex(void* pMemPool, uint8_t nDirection);
 //D2Common.0x6FD782D0
-void DRLGVER_CreateVertices(void* pMemPool, struct D2DrlgVertex** ppVertices, struct D2DrlgCoord* pDrlgCoord, uint8_t nDirection, struct D2DrlgOrth* pDrlgRoomData);
+void __fastcall DRLGVER_CreateVertices(void* pMemPool, struct D2DrlgVertex** ppVertices, struct D2DrlgCoord* pDrlgCoord, uint8_t nDirection, struct D2DrlgOrth* pDrlgRoomData);
 //D2Common.0x6FD786C0
-void DRLGVER_FreeVertices(void* pMemPool, struct D2DrlgVertex** ppVertices);
+void __fastcall DRLGVER_FreeVertices(void* pMemPool, struct D2DrlgVertex** ppVertices);
 //D2Common.0x6FD78730
-void DRLGVER_GetCoordDiff(struct D2DrlgVertex* pDrlgVertex, int* pDiffX, int* pDiffY);
+void __fastcall DRLGVER_GetCoordDiff(struct D2DrlgVertex* pDrlgVertex, int* pDiffX, int* pDiffY);

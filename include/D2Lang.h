@@ -7,7 +7,7 @@
 
 struct D2LANG_DLL_DECL Unicode;
 
-struct D2TblHeader
+struct D2TblHeaderStrc
 {
 	uint16_t nCRC;								//0x00
 	uint16_t nNumElements;						//0x02
@@ -18,7 +18,7 @@ struct D2TblHeader
 	uint32_t dwFileSize;						//0x11
 };
 
-struct D2TblNode
+struct D2TblNodeStrc
 {
 	uint8_t bUsed;								//0x00
 	uint16_t nIndexNo;							//0x01
@@ -30,8 +30,8 @@ struct D2TblNode
 
 #pragma pack()
 
-D2FUNC_DLL(D2LANG, GetStringByReferenceString, const struct Unicode*, , (char* string), 0x3BC0)			//D2LANG.#10003
+D2FUNC_DLL(D2LANG, GetStringByReferenceString, const struct Unicode*, __fastcall, (char* string), 0x3BC0)			//D2LANG.#10003
 //1.14d: Game.0x524A30
-D2FUNC_DLL(D2LANG, GetStringFromTblIndex, const struct Unicode*, , (short index), 0x3740)					//D2LANG.#10004
-D2FUNC_DLL(D2LANG, GetTblIndex, short, , (char* szReference, const struct Unicode** pUnicode), 0x3960)		//D2LANG.#10013
+D2FUNC_DLL(D2LANG, GetStringFromTblIndex, const struct Unicode*, __fastcall, (short index), 0x3740)					//D2LANG.#10004
+D2FUNC_DLL(D2LANG, GetTblIndex, short, __stdcall, (char* szReference, const struct Unicode** pUnicode), 0x3960)		//D2LANG.#10013
 

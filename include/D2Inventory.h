@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CommonDefinitions.h"
+#include "D2CommonDefinitions.h"
 
 
 struct D2Unit;
@@ -166,191 +166,191 @@ struct D2ItemExtraData
 
 // Helper functions
 // Check if the header signature is correct. Assumes non null ptr.
-static inline bool INVENTORY_CheckSignature(struct D2Inventory* pInventory) { return pInventory->dwSignature == D2C_InventoryHeader; }
+inline bool INVENTORY_CheckSignature(struct D2Inventory* pInventory) { return pInventory->dwSignature == D2C_InventoryHeader; }
 // Check if ptr is non null and if header signature is correct.
-static inline struct D2Inventory* INVENTORY_GetPtrIfValid(struct D2Inventory* pInventory) { return (pInventory && INVENTORY_CheckSignature(pInventory)) ? pInventory : nullptr; }
+inline struct D2Inventory* INVENTORY_GetPtrIfValid(struct D2Inventory* pInventory) { return (pInventory && INVENTORY_CheckSignature(pInventory)) ? pInventory : nullptr; }
 // Return true if matches a valid body location
-static inline bool INVENTORY_ValidateBodyLoc(int nBodyLoc) { return nBodyLoc >= 0 && nBodyLoc < NUM_BODYLOC; }
+inline bool INVENTORY_ValidateBodyLoc(int nBodyLoc) { return nBodyLoc >= 0 && nBodyLoc < NUM_BODYLOC; }
 
 //D2Common.0x6FD8E210
-BOOL INVENTORY_RemoveItem(struct D2Unit* pItem);
+BOOL __fastcall INVENTORY_RemoveItem(struct D2Unit* pItem);
 //D2Common.0x6FD8E4A0
-struct D2ItemExtraData* INVENTORY_GetItemExtraDataFromItem(struct D2Unit* pItem);
+struct D2ItemExtraData* __fastcall INVENTORY_GetItemExtraDataFromItem(struct D2Unit* pItem);
 //D2Common.0x6FD8E4C0 (#10240)
-D2COMMON_DLL_DECL struct D2Inventory* INVENTORY_AllocInventory(void* pMemPool, struct D2Unit* pOwner);
+D2COMMON_DLL_DECL struct D2Inventory* __stdcall INVENTORY_AllocInventory(void* pMemPool, struct D2Unit* pOwner);
 //D2Common.0x6FD8E520 (#10241)
-D2COMMON_DLL_DECL void INVENTORY_FreeInventory(struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL void __stdcall INVENTORY_FreeInventory(struct D2Inventory* pInventory);
 //D2Common.0x6FD8E620 (#10244)
-D2COMMON_DLL_DECL BOOL INVENTORY_CompareWithItemsParentInventory(struct D2Inventory* pInventory, struct D2Unit* pItem);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_CompareWithItemsParentInventory(struct D2Inventory* pInventory, struct D2Unit* pItem);
 //D2Common.0x6FD8E660 (#10243)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_RemoveItemFromInventory(struct D2Inventory* pInventory, struct D2Unit* pItem);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_RemoveItemFromInventory(struct D2Inventory* pInventory, struct D2Unit* pItem);
 //D2Common.0x6FD8E6A0 (#10242)
-D2COMMON_DLL_DECL BOOL INVENTORY_PlaceItemInSocket(struct D2Inventory* pInventory, struct D2Unit* pItem, int nUnused);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_PlaceItemInSocket(struct D2Inventory* pInventory, struct D2Unit* pItem, int nUnused);
 //D2Common.0x6FD8E7A0 (#10277)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_GetFirstItem(struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_GetFirstItem(struct D2Inventory* pInventory);
 //D2Common.0x6FD8E7C0 (#10278)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_GetLastItem(struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_GetLastItem(struct D2Inventory* pInventory);
 //D2Common.0x6FD8E7E0 (#10245)
-D2COMMON_DLL_DECL BOOL INVENTORY_GetFreePosition(struct D2Inventory* pInventory, struct D2Unit* pItem, int nInventoryRecordId, int* pFreeX, int* pFreeY, uint8_t nPage);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_GetFreePosition(struct D2Inventory* pInventory, struct D2Unit* pItem, int nInventoryRecordId, int* pFreeX, int* pFreeY, uint8_t nPage);
 //D2Common.0x6FD8EAF0
-struct D2InventoryGrid* INVENTORY_GetGrid(struct D2Inventory* pInventory, int nInventoryGrid, struct D2InventoryGridInfo* pInventoryGridInfo);
+struct D2InventoryGrid* __fastcall INVENTORY_GetGrid(struct D2Inventory* pInventory, int nInventoryGrid, struct D2InventoryGridInfo* pInventoryGridInfo);
 //D2Common.0x6FD8EC70
-BOOL INVENTORY_CanItemBePlacedAtPos(struct D2InventoryGrid* pInventoryGrid, int nX, int nY, uint8_t nItemWidth, uint8_t nItemHeight);
+BOOL __fastcall INVENTORY_CanItemBePlacedAtPos(struct D2InventoryGrid* pInventoryGrid, int nX, int nY, uint8_t nItemWidth, uint8_t nItemHeight);
 //D2Common.0x6FD8ECF0
-BOOL INVENTORY_FindFreePositionBottomRightToTopLeftWithWeight(struct D2InventoryGrid* pInventoryGrid, int* pFreeX, int* pFreeY, uint8_t nItemWidth, uint8_t nItemHeight);
+BOOL __fastcall INVENTORY_FindFreePositionBottomRightToTopLeftWithWeight(struct D2InventoryGrid* pInventoryGrid, int* pFreeX, int* pFreeY, uint8_t nItemWidth, uint8_t nItemHeight);
 //D2Common.0x6FD8EE20
-uint8_t INVENTORY_GetPlacementWeight(struct D2InventoryGrid* pInventoryGrid, int nXPos, int nYPos, uint8_t nItemWidth, uint8_t nItemHeight);
+uint8_t __fastcall INVENTORY_GetPlacementWeight(struct D2InventoryGrid* pInventoryGrid, int nXPos, int nYPos, uint8_t nItemWidth, uint8_t nItemHeight);
 //D2Common.0x6FD8EFB0
-BOOL INVENTORY_FindFreePositionTopLeftToBottomRightWithWeight(struct D2InventoryGrid* pInventoryGrid, int* pFreeX, int* pFreeY, uint8_t nItemWidth, uint8_t nItemHeight);
+BOOL __fastcall INVENTORY_FindFreePositionTopLeftToBottomRightWithWeight(struct D2InventoryGrid* pInventoryGrid, int* pFreeX, int* pFreeY, uint8_t nItemWidth, uint8_t nItemHeight);
 //D2Common.0x6FD8F0E0
-BOOL INVENTORY_FindFreePositionTopLeftToBottomRight(struct D2InventoryGrid* pInventoryGrid, int* pFreeX, int* pFreeY, uint8_t nItemWidth, uint8_t nItemHeight);
+BOOL __fastcall INVENTORY_FindFreePositionTopLeftToBottomRight(struct D2InventoryGrid* pInventoryGrid, int* pFreeX, int* pFreeY, uint8_t nItemWidth, uint8_t nItemHeight);
 //D2Common.0x6FD8F1E0 (#10246)
-D2COMMON_DLL_DECL BOOL INVENTORY_PlaceItemAtFreePosition(struct D2Inventory* pInventory, struct D2Unit* pItem, int nInventoryRecordId, BOOL bUnused, uint8_t nPage, const char* szFile, int nLine);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_PlaceItemAtFreePosition(struct D2Inventory* pInventory, struct D2Unit* pItem, int nInventoryRecordId, BOOL bUnused, uint8_t nPage, const char* szFile, int nLine);
 //D2Common.0x6FD8F250
-BOOL INVENTORY_PlaceItemInGrid(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryGrid, int nInventoryRecordId, BOOL bUnused);
+BOOL __fastcall INVENTORY_PlaceItemInGrid(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryGrid, int nInventoryRecordId, BOOL bUnused);
 //D2Common.0x6FD8F600 (#10247)
-D2COMMON_DLL_DECL BOOL INVENTORY_CanItemBePlaced(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryRecordId, struct D2Unit** ppExchangeItem, unsigned int* pHoveredItems, uint8_t nPage);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_CanItemBePlaced(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryRecordId, struct D2Unit** ppExchangeItem, unsigned int* pHoveredItems, uint8_t nPage);
 //D2Common.0x6FD8F780 (#10248)
-D2COMMON_DLL_DECL BOOL INVENTORY_CanItemsBeExchanged(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryRecordId, struct D2Unit** ppExchangeItem, uint8_t nPage, BOOL bCheckIfCube);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_CanItemsBeExchanged(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryRecordId, struct D2Unit** ppExchangeItem, uint8_t nPage, BOOL bCheckIfCube);
 //D2Common.0x6FD8F930 (#10249)
-D2COMMON_DLL_DECL BOOL INVENTORY_PlaceItemAtInventoryPage(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryRecordId, BOOL bUnused, uint8_t nPage);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_PlaceItemAtInventoryPage(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryRecordId, BOOL bUnused, uint8_t nPage);
 //D2Common.0x6FD8F970 (#10250)
-D2COMMON_DLL_DECL void INVENTORY_Return(const char* szFile, int nLine, struct D2Inventory* pInventory, int nX, int nY, int nInventoryRecordId, BOOL bClient, uint8_t nPage);
+D2COMMON_DLL_DECL void __stdcall INVENTORY_Return(const char* szFile, int nLine, struct D2Inventory* pInventory, int nX, int nY, int nInventoryRecordId, BOOL bClient, uint8_t nPage);
 //D2Common.0x6FD8F980 (#10252)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_GetItemFromInventoryPage(struct D2Inventory* pInventory, int nGridX, int nGridY, int* pX, int* pY, int nInventoryRecordId, uint8_t nPage);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_GetItemFromInventoryPage(struct D2Inventory* pInventory, int nGridX, int nGridY, int* pX, int* pY, int nInventoryRecordId, uint8_t nPage);
 //D2Common.0x6FD8FAB0 (#10253)
-D2COMMON_DLL_DECL BOOL INVENTORY_PlaceItemInBodyLoc(struct D2Inventory* pInventory, struct D2Unit* pItem, int nBodyLoc);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_PlaceItemInBodyLoc(struct D2Inventory* pInventory, struct D2Unit* pItem, int nBodyLoc);
 //D2Common.0x6FD8FAE0 (#10257)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_GetItemFromBodyLoc(struct D2Inventory* pInventory, int nBodyLoc);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_GetItemFromBodyLoc(struct D2Inventory* pInventory, int nBodyLoc);
 //D2Common.0x6FD8FB20 (#10255)
-D2COMMON_DLL_DECL void INVENTORY_GetSecondWieldingWeapon(struct D2Unit* pPlayer, struct D2Inventory* pInventory, struct D2Unit** ppItem, int nBodyLoc);
+D2COMMON_DLL_DECL void __stdcall INVENTORY_GetSecondWieldingWeapon(struct D2Unit* pPlayer, struct D2Inventory* pInventory, struct D2Unit** ppItem, int nBodyLoc);
 //D2Common.0x6FD8FBB0 (#10256)
-D2COMMON_DLL_DECL BOOL INVENTORY_CheckEquipmentForWeaponByClass(struct D2Inventory* pInventory, int nWeaponClass);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_CheckEquipmentForWeaponByClass(struct D2Inventory* pInventory, int nWeaponClass);
 //D2Common.0x6FD8FC60 (#10258)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_GetLeftHandWeapon(struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_GetLeftHandWeapon(struct D2Inventory* pInventory);
 //D2Common.0x6FD8FD10 (#11301)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_GetSecondaryWeapon(struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_GetSecondaryWeapon(struct D2Inventory* pInventory);
 //D2Common.0x6FD8FDD0 (#10259)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_GetCompositItem(struct D2Inventory* pInventory, int nComponent);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_GetCompositItem(struct D2Inventory* pInventory, int nComponent);
 //D2Common.0x6FD8FE80 (#10260)
-D2COMMON_DLL_DECL int INVENTORY_GetBodyLocFromEquippedItem(struct D2Inventory* pInventory, struct D2Unit* pItem);
+D2COMMON_DLL_DECL int __stdcall INVENTORY_GetBodyLocFromEquippedItem(struct D2Inventory* pInventory, struct D2Unit* pItem);
 //D2Common.0x6FD8FED0 (#11278)
-D2COMMON_DLL_DECL int INVENTORY_GetItemsXPosition(struct D2Inventory* pInventory, struct D2Unit* pItem);
+D2COMMON_DLL_DECL int __stdcall INVENTORY_GetItemsXPosition(struct D2Inventory* pInventory, struct D2Unit* pItem);
 //D2Common.0x6FD8FF20 (#10261)
-D2COMMON_DLL_DECL void INVENTORY_SetCursorItem(struct D2Inventory* pInventory, struct D2Unit* pItem);
+D2COMMON_DLL_DECL void __stdcall INVENTORY_SetCursorItem(struct D2Inventory* pInventory, struct D2Unit* pItem);
 //D2Common.0x6FD8FF80 (#10262)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_GetCursorItem(struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_GetCursorItem(struct D2Inventory* pInventory);
 //D2Common.0x6FD8FFA0 (#10263)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_FindBackPackItemForStack(struct D2Inventory* pInventory, struct D2Unit* pStackable, struct D2Unit* pCheckItem);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_FindBackPackItemForStack(struct D2Inventory* pInventory, struct D2Unit* pStackable, struct D2Unit* pCheckItem);
 //D2Common.0x6FD90080 (#10264)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_FindEquippedItemForStack(struct D2Inventory* pInventory, struct D2Unit* pStackable, struct D2Unit* pCheckItem);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_FindEquippedItemForStack(struct D2Inventory* pInventory, struct D2Unit* pStackable, struct D2Unit* pCheckItem);
 //D2Common.0x6FD90130 (#10265)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_FindFillableBook(struct D2Inventory* pInventory, struct D2Unit* pScrolls, struct D2Unit* pCheckItem);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_FindFillableBook(struct D2Inventory* pInventory, struct D2Unit* pScrolls, struct D2Unit* pCheckItem);
 //D2Common.0x6FD90230 (#10266)
-D2COMMON_DLL_DECL BOOL INVENTORY_PlaceItemInBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem, int nSlot);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_PlaceItemInBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem, int nSlot);
 //D2Common.0x6FD902B0 (#10268)
-D2COMMON_DLL_DECL BOOL INVENTORY_HasSimilarPotionInBelt(struct D2Inventory* pInventory, struct D2Unit* pPotion);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_HasSimilarPotionInBelt(struct D2Inventory* pInventory, struct D2Unit* pPotion);
 //D2Common.0x6FD90340 (#10269)
-D2COMMON_DLL_DECL BOOL INVENTORY_GetFreeBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem, int* pFreeSlotId);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_GetFreeBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem, int* pFreeSlotId);
 //D2Common.0x6FD904F0 (#10270)
-D2COMMON_DLL_DECL BOOL INVENTORY_PlaceItemInFreeBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_PlaceItemInFreeBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem);
 //D2Common.0x6FD90550 (#10271)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_GetItemFromBeltSlot(struct D2Inventory* pInventory, int nSlotId);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_GetItemFromBeltSlot(struct D2Inventory* pInventory, int nSlotId);
 //D2Common.0x6FD90590 (#10272)
-D2COMMON_DLL_DECL BOOL INVENTORY_GetUseableItemFromBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem, int nSlotId, struct D2Unit** ppItem);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_GetUseableItemFromBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem, int nSlotId, struct D2Unit** ppItem);
 //D2Common.0x6FD90690 (#10273)
-D2COMMON_DLL_DECL BOOL INVENTORY_GetEquippedShield(struct D2Inventory* pInventory, struct D2Unit** ppItem);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_GetEquippedShield(struct D2Inventory* pInventory, struct D2Unit** ppItem);
 //D2Common.0x6FD90760 (#10274)
-D2COMMON_DLL_DECL BOOL INVENTORY_GetEquippedWeapon(struct D2Inventory* pInventory, struct D2Unit** ppItem, int* pBodyLoc, BOOL* pIsLeftHandItem);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_GetEquippedWeapon(struct D2Inventory* pInventory, struct D2Unit** ppItem, int* pBodyLoc, BOOL* pIsLeftHandItem);
 //D2Common.0x6FD90850 (#10275)
-D2COMMON_DLL_DECL BOOL INVENTORY_HasBodyArmorEquipped(struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_HasBodyArmorEquipped(struct D2Inventory* pInventory);
 //D2Common.0x6FD908A0 (#10276)
-D2COMMON_DLL_DECL BOOL INVENTORY_IsItemBodyLocFree(struct D2Inventory* pInventory, struct D2Unit* pItem, int nBodyLoc, int nInventoryRecordId);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_IsItemBodyLocFree(struct D2Inventory* pInventory, struct D2Unit* pItem, int nBodyLoc, int nInventoryRecordId);
 //D2Common.0x6FD90910 (#10279)
-D2COMMON_DLL_DECL void INVENTORY_RemoveInventoryItems(struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL void __stdcall INVENTORY_RemoveInventoryItems(struct D2Inventory* pInventory);
 //D2Common.0x6FD90940 (#10280)
-D2COMMON_DLL_DECL struct D2InventoryNode* INVENTORY_GetTradeInventory(struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL struct D2InventoryNode* __stdcall INVENTORY_GetTradeInventory(struct D2Inventory* pInventory);
 //D2Common.0x6FD90960 (#10281)
-D2COMMON_DLL_DECL void INVENTORY_FreeTradeInventory(struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL void __stdcall INVENTORY_FreeTradeInventory(struct D2Inventory* pInventory);
 //D2Common.0x6FD909B0 (#10282)
-D2COMMON_DLL_DECL BOOL INVENTORY_CheckForItemInTradeInventory(struct D2Inventory* pInventory, int nItemId);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_CheckForItemInTradeInventory(struct D2Inventory* pInventory, int nItemId);
 //D2Common.0x6FD909F0 (#10283)
-D2COMMON_DLL_DECL void INVENTORY_AddItemToTradeInventory(struct D2Inventory* pInventory, struct D2Unit* pItem);
+D2COMMON_DLL_DECL void __stdcall INVENTORY_AddItemToTradeInventory(struct D2Inventory* pInventory, struct D2Unit* pItem);
 //D2Common.0x6FD90AB0 (#10316)
-D2COMMON_DLL_DECL int D2Common_10316(struct D2Corpse* pCorpse);
+D2COMMON_DLL_DECL int __stdcall D2Common_10316(struct D2Corpse* pCorpse);
 //D2Common.0x6FD90AC0 (#10284)
-D2COMMON_DLL_DECL int INVENTORY_GetItemCount(struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL int __stdcall INVENTORY_GetItemCount(struct D2Inventory* pInventory);
 //D2Common.0x6FD90AE0 (#10285)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_GetBackPackItemByType(struct D2Inventory* pInventory, int nItemType, struct D2Unit* pCheckItem);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_GetBackPackItemByType(struct D2Inventory* pInventory, int nItemType, struct D2Unit* pCheckItem);
 //D2Common.0x6FD90BC0 (#10286)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_GetEquippedItemByType(struct D2Inventory* pInventory, int nItemType, struct D2Unit* pCheckItem);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_GetEquippedItemByType(struct D2Inventory* pInventory, int nItemType, struct D2Unit* pCheckItem);
 //D2Common.0x6FD90C80 (#10287)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_GetEquippedItemByCode(struct D2Inventory* pInventory, int nItemCode, struct D2Unit* pCheckItem);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_GetEquippedItemByCode(struct D2Inventory* pInventory, int nItemCode, struct D2Unit* pCheckItem);
 //D2Common.0x6FD90D50 (#11306)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_GetBackPackItemByCode(struct D2Inventory* pInventory, int nItemCode, struct D2Unit* pCheckItem);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_GetBackPackItemByCode(struct D2Inventory* pInventory, int nItemCode, struct D2Unit* pCheckItem);
 //D2Common.0x6FD90E20 (#10288)
-D2COMMON_DLL_DECL int INVENTORY_GetSetItemEquipCountByFileIndex(struct D2Inventory* pInventory, int nItemFileIndex);
+D2COMMON_DLL_DECL int __stdcall INVENTORY_GetSetItemEquipCountByFileIndex(struct D2Inventory* pInventory, int nItemFileIndex);
 //D2Common.0x6FD90ED0 (#10289)
-D2COMMON_DLL_DECL void INVENTORY_UpdateWeaponGUIDOnInsert(struct D2Inventory* pInventory, struct D2Unit* pItem);
+D2COMMON_DLL_DECL void __stdcall INVENTORY_UpdateWeaponGUIDOnInsert(struct D2Inventory* pInventory, struct D2Unit* pItem);
 //D2Common.0x6FD90F80 (#10290)
-D2COMMON_DLL_DECL void INVENTORY_UpdateWeaponGUIDOnRemoval(struct D2Inventory* pInventory, struct D2Unit* pItem);
+D2COMMON_DLL_DECL void __stdcall INVENTORY_UpdateWeaponGUIDOnRemoval(struct D2Inventory* pInventory, struct D2Unit* pItem);
 //D2Common.0x6FD91050 (#10291)
-D2COMMON_DLL_DECL int INVENTORY_GetWieldType(struct D2Unit* pPlayer, struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL int __stdcall INVENTORY_GetWieldType(struct D2Unit* pPlayer, struct D2Inventory* pInventory);
 //D2Common.0x6FD91140 (#10292)
-D2COMMON_DLL_DECL void INVENTORY_SetOwnerId(struct D2Inventory* pInventory, D2UnitGUID nOwnerGuid);
+D2COMMON_DLL_DECL void __stdcall INVENTORY_SetOwnerId(struct D2Inventory* pInventory, D2UnitGUID nOwnerGuid);
 //D2Common.0x6FD91160 (#10293)
-D2COMMON_DLL_DECL int INVENTORY_GetOwnerId(struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL int __stdcall INVENTORY_GetOwnerId(struct D2Inventory* pInventory);
 //D2Common.0x6FD91190 (#10294)
-D2COMMON_DLL_DECL void INVENTORY_CreateCorpseForPlayer(struct D2Inventory* pInventory, int nUnitId, int a3, int a4);
+D2COMMON_DLL_DECL void __stdcall INVENTORY_CreateCorpseForPlayer(struct D2Inventory* pInventory, int nUnitId, int a3, int a4);
 //D2Common.0x6FD91210 (#10295)
-D2COMMON_DLL_DECL BOOL INVENTORY_FreeCorpse(struct D2Inventory* pInventory, int nUnitId, int a3);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_FreeCorpse(struct D2Inventory* pInventory, int nUnitId, int a3);
 //D2Common.0x6FD91290 (#10296)
-D2COMMON_DLL_DECL struct D2Corpse* INVENTORY_GetFirstCorpse(struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL struct D2Corpse* __stdcall INVENTORY_GetFirstCorpse(struct D2Inventory* pInventory);
 //D2Common.0x6FD912B0 (#10297)
-D2COMMON_DLL_DECL int INVENTORY_GetCorpseCount(struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL int __stdcall INVENTORY_GetCorpseCount(struct D2Inventory* pInventory);
 //D2Common.0x6FD912D0 (#10313)
-D2COMMON_DLL_DECL struct D2Corpse* INVENTORY_GetNextCorpse(struct D2Corpse* pCorpse);
+D2COMMON_DLL_DECL struct D2Corpse* __stdcall INVENTORY_GetNextCorpse(struct D2Corpse* pCorpse);
 //D2Common.0x6FDAFEA0 (#10314)
-D2COMMON_DLL_DECL D2UnitGUID INVENTORY_GetUnitGUIDFromCorpse(struct D2Corpse* pCorpse);
+D2COMMON_DLL_DECL D2UnitGUID __stdcall INVENTORY_GetUnitGUIDFromCorpse(struct D2Corpse* pCorpse);
 //D2Common.0x6FDB18D0 (#10315)
-D2COMMON_DLL_DECL int D2Common_10315(struct D2Corpse* pCorpse);
+D2COMMON_DLL_DECL int __stdcall D2Common_10315(struct D2Corpse* pCorpse);
 //D2Common.0x6FD912F0 (#10298)
-D2COMMON_DLL_DECL void INVENTORY_GetItemSaveGfxInfo(struct D2Unit* pPlayer, uint8_t* pComponents, uint8_t* pColor);
+D2COMMON_DLL_DECL void __stdcall INVENTORY_GetItemSaveGfxInfo(struct D2Unit* pPlayer, uint8_t* pComponents, uint8_t* pColor);
 //D2Common.0x6FD915C0
-void INVENTORY_InitializeComponentArray();
+void __fastcall INVENTORY_InitializeComponentArray();
 //D2Common.0x6FD917B0
-void sub_6FD917B0(struct D2Unit* pUnit, uint8_t* a2, uint8_t* pColor, struct D2Unit* pItem);
+void __fastcall sub_6FD917B0(struct D2Unit* pUnit, uint8_t* a2, uint8_t* pColor, struct D2Unit* pItem);
 //D2Common.0x6FD91B60 (#10299)
-D2COMMON_DLL_DECL int D2Common_10299(struct D2Unit* pUnit, int nBodyLoc, struct D2Unit* pItem, BOOL bDontCheckReqs);
+D2COMMON_DLL_DECL int __stdcall D2Common_10299(struct D2Unit* pUnit, int nBodyLoc, struct D2Unit* pItem, BOOL bDontCheckReqs);
 //D2Common.0x6FD91D50
-int sub_6FD91D50(struct D2Unit* pPlayer, int a2, int nBodyLoc, struct D2Unit* a3, struct D2Unit* a4, struct D2Unit* pItem, int nUnused);
+int __fastcall sub_6FD91D50(struct D2Unit* pPlayer, int a2, int nBodyLoc, struct D2Unit* a3, struct D2Unit* a4, struct D2Unit* pItem, int nUnused);
 //D2Common.0x6FD91E80
-BOOL sub_6FD91E80(struct D2Unit* pUnit, struct D2Unit* pItem1, struct D2Unit* pItem2);
+BOOL __fastcall sub_6FD91E80(struct D2Unit* pUnit, struct D2Unit* pItem1, struct D2Unit* pItem2);
 //D2Common.0x6FD92080 (#10304)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_GetNextItem(struct D2Unit* pItem);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_GetNextItem(struct D2Unit* pItem);
 //Inlined at various places
-struct D2Unit* INVENTORY_GetUnknownItem(struct D2Unit* pItem);
+struct D2Unit* __stdcall INVENTORY_GetUnknownItem(struct D2Unit* pItem);
 //D2Common.0x6FD920C0 (#10305)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_UnitIsItem(struct D2Unit* pItem);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_UnitIsItem(struct D2Unit* pItem);
 //D2Common.0x6FD920E0 (#10306)
-D2COMMON_DLL_DECL D2UnitGUID INVENTORY_GetItemGUID(struct D2Unit* pItem);
+D2COMMON_DLL_DECL D2UnitGUID __stdcall INVENTORY_GetItemGUID(struct D2Unit* pItem);
 //D2Common.0x6FD92100 (#10307)
-D2COMMON_DLL_DECL int INVENTORY_GetItemNodePage(struct D2Unit* pItem);
+D2COMMON_DLL_DECL int __stdcall INVENTORY_GetItemNodePage(struct D2Unit* pItem);
 //D2Common.0x6FD92140 (#10310)
-D2COMMON_DLL_DECL struct D2Unit* INVENTORY_IsItemInInventory(struct D2Inventory* pInventory, struct D2Unit* pItem);
+D2COMMON_DLL_DECL struct D2Unit* __stdcall INVENTORY_IsItemInInventory(struct D2Inventory* pInventory, struct D2Unit* pItem);
 //D2Common.0x6FDAFEA0 (#10311)
-D2COMMON_DLL_DECL struct D2InventoryNode* INVENTORY_GetNextNode(struct D2InventoryNode* pNode);
+D2COMMON_DLL_DECL struct D2InventoryNode* __stdcall INVENTORY_GetNextNode(struct D2InventoryNode* pNode);
 //D2Common.0x6FD90AB0 (#10312)
-D2COMMON_DLL_DECL D2UnitGUID INVENTORY_GetItemGUIDFromNode(struct D2InventoryNode* pNode);
+D2COMMON_DLL_DECL D2UnitGUID __stdcall INVENTORY_GetItemGUIDFromNode(struct D2InventoryNode* pNode);
 //D2Common.0x6FD92180 (#10300)
-D2COMMON_DLL_DECL BOOL INVENTORY_RemoveAllItems(struct D2Inventory* pInventory);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_RemoveAllItems(struct D2Inventory* pInventory);
 //D2Common.0x6FD921D0 (#10302)
-D2COMMON_DLL_DECL BOOL INVENTORY_CanItemsBeTraded(void* pMemPool, struct D2Unit* pPlayer1, struct D2Unit* pPlayer2, enum D2TradeStates* pTradeState);
+D2COMMON_DLL_DECL BOOL __stdcall INVENTORY_CanItemsBeTraded(void* pMemPool, struct D2Unit* pPlayer1, struct D2Unit* pPlayer2, enum D2TradeStates* pTradeState);
 //D2Common.0x6FD923C0
-BOOL INVENTORY_CopyUnitItemsToTradeInventory(struct D2Inventory* pTradeInventory, struct D2Unit* pUnit);
+BOOL __fastcall INVENTORY_CopyUnitItemsToTradeInventory(struct D2Inventory* pTradeInventory, struct D2Unit* pUnit);
 //D2Common.0x6FD92490
-BOOL INVENTORY_CanItemBePlacedInInventory(struct D2Unit* pPlayer, struct D2Unit* pItem, struct D2Inventory* pInventory);
+BOOL __fastcall INVENTORY_CanItemBePlacedInInventory(struct D2Unit* pPlayer, struct D2Unit* pItem, struct D2Inventory* pInventory);
 //D2Common.0x6FD925E0
-int UNITS_GetXPosition(struct D2Unit* pUnit);
+int __fastcall UNITS_GetXPosition(struct D2Unit* pUnit);
 //D2Common.0x6FD92610
-int UNITS_GetYPosition(struct D2Unit* pUnit);
+int __fastcall UNITS_GetYPosition(struct D2Unit* pUnit);

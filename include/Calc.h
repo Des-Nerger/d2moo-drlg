@@ -65,8 +65,8 @@ union FOGASTNode
 	uint8_t nRawValue;
 };
 
-typedef int(* CalcFogCallBack_t)(int, int, int, void*);
-typedef int(* CalcFogCallBack2_t)(int, void*);
+typedef int(__fastcall* CalcFogCallBack_t)(int, int, int, void*);
+typedef int(__fastcall* CalcFogCallBack2_t)(int, void*);
 
 struct D2CalcCallbackInfo
 {
@@ -74,10 +74,10 @@ struct D2CalcCallbackInfo
 	int nParameters;                         //0x04
 };
 
-typedef int(* CalcGetKeyWordToNumber_t)(char* szKey);
-typedef int(* CalcGetFunctionParameterCount_t)(int nFunctionIndex);
-typedef int(* CalcGetLinkerIndex_t)(char* szText, BOOL* pOutHasResolvedToConstant, int nAST, int nKeywordNumber);
-typedef int(* CalcProcessCache_t)(int nIndex);
+typedef int(__fastcall* CalcGetKeyWordToNumber_t)(char* szKey);
+typedef int(__fastcall* CalcGetFunctionParameterCount_t)(int nFunctionIndex);
+typedef int(__fastcall* CalcGetLinkerIndex_t)(char* szText, BOOL* pOutHasResolvedToConstant, int nAST, int nKeywordNumber);
+typedef int(__fastcall* CalcProcessCache_t)(int nIndex);
 
 struct FOGExpressionParserContext
 {
@@ -99,31 +99,31 @@ struct Fog64IntStack
 
 // 1.10f: 0x6FF524D0
 // 1.13c: 0x6FF69CB0
-int DATATBLS_IntStackPop(struct Fog64IntStack* pCalcStack);
+int __fastcall DATATBLS_IntStackPop(struct Fog64IntStack* pCalcStack);
 
 // 1.10f: 0x6FF524B0
 // 1.13c: 0x6FF69CD0
-void DATATBLS_IntStackPush(struct Fog64IntStack* pCalcStack, int32_t nValue);
+void __fastcall DATATBLS_IntStackPush(struct Fog64IntStack* pCalcStack, int32_t nValue);
 
 // 1.10f: 0x6FF51E30 (#10253)
 // 1.13c: 0x6FF69E90 (#10253)
-FOG_DLL_DECL int DATATBLS_CalcEvaluateExpression(const union FOGASTNode* pExpressionBuffer, int32_t nExpressionBufferSize, CalcFogCallBack2_t fpParamCallBack, struct D2CalcCallbackInfo* pTableData, int nTableSize, void* pUserData);
+FOG_DLL_DECL int __stdcall DATATBLS_CalcEvaluateExpression(const union FOGASTNode* pExpressionBuffer, int32_t nExpressionBufferSize, CalcFogCallBack2_t fpParamCallBack, struct D2CalcCallbackInfo* pTableData, int nTableSize, void* pUserData);
 
 // 1.10f: 0x6FF53280
 // 1.13c: 0x6FF69680
-union FOGASTNode* DATATBLS_ExpressionBuffer_PushRawConstant(union FOGASTNode* pExpressionBufferPos, union FOGASTNode* pExpressionBufferStart, int szBufferSize, struct FOGExpressionParserContext* pCalc, int32_t nValue);
+union FOGASTNode* __fastcall DATATBLS_ExpressionBuffer_PushRawConstant(union FOGASTNode* pExpressionBufferPos, union FOGASTNode* pExpressionBufferStart, int szBufferSize, struct FOGExpressionParserContext* pCalc, int32_t nValue);
 
 // 1.10f: Inlined
 // 1.13c: 0x6FF695E0
-union FOGASTNode* DATATBLS_ExpressionBuffer_PushCallbackConstant(union FOGASTNode* pExpressionBufferPos, union FOGASTNode* pExpressionBufferStart, int szBufferSize, struct FOGExpressionParserContext* pCalc, int32_t nValue);
+union FOGASTNode* __fastcall DATATBLS_ExpressionBuffer_PushCallbackConstant(union FOGASTNode* pExpressionBufferPos, union FOGASTNode* pExpressionBufferStart, int szBufferSize, struct FOGExpressionParserContext* pCalc, int32_t nValue);
 
 // 1.10f: 0x6FF53000
 // 1.13c: 0x6FF69790
-BOOL DATATABLS_CheckPrecendence(enum FOGASTType nPreviousCalcType, enum FOGASTType nNewCalcType);
+BOOL __fastcall DATATABLS_CheckPrecendence(enum FOGASTType nPreviousCalcType, enum FOGASTType nNewCalcType);
 
 // 1.10f: 0x6FF530B0
 // 1.13c: 0x6FF69CF0
-union FOGASTNode* DATATBLS_Evaluate_HandleNewOp(union FOGASTNode* pASTBufferPos, union FOGASTNode* pASTBufferStart, int nASTBufferSize, struct FOGExpressionParserContext* pContext, enum FOGASTType nNewASTType, CalcGetFunctionParameterCount_t pfnGetFunctionParametersCount, int nTokenAssociatedValue);
+union FOGASTNode* __fastcall DATATBLS_Evaluate_HandleNewOp(union FOGASTNode* pASTBufferPos, union FOGASTNode* pASTBufferStart, int nASTBufferSize, struct FOGExpressionParserContext* pContext, enum FOGASTType nNewASTType, CalcGetFunctionParameterCount_t pfnGetFunctionParametersCount, int nTokenAssociatedValue);
 
 // 1.10f: Inlined
 // 1.13c: 0x6FF697B0
@@ -131,5 +131,5 @@ const char* DATATABLS_ParseExpressionToken(const char* szExpression, enum FOGCal
 
 // 1.10f: 0x6FF524F0 (#10254)
 // 1.13c: 0x6FF5BB20 (#10254)
-FOG_DLL_DECL int DATATBLS_CompileExpression(const char* szFormulaString, union FOGASTNode* pOutASTBuffer, int nOutASTBufferSize, CalcGetKeyWordToNumber_t pfnFunctionNameToId, CalcGetFunctionParameterCount_t pfnGetFunctionParameterCount, CalcGetLinkerIndex_t pfnLinkParse);
+FOG_DLL_DECL int __stdcall DATATBLS_CompileExpression(const char* szFormulaString, union FOGASTNode* pOutASTBuffer, int nOutASTBufferSize, CalcGetKeyWordToNumber_t pfnFunctionNameToId, CalcGetFunctionParameterCount_t pfnGetFunctionParameterCount, CalcGetLinkerIndex_t pfnLinkParse);
 

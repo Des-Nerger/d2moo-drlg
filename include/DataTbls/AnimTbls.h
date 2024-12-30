@@ -35,14 +35,14 @@ struct D2Inventory;
 #pragma pack()
 
 //D2Common.0x6FD473C0
-struct D2AnimDataTable* DATATBLS_LoadAnimDataD2(HD2ARCHIVE hArchive);
+struct D2AnimDataTable* __fastcall DATATBLS_LoadAnimDataD2(HD2ARCHIVE hArchive);
 //D2Common.0x6FD47460
-void DATATBLS_UnloadAnimDataD2(struct D2AnimDataTable* pAnimData);
+void __fastcall DATATBLS_UnloadAnimDataD2(struct D2AnimDataTable* pAnimData);
 //D2Common.0x6FD474A0
-const struct D2AnimDataRecord* DATATBLS_GetAnimDataRecord(struct D2Unit* pUnit, int nClassId, int nMode, int nUnitType, struct D2Inventory* pInventory);
+const struct D2AnimDataRecord* __fastcall DATATBLS_GetAnimDataRecord(struct D2Unit* pUnit, int nClassId, int nMode, int nUnitType, struct D2Inventory* pInventory);
 //D2Common.0x6FD475D0 (#10640)
-D2COMMON_DLL_DECL void DATATBLS_UnitAnimInfoDebugSet(struct D2Unit* pUnit, int nAnimSpeed);
+D2COMMON_DLL_DECL void __stdcall DATATBLS_UnitAnimInfoDebugSet(struct D2Unit* pUnit, int nAnimSpeed);
 //D2Common.0x6FD47700 (#10641)
-D2COMMON_DLL_DECL BOOL DATATBLS_GetAnimDataInfo(char* szPath, int* pOutLength, int* pOutAnimSpeed, int* pOutFirstFrameTagged);
+D2COMMON_DLL_DECL BOOL __stdcall DATATBLS_GetAnimDataInfo(char* szPath, int* pOutLength, int* pOutAnimSpeed, int* pOutFirstFrameTagged);
 
 
