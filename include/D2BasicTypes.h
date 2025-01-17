@@ -13,7 +13,7 @@ typedef int32_t BOOL;
 #pragma warning(error:4456) // declaration of 'identifier' hides previous local declaration
 #pragma warning(disable:28612) // "The enum type 'xxxx' is unscoped. Prefer 'enum class' over 'enum'"
 
-// Windows.h defines its own, replace it
+// windows.h defines its own, replace it
 #undef LOBYTE
 #undef HIBYTE
 #undef LOWORD
@@ -56,6 +56,8 @@ typedef int32_t BOOL;
 #define WORD7(x)	WORDn((x),  7)
 
 #define ARRAY_SIZE(Array) (sizeof((Array)) / sizeof((Array)[0]))
+#define MIN(a,b) (((a)<(b))?(a):(b))
+#define MAX(a,b) (((a)>(b))?(a):(b))
 
 #define D2_MAYBE_UNUSED(x) (void)(x)
 

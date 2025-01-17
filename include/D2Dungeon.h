@@ -232,30 +232,4 @@ inline bool DungeonTestRoomGame(const struct D2ActiveRoom* pRoom, int nX, int nY
 
 }
 // Helper function
-inline struct D2ActiveRoom* __fastcall DUNGEON_GetRoomAtPosition(struct D2ActiveRoom* pRoom, int32_t nSubtileX, int32_t nSubtileY)
-{
-    if (!pRoom)
-    {
-        return nullptr;
-    }
-
-    if (DungeonTestRoomGame(pRoom, nSubtileX , nSubtileY))
-    {
-        return pRoom;
-    }
-
-    struct D2ActiveRoom** ppRoomList = nullptr;
-    int32_t nNumRooms = 0;
-    DUNGEON_GetAdjacentRoomsListFromRoom(pRoom, &ppRoomList, &nNumRooms);
-
-    for (int32_t i = 0; i < nNumRooms; ++i)
-    {
-        struct D2ActiveRoom* pAdjacentRoom = ppRoomList[i];
-        if (pAdjacentRoom && DungeonTestRoomGame(pAdjacentRoom, nSubtileX, nSubtileY))
-        {
-            return pAdjacentRoom;
-        }
-    }
-
-    return nullptr;
-}
+struct D2ActiveRoom* __fastcall DUNGEON_GetRoomAtPosition(struct D2ActiveRoom* pRoom, int32_t nSubtileX, int32_t nSubtileY);

@@ -292,7 +292,7 @@ struct D2DataTables
 	struct D2TxtLink* pMonModeLinker;						//0x2C
 	struct D2PlrModeTxtStub* pPlrModeTxtStub;					//0x30
 	struct D2TxtLink* pPlrModeLinker;						//0x34
-	struct D2MonModeTxt* pSkillCalcTxt;						//0x38
+	struct D2SkillCalcTxt* pSkillCalcTxt;						//0x38
 	struct D2TxtLink* pSkillCalcLinker;					//0x3C
 	union FOGASTNode* pSkillsCode;						//0x40
 	unsigned int nSkillsCodeSize;						//0x44
@@ -538,7 +538,6 @@ extern struct D2DataTables gpDataTables;
 extern D2COMMON_DLL_DECL struct D2DataTables * sgptDataTables;
 
 
-extern struct D2Seed* gpAutomapSeed;
 //D2Common.0x6FDEA704
 extern LPCRITICAL_SECTION gpLvlSubTypeFilesCriticalSection;
 

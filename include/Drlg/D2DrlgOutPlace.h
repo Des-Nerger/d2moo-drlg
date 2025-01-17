@@ -26,7 +26,7 @@ struct D2Jungle
 	int32_t field_10;									//0x10 Orientation of the jungle ?
 	int32_t nBranch;									//0x14
 	struct D2Jungle* pBasedOnJungle;						//0x18 Jungle we are based from
-	struct D2DrlgLevel* pJungleBranches[JUNGLE_MAX_ATTACH];	//0x1C Jungles that are based on this one
+	struct D2Jungle* pJungleBranches[JUNGLE_MAX_ATTACH];	//0x1C Jungles that are based on this one
 	int32_t nPresetsBlocksX;							//0x18
 	int32_t nPresetsBlocksY;							//0x2C
 	int32_t* pJungleDefs;								//0x30

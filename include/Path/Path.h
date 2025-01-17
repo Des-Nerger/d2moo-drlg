@@ -72,6 +72,7 @@ struct D2PathPoint
 		return nDiffX * nDiffX + nDiffY * nDiffY;
 	}
 */
+
 };
 
 // Represents a position with 16bit fixed point precision
@@ -90,6 +91,7 @@ union D2FP32_16
 		uint32_t dwPrecisionX;				//0x00
 		uint32_t dwPrecisionY;				//0x04
 	};
+
 	// struct D2PathPoint ToPathPoint() const { return { wPosX,wPosY }; }
 };
 

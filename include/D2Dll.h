@@ -10,6 +10,7 @@
 	DLL##_DLL_DECL RETURN CONV NAME ARGS;
 
 /*
+
 template <typename T>
 constexpr auto default_or_void() -> T { return {}; }
 template <>
@@ -27,6 +28,7 @@ constexpr auto default_or_void<void>() -> void {}
 		OutputDebugStringA(#NAME);                     \
 		return default_or_void<RETURN>();             \
 	}													   
+
 */
 
 // Useful if you do not have an import library or want to use LoadLibray
