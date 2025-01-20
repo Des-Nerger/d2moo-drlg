@@ -54,3 +54,21 @@ uint32_t __fastcall SEED_GetHighSeed(struct D2Seed* pSeed)
 {
 	return pSeed->nHighSeed;
 }
+
+//D2Common.0x6FD7D3E0
+uint32_t __fastcall SEED_RollLimitedRandomNumber(struct D2Seed* pSeed, int nMax)
+{
+	if (nMax > 0)
+	{
+		if ((nMax - 1) & nMax)
+		{
+			return (unsigned int)SEED_RollRandomNumber(pSeed) % nMax;
+		}
+		else
+		{
+			return SEED_RollRandomNumber(pSeed) & (nMax - 1);
+		}
+	}
+
+	return 0;
+}

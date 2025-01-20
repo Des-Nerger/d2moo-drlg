@@ -61,19 +61,13 @@ struct D2PathPoint
 {
 	uint16_t X;
 	uint16_t Y;
-
-/*
-	bool operator==(const struct D2PathPoint& other) const { return X == other.X && Y == other.Y; }
-	bool operator!=(const struct D2PathPoint& other) const { return !(*this == other); }
-	int SquaredDistance(const struct D2PathPoint& other) const
-	{
-		const int nDiffX = other.X - X;
-		const int nDiffY = other.Y - Y;
-		return nDiffX * nDiffX + nDiffY * nDiffY;
-	}
-*/
-
 };
+
+inline int D2PathPoint_SquaredDistance(struct D2PathPoint self, struct D2PathPoint other) {
+	const int nDiffX = other.X - self.X;
+	const int nDiffY = other.Y - self.Y;
+	return nDiffX * nDiffX + nDiffY * nDiffY;
+}
 
 // Represents a position with 16bit fixed point precision
 union D2FP32_16
@@ -91,9 +85,11 @@ union D2FP32_16
 		uint32_t dwPrecisionX;				//0x00
 		uint32_t dwPrecisionY;				//0x04
 	};
-
-	// struct D2PathPoint ToPathPoint() const { return { wPosX,wPosY }; }
 };
+
+inline struct D2PathPoint D2FP32_16_ToPathPoint(union D2FP32_16 self) {
+	return (struct D2PathPoint){ self.wPosX, self.wPosY };
+}
 
 enum : size_t {
 	D2DynamicPath_MAXPATHLEN = 78,

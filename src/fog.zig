@@ -1,4 +1,6 @@
 const c = @import("c.zig");
+const math = std.math;
+const std = @import("std");
 
 pub fn FOG_AllocPool(
     pMemPool: ?*anyopaque,
@@ -109,7 +111,10 @@ pub fn FOG_FReadFile(
     return @intFromBool(false);
 }
 
-pub fn FOG_FGetFileSize(pFileHandle: c.HSFILE, lpFileSizeHigh: [*c]u32) callconv(.{ .x86_fastcall = .{} }) u32 {
+pub fn FOG_FGetFileSize(
+    pFileHandle: c.HSFILE,
+    lpFileSizeHigh: [*c]u32,
+) callconv(.{ .x86_fastcall = .{} }) u32 {
     _ = .{ pFileHandle, lpFileSizeHigh };
     return 0;
 }
@@ -162,4 +167,68 @@ pub fn FOG_FreeLinker(pLinker: ?*anyopaque) callconv(.{ .x86_stdcall = .{} }) vo
 
 pub fn FOG_IsExpansion() callconv(.{ .x86_fastcall = .{} }) c_int {
     return @intFromBool(true);
+}
+
+pub fn FOG_csprintf(szDest: [*c]u8, szFormat: [*c]const u8, ...) callconv(.C) [*c]const u8 {
+    _ = .{ szDest, szFormat };
+    return null;
+}
+
+pub fn FOG_GetLinkIndex(
+    pLink: ?*anyopaque,
+    dwCode: u32,
+    bLogError: c.BOOL,
+) callconv(.{ .x86_stdcall = .{} }) c_int {
+    _ = .{ pLink, dwCode, bLogError };
+    return -1;
+}
+
+pub fn FOG_GetStringFromLinkIndex(
+    pLinker: ?*anyopaque,
+    nIndex: c_int,
+    szString: [*c]u8,
+) callconv(.{ .x86_stdcall = .{} }) c_int {
+    _ = .{ pLinker, nIndex, szString };
+    return 0;
+}
+
+pub fn FOG_10215(pBin: ?*anyopaque, a2: c_int) callconv(.{ .x86_stdcall = .{} }) c_int {
+    _ = .{ pBin, a2 };
+    return -1;
+}
+
+pub fn FOG_10216_AddRecordToLinkingTable(
+    pBin: ?*anyopaque,
+    a2: [*c]const u8,
+) callconv(.{ .x86_stdcall = .{} }) c_int {
+    _ = .{ pBin, a2 };
+    return -1;
+}
+
+pub fn FOG_GetRowFromTxt(
+    pBin: ?*anyopaque,
+    szText: [*c]u8,
+    nColumn: c_int,
+) callconv(.{ .x86_stdcall = .{} }) c_int {
+    _ = .{ pBin, szText, nColumn };
+    return -1;
+}
+
+pub fn FOG_10255(
+    pLinker: ?*anyopaque,
+    nId: c_int,
+    a3: c_int,
+) callconv(.{ .x86_stdcall = .{} }) [*c]u8 {
+    _ = .{ pLinker, nId, a3 };
+    return null;
+}
+
+pub fn FOG_10083_Cos_LUT(index: i16) callconv(.{ .x86_stdcall = .{} }) f32 {
+    _ = .{index};
+    return math.nan(f32);
+}
+
+pub fn FOG_10084_Sin_LUT(index: i16) callconv(.{ .x86_stdcall = .{} }) f32 {
+    _ = .{index};
+    return math.nan(f32);
 }

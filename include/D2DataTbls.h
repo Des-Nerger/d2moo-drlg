@@ -610,16 +610,7 @@ void __fastcall DATATBLS_LoadCharStatsTxt(HD2ARCHIVE hArchive);
 void __fastcall DATATBLS_LoadDifficultyLevelsTxt(HD2ARCHIVE hArchive);
 
 
-//Inlined at various places
-inline struct D2MonStatsTxt* __fastcall DATATBLS_GetMonStatsTxtRecord(int nMonsterId)
-{
-	if (nMonsterId >= 0 && nMonsterId < sgptDataTables->nMonStatsTxtRecordCount)
-	{
-		return &sgptDataTables->pMonStatsTxt[nMonsterId];
-	}
-
-	return NULL;
-}
+struct D2MonStatsTxt* __fastcall DATATBLS_GetMonStatsTxtRecord(int nMonsterId);
 
 inline int __fastcall DATATBLS_GetMonStatsTxtRecordCount()
 {

@@ -58,6 +58,11 @@ typedef int32_t BOOL;
 #define ARRAY_SIZE(Array) (sizeof((Array)) / sizeof((Array)[0]))
 #define MIN(a,b) (((a)<(b))?(a):(b))
 #define MAX(a,b) (((a)>(b))?(a):(b))
+#define SWAP(a,b) do { \
+	typeof(a) SWAP_temp = a; \
+	a = b; \
+	b = SWAP_temp; \
+} while(false)
 
 #define D2_MAYBE_UNUSED(x) (void)(x)
 
