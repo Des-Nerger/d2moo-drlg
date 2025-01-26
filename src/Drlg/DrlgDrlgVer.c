@@ -3,7 +3,7 @@
 
 
 //D2Common.0x6FD782A0
-struct D2DrlgVertex* __fastcall DRLGVER_AllocVertex(void* pMemPool, uint8_t nDirection)
+struct D2DrlgVertex* __cdecl DRLGVER_AllocVertex(void* pMemPool, uint8_t nDirection)
 {
 	struct D2DrlgVertex* pDrlgVertex = D2_CALLOC_STRC_POOL(pMemPool, struct D2DrlgVertex);
 	pDrlgVertex->nDirection = nDirection;
@@ -12,7 +12,7 @@ struct D2DrlgVertex* __fastcall DRLGVER_AllocVertex(void* pMemPool, uint8_t nDir
 
 //D2Common.0x6FD782D0
 //TODO: v15, v16, v21, v23
-void __fastcall DRLGVER_CreateVertices(void* pMemPool, struct D2DrlgVertex** ppVertices, struct D2DrlgCoord* pDrlgCoord, uint8_t nDirection, struct D2DrlgOrth* pDrlgRoomData)
+void __cdecl DRLGVER_CreateVertices(void* pMemPool, struct D2DrlgVertex** ppVertices, struct D2DrlgCoord* pDrlgCoord, uint8_t nDirection, struct D2DrlgOrth* pDrlgRoomData)
 {
 	struct D2DrlgOrth* pCurrentRoomData = NULL;
 	struct D2DrlgVertex* pPreviousVertex = NULL;
@@ -226,7 +226,7 @@ void __fastcall DRLGVER_CreateVertices(void* pMemPool, struct D2DrlgVertex** ppV
 }
 
 //D2Common.0x6FD786C0
-void __fastcall DRLGVER_FreeVertices(void* pMemPool, struct D2DrlgVertex** ppVertices)
+void __cdecl DRLGVER_FreeVertices(void* pMemPool, struct D2DrlgVertex** ppVertices)
 {
 	struct D2DrlgVertex* pVertex = NULL;
 	struct D2DrlgVertex* pNext = NULL;
@@ -252,7 +252,7 @@ void __fastcall DRLGVER_FreeVertices(void* pMemPool, struct D2DrlgVertex** ppVer
 }
 
 //D2Common.0x6FD78730
-void __fastcall DRLGVER_GetCoordDiff(struct D2DrlgVertex* pDrlgVertex, int* pDiffX, int* pDiffY)
+void __cdecl DRLGVER_GetCoordDiff(struct D2DrlgVertex* pDrlgVertex, int* pDiffX, int* pDiffY)
 {
 	*pDiffX = pDrlgVertex->pNext->nPosX - pDrlgVertex->nPosX;
 	*pDiffY = pDrlgVertex->pNext->nPosY - pDrlgVertex->nPosY;

@@ -41,7 +41,7 @@ struct D2UnkDrlgRoomTile2
 
 
 //D2Common.0x6FD88860
-struct D2TileLibraryEntry* __fastcall DRLGROOMTILE_GetTileCache(struct D2DrlgRoom* pDrlgRoom, int nType, uint32_t nPackedTileInformation)
+struct D2TileLibraryEntry* __cdecl DRLGROOMTILE_GetTileCache(struct D2DrlgRoom* pDrlgRoom, int nType, uint32_t nPackedTileInformation)
 {
 	struct D2TileLibraryEntry* ppTileLibraryEntries[40] = {};
 
@@ -121,7 +121,7 @@ static void DRLGROOMTILE_InitTileDataDefaults(struct D2DrlgRoom* pDrlgRoom, stru
 }
 
 //D2Common.0x6FD889C0
-struct D2DrlgTileData* __fastcall DRLGROOMTILE_InitWallTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData** ppTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry, int nTileType)
+struct D2DrlgTileData* __cdecl DRLGROOMTILE_InitWallTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData** ppTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry, int nTileType)
 {
 	struct D2DrlgTileData* pTileData = pTileData = &pDrlgRoom->pTileGrid->pTiles.pWallTiles[pDrlgRoom->pTileGrid->nWalls];
 	if (ppTileData)
@@ -147,7 +147,7 @@ struct D2DrlgTileData* __fastcall DRLGROOMTILE_InitWallTileData(struct D2DrlgRoo
 }
 
 //D2Common.0x6FD88AC0
-void __fastcall DRLGROOMTILE_InitializeTileDataFlags(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, uint32_t nTileFlags, int nType, int nX, int nY)
+void __cdecl DRLGROOMTILE_InitializeTileDataFlags(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, uint32_t nTileFlags, int nType, int nX, int nY)
 {
 	const union D2C_PackedTileInformation nTileInfo = { nTileFlags };
 
@@ -232,7 +232,7 @@ void __fastcall DRLGROOMTILE_InitializeTileDataFlags(struct D2DrlgRoom* pDrlgRoo
 }
 
 //D2Common.0x6FD88BE0
-void __fastcall DRLGROOMTILE_AddTilePresetUnits(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, uint32_t nPackedTileInformation, int nX, int nY, int nTileType)
+void __cdecl DRLGROOMTILE_AddTilePresetUnits(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, uint32_t nPackedTileInformation, int nX, int nY, int nTileType)
 {
 	static const struct D2UnkDrlgRoomTile stru_6FDD0DA8[] =
 	{
@@ -386,13 +386,13 @@ void __fastcall DRLGROOMTILE_AddTilePresetUnits(struct D2DrlgRoom* pDrlgRoom, st
 }
 
 //D2Common.0x6FD88DD0
-void __fastcall DRLGROOMTILE_InitTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry)
+void __cdecl DRLGROOMTILE_InitTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry)
 {
 	DRLGROOMTILE_InitTileDataDefaults(pDrlgRoom, pTileData, nX, nY, nPackedTileInformation, TILETYPE_FLOOR, pTileLibraryEntry);
 }
 
 //D2Common.0x6FD88E60
-struct D2DrlgTileData* __fastcall DRLGROOMTILE_InitFloorTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData** ppTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry)
+struct D2DrlgTileData* __cdecl DRLGROOMTILE_InitFloorTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData** ppTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry)
 {
 	struct D2DrlgTileData* pTileData = &pDrlgRoom->pTileGrid->pTiles.pFloorTiles[pDrlgRoom->pTileGrid->nFloors];
 	if (ppTileData)
@@ -412,7 +412,7 @@ struct D2DrlgTileData* __fastcall DRLGROOMTILE_InitFloorTileData(struct D2DrlgRo
 }
 
 //D2Common.0x6FD88F10
-struct D2DrlgTileData* __fastcall DRLGROOMTILE_InitShadowTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData** ppTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry)
+struct D2DrlgTileData* __cdecl DRLGROOMTILE_InitShadowTileData(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData** ppTileData, int nX, int nY, uint32_t nPackedTileInformation, struct D2TileLibraryEntry* pTileLibraryEntry)
 {
 	struct D2DrlgTileData* pTileData = &pDrlgRoom->pTileGrid->pTiles.pRoofTiles[pDrlgRoom->pTileGrid->nShadows];
 	if (ppTileData)
@@ -433,13 +433,13 @@ struct D2DrlgTileData* __fastcall DRLGROOMTILE_InitShadowTileData(struct D2DrlgR
 }
 
 //D2Common.0x6FD88FD0
-void __fastcall DRLGROOMTILE_InitTileShadow(struct D2DrlgRoom* pDrlgRoom, int nX, int nY, uint32_t nPackedTileInformation)
+void __cdecl DRLGROOMTILE_InitTileShadow(struct D2DrlgRoom* pDrlgRoom, int nX, int nY, uint32_t nPackedTileInformation)
 {
 	DRLGROOMTILE_InitShadowTileData(pDrlgRoom, nullptr, nX, nY, nPackedTileInformation, DRLGROOMTILE_GetTileCache(pDrlgRoom, TILETYPE_SHADOW, nPackedTileInformation));
 }
 
 //D2Common.0x6FD89000
-void __fastcall DRLGROOMTILE_LoadInitRoomTiles(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pTilePackedInfoGrid, struct D2DrlgGrid* pTileTypeGrid, BOOL bFillBlanks, BOOL bKillEdgeX, BOOL bKillEdgeY)
+void __cdecl DRLGROOMTILE_LoadInitRoomTiles(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pTilePackedInfoGrid, struct D2DrlgGrid* pTileTypeGrid, BOOL bFillBlanks, BOOL bKillEdgeX, BOOL bKillEdgeY)
 {
 	void* pMemPool = pDrlgRoom->pLevel->pDrlg->pMempool;
 
@@ -601,7 +601,7 @@ void __fastcall DRLGROOMTILE_LoadInitRoomTiles(struct D2DrlgRoom* pDrlgRoom, str
 }
 
 //D2Common.0x6FD89360
-BOOL __fastcall DRLGROOMTILE_AddWarp(struct D2DrlgRoom* pDrlgRoom, int nX, int nY, uint32_t nPackedTileInformation, int nTileType)
+BOOL __cdecl DRLGROOMTILE_AddWarp(struct D2DrlgRoom* pDrlgRoom, int nX, int nY, uint32_t nPackedTileInformation, int nTileType)
 {
 	union D2C_PackedTileInformation nTileInformation = { nPackedTileInformation };
 	struct D2LvlWarpTxt* pLvlWarpTxtRecord = DRLGWARP_GetLvlWarpTxtRecordFromWarpIdAndDirection(pDrlgRoom->pLevel, nTileInformation.nTileStyle, nTileType == TILETYPE_WALL_RIGHT_EXIT ? 'r' : 'l');
@@ -657,7 +657,7 @@ static struct D2LvlWarpTxt* DRLGROOMTILE_UpdateAndGetLvlWarpTxtRecord(struct D2R
 }
 
 //D2Common.0x6FD89410
-void __fastcall DRLGROOMTILE_LoadWallWarpTiles(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, uint32_t nPackedTileInformation, int nTileType)
+void __cdecl DRLGROOMTILE_LoadWallWarpTiles(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgTileData* pTileData, uint32_t nPackedTileInformation, int nTileType)
 {
 	union D2C_PackedTileInformation nTileInformation = { nPackedTileInformation };
 	
@@ -696,7 +696,7 @@ void __fastcall DRLGROOMTILE_LoadWallWarpTiles(struct D2DrlgRoom* pDrlgRoom, str
 }
 
 //D2Common.0x6FD89590
-void __fastcall DRLGROOMTILE_LoadFloorWarpTiles(struct D2DrlgRoom* pDrlgRoom, int nX, int nY, uint32_t nPackedTileInformation, int nTileType)
+void __cdecl DRLGROOMTILE_LoadFloorWarpTiles(struct D2DrlgRoom* pDrlgRoom, int nX, int nY, uint32_t nPackedTileInformation, int nTileType)
 {
 	static const struct D2Coord gWarpTileOffsets_6FDD1320[] =
 	{
@@ -746,7 +746,7 @@ void __fastcall DRLGROOMTILE_LoadFloorWarpTiles(struct D2DrlgRoom* pDrlgRoom, in
 }
 
 //D2Common.0x6FD897E0
-struct D2DrlgTileData* __fastcall DRLGROOMTILE_GetLinkedTileData(struct D2DrlgRoom* pDrlgRoom, BOOL bFloor, uint32_t nPackedTileInformation, int nX, int nY, struct D2DrlgRoom** ppDrlgRoom)
+struct D2DrlgTileData* __cdecl DRLGROOMTILE_GetLinkedTileData(struct D2DrlgRoom* pDrlgRoom, BOOL bFloor, uint32_t nPackedTileInformation, int nX, int nY, struct D2DrlgRoom** ppDrlgRoom)
 {
 	union D2C_PackedTileInformation nTileInformation = { nPackedTileInformation };
 
@@ -784,7 +784,7 @@ struct D2DrlgTileData* __fastcall DRLGROOMTILE_GetLinkedTileData(struct D2DrlgRo
 }
 
 //D2Common.0x6FD89930
-void __fastcall DRLGROOMTILE_AddLinkedTileData(void* pMemPool, struct D2DrlgRoom* pDrlgRoom, int nTileType, uint32_t nPackedTileInformation, int nX, int nY)
+void __cdecl DRLGROOMTILE_AddLinkedTileData(void* pMemPool, struct D2DrlgRoom* pDrlgRoom, int nTileType, uint32_t nPackedTileInformation, int nX, int nY)
 {
 	if (nTileType != TILETYPE_WALL_LEFT_EXIT && nTileType != TILETYPE_WALL_RIGHT_EXIT || DRLGROOM_AreXYInsideCoordinates(&pDrlgRoom->pDrlgCoord, nX, nY))
 	{
@@ -829,7 +829,7 @@ void __fastcall DRLGROOMTILE_AddLinkedTileData(void* pMemPool, struct D2DrlgRoom
 }
 
 //D2Common.0x6FD89AF0
-void __fastcall DRLGROOMTILE_LinkedTileDataManager(void* pMemPool, struct D2DrlgRoom* pDrlgRoom1, struct D2DrlgRoom* pDrlgRoom2, struct D2DrlgTileData* pTileData, int nTileType, uint32_t nPackedTileInformation, int nX, int nY)
+void __cdecl DRLGROOMTILE_LinkedTileDataManager(void* pMemPool, struct D2DrlgRoom* pDrlgRoom1, struct D2DrlgRoom* pDrlgRoom2, struct D2DrlgTileData* pTileData, int nTileType, uint32_t nPackedTileInformation, int nX, int nY)
 {
 	//D2Common.0x6FDD1340
 	// -1 Means stop and do nothing
@@ -940,7 +940,7 @@ void __fastcall DRLGROOMTILE_LinkedTileDataManager(void* pMemPool, struct D2Drlg
 }
 
 //D2Common.0x6FD89CC0
-void __fastcall DRLGROOMTILE_GetCreateLinkedTileData(void* pMemPool, struct D2DrlgRoom* pDrlgRoom, int nTileType, uint32_t nPackedTileInformation, int nX, int nY)
+void __cdecl DRLGROOMTILE_GetCreateLinkedTileData(void* pMemPool, struct D2DrlgRoom* pDrlgRoom, int nTileType, uint32_t nPackedTileInformation, int nX, int nY)
 {
 	union D2C_PackedTileInformation nTileInformation = { nPackedTileInformation };
 
@@ -982,7 +982,7 @@ void __fastcall DRLGROOMTILE_GetCreateLinkedTileData(void* pMemPool, struct D2Dr
 }
 
 //D2Common.0x6FD89E30
-void __fastcall DRLGROOMTILE_CountAllTileTypes(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pTileInfoGrid, BOOL bCheckCoordinatesValidity, BOOL bKillEdgeX, BOOL bKillEdgeY)
+void __cdecl DRLGROOMTILE_CountAllTileTypes(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pTileInfoGrid, BOOL bCheckCoordinatesValidity, BOOL bKillEdgeX, BOOL bKillEdgeY)
 {
 	const int nTileCountX = pDrlgRoom->nTileWidth + (bKillEdgeX == 0);
 	const int nTileCountY = pDrlgRoom->nTileHeight + (bKillEdgeY == 0);
@@ -1012,7 +1012,7 @@ void __fastcall DRLGROOMTILE_CountAllTileTypes(struct D2DrlgRoom* pDrlgRoom, str
 }
 
 //D2Common.0x6FD89F00
-void __fastcall DRLGROOMTILE_CountWallWarpTiles(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pTileInfoGrid, struct D2DrlgGrid* pTileTypeGrid, BOOL bKillEdgeX, BOOL bKillEdgeY)
+void __cdecl DRLGROOMTILE_CountWallWarpTiles(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pTileInfoGrid, struct D2DrlgGrid* pTileTypeGrid, BOOL bKillEdgeX, BOOL bKillEdgeY)
 {
 	const int nTileCountX = pDrlgRoom->nTileWidth + (bKillEdgeX == 0);
 	const int nTileCountY = pDrlgRoom->nTileHeight + (bKillEdgeY == 0);
@@ -1046,7 +1046,7 @@ void __fastcall DRLGROOMTILE_CountWallWarpTiles(struct D2DrlgRoom* pDrlgRoom, st
 }
 
 //D2Common.0x6FD89FA0
-void __fastcall DRLGROOMTILE_InitRoomGrids(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGROOMTILE_InitRoomGrids(struct D2DrlgRoom* pDrlgRoom)
 {
 	SEED_InitLowSeed(&pDrlgRoom->pSeed, pDrlgRoom->dwInitSeed);
 
@@ -1061,7 +1061,7 @@ void __fastcall DRLGROOMTILE_InitRoomGrids(struct D2DrlgRoom* pDrlgRoom)
 }
 
 //D2Common.0x6FD89FD0
-void __fastcall DRLGROOMTILE_AddRoomMapTiles(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGROOMTILE_AddRoomMapTiles(struct D2DrlgRoom* pDrlgRoom)
 {
 	if (pDrlgRoom->nType == DRLGTYPE_MAZE)
 	{
@@ -1076,7 +1076,7 @@ void __fastcall DRLGROOMTILE_AddRoomMapTiles(struct D2DrlgRoom* pDrlgRoom)
 }
 
 //D2Common.0x6FD8A010
-void __fastcall DRLGROOMTILE_AllocTileGrid(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGROOMTILE_AllocTileGrid(struct D2DrlgRoom* pDrlgRoom)
 {
 	if (!pDrlgRoom->pTileGrid)
 	{
@@ -1085,7 +1085,7 @@ void __fastcall DRLGROOMTILE_AllocTileGrid(struct D2DrlgRoom* pDrlgRoom)
 }
 
 //D2Common.0x6FD8A050
-void __fastcall DRLGROOMTILE_AllocTileData(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGROOMTILE_AllocTileData(struct D2DrlgRoom* pDrlgRoom)
 {
 	void* pMemPool = pDrlgRoom->pLevel->pDrlg->pMempool;
 	struct D2DrlgRoomTiles* pRoomTiles = &pDrlgRoom->pTileGrid->pTiles;
@@ -1108,7 +1108,7 @@ void __fastcall DRLGROOMTILE_AllocTileData(struct D2DrlgRoom* pDrlgRoom)
 }
 
 //D2Common.0x6FD8A130
-void __fastcall DRLGROOMTILE_ReallocRoofTileGrid(void* pMemPool, struct D2DrlgTileGrid* pTileGrid, int nAdditionalRoofs)
+void __cdecl DRLGROOMTILE_ReallocRoofTileGrid(void* pMemPool, struct D2DrlgTileGrid* pTileGrid, int nAdditionalRoofs)
 {
 	if (nAdditionalRoofs)
 	{
@@ -1127,7 +1127,7 @@ void __fastcall DRLGROOMTILE_ReallocRoofTileGrid(void* pMemPool, struct D2DrlgTi
 }
 
 //D2Common.0x6FD8A1B0 (#10017)
-int __fastcall DRLGROOMTILE_GetNumberOfShadowsFromRoom(struct D2ActiveRoom* pRoom)
+int __cdecl DRLGROOMTILE_GetNumberOfShadowsFromRoom(struct D2ActiveRoom* pRoom)
 {
 	if (pRoom)
 	{
@@ -1138,7 +1138,7 @@ int __fastcall DRLGROOMTILE_GetNumberOfShadowsFromRoom(struct D2ActiveRoom* pRoo
 }
 
 //D2Common.0x6FD8A1D0
-void __fastcall DRLGROOMTILE_FreeTileGrid(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGROOMTILE_FreeTileGrid(struct D2DrlgRoom* pDrlgRoom)
 {
 	struct D2DrlgTileGrid* pTileGrid = pDrlgRoom->pTileGrid;
 	if (pTileGrid)
@@ -1182,7 +1182,7 @@ void __fastcall DRLGROOMTILE_FreeTileGrid(struct D2DrlgRoom* pDrlgRoom)
 }
 
 //D2Common.0x6FD8A2E0
-void __fastcall DRLGROOMTILE_FreeRoom(struct D2DrlgRoom* pDrlgRoom, BOOL bKeepRoom)
+void __cdecl DRLGROOMTILE_FreeRoom(struct D2DrlgRoom* pDrlgRoom, BOOL bKeepRoom)
 {
 	if (!bKeepRoom && pDrlgRoom->pRoom)
 	{
@@ -1222,7 +1222,7 @@ void __fastcall DRLGROOMTILE_FreeRoom(struct D2DrlgRoom* pDrlgRoom, BOOL bKeepRo
 }
 
 //D2Common.0x6FD8A380
-void __fastcall DRLGROOMTILE_LoadDT1FilesForRoom(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGROOMTILE_LoadDT1FilesForRoom(struct D2DrlgRoom* pDrlgRoom)
 {
 	struct D2LvlTypesTxt* pLvlTypesTxtRecord = DATATBLS_GetLevelTypesTxtRecord(pDrlgRoom->pLevel->nLevelType);
 

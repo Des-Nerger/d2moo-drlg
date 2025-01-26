@@ -28,7 +28,7 @@ BOOL DATATBLS_LoadFromBin = TRUE;
 // BELTS
 
 //D2Common.0x6FD494D0
-uint16_t __fastcall DATATBLS_GetStringIdFromReferenceString(char* szReference)
+uint16_t __cdecl DATATBLS_GetStringIdFromReferenceString(char* szReference)
 {
 	const struct Unicode* pUnicode = NULL;
 	uint16_t nIndex = 0;
@@ -47,7 +47,7 @@ uint16_t __fastcall DATATBLS_GetStringIdFromReferenceString(char* szReference)
 }
 
 //D2Common.0x6FD49500 - Changed this function a lot (had 6 hardcoded (i.e. pre-defined) Args)
-void __fastcall DATATBLS_InitUnicodeClassNamesInCharStatsTxt()
+void __cdecl DATATBLS_InitUnicodeClassNamesInCharStatsTxt()
 {
 	struct Unicode wszClass[512] = {};
 	struct Unicode wszName[512] = {};
@@ -75,7 +75,7 @@ void __fastcall DATATBLS_InitUnicodeClassNamesInCharStatsTxt()
 }
 
 //D2Common.0x6FD49660 (#11255)
-uint32_t __stdcall DATATBLS_GetCodeFromCompCodeTxt(int nCompCode)
+uint32_t __cdecl DATATBLS_GetCodeFromCompCodeTxt(int nCompCode)
 {
 	if (nCompCode < sgptDataTables->nCompCodeTxtRecordCount)
 	{
@@ -86,7 +86,7 @@ uint32_t __stdcall DATATBLS_GetCodeFromCompCodeTxt(int nCompCode)
 }
 
 //D2Common.0x6FD49680 (#11249)
-uint32_t __stdcall DATATBLS_GetExpRatio(int nLevel)
+uint32_t __cdecl DATATBLS_GetExpRatio(int nLevel)
 {
 	if (sgptDataTables->pExperienceTxt)
 	{
@@ -107,7 +107,7 @@ uint32_t __stdcall DATATBLS_GetExpRatio(int nLevel)
 }
 
 //D2Common.0x6FD496B0 (#10628)
-uint32_t __stdcall DATATBLS_GetLevelThreshold(int nClass, uint32_t dwLevel)
+uint32_t __cdecl DATATBLS_GetLevelThreshold(int nClass, uint32_t dwLevel)
 {
 	if (nClass < 0 || nClass >= NUMBER_OF_PLAYERCLASSES)
 	{
@@ -118,7 +118,7 @@ uint32_t __stdcall DATATBLS_GetLevelThreshold(int nClass, uint32_t dwLevel)
 }
 
 //D2Common.0x6FD496E0 (#10629)
-int __stdcall DATATBLS_GetMaxLevel(int nClass)
+int __cdecl DATATBLS_GetMaxLevel(int nClass)
 {
 	if (nClass >= 0 && nClass < NUMBER_OF_PLAYERCLASSES)
 	{
@@ -129,7 +129,7 @@ int __stdcall DATATBLS_GetMaxLevel(int nClass)
 }
 
 //D2Common.0x6FD49710 (#10630)
-uint32_t __stdcall DATATBLS_GetCurrentLevelFromExp(int nClass, uint32_t dwExperience)
+uint32_t __cdecl DATATBLS_GetCurrentLevelFromExp(int nClass, uint32_t dwExperience)
 {
 	if (nClass < 0 || nClass >= NUMBER_OF_PLAYERCLASSES)
 	{
@@ -147,7 +147,7 @@ uint32_t __stdcall DATATBLS_GetCurrentLevelFromExp(int nClass, uint32_t dwExperi
 }
 
 //D2Common.0x6FD49760
-void __fastcall DATATBLS_GetBinFileHandle(HD2ARCHIVE hArchive, const char* szFile, void** ppFileHandle, int* pSize, int* pSizeEx)
+void __cdecl DATATBLS_GetBinFileHandle(HD2ARCHIVE hArchive, const char* szFile, void** ppFileHandle, int* pSize, int* pSizeEx)
 {
 	FILE* pFile = NULL;
 	size_t dwSize = 0;
@@ -173,7 +173,7 @@ void __fastcall DATATBLS_GetBinFileHandle(HD2ARCHIVE hArchive, const char* szFil
 }
 
 //D2Common.0x6FD49850
-int __fastcall DATATBLS_AppendMemoryBuffer(char** ppCodes, int* pSize, int* pSizeEx, void* pBuffer, int nBufferSize)
+int __cdecl DATATBLS_AppendMemoryBuffer(char** ppCodes, int* pSize, int* pSizeEx, void* pBuffer, int nBufferSize)
 {
 	int nNewSize = 0;
 	int nResult = 0;
@@ -215,19 +215,19 @@ int __fastcall DATATBLS_AppendMemoryBuffer(char** ppCodes, int* pSize, int* pSiz
 // SKILLS
 
 //D2Common.0x6FD4E4B0 (#10593)
-struct D2CharStatsTxt* __fastcall DATATBLS_GetCharstatsTxtTable()
+struct D2CharStatsTxt* __cdecl DATATBLS_GetCharstatsTxtTable()
 {
 	return sgptDataTables->pCharStatsTxt;
 }
 
 //D2Common.0x6FD4E4C0
-struct D2AnimDataTable* __fastcall DATATBLS_GetAnimData()
+struct D2AnimDataTable* __cdecl DATATBLS_GetAnimData()
 {
 	return sgptDataTables->pAnimData;
 }
 
 //D2Common.0x6FD4E4D0 (#10655)
-struct D2DifficultyLevelsTxt* __stdcall DATATBLS_GetDifficultyLevelsTxtRecord(int nDifficulty)
+struct D2DifficultyLevelsTxt* __cdecl DATATBLS_GetDifficultyLevelsTxtRecord(int nDifficulty)
 {
 	if (nDifficulty < 0)
 	{
@@ -243,7 +243,7 @@ struct D2DifficultyLevelsTxt* __stdcall DATATBLS_GetDifficultyLevelsTxtRecord(in
 }
 
 //D2Common.0x6FD4E500
-void __fastcall DATATBLS_LoadStatesTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadStatesTxt(HD2ARCHIVE hArchive)
 {
 	uint32_t* pStateMasks = NULL;
 
@@ -395,7 +395,7 @@ void __fastcall DATATBLS_LoadStatesTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD4F4A0
-void __fastcall DATATBLS_UnloadStatesTxt()
+void __cdecl DATATBLS_UnloadStatesTxt()
 {
 	if (sgptDataTables->pStateMasks)
 	{
@@ -446,7 +446,7 @@ struct D2StatesTxt* DATATBLS_GetStatesTxtRecord(int nStateId)
 }
 
 //D2Common.0x6FD4F5A0
-void __fastcall DATATBLS_LoadPetTypeTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadPetTypeTxt(HD2ARCHIVE hArchive)
 {
 	struct D2BinField pTbl[] =
 	{
@@ -491,7 +491,7 @@ void __fastcall DATATBLS_LoadPetTypeTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD4F990 (#11298)
-char* __stdcall DATATBLS_GetUnitNameFromUnit(struct D2Unit* pUnit, char* szName)
+char* __cdecl DATATBLS_GetUnitNameFromUnit(struct D2Unit* pUnit, char* szName)
 {
 	*szName = 0;
 
@@ -508,7 +508,7 @@ char* __stdcall DATATBLS_GetUnitNameFromUnit(struct D2Unit* pUnit, char* szName)
 }
 
 //D2Common.0x6FD4FB50 (#11299)
-char* __stdcall DATATBLS_GetUnitNameFromUnitTypeAndClassId(int nUnitType, int nClassId, char* szName)
+char* __cdecl DATATBLS_GetUnitNameFromUnitTypeAndClassId(int nUnitType, int nClassId, char* szName)
 {
 	struct D2CharStatsTxt* pCharStatsTxtRecord = NULL;
 	struct D2MonStatsTxt* pMonStatsTxtRecord = NULL;
@@ -587,7 +587,7 @@ char* __stdcall DATATBLS_GetUnitNameFromUnitTypeAndClassId(int nUnitType, int nC
 }
 
 //D2Common.0x6FD4FCF0 (#10580)
-void __stdcall DATATBLS_WriteBinFile(char* szFileName, void* pWriteBuffer, size_t nBufferSize, int nRecordCount)
+void __cdecl DATATBLS_WriteBinFile(char* szFileName, void* pWriteBuffer, size_t nBufferSize, int nRecordCount)
 {
 	FILE* pFile = NULL;
 	char szFilePath[MAX_PATH] = {};
@@ -604,7 +604,7 @@ void __stdcall DATATBLS_WriteBinFile(char* szFileName, void* pWriteBuffer, size_
 }
 
 //D2Common.0x6FD4FD70 (#10578)
-void* __stdcall DATATBLS_CompileTxt(HD2ARCHIVE hArchive, const char* szName, struct D2BinField* pTbl, int* pRecordCount, size_t dwSize)
+void* __cdecl DATATBLS_CompileTxt(HD2ARCHIVE hArchive, const char* szName, struct D2BinField* pTbl, int* pRecordCount, size_t dwSize)
 {
 	struct D2BinFile* pBinFile = NULL;
 	FILE* pFile = NULL;
@@ -690,13 +690,13 @@ void* __stdcall DATATBLS_CompileTxt(HD2ARCHIVE hArchive, const char* szName, str
 }
 
 //D2Common.0x6FD500F0 (#11242)
-void __stdcall DATATBLS_ToggleCompileTxtFlag(BOOL bSilent)
+void __cdecl DATATBLS_ToggleCompileTxtFlag(BOOL bSilent)
 {
 	sgptDataTables->bCompileTxt = !bSilent;
 }
 
 //D2Common.0x6FD50110 (#10579)
-void __stdcall DATATBLS_UnloadBin(void* pBinFile)
+void __cdecl DATATBLS_UnloadBin(void* pBinFile)
 {
 	if (pBinFile)
 	{
@@ -712,7 +712,7 @@ void __stdcall DATATBLS_UnloadBin(void* pBinFile)
 }
 
 //D2Common.0x6FD50150 (#10575)
-void __stdcall DATATBLS_UnloadAllBins()
+void __cdecl DATATBLS_UnloadAllBins()
 {
 	DATATBLS_UnloadBin(sgptDataTables->pCompCodeTxt);
 	FOG_FreeLinker(sgptDataTables->pCompCodeLinker);
@@ -804,7 +804,7 @@ void __stdcall DATATBLS_UnloadAllBins()
 }
 
 //D2Common.0x6FD504B0 (#10576)
-void __stdcall DATATBLS_LoadAllTxts(HD2ARCHIVE hArchive, int a2, int a3)
+void __cdecl DATATBLS_LoadAllTxts(HD2ARCHIVE hArchive, int a2, int a3)
 {
 	struct D2BinField pTbl[] =
 	{
@@ -881,7 +881,7 @@ void __stdcall DATATBLS_LoadAllTxts(HD2ARCHIVE hArchive, int a2, int a3)
 }
 
 //D2Common.0x6FD507B0
-void __fastcall DATATBLS_LoadSomeTxts(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadSomeTxts(HD2ARCHIVE hArchive)
 {
 	int nRecordCount = 0;
 
@@ -1019,7 +1019,7 @@ void __fastcall DATATBLS_LoadSomeTxts(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD50FB0
-void __fastcall DATATBLS_LoadCharStatsTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadCharStatsTxt(HD2ARCHIVE hArchive)
 {
 	struct D2BinField pTbl[] =
 	{
@@ -1103,7 +1103,7 @@ void __fastcall DATATBLS_LoadCharStatsTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD51BF0
-void __fastcall DATATBLS_LoadDifficultyLevelsTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadDifficultyLevelsTxt(HD2ARCHIVE hArchive)
 {
 	struct D2BinField pTbl[] =
 	{

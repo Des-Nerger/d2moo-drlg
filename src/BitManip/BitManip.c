@@ -37,7 +37,7 @@ Function:		BITMANIP_Initialize
 Address:		Fog.#10126
 Notes:			
 */
-void __stdcall BITMANIP_Initialize(struct D2BitBuffer* pBuffer, uint8_t* pBitStream, size_t nSize)
+void __cdecl BITMANIP_Initialize(struct D2BitBuffer* pBuffer, uint8_t* pBitStream, size_t nSize)
 {
 	if (!pBuffer)
 	{
@@ -56,7 +56,7 @@ Function:		BITMANIP_GetSize
 Address:		Fog.#10127
 Notes:
 */
-size_t __stdcall BITMANIP_GetSize(struct D2BitBuffer* pBuffer)
+size_t __cdecl BITMANIP_GetSize(struct D2BitBuffer* pBuffer)
 {
 	return (pBuffer->nPosBits) ? (pBuffer->nPos + 1) : pBuffer->nPos;
 }
@@ -66,7 +66,7 @@ Function:		BITMANIP_Write
 Address:		Fog.#10128
 Notes:
 */
-void __stdcall BITMANIP_Write(struct D2BitBuffer* pBuffer, uint32_t dwValue, uint32_t dwBits)
+void __cdecl BITMANIP_Write(struct D2BitBuffer* pBuffer, uint32_t dwValue, uint32_t dwBits)
 {
 	uint32_t dwBitsLeft = dwBits;
 	uint32_t dwValueEx = dwValue;
@@ -124,7 +124,7 @@ Function:		BITMANIP_ReadSigned
 Address:		Fog.#10129
 Notes:
 */
-int __stdcall BITMANIP_ReadSigned(struct D2BitBuffer* pBuffer, int nBits)
+int __cdecl BITMANIP_ReadSigned(struct D2BitBuffer* pBuffer, int nBits)
 {
 	int nResult = BITMANIP_Read(pBuffer, nBits);
 
@@ -144,7 +144,7 @@ Function:		BITMANIP_Read
 Address:		Fog.#10130
 Notes:
 */
-uint32_t __stdcall BITMANIP_Read(struct D2BitBuffer* pBuffer, int nBits)
+uint32_t __cdecl BITMANIP_Read(struct D2BitBuffer* pBuffer, int nBits)
 {
 	int n = pBuffer->nPosBits + nBits + 8 * pBuffer->nPos - pBuffer->nBits;
 
@@ -195,7 +195,7 @@ Function:		BITMANIP_GoToNextByte
 Address:		Fog.#10131
 Notes:
 */
-void __stdcall BITMANIP_GoToNextByte(struct D2BitBuffer* pBuffer)
+void __cdecl BITMANIP_GoToNextByte(struct D2BitBuffer* pBuffer)
 {
 	if (pBuffer->nPosBits)
 	{
@@ -217,7 +217,7 @@ Function:		BITMANIP_SetBitState
 Address:		Fog.#10118
 Notes:
 */
-void __stdcall BITMANIP_SetBitState(uint8_t* pBitStream, int nBit)
+void __cdecl BITMANIP_SetBitState(uint8_t* pBitStream, int nBit)
 {
 	pBitStream[nBit >> 3] |= (uint8_t)gdwBitMasks[nBit & 7];
 }
@@ -227,7 +227,7 @@ Function:		BITMANIP_GoToNextByte
 Address:		Fog.#10119
 Notes:
 */
-int __stdcall BITMANIP_GetBitState(uint8_t* pBitStream, int nBit)
+int __cdecl BITMANIP_GetBitState(uint8_t* pBitStream, int nBit)
 {
 	return pBitStream[nBit >> 3] & (uint8_t)gdwBitMasks[nBit & 7];
 }
@@ -237,7 +237,7 @@ Function:		BITMANIP_GoToNextByte
 Address:		Fog.#10120
 Notes:
 */
-void __stdcall BITMANIP_MaskBitstate(uint8_t* pBitStream, int nBit)
+void __cdecl BITMANIP_MaskBitstate(uint8_t* pBitStream, int nBit)
 {
 	pBitStream[nBit >> 3] &= (uint8_t)gdwInvBitMasks[nBit & 7];
 }

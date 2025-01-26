@@ -137,7 +137,7 @@ static int Utf8CodePointToUnicodeChar(struct Unicode* dest, const char* src, int
   return -1;
 }
 
-struct Unicode* __fastcall Unicode_toUnicode(
+struct Unicode* __cdecl Unicode_toUnicode(
     struct Unicode* dest,
     const char* src,
     int count) {
@@ -170,7 +170,7 @@ struct Unicode* __fastcall Unicode_toUnicode(
   return dest;
 }
 
-char* __fastcall Unicode_toUtf(char* dest, const struct Unicode* src, int count) {
+char* __cdecl Unicode_toUtf(char* dest, const struct Unicode* src, int count) {
   D2_ASSERT(count >= 0);
 
   int dest_length = 0;
@@ -202,7 +202,7 @@ char* __fastcall Unicode_toUtf(char* dest, const struct Unicode* src, int count)
   return dest;
 }
 
-struct Unicode* __fastcall Unicode_utf8ToUnicode(struct Unicode* dest, const char* src, int count)
+struct Unicode* __cdecl Unicode_utf8ToUnicode(struct Unicode* dest, const char* src, int count)
 {
     int nCharsCount;
     wchar_t wszString[1024];

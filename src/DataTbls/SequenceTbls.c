@@ -1162,7 +1162,7 @@ static const int gWeaponIndexToClassMap[NUM_WEAPON_CLASSES][2] =
 
 
 //D2Common.0x6FD727A0 (#10682)
-struct D2AnimSeqTxt* __stdcall DATATBLS_GetMonSeqTxtRecordFromUnit(struct D2Unit* pUnit)
+struct D2AnimSeqTxt* __cdecl DATATBLS_GetMonSeqTxtRecordFromUnit(struct D2Unit* pUnit)
 {
 	struct D2AnimSeqRecord* pSeqRecord = DATATBLS_GetSeqRecordFromUnit(pUnit);
 	if (pSeqRecord)
@@ -1174,7 +1174,7 @@ struct D2AnimSeqTxt* __stdcall DATATBLS_GetMonSeqTxtRecordFromUnit(struct D2Unit
 }
 
 //D2Common.0x6FD727C0
-struct D2AnimSeqRecord* __fastcall DATATBLS_GetSeqRecordFromUnit(struct D2Unit* pUnit)
+struct D2AnimSeqRecord* __cdecl DATATBLS_GetSeqRecordFromUnit(struct D2Unit* pUnit)
 {
 	struct D2Skill* pSkill = UNITS_GetUsedSkill(pUnit);
 	if (pSkill)
@@ -1219,7 +1219,7 @@ struct D2AnimSeqRecord* __fastcall DATATBLS_GetSeqRecordFromUnit(struct D2Unit* 
 }
 
 //D2Common.0x6FD728A0 (#10683)
-int __stdcall DATATBLS_GetSeqFramePointsCount(struct D2Unit* pUnit)
+int __cdecl DATATBLS_GetSeqFramePointsCount(struct D2Unit* pUnit)
 {
 	struct D2AnimSeqRecord* pSeqRecord = DATATBLS_GetSeqRecordFromUnit(pUnit);
 	if (pSeqRecord)
@@ -1231,7 +1231,7 @@ int __stdcall DATATBLS_GetSeqFramePointsCount(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FD728C0 (#10684)
-int __stdcall DATATBLS_GetSeqFrameCount(struct D2Unit* pUnit)
+int __cdecl DATATBLS_GetSeqFrameCount(struct D2Unit* pUnit)
 {
 	struct D2AnimSeqRecord* pSeqRecord = DATATBLS_GetSeqRecordFromUnit(pUnit);
 	if (pSeqRecord)
@@ -1243,7 +1243,7 @@ int __stdcall DATATBLS_GetSeqFrameCount(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FD728E0 (#10685)
-void __stdcall DATATBLS_ComputeSequenceAnimation(struct D2AnimSeqTxt* pMonSeqTxt, int nTargetFramePoint, int nCurrentFramePoint, unsigned int* pMode, unsigned int* pFrame, int* pDirection, int* pEvent)
+void __cdecl DATATBLS_ComputeSequenceAnimation(struct D2AnimSeqTxt* pMonSeqTxt, int nTargetFramePoint, int nCurrentFramePoint, unsigned int* pMode, unsigned int* pFrame, int* pDirection, int* pEvent)
 {
 	if (pMonSeqTxt)
 	{
@@ -1282,7 +1282,7 @@ void __stdcall DATATBLS_ComputeSequenceAnimation(struct D2AnimSeqTxt* pMonSeqTxt
 }
 
 //D2Common.0x6FD72990 (#10686)
-void __stdcall DATATBLS_GetSequenceEvent(struct D2AnimSeqTxt* pMonSeqTxt, int nSeqFramePoint, int* pEvent)
+void __cdecl DATATBLS_GetSequenceEvent(struct D2AnimSeqTxt* pMonSeqTxt, int nSeqFramePoint, int* pEvent)
 {
 	if (pMonSeqTxt)
 	{
@@ -1295,7 +1295,7 @@ void __stdcall DATATBLS_GetSequenceEvent(struct D2AnimSeqTxt* pMonSeqTxt, int nS
 }
 
 //D2Common.0x6FD6F050
-void __fastcall DATATBLS_LoadMonSeqTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadMonSeqTxt(HD2ARCHIVE hArchive)
 {
 	struct D2BinField pTbl[] =
 	{
@@ -1330,7 +1330,7 @@ void __fastcall DATATBLS_LoadMonSeqTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD6F200 (#11262)
-struct D2AnimSeqRecord* __stdcall DATATBLS_GetMonSeqTableRecord(int nSequence)
+struct D2AnimSeqRecord* __cdecl DATATBLS_GetMonSeqTableRecord(int nSequence)
 {
 	if (nSequence >= 0 && nSequence < sgptDataTables->nMonSeqTableRecordCount)
 	{

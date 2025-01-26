@@ -37,11 +37,11 @@ struct D2BeltsTxt
 #pragma pack()
 
 //D2Common.0x6FD48880
-void __fastcall DATATBLS_LoadBeltsTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadBeltsTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD493A0
-void __fastcall DATATBLS_UnloadBeltsTxt();
+void __cdecl DATATBLS_UnloadBeltsTxt();
 //D2Common.0x6FD493B0 (#10638)
-D2COMMON_DLL_DECL void __stdcall DATATBLS_GetBeltsTxtRecord(int nIndex, int bHigherRes, struct D2BeltsTxt* pRecord);
+D2COMMON_DLL_DECL void __cdecl DATATBLS_GetBeltsTxtRecord(int nIndex, int bHigherRes, struct D2BeltsTxt* pRecord);
 //D2Common.0x6FD49420 (#10639)
-D2COMMON_DLL_DECL void __stdcall DATATBLS_GetInvRectFromBeltsTxt(int nIndex, int bHigherRes, struct D2InvRect* pInvRect, int nBoxId);
+D2COMMON_DLL_DECL void __cdecl DATATBLS_GetInvRectFromBeltsTxt(int nIndex, int bHigherRes, struct D2InvRect* pInvRect, int nBoxId);
 

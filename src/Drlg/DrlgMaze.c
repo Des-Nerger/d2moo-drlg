@@ -40,7 +40,7 @@ static bool DRLGMAZE_OrthWithDirectionExists(struct D2DrlgRoom* pDrlgRoom, int n
 
 
 //D2Common.0x6FD78E50
-struct D2DrlgRoom* __fastcall DRLGMAZE_GetFreeLocationForRoomEast(struct D2DrlgLevel* pLevel)
+struct D2DrlgRoom* __cdecl DRLGMAZE_GetFreeLocationForRoomEast(struct D2DrlgLevel* pLevel)
 {
 	struct D2DrlgRoom* pResult = nullptr;
 
@@ -59,7 +59,7 @@ struct D2DrlgRoom* __fastcall DRLGMAZE_GetFreeLocationForRoomEast(struct D2DrlgL
 }
 
 //D2Common.0x6FD79240
-struct D2DrlgRoom* __fastcall DRLGMAZE_GetFreeLocationForRoomWest(struct D2DrlgLevel* pLevel)
+struct D2DrlgRoom* __cdecl DRLGMAZE_GetFreeLocationForRoomWest(struct D2DrlgLevel* pLevel)
 {
 	struct D2DrlgRoom* pResult = nullptr;
 
@@ -77,7 +77,7 @@ struct D2DrlgRoom* __fastcall DRLGMAZE_GetFreeLocationForRoomWest(struct D2DrlgL
 }
 
 //D2Common.0x6FD79360
-struct D2DrlgRoom* __fastcall DRLGMAZE_GetFreeLocationForRoomNorth(struct D2DrlgLevel* pLevel)
+struct D2DrlgRoom* __cdecl DRLGMAZE_GetFreeLocationForRoomNorth(struct D2DrlgLevel* pLevel)
 {
 	struct D2DrlgRoom* pResult = nullptr;
 
@@ -93,7 +93,7 @@ struct D2DrlgRoom* __fastcall DRLGMAZE_GetFreeLocationForRoomNorth(struct D2Drlg
 }
 
 // Helper function
-struct D2DrlgRoom* __fastcall DRLGMAZE_GetFreeLocationForRoomSouth(struct D2DrlgLevel* pLevel)
+struct D2DrlgRoom* __cdecl DRLGMAZE_GetFreeLocationForRoomSouth(struct D2DrlgLevel* pLevel)
 {
 	struct D2DrlgRoom* pResult = nullptr;
 
@@ -110,7 +110,7 @@ struct D2DrlgRoom* __fastcall DRLGMAZE_GetFreeLocationForRoomSouth(struct D2Drlg
 
 //D2Common.0x6FD78F70
 //Named sSetChamberPreset in the original code ?
-void __fastcall DRLGMAZE_PickRoomPreset(struct D2DrlgRoom* pDrlgRoom, BOOL bResetFlag)
+void __cdecl DRLGMAZE_PickRoomPreset(struct D2DrlgRoom* pDrlgRoom, BOOL bResetFlag)
 {
 	//D2Common.0x6FDCE710
 	//Remapping of presets for harem, basement and spider cave. Effictively preventing any non diagonal presets since not every direction exists.
@@ -303,14 +303,14 @@ void __fastcall DRLGMAZE_PickRoomPreset(struct D2DrlgRoom* pDrlgRoom, BOOL bRese
 
 
 //D2Common.0x6FD79480
-void __fastcall DRLGMAZE_InitLevelData(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_InitLevelData(struct D2DrlgLevel* pLevel)
 {
 	pLevel->pMaze = DATATBLS_GetLvlMazeTxtRecordFromLevelId(pLevel->nLevelId);
 	DRLG_SetLevelPositionAndSize(pLevel->pDrlg, pLevel);
 }
 
 //D2Common.0x6FD794A0
-void __fastcall DRLGMAZE_GenerateLevel(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_GenerateLevel(struct D2DrlgLevel* pLevel)
 {
 	static const struct D2MazeLevelId nAct1CavePrevIds[] =
 	{
@@ -866,7 +866,7 @@ void __fastcall DRLGMAZE_GenerateLevel(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD79E10
-void __fastcall DRLGMAZE_SetPickedFileAndPresetId(struct D2DrlgRoom* pDrlgRoom, int nLevelPrest, int nPickedFile, BOOL bResetFlag)
+void __cdecl DRLGMAZE_SetPickedFileAndPresetId(struct D2DrlgRoom* pDrlgRoom, int nLevelPrest, int nPickedFile, BOOL bResetFlag)
 {
 	pDrlgRoom->pMaze->nPickedFile = nPickedFile;
 	pDrlgRoom->pMaze->nLevelPrest = nLevelPrest;
@@ -882,7 +882,7 @@ void __fastcall DRLGMAZE_SetPickedFileAndPresetId(struct D2DrlgRoom* pDrlgRoom, 
 }
 
 //D2Common.0x6FD79E40
-struct D2DrlgRoom* __fastcall DRLGMAZE_ReplaceRoomPreset(struct D2DrlgLevel* pLevel, int nLevelPrestId1, int nLevelPrestId2, int nPickedFile, BOOL bResetFlag)
+struct D2DrlgRoom* __cdecl DRLGMAZE_ReplaceRoomPreset(struct D2DrlgLevel* pLevel, int nLevelPrestId1, int nLevelPrestId2, int nPickedFile, BOOL bResetFlag)
 {
 	for (struct D2DrlgRoom* pDrlgRoom = pLevel->pFirstRoomEx; pDrlgRoom; pDrlgRoom = pDrlgRoom->pDrlgRoomNext)
 	{
@@ -897,7 +897,7 @@ struct D2DrlgRoom* __fastcall DRLGMAZE_ReplaceRoomPreset(struct D2DrlgLevel* pLe
 }
 
 //D2Common.0x6FD79EA0
-struct D2DrlgRoom* __fastcall DRLGMAZE_AddAdjacentMazeRoom(struct D2DrlgRoom* pDrlgRoom, int nDirection, BOOL bMergeRooms)
+struct D2DrlgRoom* __cdecl DRLGMAZE_AddAdjacentMazeRoom(struct D2DrlgRoom* pDrlgRoom, int nDirection, BOOL bMergeRooms)
 {
 	struct D2DrlgOrth* pDrlgOrth = NULL;
 	struct D2DrlgRoom* pNewRoomEx = NULL;
@@ -1020,7 +1020,7 @@ struct D2DrlgRoom* __fastcall DRLGMAZE_AddAdjacentMazeRoom(struct D2DrlgRoom* pD
 }
 
 //D2Common.0x6FD7A110
-void __fastcall DRLGMAZE_InitBasicMazeLayout(struct D2DrlgLevel* pLevel, int nRoomsPerDirection)
+void __cdecl DRLGMAZE_InitBasicMazeLayout(struct D2DrlgLevel* pLevel, int nRoomsPerDirection)
 {
 	struct D2DrlgRoom* pFirstRoomEx = NULL;
 	struct D2DrlgRoom* pNewRoomEx = NULL;
@@ -1125,7 +1125,7 @@ void __fastcall DRLGMAZE_InitBasicMazeLayout(struct D2DrlgLevel* pLevel, int nRo
 }
 
 //D2Common.0x6FD7A340
-BOOL __fastcall DRLGMAZE_LinkMazeRooms(struct D2DrlgRoom* pDrlgRoom1, struct D2DrlgRoom* pDrlgRoom2, int nDirection)
+BOOL __cdecl DRLGMAZE_LinkMazeRooms(struct D2DrlgRoom* pDrlgRoom1, struct D2DrlgRoom* pDrlgRoom2, int nDirection)
 {
 	switch (nDirection)
 	{
@@ -1185,7 +1185,7 @@ BOOL __fastcall DRLGMAZE_LinkMazeRooms(struct D2DrlgRoom* pDrlgRoom1, struct D2D
 }
 
 //D2Common.0x6FD7A450
-void __fastcall DRLGMAZE_MergeMazeRooms(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGMAZE_MergeMazeRooms(struct D2DrlgRoom* pDrlgRoom)
 {
 	struct D2DrlgOrth* pDrlgOrth = NULL;
 	int nDirection = 0;
@@ -1233,7 +1233,7 @@ void __fastcall DRLGMAZE_MergeMazeRooms(struct D2DrlgRoom* pDrlgRoom)
 }
 
 //D2Common.0x6FD7A570
-struct D2DrlgRoom* __fastcall DRLGMAZE_GetRandomRoomExFromLevel(struct D2DrlgLevel* pLevel)
+struct D2DrlgRoom* __cdecl DRLGMAZE_GetRandomRoomExFromLevel(struct D2DrlgLevel* pLevel)
 {
 	struct D2DrlgRoom* pDrlgRoom = pLevel->pFirstRoomEx;
 
@@ -1246,7 +1246,7 @@ struct D2DrlgRoom* __fastcall DRLGMAZE_GetRandomRoomExFromLevel(struct D2DrlgLev
 }
 
 //D2Common.0x6FD7A5D0
-void __fastcall DRLGMAZE_BuildBasicMaze(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_BuildBasicMaze(struct D2DrlgLevel* pLevel)
 {
 	struct D2DrlgRoom* pRandomRoomEx = NULL;
 	struct D2DrlgRoom* pNewRoomEx = NULL;
@@ -1391,7 +1391,7 @@ static void PlaceLavaPreset(struct D2DrlgRoom* pFirstRoomEx, int nSet)
 }
 
 //D2Common.0x6FD7A830
-void __fastcall DRLGMAZE_PlaceAct5LavaPresets(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_PlaceAct5LavaPresets(struct D2DrlgLevel* pLevel)
 {		
 	const int nSet = 2 * (SEED_RollRandomNumber(&pLevel->pFirstRoomEx->pSeed) & 3);
 	
@@ -1407,7 +1407,7 @@ void __fastcall DRLGMAZE_PlaceAct5LavaPresets(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7A9B0
-void __fastcall DRLGMAZE_FillBlankMazeSpaces(struct D2DrlgLevel* pLevel, int nLevelPrest, struct D2DrlgRoom* pIgnoreRoomEx)
+void __cdecl DRLGMAZE_FillBlankMazeSpaces(struct D2DrlgLevel* pLevel, int nLevelPrest, struct D2DrlgRoom* pIgnoreRoomEx)
 {
 	const int nRooms = pLevel->nRooms;
 	if (nRooms > 0)
@@ -1454,7 +1454,7 @@ void __fastcall DRLGMAZE_FillBlankMazeSpaces(struct D2DrlgLevel* pLevel, int nLe
 }
 
 //D2Common.0x6FD7AAC0
-void __fastcall DRLGMAZE_PlaceAct2TombPrev_Act5BaalPrev(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_PlaceAct2TombPrev_Act5BaalPrev(struct D2DrlgLevel* pLevel)
 {
 	static const int dword_6FDCE8B4[][2] =
 	{
@@ -1549,7 +1549,7 @@ static int DRLGMAZE_ArcaneSanctuaryDirectionFromRoomIdx(int nBranchDirection, in
 
 //D2Common.0x6FD7ABC0
 // This function has been rewritten using a loop to avoid having macros / 15 calls to the same functions.
-void __fastcall DRLGMAZE_PlaceArcaneSanctuary(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_PlaceArcaneSanctuary(struct D2DrlgLevel* pLevel)
 {
 	struct D2DrlgRoom* pLevelFirstRoomEx = pLevel->pFirstRoomEx;
 	
@@ -1589,7 +1589,7 @@ void __fastcall DRLGMAZE_PlaceArcaneSanctuary(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7AFD0
-struct D2DrlgRoom* __fastcall DRLGMAZE_PlaceAdjacentPresetRoom(struct D2DrlgRoom* pParentRoomEx, int nDirection, BOOL bMergeRooms)
+struct D2DrlgRoom* __cdecl DRLGMAZE_PlaceAdjacentPresetRoom(struct D2DrlgRoom* pParentRoomEx, int nDirection, BOOL bMergeRooms)
 {
 	struct D2DrlgRoom* pNewRoomEx = DRLGROOM_AllocRoomEx(pParentRoomEx->pLevel, DRLGTYPE_PRESET);
 	pNewRoomEx->nTileWidth = pNewRoomEx->pLevel->pMaze->dwSizeX;
@@ -1659,7 +1659,7 @@ struct D2DrlgRoom* __fastcall DRLGMAZE_PlaceAdjacentPresetRoom(struct D2DrlgRoom
 }
 
 //D2Common.0x6FD7B230
-void __fastcall DRLGMAZE_ScanReplaceSpecialPreset(struct D2DrlgLevel* pLevel, const struct D2MazeLevelId* pMazeInit, int* pRand)
+void __cdecl DRLGMAZE_ScanReplaceSpecialPreset(struct D2DrlgLevel* pLevel, const struct D2MazeLevelId* pMazeInit, int* pRand)
 {
 	struct D2DrlgRoom* pNewRoomEx = NULL;
 
@@ -1713,7 +1713,7 @@ void __fastcall DRLGMAZE_ScanReplaceSpecialPreset(struct D2DrlgLevel* pLevel, co
 }
 
 //D2Common.0x6FD7B330
-void __fastcall DRLGMAZE_ScanReplaceSpecialAct2SewersPresets(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_ScanReplaceSpecialAct2SewersPresets(struct D2DrlgLevel* pLevel)
 {
 	static const struct D2MazeLevelId nAct2SewerPrevIds[] =
 	{
@@ -1871,7 +1871,7 @@ void __fastcall DRLGMAZE_ScanReplaceSpecialAct2SewersPresets(struct D2DrlgLevel*
 }
 
 //D2Common.0x6FD7B660
-void __fastcall DRLGMAZE_AddSpecialPreset(struct D2DrlgLevel* pLevel, int nDirection, int nLvlPrestId, int nFile)
+void __cdecl DRLGMAZE_AddSpecialPreset(struct D2DrlgLevel* pLevel, int nDirection, int nLvlPrestId, int nFile)
 {
 	for (struct D2DrlgRoom* pDrlgRoom = pLevel->pFirstRoomEx; pDrlgRoom; pDrlgRoom = pDrlgRoom->pDrlgRoomNext)
 	{
@@ -1886,7 +1886,7 @@ void __fastcall DRLGMAZE_AddSpecialPreset(struct D2DrlgLevel* pLevel, int nDirec
 }
 
 //D2Common.0x6FD7B710
-BOOL __fastcall DRLGMAZE_CheckIfMayPlaceAdjacentPresetRoom(struct D2DrlgRoom* pDrlgRoom, int nDirection)
+BOOL __cdecl DRLGMAZE_CheckIfMayPlaceAdjacentPresetRoom(struct D2DrlgRoom* pDrlgRoom, int nDirection)
 {
 	if (DRLGMAZE_HasMapDS1(pDrlgRoom))
 	{
@@ -1911,7 +1911,7 @@ BOOL __fastcall DRLGMAZE_CheckIfMayPlaceAdjacentPresetRoom(struct D2DrlgRoom* pD
 }
 
 //D2Common.0x6FD7B8B0
-void __fastcall DRLGMAZE_PlaceAct2TombStuff(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_PlaceAct2TombStuff(struct D2DrlgLevel* pLevel)
 {
 	static const struct D2MazeLevelId nAct2TombNextIds[] =
 	{
@@ -2115,7 +2115,7 @@ void __fastcall DRLGMAZE_PlaceAct2TombStuff(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7BC40
-struct D2DrlgRoom* __fastcall DRLGMAZE_InitRoomFixedPreset(struct D2DrlgRoom* pDrlgRoom, int nDirection, int nLvlPrestId, int nFile, BOOL bUseInitPreset)
+struct D2DrlgRoom* __cdecl DRLGMAZE_InitRoomFixedPreset(struct D2DrlgRoom* pDrlgRoom, int nDirection, int nLvlPrestId, int nFile, BOOL bUseInitPreset)
 {
 	struct D2DrlgRoom* pNewRoomEx = DRLGROOM_AllocRoomEx(pDrlgRoom->pLevel, DRLGTYPE_PRESET);
 
@@ -2144,7 +2144,7 @@ struct D2DrlgRoom* __fastcall DRLGMAZE_InitRoomFixedPreset(struct D2DrlgRoom* pD
 }
 
 //D2Common.0x6FD7BCD0
-void __fastcall DRLGMAZE_PlaceAct2LairStuff(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_PlaceAct2LairStuff(struct D2DrlgLevel* pLevel)
 {
 	static const struct D2MazeLevelId nAct2LairPrevIds[] =
 	{
@@ -2252,7 +2252,7 @@ void __fastcall DRLGMAZE_PlaceAct2LairStuff(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7BE60
-void __fastcall DRLGMAZE_PlaceAct3DungeonStuff(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_PlaceAct3DungeonStuff(struct D2DrlgLevel* pLevel)
 {
 	static const struct D2MazeLevelId nAct3DungeonPrevIds[] =
 	{
@@ -2344,7 +2344,7 @@ void __fastcall DRLGMAZE_PlaceAct3DungeonStuff(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7C000
-void __fastcall DRLGMAZE_PlaceAct3SewerStuff(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_PlaceAct3SewerStuff(struct D2DrlgLevel* pLevel)
 {
 	static const struct D2MazeLevelId nAct3SewerDrainIds[] =
 	{
@@ -2436,7 +2436,7 @@ void __fastcall DRLGMAZE_PlaceAct3SewerStuff(struct D2DrlgLevel* pLevel)
 
 //D2Common.0x6FD7C1A0
 //TODO: v9, v14
-void __fastcall DRLGMAZE_PlaceAct3MephistoStuff(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_PlaceAct3MephistoStuff(struct D2DrlgLevel* pLevel)
 {
 	static const struct D2MazeLevelId nAct3MephistoPrevIds[] =
 	{
@@ -2548,7 +2548,7 @@ void __fastcall DRLGMAZE_PlaceAct3MephistoStuff(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7C380
-void __fastcall DRLGMAZE_PlaceAct5TempleStuff(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_PlaceAct5TempleStuff(struct D2DrlgLevel* pLevel)
 {
 	static const struct D2MazeLevelId nAct5TempleSpecialIds[] =
 	{
@@ -2633,7 +2633,7 @@ void __fastcall DRLGMAZE_PlaceAct5TempleStuff(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7C500
-void __fastcall DRLGMAZE_PlaceAct5BaalStuff(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_PlaceAct5BaalStuff(struct D2DrlgLevel* pLevel)
 {
 	static const struct D2MazeLevelId nAct5BaalNextIds[] =
 	{
@@ -2713,9 +2713,9 @@ void __fastcall DRLGMAZE_PlaceAct5BaalStuff(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7C660
-void __fastcall DRLGMAZE_PlaceAct1Barracks(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_PlaceAct1Barracks(struct D2DrlgLevel* pLevel)
 {
-	static struct D2DrlgRoom* (__fastcall* pfGetBarracksEntryRoom[])(struct D2DrlgLevel*) =
+	static struct D2DrlgRoom* (__cdecl* pfGetBarracksEntryRoom[])(struct D2DrlgLevel*) =
 	{
 		DRLGMAZE_GetFreeLocationForRoomWest,
 		DRLGMAZE_GetFreeLocationForRoomNorth,
@@ -2874,14 +2874,14 @@ void __fastcall DRLGMAZE_PlaceAct1Barracks(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7CA20
-void __fastcall DRLGMAZE_SetRoomSize(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGMAZE_SetRoomSize(struct D2DrlgRoom* pDrlgRoom)
 {
 	pDrlgRoom->nTileWidth = pDrlgRoom->pLevel->pMaze->dwSizeX;
 	pDrlgRoom->nTileHeight = pDrlgRoom->pLevel->pMaze->dwSizeY;
 }
 
 //D2Common.0x6FD7CA40
-void __fastcall DRLGMAZE_PlaceAct4Lava(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_PlaceAct4Lava(struct D2DrlgLevel* pLevel)
 {
 	static const struct D2MazeLevelId nAct4LavaForgeIds[] =
 	{
@@ -2961,7 +2961,7 @@ void __fastcall DRLGMAZE_PlaceAct4Lava(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7CCB0
-void __fastcall DRLGMAZE_PlaceAct5IceStuff(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_PlaceAct5IceStuff(struct D2DrlgLevel* pLevel)
 {
 	static const struct D2MazeLevelId nAct5IcePrevIds[] =
 	{
@@ -3092,7 +3092,7 @@ void __fastcall DRLGMAZE_PlaceAct5IceStuff(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7CEA0
-void __fastcall DRLGMAZE_RollAct_1_2_3_BasicPresets(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_RollAct_1_2_3_BasicPresets(struct D2DrlgLevel* pLevel)
 {
 	int pOffsets[15] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
 	int nLevelPrestId = 0;
@@ -3201,7 +3201,7 @@ void __fastcall DRLGMAZE_RollAct_1_2_3_BasicPresets(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7D130
-void __fastcall DRLGMAZE_RollBasicPresets(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGMAZE_RollBasicPresets(struct D2DrlgLevel* pLevel)
 {
 	struct D2DrlgBuild* pDrlgBuild = NULL;
 	struct D2DrlgRoom* pNextRoomEx = NULL;
@@ -3347,7 +3347,7 @@ void __fastcall DRLGMAZE_RollBasicPresets(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7D3D0
-void __fastcall DRLGMAZE_ResetMazeRecord(struct D2DrlgLevel* pLevel, BOOL bKeepMazeRecord)
+void __cdecl DRLGMAZE_ResetMazeRecord(struct D2DrlgLevel* pLevel, BOOL bKeepMazeRecord)
 {
 	if (!bKeepMazeRecord)
 	{

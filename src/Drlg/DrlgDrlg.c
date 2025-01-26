@@ -20,7 +20,7 @@ static_assert(DRLGROOMFLAG_SUBSHRINE_ROW1 == (1 << DRLGROOMFLAG_SUBSHRINE_ROWS_F
 static_assert(DRLGROOMFLAG_HAS_WAYPOINT == (1 << DRLGROOMFLAG_HAS_WAYPOINT_FIRST_BIT), "Waypoint first bit must match of DRLGROOMFLAG_HAS_WAYPOINT");
 
 //D2Common.0x6FD74120 (#10014)
-struct D2Drlg* __fastcall DRLG_AllocDrlg(struct D2DrlgAct* pAct, uint8_t nActNo, HD2ARCHIVE hArchive, uint32_t nInitSeed, int nTownLevelId, uint32_t nFlags, struct D2Game* pGame, uint8_t nDifficulty, AUTOMAPFN pfAutoMap, TOWNAUTOMAPFN pfTownAutoMap)
+struct D2Drlg* __cdecl DRLG_AllocDrlg(struct D2DrlgAct* pAct, uint8_t nActNo, HD2ARCHIVE hArchive, uint32_t nInitSeed, int nTownLevelId, uint32_t nFlags, struct D2Game* pGame, uint8_t nDifficulty, AUTOMAPFN pfAutoMap, TOWNAUTOMAPFN pfTownAutoMap)
 {
 	struct D2Drlg* pDrlg = D2_CALLOC_STRC_POOL(pAct->pMemPool, struct D2Drlg);
 
@@ -89,7 +89,7 @@ struct D2Drlg* __fastcall DRLG_AllocDrlg(struct D2DrlgAct* pAct, uint8_t nActNo,
 }
 
 //D2Common.0x6FD743B0 (#10012)
-void __fastcall DRLG_FreeDrlg(struct D2Drlg* pDrlg)
+void __cdecl DRLG_FreeDrlg(struct D2Drlg* pDrlg)
 {
 	struct D2DrlgLevel* pNextLevel = NULL;
 	struct D2DrlgLevel* pLevel = NULL;
@@ -131,7 +131,7 @@ void __fastcall DRLG_FreeDrlg(struct D2Drlg* pDrlg)
 }
 
 //D2Common.0x6FD74440
-void __fastcall DRLG_FreeLevel(void* pMemPool, struct D2DrlgLevel* pLevel, BOOL bAlloc)
+void __cdecl DRLG_FreeLevel(void* pMemPool, struct D2DrlgLevel* pLevel, BOOL bAlloc)
 {
 	struct D2DrlgBuild* pNextDrlgBuild = NULL;
 	struct D2DrlgBuild* pDrlgBuild = NULL;
@@ -229,7 +229,7 @@ void __fastcall DRLG_FreeLevel(void* pMemPool, struct D2DrlgLevel* pLevel, BOOL 
 
 //D2Common.0x6FD745C0
 //TODO: Name
-void __fastcall sub_6FD745C0(struct D2DrlgRoom* pDrlgRoom1, struct D2DrlgRoom* pDrlgRoom2)
+void __cdecl sub_6FD745C0(struct D2DrlgRoom* pDrlgRoom1, struct D2DrlgRoom* pDrlgRoom2)
 {
 	struct D2DrlgLevel* pLevel1 = NULL;
 	struct D2DrlgLevel* pLevel2 = NULL;
@@ -309,7 +309,7 @@ void __fastcall sub_6FD745C0(struct D2DrlgRoom* pDrlgRoom1, struct D2DrlgRoom* p
 
 //D2Common.0x6FD74700
 //TODO: Clean loops
-void __fastcall DRLG_UpdateAndFreeInactiveRooms(struct D2Drlg* pDrlg)
+void __cdecl DRLG_UpdateAndFreeInactiveRooms(struct D2Drlg* pDrlg)
 {
 	for (struct D2DrlgLevel* pLevel = pDrlg->pLevel; pLevel; pLevel = pLevel->pNextLevel)
 	{
@@ -401,7 +401,7 @@ void __fastcall DRLG_UpdateAndFreeInactiveRooms(struct D2Drlg* pDrlg)
 }
 
 //D2Common.0x6FD748D0 (#10013)
-struct D2DrlgLevel* __fastcall DRLG_AllocLevel(struct D2Drlg* pDrlg, int nLevelId)
+struct D2DrlgLevel* __cdecl DRLG_AllocLevel(struct D2Drlg* pDrlg, int nLevelId)
 {
 	struct D2DrlgLevel* pLevel = D2_CALLOC_STRC_POOL(pDrlg->pMempool, struct D2DrlgLevel);
 
@@ -441,7 +441,7 @@ struct D2DrlgLevel* __fastcall DRLG_AllocLevel(struct D2Drlg* pDrlg, int nLevelI
 }
 
 //D2Common.0x6FD749A0 (#10005)
-struct D2DrlgLevel* __stdcall DRLG_GetLevel(struct D2Drlg* pDrlg, int nLevelId)
+struct D2DrlgLevel* __cdecl DRLG_GetLevel(struct D2Drlg* pDrlg, int nLevelId)
 {
 	for (struct D2DrlgLevel* pLevel = pDrlg->pLevel; pLevel; pLevel = pLevel->pNextLevel)
 	{
@@ -455,7 +455,7 @@ struct D2DrlgLevel* __stdcall DRLG_GetLevel(struct D2Drlg* pDrlg, int nLevelId)
 }
 
 //D2Common.0x6FD749D0
-int __fastcall DRLG_GetHoradricStaffTombLevelId(struct D2Drlg* pDrlg)
+int __cdecl DRLG_GetHoradricStaffTombLevelId(struct D2Drlg* pDrlg)
 {
 	if (pDrlg)
 	{
@@ -466,7 +466,7 @@ int __fastcall DRLG_GetHoradricStaffTombLevelId(struct D2Drlg* pDrlg)
 }
 
 //D2Common.0x6FD749E0
-int __fastcall DRLG_GetDirectionFromCoordinates(struct D2DrlgCoord* pDrlgCoord1, struct D2DrlgCoord* pDrlgCoord2)
+int __cdecl DRLG_GetDirectionFromCoordinates(struct D2DrlgCoord* pDrlgCoord1, struct D2DrlgCoord* pDrlgCoord2)
 {
 	if (pDrlgCoord1->nPosX <= pDrlgCoord2->nPosX)
 	{
@@ -502,7 +502,7 @@ int __fastcall DRLG_GetDirectionFromCoordinates(struct D2DrlgCoord* pDrlgCoord1,
 }
 
 //D2Common.0x6FD74A40
-void __fastcall DRLG_CreateRoomForRoomEx(struct D2Drlg* pDrlg, struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLG_CreateRoomForRoomEx(struct D2Drlg* pDrlg, struct D2DrlgRoom* pDrlgRoom)
 {
 	struct D2DrlgCoords pDrlgCoords = {};
 	uint32_t dwFlags = 0;
@@ -539,13 +539,13 @@ void __fastcall DRLG_CreateRoomForRoomEx(struct D2Drlg* pDrlg, struct D2DrlgRoom
 }
 
 //D2Common.0x6FD74B30
-int* __fastcall DRLG_GetRoomCenterX_RoomWarpXFromRoom(struct D2DrlgRoom* pDrlgRoom)
+int* __cdecl DRLG_GetRoomCenterX_RoomWarpXFromRoom(struct D2DrlgRoom* pDrlgRoom)
 {
 	return pDrlgRoom->pLevel->nRoom_Center_Warp_X;
 }
 
 //D2Common.0x6FD74B40
-void __fastcall DRLG_ComputeLevelWarpInfo(struct D2DrlgLevel* pLevel)
+void __cdecl DRLG_ComputeLevelWarpInfo(struct D2DrlgLevel* pLevel)
 {
 	for (struct D2DrlgRoom* pDrlgRoom = pLevel->pFirstRoomEx; pDrlgRoom; pDrlgRoom = pDrlgRoom->pDrlgRoomNext)
 	{
@@ -583,7 +583,7 @@ void __fastcall DRLG_ComputeLevelWarpInfo(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD74C10 (#10006)
-void __stdcall DRLG_InitLevel(struct D2DrlgLevel* pLevel)
+void __cdecl DRLG_InitLevel(struct D2DrlgLevel* pLevel)
 {
 	SEED_InitLowSeed(&pLevel->pSeed, pLevel->nLevelId + pLevel->pDrlg->dwStartSeed);
 
@@ -623,7 +623,7 @@ void __stdcall DRLG_InitLevel(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD74D50
-int __fastcall DRLG_GetNumberOfPopulatedRoomsInLevel(struct D2Drlg* pDrlg, int nLevelId)
+int __cdecl DRLG_GetNumberOfPopulatedRoomsInLevel(struct D2Drlg* pDrlg, int nLevelId)
 {
 	struct D2DrlgLevel* pLevel = DRLG_GetLevel(pDrlg, nLevelId);
 	int nCounter = 0;
@@ -640,7 +640,7 @@ int __fastcall DRLG_GetNumberOfPopulatedRoomsInLevel(struct D2Drlg* pDrlg, int n
 }
 
 //D2Common.0x6FD74D90
-void __fastcall DRLG_GetMinAndMaxCoordinatesFromLevel(struct D2DrlgLevel* pLevel, int* pTileMinX, int* pTileMinY, int* pTileMaxX, int* pTileMaxY)
+void __cdecl DRLG_GetMinAndMaxCoordinatesFromLevel(struct D2DrlgLevel* pLevel, int* pTileMinX, int* pTileMinY, int* pTileMaxX, int* pTileMaxY)
 {
 	struct D2DrlgRoom* pDrlgRoom = pLevel->pFirstRoomEx;
 
@@ -676,7 +676,7 @@ void __fastcall DRLG_GetMinAndMaxCoordinatesFromLevel(struct D2DrlgLevel* pLevel
 }
 
 //D2Common.0x6FD74E10
-void __fastcall DRLG_UpdateRoomExCoordinates(struct D2DrlgLevel* pLevel)
+void __cdecl DRLG_UpdateRoomExCoordinates(struct D2DrlgLevel* pLevel)
 {
 	struct D2DrlgRoom* pDrlgRoom = NULL;
 	int nTileMaxX = 0;
@@ -717,7 +717,7 @@ void __fastcall DRLG_UpdateRoomExCoordinates(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD74EF0
-struct D2DrlgRoom* __fastcall DRLG_GetRoomExFromLevelAndCoordinates(struct D2DrlgLevel* pLevel, int nX, int nY)
+struct D2DrlgRoom* __cdecl DRLG_GetRoomExFromLevelAndCoordinates(struct D2DrlgLevel* pLevel, int nX, int nY)
 {
 	struct D2DrlgRoom* pDrlgRoom = NULL;
 
@@ -746,7 +746,7 @@ struct D2DrlgRoom* __fastcall DRLG_GetRoomExFromLevelAndCoordinates(struct D2Drl
 }
 
 //D2Common.0x6FD74F70
-struct D2DrlgRoom* __fastcall DRLG_GetRoomExFromCoordinates(int nX, int nY, struct D2Drlg* pDrlg, struct D2DrlgRoom* pDrlgRoomHint, struct D2DrlgLevel* pLevel)
+struct D2DrlgRoom* __cdecl DRLG_GetRoomExFromCoordinates(int nX, int nY, struct D2Drlg* pDrlg, struct D2DrlgRoom* pDrlgRoomHint, struct D2DrlgLevel* pLevel)
 {
 
 	if (pDrlgRoomHint)
@@ -803,7 +803,7 @@ struct D2DrlgRoom* __fastcall DRLG_GetRoomExFromCoordinates(int nX, int nY, stru
 
 //1.10f: D2Common.0x6FD751C0
 //1.13c: D2Common.0x6FD7D320
-BOOL __fastcall DRLG_IsTownLevel(int nLevelId)
+BOOL __cdecl DRLG_IsTownLevel(int nLevelId)
 {
 	switch (nLevelId)
 	{
@@ -820,13 +820,13 @@ BOOL __fastcall DRLG_IsTownLevel(int nLevelId)
 }
 
 //D2Common.0x6FD75260 (#10000)
-int __stdcall DRLG_GetLevelTypeFromLevelId(int nLevelId)
+int __cdecl DRLG_GetLevelTypeFromLevelId(int nLevelId)
 {
 	return DATATBLS_GetLevelDefRecord(nLevelId)->dwLevelType;
 }
 
 //D2Common.0x6FD75270
-void __fastcall DRLG_SetLevelPositionAndSize(struct D2Drlg* pDrlg, struct D2DrlgLevel* pLevel)
+void __cdecl DRLG_SetLevelPositionAndSize(struct D2Drlg* pDrlg, struct D2DrlgLevel* pLevel)
 {
 	struct D2LevelDefBin* pLevelDefBin = DATATBLS_GetLevelDefRecord(pLevel->nLevelId);
 	struct D2DrlgLevel* pDependLevel = NULL;
@@ -849,7 +849,7 @@ void __fastcall DRLG_SetLevelPositionAndSize(struct D2Drlg* pDrlg, struct D2Drlg
 }
 
 //D2Common.0x6FD75300 (#10001)
-uint8_t __stdcall DRLG_GetActNoFromLevelId(int nLevelId)
+uint8_t __cdecl DRLG_GetActNoFromLevelId(int nLevelId)
 {
 	//IMPROVEMENT: Lookup the act from Levels.txt
 
@@ -870,19 +870,19 @@ uint8_t __stdcall DRLG_GetActNoFromLevelId(int nLevelId)
 }
 
 //D2Common.0x6FD75330 (#10004)
-int __stdcall DRLG_GetSaveMonstersFromLevelId(int nLevelId)
+int __cdecl DRLG_GetSaveMonstersFromLevelId(int nLevelId)
 {
 	return DATATBLS_GetLevelDefRecord(nLevelId)->dwSaveMonsters;
 }
 
 //D2Common.0x6FD75350 (#10002)
-int __stdcall DRLG_GetLOSDrawFromLevelId(int nLevelId)
+int __cdecl DRLG_GetLOSDrawFromLevelId(int nLevelId)
 {
 	return DATATBLS_GetLevelDefRecord(nLevelId)->dwLOSDraw;
 }
 
 //D2Common.0x6FD75370
-struct D2DrlgWarp* __fastcall DRLG_GetDrlgWarpFromLevelId(struct D2Drlg* pDrlg, int nLevelId)
+struct D2DrlgWarp* __cdecl DRLG_GetDrlgWarpFromLevelId(struct D2Drlg* pDrlg, int nLevelId)
 {
 	struct D2LevelDefBin* pLevelDefBin = NULL;
 	struct D2DrlgWarp* pDrlgWarp = NULL;
@@ -912,7 +912,7 @@ struct D2DrlgWarp* __fastcall DRLG_GetDrlgWarpFromLevelId(struct D2Drlg* pDrlg, 
 }
 
 //D2Common.0x6FD753F0
-void __fastcall DRLG_SetWarpId(struct D2DrlgWarp* pDrlgWarp, int nVis, int nWarp, int nId)
+void __cdecl DRLG_SetWarpId(struct D2DrlgWarp* pDrlgWarp, int nVis, int nWarp, int nId)
 {
 	for (int i = 0; i < 8; ++i)
 	{
@@ -944,7 +944,7 @@ void __fastcall DRLG_SetWarpId(struct D2DrlgWarp* pDrlgWarp, int nVis, int nWarp
 }
 
 //D2Common.0x6FD75450
-int __fastcall DRLG_IsOnClient(struct D2Drlg* pDrlg)
+int __cdecl DRLG_IsOnClient(struct D2Drlg* pDrlg)
 {
 	D2_ASSERT(pDrlg);
 

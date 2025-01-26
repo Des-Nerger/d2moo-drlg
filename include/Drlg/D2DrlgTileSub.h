@@ -18,13 +18,13 @@ struct D2UnkOutdoor
 	int32_t nLevelPrestId;				//0x10
 	int32_t field_14;					//0x14
 	int32_t nLvlSubId;					//0x18
-	unsigned int(__fastcall* field_1C)(struct D2DrlgLevel* pLevel, int nX, int nY);						//0x1C
-	BOOL(__fastcall* field_20)(struct D2DrlgLevel* pLevel, int nX, int nY, int nId, int nOffset, char nFlags);						//0x20
-	BOOL(__fastcall* field_24)(struct D2DrlgLevel* pLevel, int nX, int nY, int a4, int a5, unsigned int a6);						//0x24
-	int(__fastcall* field_28)(struct D2DrlgLevel* pLevel, int nStyle, int a3);						//0x28
-	void(__fastcall* field_2C)(struct D2DrlgLevel* pLevel, int nX, int nY);						//0x2C
-	void(__fastcall* field_30)(struct D2DrlgLevel* pLevel, int nX, int nY);						//0x30
-	void(__fastcall* field_34)(struct D2DrlgLevel* pLevel, int nX, int nY, int nLevelPrestId, int nRand, BOOL a6);						//0x34
+	unsigned int(__cdecl* field_1C)(struct D2DrlgLevel* pLevel, int nX, int nY);						//0x1C
+	BOOL(__cdecl* field_20)(struct D2DrlgLevel* pLevel, int nX, int nY, int nId, int nOffset, char nFlags);						//0x20
+	BOOL(__cdecl* field_24)(struct D2DrlgLevel* pLevel, int nX, int nY, int a4, int a5, unsigned int a6);						//0x24
+	int(__cdecl* field_28)(struct D2DrlgLevel* pLevel, int nStyle, int a3);						//0x28
+	void(__cdecl* field_2C)(struct D2DrlgLevel* pLevel, int nX, int nY);						//0x2C
+	void(__cdecl* field_30)(struct D2DrlgLevel* pLevel, int nX, int nY);						//0x30
+	void(__cdecl* field_34)(struct D2DrlgLevel* pLevel, int nX, int nY, int nLevelPrestId, int nRand, BOOL a6);						//0x34
 };
 
 struct D2UnkOutdoor2
@@ -62,24 +62,24 @@ struct D2DrlgSubstGroup
 
 
 //D2Common.0x6FD8A460
-void __fastcall DRLGTILESUB_AddSecondaryBorder(struct D2UnkOutdoor* a1);
+void __cdecl DRLGTILESUB_AddSecondaryBorder(struct D2UnkOutdoor* a1);
 //D2Common.0x6FD8A750
-BOOL __fastcall DRLGTILESUB_TestReplaceSubPreset(int a1, int a2, struct D2UnkOutdoor* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord);
+BOOL __cdecl DRLGTILESUB_TestReplaceSubPreset(int a1, int a2, struct D2UnkOutdoor* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord);
 //D2Common.0x6FD8A8E0
-void __fastcall DRLGTILESUB_ReplaceSubPreset(int a1, int a2, struct D2UnkOutdoor* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord, int a6);
+void __cdecl DRLGTILESUB_ReplaceSubPreset(int a1, int a2, struct D2UnkOutdoor* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord, int a6);
 //D2Common.0x6FD8AA80
-void __fastcall sub_6FD8AA80(struct D2UnkOutdoor2* a1);
+void __cdecl sub_6FD8AA80(struct D2UnkOutdoor2* a1);
 //D2Common.0x6FD8ACE0
-void __fastcall sub_6FD8ACE0(void* pMemPool, int nX, int nY, struct D2UnkOutdoor2* a4, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord, int a7);
+void __cdecl sub_6FD8ACE0(void* pMemPool, int nX, int nY, struct D2UnkOutdoor2* a4, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord, int a7);
 //D2Common.0x6FD8B010
-BOOL __fastcall sub_6FD8B010(int a1, int a2, struct D2UnkOutdoor2* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord);
+BOOL __cdecl sub_6FD8B010(int a1, int a2, struct D2UnkOutdoor2* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord);
 //D2Common.0x6FD8B130
-BOOL __fastcall sub_6FD8B130(int a1, int a2, struct D2UnkOutdoor2* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord);
+BOOL __cdecl sub_6FD8B130(int a1, int a2, struct D2UnkOutdoor2* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord);
 //D2Common.0x6FD8B290
-void __fastcall DRLGTILESUB_DoSubstitutions(struct D2UnkOutdoor2* pOutdoorLevel, struct D2LvlSubTxt* pLvlSubTxtRecord);
+void __cdecl DRLGTILESUB_DoSubstitutions(struct D2UnkOutdoor2* pOutdoorLevel, struct D2LvlSubTxt* pLvlSubTxtRecord);
 //D2Common.0x6FD8B640
-void __fastcall DRLGTILESUB_InitializeDrlgFile(HD2ARCHIVE hArchive, struct D2LvlSubTxt* pLvlSubTxtRecord);
+void __cdecl DRLGTILESUB_InitializeDrlgFile(HD2ARCHIVE hArchive, struct D2LvlSubTxt* pLvlSubTxtRecord);
 //D2Common.0x6FD8B770
-void __fastcall DRLGTILESUB_FreeDrlgFile(struct D2LvlSubTxt* pLvlSubTxtRecord);
+void __cdecl DRLGTILESUB_FreeDrlgFile(struct D2LvlSubTxt* pLvlSubTxtRecord);
 //D2Common.0x6FD8B7E0
-int __fastcall DRLGTILESUB_PickSubThemes(struct D2DrlgRoom* pDrlgRoom, int nSubType, int nSubTheme);
+int __cdecl DRLGTILESUB_PickSubThemes(struct D2DrlgRoom* pDrlgRoom, int nSubType, int nSubTheme);

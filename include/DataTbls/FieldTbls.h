@@ -23,27 +23,27 @@ struct D2Field
 #pragma pack()
 
 //D2Common.0x6FD51FC0
-BOOL __fastcall DATATBLS_LoadExpFieldD2(HD2ARCHIVE hArchive);
+BOOL __cdecl DATATBLS_LoadExpFieldD2(HD2ARCHIVE hArchive);
 //D2Common.0x6FD52010 (#11089)
-D2COMMON_DLL_DECL BOOL __stdcall DATATBLS_InitializeCollisionFieldTable(char* pExpField, int nSize);
+D2COMMON_DLL_DECL BOOL __cdecl DATATBLS_InitializeCollisionFieldTable(char* pExpField, int nSize);
 //D2Common.0x6FD520F0 (#11090)
-D2COMMON_DLL_DECL BOOL __stdcall DATATBLS_FreeCollisionFieldTable();
+D2COMMON_DLL_DECL BOOL __cdecl DATATBLS_FreeCollisionFieldTable();
 //D2Common.0x6FD52140 (#11091)
-D2COMMON_DLL_DECL void __stdcall DATATBLS_GetCollisionFieldCenter(int* pCenterX, int* pCenterY);
+D2COMMON_DLL_DECL void __cdecl DATATBLS_GetCollisionFieldCenter(int* pCenterX, int* pCenterY);
 //D2Common.0x6FD52160 (#11092)
-D2COMMON_DLL_DECL int __stdcall DATATBLS_GetCollisionFieldWidth();
+D2COMMON_DLL_DECL int __cdecl DATATBLS_GetCollisionFieldWidth();
 //D2Common.0x6FD52170 (#11093)
-D2COMMON_DLL_DECL int __stdcall DATATBLS_GetCollisionFieldHeight();
+D2COMMON_DLL_DECL int __cdecl DATATBLS_GetCollisionFieldHeight();
 //D2Common.0x6FD52180 (#11094)
-D2COMMON_DLL_DECL struct D2Field* __stdcall DATATBLS_AllocField();
+D2COMMON_DLL_DECL struct D2Field* __cdecl DATATBLS_AllocField();
 //D2Common.0x6FD521D0 (#11095)
-D2COMMON_DLL_DECL void __stdcall DATATBLS_FreeField(struct D2Field* pField);
+D2COMMON_DLL_DECL void __cdecl DATATBLS_FreeField(struct D2Field* pField);
 //D2Common.0x6FD52210 (#11096)
-D2COMMON_DLL_DECL void __stdcall DATATBLS_SetFieldCoordinates(struct D2Field* pField, int nX, int nY);
+D2COMMON_DLL_DECL void __cdecl DATATBLS_SetFieldCoordinates(struct D2Field* pField, int nX, int nY);
 //D2Common.0x6FD52250 (#11097)
-D2COMMON_DLL_DECL int __stdcall D2Common_11097(struct D2Field* pField, int nX, int nY);
+D2COMMON_DLL_DECL int __cdecl D2Common_11097(struct D2Field* pField, int nX, int nY);
 //D2Common.0x6FD522A0 (#11098)
-D2COMMON_DLL_DECL int __stdcall D2Common_11098(struct D2Field* pField, int* pX, int* pY);
+D2COMMON_DLL_DECL int __cdecl D2Common_11098(struct D2Field* pField, int* pX, int* pY);
 //D2Common.0x6FD52360 (#11099)
-D2COMMON_DLL_DECL BOOL __stdcall D2Common_11099(struct D2Field* pField, struct D2ActiveRoom* pRoom, int nX, int nY, uint16_t fMask);
+D2COMMON_DLL_DECL BOOL __cdecl D2Common_11099(struct D2Field* pField, struct D2ActiveRoom* pRoom, int nX, int nY, uint16_t fMask);
 

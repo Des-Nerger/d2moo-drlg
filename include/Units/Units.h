@@ -224,284 +224,284 @@ inline struct D2AnimSeqTxt* UNITS_GetAnimSeq(struct D2Unit* pUnit) {
 }
 
 //D2Common.0x6FDBD520 (#10457)
-D2COMMON_DLL_DECL uint8_t __stdcall UNITS_GetDirection(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL uint8_t __cdecl UNITS_GetDirection(struct D2Unit* pUnit);
 //D2Common.0x6FDBD570 (#10320)
-D2COMMON_DLL_DECL struct D2Skill* __stdcall UNITS_GetStartSkill(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL struct D2Skill* __cdecl UNITS_GetStartSkill(struct D2Unit* pUnit);
 //D2Common.0x6FDBD5B0 (#10321)
-D2COMMON_DLL_DECL struct D2Skill* __stdcall UNITS_GetLeftSkill(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL struct D2Skill* __cdecl UNITS_GetLeftSkill(struct D2Unit* pUnit);
 //D2Common.0x6FDBD5F0 (#10322)
-D2COMMON_DLL_DECL struct D2Skill* __stdcall UNITS_GetRightSkill(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL struct D2Skill* __cdecl UNITS_GetRightSkill(struct D2Unit* pUnit);
 //D2Common.0x6FDBD630 (#10324)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetUsedSkill(struct D2Unit* pUnit, struct D2Skill* pUsedSkill);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetUsedSkill(struct D2Unit* pUnit, struct D2Skill* pUsedSkill);
 //D2Common.0x6FDBD670 (#10323)
-D2COMMON_DLL_DECL struct D2Skill* __stdcall UNITS_GetUsedSkill(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL struct D2Skill* __cdecl UNITS_GetUsedSkill(struct D2Unit* pUnit);
 //D2Common.0x6FDBD6B0 (#11259)
-D2COMMON_DLL_DECL struct D2Unit* __stdcall UNITS_AllocUnit(void* pMemPool, int nUnitType);
+D2COMMON_DLL_DECL struct D2Unit* __cdecl UNITS_AllocUnit(void* pMemPool, int nUnitType);
 //D2Common.0x6FDBD720 (#11260)
-D2COMMON_DLL_DECL void __stdcall UNITS_FreeUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl UNITS_FreeUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDBD780 (#10327)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetPrecisionX(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetPrecisionX(struct D2Unit* pUnit);
 //D2Common.0x6FDBD7D0 (#10330)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetPrecisionY(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetPrecisionY(struct D2Unit* pUnit);
 //D2Common.0x6FDBD820 (#10328)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetXForStaticUnit(struct D2Unit* pUnit, int nX);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetXForStaticUnit(struct D2Unit* pUnit, int nX);
 //D2Common.0x6FDBD890 (#10331)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetYForStaticUnit(struct D2Unit* pUnit, int nY);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetYForStaticUnit(struct D2Unit* pUnit, int nY);
 //D2Common.0x6FDBD900 (#10336)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetUnitSizeX(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetUnitSizeX(struct D2Unit* pUnit);
 //D2Common.0x6FDBDA00 (#10337)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetUnitSizeY(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetUnitSizeY(struct D2Unit* pUnit);
 //D2Common.0x6FDBDB10 (#10333)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetClientCoordX(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetClientCoordX(struct D2Unit* pUnit);
 //D2Common.0x6FDBDB60 (#10334)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetClientCoordY(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetClientCoordY(struct D2Unit* pUnit);
 //D2Common.0x6FDBDBB0 (#10411)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetAbsoluteXDistance(struct D2Unit* pUnit1, struct D2Unit* pUnit2);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetAbsoluteXDistance(struct D2Unit* pUnit1, struct D2Unit* pUnit2);
 //D2Common.0x6FDBDC20 (#10412)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetAbsoluteYDistance(struct D2Unit* pUnit1, struct D2Unit* pUnit2);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetAbsoluteYDistance(struct D2Unit* pUnit1, struct D2Unit* pUnit2);
 //D2Common.0x6FDBDC90 (#10340)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetTargetX(struct D2Unit* pUnit, int nTargetX);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetTargetX(struct D2Unit* pUnit, int nTargetX);
 //D2Common.0x6FDBDCD0 (#10341)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetTargetY(struct D2Unit* pUnit, int nTargetY);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetTargetY(struct D2Unit* pUnit, int nTargetY);
 //D2Common.0x6FDBDD10 (#10332)
-D2COMMON_DLL_DECL void __stdcall UNITS_GetCoords(struct D2Unit* pUnit, struct D2Coord* pCoord);
+D2COMMON_DLL_DECL void __cdecl UNITS_GetCoords(struct D2Unit* pUnit, struct D2Coord* pCoord);
 //D2Common.0x6FDBDDA0 (#10335)
-D2COMMON_DLL_DECL void __stdcall UNITS_GetClientCoords(struct D2Unit* pUnit, struct D2Coord* pClientCoords);
+D2COMMON_DLL_DECL void __cdecl UNITS_GetClientCoords(struct D2Unit* pUnit, struct D2Coord* pClientCoords);
 //D2Common.0x6FDBDE10 (#10338)
-D2COMMON_DLL_DECL int __fastcall UNITS_GetCollisionMask(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetCollisionMask(struct D2Unit* pUnit);
 //D2Common.0x6FDBDEC0 (#10352)
-D2COMMON_DLL_DECL void __stdcall UNITS_FreeCollisionPath(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl UNITS_FreeCollisionPath(struct D2Unit* pUnit);
 //D2Common.0x6FDBE060 (#10351)
-D2COMMON_DLL_DECL void __stdcall UNITS_BlockCollisionPath(struct D2Unit* pUnit, struct D2ActiveRoom* pRoom, int nX, int nY);
+D2COMMON_DLL_DECL void __cdecl UNITS_BlockCollisionPath(struct D2Unit* pUnit, struct D2ActiveRoom* pRoom, int nX, int nY);
 //D2Common.0x6FDBE1A0 (#10350)
-D2COMMON_DLL_DECL void __stdcall UNITS_InitializeStaticPath(struct D2Unit* pUnit, struct D2ActiveRoom* pRoom, int nX, int nY);
+D2COMMON_DLL_DECL void __cdecl UNITS_InitializeStaticPath(struct D2Unit* pUnit, struct D2ActiveRoom* pRoom, int nX, int nY);
 //D2Common.0x6FDBE210 (#10343)
-D2COMMON_DLL_DECL void __stdcall UNITS_ResetRoom(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl UNITS_ResetRoom(struct D2Unit* pUnit);
 //D2Common.0x6FDBE270 (#10342)
-D2COMMON_DLL_DECL struct D2ActiveRoom* __stdcall UNITS_GetRoom(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL struct D2ActiveRoom* __cdecl UNITS_GetRoom(struct D2Unit* pUnit);
 //D2Common.0x6FDBE2D0 (#10344)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetTargetUnitForDynamicUnit(struct D2Unit* pUnit, struct D2Unit* pTargetUnit);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetTargetUnitForDynamicUnit(struct D2Unit* pUnit, struct D2Unit* pTargetUnit);
 //D2Common.0x6FDBE330 (#10345)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetTargetTypeFromDynamicUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetTargetTypeFromDynamicUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDBE3A0 (#10346)
-D2COMMON_DLL_DECL D2UnitGUID __stdcall UNITS_GetTargetGUIDFromDynamicUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL D2UnitGUID __cdecl UNITS_GetTargetGUIDFromDynamicUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDBE410 (#10347)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetTargetUnitForPlayerOrMonster(struct D2Unit* pUnit, struct D2Unit* pTargetUnit);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetTargetUnitForPlayerOrMonster(struct D2Unit* pUnit, struct D2Unit* pTargetUnit);
 //D2Common.0x6FDBE470 (#10354)
-D2COMMON_DLL_DECL void __stdcall UNITS_GetRunAndWalkSpeedForPlayer(int nUnused, int nCharId, int* pWalkSpeed, int* pRunSpeed);
+D2COMMON_DLL_DECL void __cdecl UNITS_GetRunAndWalkSpeedForPlayer(int nUnused, int nCharId, int* pWalkSpeed, int* pRunSpeed);
 //D2Common.0x6FDBE4C0 (#10325)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetAnimData(struct D2Unit* pUnit, int nUnitType, int nClassId, int nMode);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetAnimData(struct D2Unit* pUnit, int nUnitType, int nClassId, int nMode);
 //D2Common.0x6FDBE510
-void __stdcall UNITS_SetAnimStartFrame(struct D2Unit* pUnit);
+void __cdecl UNITS_SetAnimStartFrame(struct D2Unit* pUnit);
 //D2Common.0x6FDBEA60 (#10348)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_ChangeAnimMode(struct D2Unit* pUnit, int nMode);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_ChangeAnimMode(struct D2Unit* pUnit, int nMode);
 //D2Common.0x6FDBEAD0 (#10355)
-D2COMMON_DLL_DECL int __stdcall UNITS_IsCurrentRoomInvalid(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_IsCurrentRoomInvalid(struct D2Unit* pUnit);
 //D2Common.0x6FDBEB20 (#10356)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetCurrentRoomInvalid(struct D2Unit* pUnit, int a2);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetCurrentRoomInvalid(struct D2Unit* pUnit, int a2);
 //D2Common.0x6FDBEB80 (#10357)
-D2COMMON_DLL_DECL void __stdcall UNITS_RefreshInventory(struct D2Unit* pUnit, BOOL bSetFlag);
+D2COMMON_DLL_DECL void __cdecl UNITS_RefreshInventory(struct D2Unit* pUnit, BOOL bSetFlag);
 //D2Common.0x6FDBEBE0 (#10409)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetInventoryRecordId(struct D2Unit* pUnit, int nInvPage, BOOL bLoD);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetInventoryRecordId(struct D2Unit* pUnit, int nInvPage, BOOL bLoD);
 //D2Common.0x6FDBECD0 (#10383)
-D2COMMON_DLL_DECL struct D2GfxLight* __stdcall UNITS_ResetLightMap(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL struct D2GfxLight* __cdecl UNITS_ResetLightMap(struct D2Unit* pUnit);
 //D2Common.0x6FDBED10 (#10369)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetAnimOrSeqMode(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetAnimOrSeqMode(struct D2Unit* pUnit);
 //D2Common.0x6FDBED40 (#10370)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetAnimOrSeqMode(struct D2Unit* pUnit, int nAnimMode);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetAnimOrSeqMode(struct D2Unit* pUnit, int nAnimMode);
 //D2Common.0x6FDBED90 (#10371)
-D2COMMON_DLL_DECL void __stdcall UNITS_InitializeSequence(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl UNITS_InitializeSequence(struct D2Unit* pUnit);
 //D2Common.0x6FDBEE20 (#10372)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetAnimationFrame(struct D2Unit* pUnit, int nFrame);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetAnimationFrame(struct D2Unit* pUnit, int nFrame);
 //D2Common.0x6FDBEE60 (#10373)
-D2COMMON_DLL_DECL void __stdcall UNITS_StopSequence(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl UNITS_StopSequence(struct D2Unit* pUnit);
 //D2Common.0x6FDBEFF0 (#10374)
-D2COMMON_DLL_DECL void __stdcall UNITS_UpdateFrame(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl UNITS_UpdateFrame(struct D2Unit* pUnit);
 //D2Common.0x6FDBF020 (#10375)
-D2COMMON_DLL_DECL void __stdcall D2COMMON_10375_UNITS_SetFrameNonRate(struct D2Unit* pUnit, int nRate, int nFailRate);
+D2COMMON_DLL_DECL void __cdecl D2COMMON_10375_UNITS_SetFrameNonRate(struct D2Unit* pUnit, int nRate, int nFailRate);
 //1.10f: D2Common.0x6FDBF050 (#10376)
 //1.13c: D2Common.0x6FD83110 (#10819)
-D2COMMON_DLL_DECL void __stdcall UNITS_UpdateAnimRateAndVelocity(struct D2Unit* pUnit, const char* szFile, int nLine);
+D2COMMON_DLL_DECL void __cdecl UNITS_UpdateAnimRateAndVelocity(struct D2Unit* pUnit, const char* szFile, int nLine);
 //D2Common.0x6FDBF8D0 (#10377)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetAnimationSpeed(struct D2Unit* pUnit, int nSpeed);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetAnimationSpeed(struct D2Unit* pUnit, int nSpeed);
 //D2Common.0x6FDBF910 (#10378)
-D2COMMON_DLL_DECL int __stdcall UNITS_IsAtEndOfFrameCycle(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_IsAtEndOfFrameCycle(struct D2Unit* pUnit);
 //D2Common.0x6FDBF970 (#10379)
-D2COMMON_DLL_DECL void __stdcall UNITS_GetShiftedFrameMetrics(struct D2Unit* pUnit, int* pFrameNo, int* pFrameCount);
+D2COMMON_DLL_DECL void __cdecl UNITS_GetShiftedFrameMetrics(struct D2Unit* pUnit, int* pFrameNo, int* pFrameCount);
 //D2Common.0x6FDBF9E0 (#10380)
-D2COMMON_DLL_DECL void __stdcall UNITS_GetFrameMetrics(struct D2Unit* pUnit, int* pFrame, int* pFrameCount);
+D2COMMON_DLL_DECL void __cdecl UNITS_GetFrameMetrics(struct D2Unit* pUnit, int* pFrame, int* pFrameCount);
 //D2Common.0x6FDBFA40 (#10381)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetAnimActionFrame(struct D2Unit* pUnit, int nFrame);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetAnimActionFrame(struct D2Unit* pUnit, int nFrame);
 //D2Common.0x6FDBFA90 (#10382)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetEventFrameInfo(struct D2Unit* pUnit, int nFrame);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetEventFrameInfo(struct D2Unit* pUnit, int nFrame);
 //D2Common.0x6FDBFB40 (#10410)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_HasCollision(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_HasCollision(struct D2Unit* pUnit);
 //D2Common.0x6FDBFB70 (#10358)
-D2COMMON_DLL_DECL struct D2Skill* __stdcall UNITS_GetSkillFromSkillId(struct D2Unit* pUnit, int nSkillId);
+D2COMMON_DLL_DECL struct D2Skill* __cdecl UNITS_GetSkillFromSkillId(struct D2Unit* pUnit, int nSkillId);
 //D2Common.0x6FDBFC10 (#10392)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_IsDoor(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_IsDoor(struct D2Unit* pUnit);
 //D2Common.0x6FDBFC50
-bool __fastcall UNITS_CheckIfObjectOrientationIs1(struct D2Unit* pUnit);
+bool __cdecl UNITS_CheckIfObjectOrientationIs1(struct D2Unit* pUnit);
 //D2Common.0x6FDBFC90 (#10393)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_IsShrine(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_IsShrine(struct D2Unit* pUnit);
 //D2Common.0x6FDBFCB0 (#10394)
-D2COMMON_DLL_DECL struct D2ObjectsTxt* __stdcall UNITS_GetObjectTxtRecordFromObject(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL struct D2ObjectsTxt* __cdecl UNITS_GetObjectTxtRecordFromObject(struct D2Unit* pUnit);
 //D2Common.0x6FDBFD00 (#10395)
-D2COMMON_DLL_DECL struct D2ShrinesTxt* __stdcall UNITS_GetShrineTxtRecordFromObject(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL struct D2ShrinesTxt* __cdecl UNITS_GetShrineTxtRecordFromObject(struct D2Unit* pUnit);
 //D2Common.0x6FDBFD50 (#10396)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetShrineTxtRecordInObjectData(struct D2Unit* pUnit, struct D2ShrinesTxt* pShrinesTxtRecord);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetShrineTxtRecordInObjectData(struct D2Unit* pUnit, struct D2ShrinesTxt* pShrinesTxtRecord);
 //D2Common.0x6FDBFDB0 (#10413)
-D2COMMON_DLL_DECL void __stdcall UNITS_UpdateDirectionAndSpeed(struct D2Unit* pUnit, int nX, int nY);
+D2COMMON_DLL_DECL void __cdecl UNITS_UpdateDirectionAndSpeed(struct D2Unit* pUnit, int nX, int nY);
 //D2Common.0x6FDBFDD0 (#10414)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetNewDirection(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetNewDirection(struct D2Unit* pUnit);
 //D2Common.0x6FDBFF20 (#10416)
-D2COMMON_DLL_DECL void __stdcall UNITS_StoreOwnerTypeAndGUID(struct D2Unit* pUnit, int nOwnerType, D2UnitGUID nOwnerId);
+D2COMMON_DLL_DECL void __cdecl UNITS_StoreOwnerTypeAndGUID(struct D2Unit* pUnit, int nOwnerType, D2UnitGUID nOwnerId);
 //D2Common.0x6FDBFF40
-void __fastcall UNITS_StoreOwnerInfo(struct D2Unit* pUnit, int nOwnerType, int nOwnerId);
+void __cdecl UNITS_StoreOwnerInfo(struct D2Unit* pUnit, int nOwnerType, int nOwnerId);
 //D2Common.0x6FDBFFE0 (#10415)
-D2COMMON_DLL_DECL void __stdcall UNITS_StoreOwner(struct D2Unit* pUnit, struct D2Unit* pOwner);
+D2COMMON_DLL_DECL void __cdecl UNITS_StoreOwner(struct D2Unit* pUnit, struct D2Unit* pOwner);
 //D2Common.0x6FDC0060 (#10417)
-D2COMMON_DLL_DECL void __stdcall UNITS_StoreLastAttacker(struct D2Unit* pUnit, struct D2Unit* pKiller);
+D2COMMON_DLL_DECL void __cdecl UNITS_StoreLastAttacker(struct D2Unit* pUnit, struct D2Unit* pKiller);
 //D2Common.0x6FDC00E0 (#10418)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetDirectionToCoords(struct D2Unit* pUnit, int nNewX, int nNewY);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetDirectionToCoords(struct D2Unit* pUnit, int nNewX, int nNewY);
 //D2Common.0x6FDC0160 (#10437)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetOverlay(struct D2Unit* pUnit, int nOverlay, int nUnused);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetOverlay(struct D2Unit* pUnit, int nOverlay, int nUnused);
 //D2Common.0x6FDC01F0 (#10367)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetBeltType(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetBeltType(struct D2Unit* pUnit);
 //D2Common.0x6FDC0260 (#10368)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetCurrentLifePercentage(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetCurrentLifePercentage(struct D2Unit* pUnit);
 //D2Common.0x6FDC02A0 (#10359)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_IsSoftMonster(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_IsSoftMonster(struct D2Unit* pUnit);
 //D2Common.0x6FDC0320 (#10420)
-D2COMMON_DLL_DECL void __stdcall UNITS_AllocPlayerData(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl UNITS_AllocPlayerData(struct D2Unit* pUnit);
 //D2Common.0x6FDC03F0 (#10421)
-D2COMMON_DLL_DECL void __stdcall UNITS_FreePlayerData(void* pMemPool, struct D2Unit* pPlayer);
+D2COMMON_DLL_DECL void __cdecl UNITS_FreePlayerData(void* pMemPool, struct D2Unit* pPlayer);
 //D2Common.0x6FDC04A0 (#10422)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetNameInPlayerData(struct D2Unit* pUnit, char* szName);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetNameInPlayerData(struct D2Unit* pUnit, char* szName);
 //D2Common.0x6FDC0530 (#10423)
-D2COMMON_DLL_DECL char* __stdcall UNITS_GetPlayerName(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL char* __cdecl UNITS_GetPlayerName(struct D2Unit* pUnit);
 //D2Common.0x6FDC05B0 (#10424)
-D2COMMON_DLL_DECL struct D2PlayerData* __stdcall UNITS_GetPlayerData(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL struct D2PlayerData* __cdecl UNITS_GetPlayerData(struct D2Unit* pUnit);
 //D2Common.0x6FDC0600 (#10425)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetPlayerPortalFlags(struct D2Unit* pUnit, int nPortalFlags);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetPlayerPortalFlags(struct D2Unit* pUnit, int nPortalFlags);
 //D2Common.0x6FDC0660 (#10426)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetPlayerPortalFlags(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetPlayerPortalFlags(struct D2Unit* pUnit);
 //D2Common.0x6FDC06C0 (#10353)
-D2COMMON_DLL_DECL uint32_t __stdcall UNITS_GetNameOffsetFromObject(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL uint32_t __cdecl UNITS_GetNameOffsetFromObject(struct D2Unit* pUnit);
 //D2Common.0x6FDC0700 (#10427)
-D2COMMON_DLL_DECL uint8_t __stdcall UNITS_GetObjectPortalFlags(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL uint8_t __cdecl UNITS_GetObjectPortalFlags(struct D2Unit* pUnit);
 //D2Common.0x6FDC0760 (#10428)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetObjectPortalFlags(struct D2Unit* pUnit, uint8_t nPortalFlag);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetObjectPortalFlags(struct D2Unit* pUnit, uint8_t nPortalFlag);
 //D2Common.0x6FDC07C0 (#10429)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_CheckObjectPortalFlag(struct D2Unit* pUnit, uint8_t nFlag);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_CheckObjectPortalFlag(struct D2Unit* pUnit, uint8_t nFlag);
 //D2Common.0x6FDC0820 (#10430)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetOverlayHeight(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetOverlayHeight(struct D2Unit* pUnit);
 //D2Common.0x6FDC08B0 (#10431)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetDefense(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetDefense(struct D2Unit* pUnit);
 //D2Common.0x6FDC0AC0 (#10432)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetAttackRate(struct D2Unit* pAttacker);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetAttackRate(struct D2Unit* pAttacker);
 //D2Common.0x6FDC0B60 (#10433)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetBlockRate(struct D2Unit* pUnit, BOOL bExpansion);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetBlockRate(struct D2Unit* pUnit, BOOL bExpansion);
 //D2Common.0x6FDC0DA0 (#10434)
-D2COMMON_DLL_DECL struct D2Unit* __stdcall D2Common_10434(struct D2Unit* pUnit, BOOL a2);
+D2COMMON_DLL_DECL struct D2Unit* __cdecl D2Common_10434(struct D2Unit* pUnit, BOOL a2);
 //D2Common.0x6FDC0F70 (#10435)
-D2COMMON_DLL_DECL struct D2Unit* __stdcall UNITS_GetEquippedWeaponFromMonster(struct D2Unit* pMonster);
+D2COMMON_DLL_DECL struct D2Unit* __cdecl UNITS_GetEquippedWeaponFromMonster(struct D2Unit* pMonster);
 //D2Common.0x6FDC0FC0 (#10436)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetFrameBonus(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetFrameBonus(struct D2Unit* pUnit);
 //D2Common.0x6FDC1120 (#10360)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetMeleeRange(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetMeleeRange(struct D2Unit* pUnit);
 //D2Common.0x6FDC1230 (#10364)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_TestCollisionByCoordinates(struct D2Unit* pUnit, int nX, int nY, int nFlags);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_TestCollisionByCoordinates(struct D2Unit* pUnit, int nX, int nY, int nFlags);
 //D2Common.0x6FDC13D0
-BOOL __fastcall UNITS_TestCollision(int nX1, int nY1, int nSize1, int nX2, int nY2, int nSize2, struct D2ActiveRoom* pRoom, int nCollisionMask);
+BOOL __cdecl UNITS_TestCollision(int nX1, int nY1, int nSize1, int nX2, int nY2, int nSize2, struct D2ActiveRoom* pRoom, int nCollisionMask);
 //D2Common.0x6FDC14C0 (#10362)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_TestCollisionWithUnit(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int nCollisionMask);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_TestCollisionWithUnit(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int nCollisionMask);
 //D2Common.0x6FDC1760
-void __fastcall UNITS_ToggleUnitFlag(struct D2Unit* pUnit, int nFlag, BOOL bSet);
+void __cdecl UNITS_ToggleUnitFlag(struct D2Unit* pUnit, int nFlag, BOOL bSet);
 //D2Common.0x6FDC1790 (#10363)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_TestCollisionBetweenInteractingUnits(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int nCollisionMask);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_TestCollisionBetweenInteractingUnits(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int nCollisionMask);
 //D2Common.0x6FDC1A70 (#10361)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_IsInMeleeRange(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int nRangeBonus);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_IsInMeleeRange(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int nRangeBonus);
 //D2Common.0x6FDC1B40 (#10318)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_IsInMovingMode(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_IsInMovingMode(struct D2Unit* pUnit);
 //D2Common.0x6FDC1C30 (#10319)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_IsInMovingModeEx(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_IsInMovingModeEx(struct D2Unit* pUnit);
 //D2Common.0x6FDC1C50 (#10365)
-D2COMMON_DLL_DECL int __fastcall UNITS_GetHitClass(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetHitClass(struct D2Unit* pUnit);
 //D2Common.0x6FDC1CE0 (#10366)
-D2COMMON_DLL_DECL int __fastcall UNITS_GetWeaponClass(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetWeaponClass(struct D2Unit* pUnit);
 //D2Common.0x6FDC1D00 (#10438)
-D2COMMON_DLL_DECL unsigned int __stdcall UNITS_GetHealingCost(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL unsigned int __cdecl UNITS_GetHealingCost(struct D2Unit* pUnit);
 //D2Common.0x6FDC1D90 (#10439)
-D2COMMON_DLL_DECL unsigned int __stdcall UNITS_GetInventoryGoldLimit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL unsigned int __cdecl UNITS_GetInventoryGoldLimit(struct D2Unit* pUnit);
 //D2Common.0x6FDC1DB0 (#10440)
-D2COMMON_DLL_DECL void __stdcall UNITS_MergeDualWieldWeaponStatLists(struct D2Unit* pUnit, int a2);
+D2COMMON_DLL_DECL void __cdecl UNITS_MergeDualWieldWeaponStatLists(struct D2Unit* pUnit, int a2);
 //D2Common.0x6FDC1EE0
-struct D2MonStats2Txt* __fastcall UNITS_GetMonStats2TxtRecord(int nRecordId);
+struct D2MonStats2Txt* __cdecl UNITS_GetMonStats2TxtRecord(int nRecordId);
 //D2Common.0x6FDC1F10 (#10442)
-D2COMMON_DLL_DECL uint8_t __stdcall UNITS_GetItemComponentId(struct D2Unit* pUnit, struct D2Unit* pItem);
+D2COMMON_DLL_DECL uint8_t __cdecl UNITS_GetItemComponentId(struct D2Unit* pUnit, struct D2Unit* pItem);
 //D2Common.0x6FDC1FE0
-struct D2MonStats2Txt* __fastcall UNITS_GetMonStats2TxtRecordFromMonsterId(int nMonsterId);
+struct D2MonStats2Txt* __cdecl UNITS_GetMonStats2TxtRecordFromMonsterId(int nMonsterId);
 //D2Common.0x6FDC2030 (#10443)
-D2COMMON_DLL_DECL void __stdcall UNITS_InitRightSkill(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl UNITS_InitRightSkill(struct D2Unit* pUnit);
 //D2Common.0x6FDC20A0 (#10444)
-D2COMMON_DLL_DECL void __stdcall UNITS_InitLeftSkill(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl UNITS_InitLeftSkill(struct D2Unit* pUnit);
 //D2Common.0x6FDC2110 (#10445)
-D2COMMON_DLL_DECL void __stdcall UNITS_InitSwitchRightSkill(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl UNITS_InitSwitchRightSkill(struct D2Unit* pUnit);
 //D2Common.0x6FDC2180 (#10446)
-D2COMMON_DLL_DECL void __stdcall UNITS_InitSwitchLeftSkill(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl UNITS_InitSwitchLeftSkill(struct D2Unit* pUnit);
 //D2Common.0x6FDC21F0 (#10447)
-D2COMMON_DLL_DECL void __stdcall UNITS_GetRightSkillData(struct D2Unit* pUnit, int* pRightSkillId, int* pRightSkillFlags);
+D2COMMON_DLL_DECL void __cdecl UNITS_GetRightSkillData(struct D2Unit* pUnit, int* pRightSkillId, int* pRightSkillFlags);
 //D2Common.0x6FDC2250 (#10448)
-D2COMMON_DLL_DECL void __stdcall UNITS_GetLeftSkillData(struct D2Unit* pUnit, int* pLeftSkillId, int* pLeftSkillFlags);
+D2COMMON_DLL_DECL void __cdecl UNITS_GetLeftSkillData(struct D2Unit* pUnit, int* pLeftSkillId, int* pLeftSkillFlags);
 //D2Common.0x6FDC22B0 (#10449)
-D2COMMON_DLL_DECL void __stdcall UNITS_GetSwitchRightSkillDataResetRightSkill(struct D2Unit* pUnit, int* pSwitchRightSkillId, int* pSwitchRightSkillFlags);
+D2COMMON_DLL_DECL void __cdecl UNITS_GetSwitchRightSkillDataResetRightSkill(struct D2Unit* pUnit, int* pSwitchRightSkillId, int* pSwitchRightSkillFlags);
 //D2Common.0x6FDC2330 (#10450)
-D2COMMON_DLL_DECL void __stdcall UNITS_GetSwitchLeftSkillDataResetLeftSkill(struct D2Unit* pUnit, int* pSwitchLeftSkillId, int* pSwitchLeftSkillFlags);
+D2COMMON_DLL_DECL void __cdecl UNITS_GetSwitchLeftSkillDataResetLeftSkill(struct D2Unit* pUnit, int* pSwitchLeftSkillId, int* pSwitchLeftSkillFlags);
 //D2Common.0x6FDC23B0 (#10451)
-D2COMMON_DLL_DECL void __stdcall UNITS_GetSwitchLeftSkillData(struct D2Unit* pUnit, int* pSwitchLeftSkillId, int* pSwitchLeftSkillFlags);
+D2COMMON_DLL_DECL void __cdecl UNITS_GetSwitchLeftSkillData(struct D2Unit* pUnit, int* pSwitchLeftSkillId, int* pSwitchLeftSkillFlags);
 //D2Common.0x6FDC2420 (#10452)
-D2COMMON_DLL_DECL void __stdcall UNITS_GetSwitchRightSkillData(struct D2Unit* pUnit, int* pSwitchRightSkillId, int* pSwitchRightSkillFlags);
+D2COMMON_DLL_DECL void __cdecl UNITS_GetSwitchRightSkillData(struct D2Unit* pUnit, int* pSwitchRightSkillId, int* pSwitchRightSkillFlags);
 //D2Common.0x6FDC2490 (#10453)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetSwitchLeftSkill(struct D2Unit* pUnit, int nSwitchLeftSkillId, int nSwitchLeftSkillFlags);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetSwitchLeftSkill(struct D2Unit* pUnit, int nSwitchLeftSkillId, int nSwitchLeftSkillFlags);
 //D2Common.0x6FDC24E0 (#10454)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetSwitchRightSkill(struct D2Unit* pUnit, int nSwitchRightSkillId, int nSwitchRightSkillFlags);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetSwitchRightSkill(struct D2Unit* pUnit, int nSwitchRightSkillId, int nSwitchRightSkillFlags);
 //D2Common.0x6FDC2530 (#10455)
-D2COMMON_DLL_DECL void __stdcall UNITS_SetWeaponGUID(struct D2Unit* pUnit, struct D2Unit* pWeapon);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetWeaponGUID(struct D2Unit* pUnit, struct D2Unit* pWeapon);
 //D2Common.0x6FDC25B0 (#10456)
-D2COMMON_DLL_DECL D2UnitGUID __stdcall UNITS_GetWeaponGUID(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL D2UnitGUID __cdecl UNITS_GetWeaponGUID(struct D2Unit* pUnit);
 //D2Common.0x6FDC2630 (#10339)
-D2COMMON_DLL_DECL unsigned int __stdcall UNITS_GetStashGoldLimit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL unsigned int __cdecl UNITS_GetStashGoldLimit(struct D2Unit* pUnit);
 //D2Common.0x6FDC2680 (#10317)
-D2COMMON_DLL_DECL BOOL __fastcall UNITS_CanSwitchAI(int nMonsterId);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_CanSwitchAI(int nMonsterId);
 //D2Common.0x6FDC2720 (#10458)
-D2COMMON_DLL_DECL void __fastcall UNITS_SetTimerArg(struct D2Unit* pUnit, struct D2TimerArg* pTimerArg);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetTimerArg(struct D2Unit* pUnit, struct D2TimerArg* pTimerArg);
 //D2Common.0x6FDC2750 (#10459)
-D2COMMON_DLL_DECL struct D2TimerArg* __fastcall UNITS_GetTimerArg(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL struct D2TimerArg* __cdecl UNITS_GetTimerArg(struct D2Unit* pUnit);
 //D2Common.0x6FDC2780 (#10460)
-D2COMMON_DLL_DECL void __stdcall UNITS_AllocStaticPath(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl UNITS_AllocStaticPath(struct D2Unit* pUnit);
 //D2Common.0x6FDC27C0 (#10461)
-D2COMMON_DLL_DECL void __stdcall UNITS_FreeStaticPath(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl UNITS_FreeStaticPath(struct D2Unit* pUnit);
 //D2Common.0x6FDC27F0 (#10462)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_CanDualWield(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_CanDualWield(struct D2Unit* pUnit);
 //D2Common.0x6FDC2860 (#11238)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_IsCorpseUseable(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_IsCorpseUseable(struct D2Unit* pUnit);
 //D2Common.0x6FDC2910 (#11307)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_IsObjectInInteractRange(struct D2Unit* pUnit, struct D2Unit* pObject);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_IsObjectInInteractRange(struct D2Unit* pUnit, struct D2Unit* pObject);
 //D2Common.0x6FDC2C80
-struct D2CharStatsTxt* __fastcall UNITS_GetCharStatsTxtRecord(int nRecordId);
+struct D2CharStatsTxt* __cdecl UNITS_GetCharStatsTxtRecord(int nRecordId);
 //1.10f: D2Common.0x6FDC2CB0 (#10399)
 //1.13c: D2Common.0x6FDCFCD0 (#10407)
-D2COMMON_DLL_DECL int __stdcall D2Common_10399(struct D2Unit* pUnit1, struct D2Unit* pUnit2);
+D2COMMON_DLL_DECL int __cdecl D2Common_10399(struct D2Unit* pUnit1, struct D2Unit* pUnit2);
 //D2Common.0x6FDC2E40 (#10397)
-D2COMMON_DLL_DECL int __stdcall UNITS_GetDistanceToOtherUnit(struct D2Unit* pUnit1, struct D2Unit* pUnit2);
+D2COMMON_DLL_DECL int __cdecl UNITS_GetDistanceToOtherUnit(struct D2Unit* pUnit1, struct D2Unit* pUnit2);
 //D2Common.0x6FDC2F50 (#10398)
-D2COMMON_DLL_DECL unsigned int __stdcall UNITS_GetDistanceToCoordinates(struct D2Unit* pUnit, int nX, int nY);
+D2COMMON_DLL_DECL unsigned int __cdecl UNITS_GetDistanceToCoordinates(struct D2Unit* pUnit, int nX, int nY);
 //D2Common.0x6FDC2FF0 (#10400)
-D2COMMON_DLL_DECL BOOL __stdcall UNITS_IsInRange(struct D2Unit* pUnit, struct D2Coord* pCoord, int nDistance);
+D2COMMON_DLL_DECL BOOL __cdecl UNITS_IsInRange(struct D2Unit* pUnit, struct D2Coord* pCoord, int nDistance);
 //D2Common.0x6FDC3090 (#10406)
-D2COMMON_DLL_DECL struct D2Unit* __stdcall D2Common_10406(struct D2Unit* pUnit, int(__fastcall* pCallback)(struct D2Unit*, void*), void* a3);
+D2COMMON_DLL_DECL struct D2Unit* __cdecl D2Common_10406(struct D2Unit* pUnit, int(__cdecl* pCallback)(struct D2Unit*, void*), void* a3);
 //D2Common.0x6FDC33C0 (#10407)
-D2COMMON_DLL_DECL struct D2Unit* __stdcall D2Common_10407(struct D2ActiveRoom* pRoom, int nX, int nY, int(__fastcall* pCallback)(struct D2Unit*, void*), void* a5, int a6);
+D2COMMON_DLL_DECL struct D2Unit* __cdecl D2Common_10407(struct D2ActiveRoom* pRoom, int nX, int nY, int(__cdecl* pCallback)(struct D2Unit*, void*), void* a5, int a6);
 //D2Common.0x6FDC3680 (#10419)
-D2COMMON_DLL_DECL void __fastcall UNITS_SetInteractData(struct D2Unit* pUnit, int nSkillId, int nUnitType, D2UnitGUID nUnitGUID);
+D2COMMON_DLL_DECL void __cdecl UNITS_SetInteractData(struct D2Unit* pUnit, int nSkillId, int nUnitType, D2UnitGUID nUnitGUID);

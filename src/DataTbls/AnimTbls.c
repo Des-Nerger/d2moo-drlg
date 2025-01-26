@@ -6,7 +6,7 @@
 #include <Archive.h>
 
 //D2Common.0x6FD473C0
-struct D2AnimDataTable* __fastcall DATATBLS_LoadAnimDataD2(HD2ARCHIVE hArchive)
+struct D2AnimDataTable* __cdecl DATATBLS_LoadAnimDataD2(HD2ARCHIVE hArchive)
 {
 	struct D2AnimDataTable* pAnimDataTable = D2_CALLOC_STRC_POOL(nullptr, struct D2AnimDataTable);
 
@@ -29,7 +29,7 @@ struct D2AnimDataTable* __fastcall DATATBLS_LoadAnimDataD2(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD47460
-void __fastcall DATATBLS_UnloadAnimDataD2(struct D2AnimDataTable* pAnimData)
+void __cdecl DATATBLS_UnloadAnimDataD2(struct D2AnimDataTable* pAnimData)
 {
 	if (pAnimData)
 	{
@@ -84,7 +84,7 @@ static struct D2AnimDataRecord* DATATBLS_GetAnimDataRecordFromPath(char* szPath)
 }
 
 //D2Common.0x6FD474A0
-const struct D2AnimDataRecord* __fastcall DATATBLS_GetAnimDataRecord(struct D2Unit* pUnit, int nClassId, int nMode, int nUnitType, struct D2Inventory* pInventory)
+const struct D2AnimDataRecord* __cdecl DATATBLS_GetAnimDataRecord(struct D2Unit* pUnit, int nClassId, int nMode, int nUnitType, struct D2Inventory* pInventory)
 {
 	int nWeaponClassCode = 0;
 	char szPath[8] = {};
@@ -101,7 +101,7 @@ const struct D2AnimDataRecord* __fastcall DATATBLS_GetAnimDataRecord(struct D2Un
 }
 
 //D2Common.0x6FD475D0 (#10640)
-void __stdcall DATATBLS_UnitAnimInfoDebugSet(struct D2Unit* pUnit, int nAnimSpeed)
+void __cdecl DATATBLS_UnitAnimInfoDebugSet(struct D2Unit* pUnit, int nAnimSpeed)
 {
 	int nWeaponClassCode = 0;
 	char szPath[8] = {};
@@ -116,7 +116,7 @@ void __stdcall DATATBLS_UnitAnimInfoDebugSet(struct D2Unit* pUnit, int nAnimSpee
 }
 
 //D2Common.0x6FD47700 (#10641)
-BOOL __stdcall DATATBLS_GetAnimDataInfo(char* szPath, int* pOutLength, int* pOutAnimSpeed, int* pOutFirstFrameTagged)
+BOOL __cdecl DATATBLS_GetAnimDataInfo(char* szPath, int* pOutLength, int* pOutAnimSpeed, int* pOutFirstFrameTagged)
 {
 	struct D2AnimDataRecord* pRecord = DATATBLS_GetAnimDataRecordFromPath(szPath);
 	if (pRecord)

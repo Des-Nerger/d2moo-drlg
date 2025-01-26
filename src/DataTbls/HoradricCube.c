@@ -20,7 +20,7 @@ static BOOL DATATBLS_AreStringsEqual(const char* szString1, const char* szString
 
 
 //D2Common.0x6FD523E0
-void __fastcall DATATBLS_CubeMainInputLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn)
+void __cdecl DATATBLS_CubeMainInputLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn)
 {
 	if (pRecord && pSrc && *pSrc)
 	{
@@ -29,7 +29,7 @@ void __fastcall DATATBLS_CubeMainInputLinker(char* pSrc, void* pRecord, int nOff
 }
 
 //D2Common.0x6FD52410
-BOOL __fastcall DATATBLS_CubeMainInputParser(struct D2CubeInputItem* pCubeInput, char* szInput, int nTxtRow, int nItemId)
+BOOL __cdecl DATATBLS_CubeMainInputParser(struct D2CubeInputItem* pCubeInput, char* szInput, int nTxtRow, int nItemId)
 {
 	D2_MAYBE_UNUSED(nTxtRow);
 	D2_MAYBE_UNUSED(nItemId);
@@ -251,7 +251,7 @@ BOOL __fastcall DATATBLS_CubeMainInputParser(struct D2CubeInputItem* pCubeInput,
 }
 
 //D2Common.0x6FD528D0
-void __fastcall DATATBLS_CubeMainOutputLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn)
+void __cdecl DATATBLS_CubeMainOutputLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn)
 {
 	if (pRecord && pSrc && *pSrc)
 	{
@@ -260,7 +260,7 @@ void __fastcall DATATBLS_CubeMainOutputLinker(char* pSrc, void* pRecord, int nOf
 }
 
 //D2Common.0x6FD52910
-BOOL __fastcall DATATBLS_CubeMainOutputParser(struct D2CubeOutputItem* pCubeOutputParam, char* szOutput, int nTxtRow, int nItemId)
+BOOL __cdecl DATATBLS_CubeMainOutputParser(struct D2CubeOutputItem* pCubeOutputParam, char* szOutput, int nTxtRow, int nItemId)
 {
 	char* szOutputModifier = NULL;
 	char* szNext = NULL;
@@ -558,7 +558,7 @@ BOOL __fastcall DATATBLS_CubeMainOutputParser(struct D2CubeOutputItem* pCubeOutp
 }
 
 //D2Common.0x6FD52FC0
-void __fastcall DATATBLS_CubeMainParamLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn)
+void __cdecl DATATBLS_CubeMainParamLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn)
 {
 	int nValue = 0;
 
@@ -587,7 +587,7 @@ void __fastcall DATATBLS_CubeMainParamLinker(char* pSrc, void* pRecord, int nOff
 }
 
 //D2Common.0x6FD53030
-void __fastcall DATATBLS_LoadCubeMainTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadCubeMainTxt(HD2ARCHIVE hArchive)
 {
 	HSFILE pFileHandle = NULL;
 	char szPath[100] = {};
@@ -716,14 +716,14 @@ void __fastcall DATATBLS_LoadCubeMainTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD54250
-void __fastcall DATATBLS_UnloadCubeMainTxt()
+void __cdecl DATATBLS_UnloadCubeMainTxt()
 {
 	DATATBLS_UnloadBin(sgptDataTables->pCubeMainTxt);
 	sgptDataTables->pCubeMainTxt = NULL;
 }
 
 //D2Common.0x6FD54260 (#11232)
-struct D2CubeMainTxt* __stdcall DATATBLS_GetCubemainTxtRecord(int nIndex)
+struct D2CubeMainTxt* __cdecl DATATBLS_GetCubemainTxtRecord(int nIndex)
 {
 	D2_ASSERT(sgptDataTables->pCubeMainTxt);
 	D2_ASSERT(nIndex < sgptDataTables->nCubeMainTxtRecordCount);
@@ -732,7 +732,7 @@ struct D2CubeMainTxt* __stdcall DATATBLS_GetCubemainTxtRecord(int nIndex)
 }
 
 //D2Common.0x6FD542C0 (#11233)
-int __fastcall DATATBLS_GetCubemainTxtRecordCount()
+int __cdecl DATATBLS_GetCubemainTxtRecordCount()
 {
 	return sgptDataTables->nCubeMainTxtRecordCount;
 }

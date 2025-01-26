@@ -78,7 +78,7 @@ static const char* gszAutomapTileNames[] =
 LPCRITICAL_SECTION gpLvlSubTypeFilesCriticalSection;
 
 //D2Common.0x6FD5EAE0
-void __fastcall DATATBLS_LoadLevelsTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadLevelsTxt(HD2ARCHIVE hArchive)
 {
 	int nMonsterCounter = 0;
 
@@ -283,7 +283,7 @@ void __fastcall DATATBLS_LoadLevelsTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD603C0 (#10631)
-struct D2LevelsTxt* __stdcall DATATBLS_GetLevelsTxtRecord(int nLevelId)
+struct D2LevelsTxt* __cdecl DATATBLS_GetLevelsTxtRecord(int nLevelId)
 {
 	if (nLevelId >= 0 && nLevelId < sgptDataTables->nLevelsTxtRecordCount)
 	{
@@ -294,7 +294,7 @@ struct D2LevelsTxt* __stdcall DATATBLS_GetLevelsTxtRecord(int nLevelId)
 }
 
 //D2Common.0x6FD603F0 (#10632)
-uint8_t __stdcall DATATBLS_GetRainFromLevelsTxt(int nLevelId)
+uint8_t __cdecl DATATBLS_GetRainFromLevelsTxt(int nLevelId)
 {
 	if (nLevelId >= 0 && nLevelId < sgptDataTables->nLevelsTxtRecordCount)
 	{
@@ -305,7 +305,7 @@ uint8_t __stdcall DATATBLS_GetRainFromLevelsTxt(int nLevelId)
 }
 
 //D2Common.0x6FD60430 (#10634)
-uint8_t __stdcall DATATBLS_GetNoPerFromLevelsTxt(int nLevelId)
+uint8_t __cdecl DATATBLS_GetNoPerFromLevelsTxt(int nLevelId)
 {
 	if (nLevelId >= 0 && nLevelId < sgptDataTables->nLevelsTxtRecordCount)
 	{
@@ -316,7 +316,7 @@ uint8_t __stdcall DATATBLS_GetNoPerFromLevelsTxt(int nLevelId)
 }
 
 //D2Common.0x6FD60470 (#10633)
-uint8_t __stdcall DATATBLS_GetMudFromLevelsTxt(int nLevelId)
+uint8_t __cdecl DATATBLS_GetMudFromLevelsTxt(int nLevelId)
 {
 	if (nLevelId >= 0 && nLevelId < sgptDataTables->nLevelsTxtRecordCount)
 	{
@@ -327,7 +327,7 @@ uint8_t __stdcall DATATBLS_GetMudFromLevelsTxt(int nLevelId)
 }
 
 //D2Common.0x6FD604B0
-void __fastcall DATATBLS_UnloadLevelsTxt()
+void __cdecl DATATBLS_UnloadLevelsTxt()
 {
 	if (sgptDataTables->pLevelsTxt)
 	{
@@ -337,7 +337,7 @@ void __fastcall DATATBLS_UnloadLevelsTxt()
 }
 
 //D2Common.0x6FD604F0 (#11247)
-int __stdcall DATATBLS_GetMonsterLevelInArea(int nLevelId, uint8_t nDifficulty, BOOL bExpansion)
+int __cdecl DATATBLS_GetMonsterLevelInArea(int nLevelId, uint8_t nDifficulty, BOOL bExpansion)
 {
 	struct D2LevelsTxt* pLevelsTxtRecord = NULL;
 
@@ -361,14 +361,14 @@ int __stdcall DATATBLS_GetMonsterLevelInArea(int nLevelId, uint8_t nDifficulty, 
 }
 
 //D2Common.0x6FD60560
-int* __fastcall DATATBLS_GetPortalLevels(int* pnPortalLevels)
+int* __cdecl DATATBLS_GetPortalLevels(int* pnPortalLevels)
 {
 	*pnPortalLevels = sgptDataTables->nPortalLevels;
 	return sgptDataTables->pPortalLevels;
 }
 
 //D2Common.0x6FD60570
-void __fastcall DATATBLS_LoadLevelDefsBin(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadLevelDefsBin(HD2ARCHIVE hArchive)
 {
 	int nPortalIndex = 0;
 
@@ -450,7 +450,7 @@ void __fastcall DATATBLS_LoadLevelDefsBin(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD60D60
-void __fastcall DATATBLS_UnloadLevelDefsBin()
+void __cdecl DATATBLS_UnloadLevelDefsBin()
 {
 	if (sgptDataTables->pLevelDefBin)
 	{
@@ -464,7 +464,7 @@ void __fastcall DATATBLS_UnloadLevelDefsBin()
 }
 
 //D2Common.0x6FD60D90 (#10010)
-struct D2LevelDefBin* __fastcall DATATBLS_GetLevelDefRecord(int nLevelId)
+struct D2LevelDefBin* __cdecl DATATBLS_GetLevelDefRecord(int nLevelId)
 {
 	if (nLevelId >= 0 && nLevelId < sgptDataTables->nLevelsTxtRecordCount)
 	{
@@ -475,7 +475,7 @@ struct D2LevelDefBin* __fastcall DATATBLS_GetLevelDefRecord(int nLevelId)
 }
 
 //D2Common.0x6FD60DC0
-void __fastcall DATATBLS_LoadLevelTypesTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadLevelTypesTxt(HD2ARCHIVE hArchive)
 {	
 	int nLen = 0;
 	char szFile[60] = {};
@@ -545,20 +545,20 @@ void __fastcall DATATBLS_LoadLevelTypesTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD61450
-void __fastcall DATATBLS_UnloadLevelTypesTxt()
+void __cdecl DATATBLS_UnloadLevelTypesTxt()
 {
 	DATATBLS_UnloadBin(sgptDataTables->pLvlTypesTxt);
 }
 
 //D2Common.0x6FD61460 (#10023)
-struct D2LvlTypesTxt* __stdcall DATATBLS_GetLevelTypesTxtRecord(int nLevelType)
+struct D2LvlTypesTxt* __cdecl DATATBLS_GetLevelTypesTxtRecord(int nLevelType)
 {
 	D2_ASSERT(sgptDataTables->pLvlTypesTxt);
 	return &sgptDataTables->pLvlTypesTxt[nLevelType];
 }
 
 //D2Common.0x6FD614A0 (#11226)
-bool __stdcall DATATBLS_CheckActInLevelTypesTxt(int nLevelType, uint8_t nAct)
+bool __cdecl DATATBLS_CheckActInLevelTypesTxt(int nLevelType, uint8_t nAct)
 {
 	struct D2LvlTypesTxt* pLevelTypesTxtRecord = NULL;
 
@@ -570,7 +570,7 @@ bool __stdcall DATATBLS_CheckActInLevelTypesTxt(int nLevelType, uint8_t nAct)
 }
 
 //D2Common.0x6FD61500 (#11227)
-void __stdcall DATATBLS_GetFileNameFromLevelTypeAndFileId(int nLevelType, int nFile, char* szFile)
+void __cdecl DATATBLS_GetFileNameFromLevelTypeAndFileId(int nLevelType, int nFile, char* szFile)
 {
 	struct D2LvlTypesTxt* pLevelTypesTxtRecord = NULL;
 
@@ -587,7 +587,7 @@ void __stdcall DATATBLS_GetFileNameFromLevelTypeAndFileId(int nLevelType, int nF
 }
 
 //D2Common.0x6FD61570
-void __fastcall DATATBLS_LoadLvlPrestTxt(HD2ARCHIVE hArchive, int a2)
+void __cdecl DATATBLS_LoadLvlPrestTxt(HD2ARCHIVE hArchive, int a2)
 {
 	int nLength = 0;
 
@@ -665,7 +665,7 @@ void __fastcall DATATBLS_LoadLvlPrestTxt(HD2ARCHIVE hArchive, int a2)
 }
 
 //D2Common.0x6FD61AD0
-void __fastcall DATATBLS_UnloadLvlPrestTxt()
+void __cdecl DATATBLS_UnloadLvlPrestTxt()
 {
 	struct D2DrlgFile** ppLvlPrestFiles = NULL;
 
@@ -692,7 +692,7 @@ void __fastcall DATATBLS_UnloadLvlPrestTxt()
 }
 
 //D2Common.0x6FD61B50 (#10024)
-struct D2LvlPrestTxt* __stdcall DATATBLS_GetLvlPrestTxtRecord(int nId)
+struct D2LvlPrestTxt* __cdecl DATATBLS_GetLvlPrestTxtRecord(int nId)
 {
 	if (nId >= 0 && nId < sgptDataTables->nLvlPrestTxtRecordCount)
 	{
@@ -703,7 +703,7 @@ struct D2LvlPrestTxt* __stdcall DATATBLS_GetLvlPrestTxtRecord(int nId)
 }
 
 //D2Common.0x6FD61B80
-struct D2LvlPrestTxt* __fastcall DATATBLS_GetLvlPrestTxtRecordFromLevelId(int nLevelId)
+struct D2LvlPrestTxt* __cdecl DATATBLS_GetLvlPrestTxtRecordFromLevelId(int nLevelId)
 {
 	for (int i = 0; i < sgptDataTables->nLvlPrestTxtRecordCount; ++i)
 	{
@@ -717,7 +717,7 @@ struct D2LvlPrestTxt* __fastcall DATATBLS_GetLvlPrestTxtRecordFromLevelId(int nL
 }
 
 //D2Common.0x6FD61BC0
-void __fastcall DATATBLS_LoadLvlWarpTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadLvlWarpTxt(HD2ARCHIVE hArchive)
 {
 	struct D2BinField pTbl[] =
 	{
@@ -740,13 +740,13 @@ void __fastcall DATATBLS_LoadLvlWarpTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD61DD0
-void __fastcall DATATBLS_UnloadLvlWarpTxt()
+void __cdecl DATATBLS_UnloadLvlWarpTxt()
 {
 	DATATBLS_UnloadBin(sgptDataTables->pLvlWarpTxt);
 }
 
 //D2Common.0x6FD61DE0
-struct D2LvlWarpTxt* __fastcall DATATBLS_GetLvlWarpTxtRecordFromLevelIdAndDirection(int nLevelId, char szDirection)
+struct D2LvlWarpTxt* __cdecl DATATBLS_GetLvlWarpTxtRecordFromLevelIdAndDirection(int nLevelId, char szDirection)
 {
 	D2_ASSERT(sgptDataTables->pLvlWarpTxt);
 
@@ -766,7 +766,7 @@ struct D2LvlWarpTxt* __fastcall DATATBLS_GetLvlWarpTxtRecordFromLevelIdAndDirect
 }
 
 //D2Common.0x6FD61E60
-void __fastcall DATATBLS_LoadLvlMazeTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadLvlMazeTxt(HD2ARCHIVE hArchive)
 {
 	struct D2BinField pTbl[] =
 	{
@@ -784,13 +784,13 @@ void __fastcall DATATBLS_LoadLvlMazeTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD61F90
-void __fastcall DATATBLS_UnloadLvlMazeTxt()
+void __cdecl DATATBLS_UnloadLvlMazeTxt()
 {
 	DATATBLS_UnloadBin(sgptDataTables->pLvlMazeTxt);
 }
 
 //D2Common.0x6FD61FA0
-struct D2LvlMazeTxt* __fastcall DATATBLS_GetLvlMazeTxtRecordFromLevelId(int nLevelId)
+struct D2LvlMazeTxt* __cdecl DATATBLS_GetLvlMazeTxtRecordFromLevelId(int nLevelId)
 {
 	D2_ASSERT(sgptDataTables->pLvlMazeTxt);
 	D2_ASSERT(sgptDataTables->nLvlMazeTxtRecordCount > 0);
@@ -806,7 +806,7 @@ struct D2LvlMazeTxt* __fastcall DATATBLS_GetLvlMazeTxtRecordFromLevelId(int nLev
 }
 
 //D2Common.0x6FD62020
-void __fastcall DATATBLS_LoadLvlSubTxt(HD2ARCHIVE hArchive, int a2, int a3)
+void __cdecl DATATBLS_LoadLvlSubTxt(HD2ARCHIVE hArchive, int a2, int a3)
 {
 	int nLength = 0;
 	uint32_t dwType = 0;
@@ -913,7 +913,7 @@ void __fastcall DATATBLS_LoadLvlSubTxt(HD2ARCHIVE hArchive, int a2, int a3)
 }
 
 //D2Common.0x6FD62600
-void __fastcall DATATBLS_UnloadLvlSubTxt()
+void __cdecl DATATBLS_UnloadLvlSubTxt()
 {
 	struct D2DrlgFile** ppFiles = sgptDataTables->ppLvlSubTypeFiles;
 
@@ -958,7 +958,7 @@ void __fastcall DATATBLS_UnloadLvlSubTxt()
 }
 
 //D2Common.0x6FD626F0
-struct D2LvlSubTxt* __fastcall DATATBLS_GetLvlSubTxtRecord(int nSubType)
+struct D2LvlSubTxt* __cdecl DATATBLS_GetLvlSubTxtRecord(int nSubType)
 {
 	D2_ASSERT(nSubType >= 0);
 	D2_ASSERT(sgptDataTables->pLvlSubTxt);
@@ -968,7 +968,7 @@ struct D2LvlSubTxt* __fastcall DATATBLS_GetLvlSubTxtRecord(int nSubType)
 }
 
 //D2Common.0x6FD62780
-void __fastcall DATATBLS_AllocGlobalTileLibraryHash()
+void __cdecl DATATBLS_AllocGlobalTileLibraryHash()
 {
 	static char szTest[] = "0";
 
@@ -1009,7 +1009,7 @@ void __fastcall DATATBLS_AllocGlobalTileLibraryHash()
 }
 
 //D2Common.0x6FD628A0
-void __fastcall DATATBLS_FreeGlobalTileLibraryHash()
+void __cdecl DATATBLS_FreeGlobalTileLibraryHash()
 {
 	if (sgptDataTables->ppTileLibraryHash)
 	{
@@ -1018,7 +1018,7 @@ void __fastcall DATATBLS_FreeGlobalTileLibraryHash()
 }
 
 //D2Common.0x6FD628C0
-void __fastcall DATATBLS_LoadAutomapTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadAutomapTxt(HD2ARCHIVE hArchive)
 {
 	struct D2AutomapShort* pAutomap = NULL;
 	struct D2AutomapTxt* pAutomapTxt = NULL;
@@ -1119,7 +1119,7 @@ void __fastcall DATATBLS_LoadAutomapTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD62D30 (#10011)
-int __fastcall DATATBLS_GetAutomapCellId(uint32_t dwAutomapLevelType, uint32_t dwAutomapTileType, int nStyle, int nSequence)
+int __cdecl DATATBLS_GetAutomapCellId(uint32_t dwAutomapLevelType, uint32_t dwAutomapTileType, int nStyle, int nSequence)
 {
 	int nStart = 0;
 	int nEnd = 0;
@@ -1167,7 +1167,7 @@ int __fastcall DATATBLS_GetAutomapCellId(uint32_t dwAutomapLevelType, uint32_t d
 }
 
 //D2Common.0x6FD62E70
-void __fastcall DATATBLS_FreeAutomap()
+void __cdecl DATATBLS_FreeAutomap()
 {
 	if (sgptDataTables->pAutoMap)
 	{

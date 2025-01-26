@@ -3,7 +3,7 @@
 #include <Storm.h>
 
 //D2Common.0x6FD62EA0
-int __fastcall DATATBLS_MapMissilesTxtKeywordToNumber(char* szKey)
+int __cdecl DATATBLS_MapMissilesTxtKeywordToNumber(char* szKey)
 {
 	if (!SStrCmpI(szKey, "min", 32))
 	{
@@ -33,7 +33,7 @@ int __fastcall DATATBLS_MapMissilesTxtKeywordToNumber(char* szKey)
 
 //D2Common.0x6FD62F20
 //TODO: Find a name
-int __fastcall sub_6FD62F20(char* szText, int* a2, int a3, int nKeywordNumber)
+int __cdecl sub_6FD62F20(char* szText, int* a2, int a3, int nKeywordNumber)
 {
 	struct D2TxtLink* pLinker = sgptDataTables->pMissileCalcLinker;
 	char szCode[4] = {};
@@ -117,7 +117,7 @@ int __fastcall sub_6FD62F20(char* szText, int* a2, int a3, int nKeywordNumber)
 }
 
 //D2Common.0x6FD630F0
-void __fastcall DATATBLS_MissileCalcLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn)
+void __cdecl DATATBLS_MissileCalcLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn)
 {
 	int nBufferSize = 0;
 	union FOGASTNode pBuffer[1024] = {};
@@ -144,7 +144,7 @@ void __fastcall DATATBLS_MissileCalcLinker(char* pSrc, void* pRecord, int nOffse
 }
 
 //D2Common.0x6FD63180
-void __fastcall DATATBLS_LoadMissilesTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadMissilesTxt(HD2ARCHIVE hArchive)
 {
 	struct D2BinField pTbl[] =
 	{
@@ -321,7 +321,7 @@ void __fastcall DATATBLS_LoadMissilesTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD64B80
-void __fastcall DATATBLS_UnloadMissilesTxt()
+void __cdecl DATATBLS_UnloadMissilesTxt()
 {
 	if (sgptDataTables->pMissCode)
 	{
@@ -346,7 +346,7 @@ void __fastcall DATATBLS_UnloadMissilesTxt()
 }
 
 //D2Common.0x6FD64BE0 (#10590)
-int __stdcall DATATBLS_GetMissileVelocityFromMissilesTxt(int nMissileId, int nLevel)
+int __cdecl DATATBLS_GetMissileVelocityFromMissilesTxt(int nMissileId, int nLevel)
 {
 	struct D2MissilesTxt* pMissilesTxtRecord = DATATBLS_GetMissilesTxtRecord(nMissileId);
 
@@ -359,7 +359,7 @@ int __stdcall DATATBLS_GetMissileVelocityFromMissilesTxt(int nMissileId, int nLe
 }
 
 //Inlined at various places
-struct D2MissilesTxt* __fastcall DATATBLS_GetMissilesTxtRecord(int nMissileId)
+struct D2MissilesTxt* __cdecl DATATBLS_GetMissilesTxtRecord(int nMissileId)
 {
 	if (nMissileId >= 0 && nMissileId < sgptDataTables->nMissilesTxtRecordCount)
 	{

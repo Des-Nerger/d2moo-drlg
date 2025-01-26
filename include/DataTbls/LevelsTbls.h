@@ -217,71 +217,71 @@ struct D2LvlWarpTxt
 
 
 //D2Common.0x6FD5EAE0
-void __fastcall DATATBLS_LoadLevelsTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadLevelsTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD603C0 (#10631)
-D2COMMON_DLL_DECL struct D2LevelsTxt* __stdcall DATATBLS_GetLevelsTxtRecord(int nLevelId);
+D2COMMON_DLL_DECL struct D2LevelsTxt* __cdecl DATATBLS_GetLevelsTxtRecord(int nLevelId);
 //D2Common.0x6FD603F0 (#10632)
-D2COMMON_DLL_DECL uint8_t __stdcall DATATBLS_GetRainFromLevelsTxt(int nLevelId);
+D2COMMON_DLL_DECL uint8_t __cdecl DATATBLS_GetRainFromLevelsTxt(int nLevelId);
 //D2Common.0x6FD60430 (#10634)
-D2COMMON_DLL_DECL uint8_t __stdcall DATATBLS_GetNoPerFromLevelsTxt(int nLevelId);
+D2COMMON_DLL_DECL uint8_t __cdecl DATATBLS_GetNoPerFromLevelsTxt(int nLevelId);
 //D2Common.0x6FD60470 (#10633)
-D2COMMON_DLL_DECL uint8_t __stdcall DATATBLS_GetMudFromLevelsTxt(int nLevelId);
+D2COMMON_DLL_DECL uint8_t __cdecl DATATBLS_GetMudFromLevelsTxt(int nLevelId);
 //D2Common.0x6FD604B0
-void __fastcall DATATBLS_UnloadLevelsTxt();
+void __cdecl DATATBLS_UnloadLevelsTxt();
 //D2Common.0x6FD604F0 (#11247)
-D2COMMON_DLL_DECL int __stdcall DATATBLS_GetMonsterLevelInArea(int nLevelId, uint8_t nDifficulty, BOOL bExpansion);
+D2COMMON_DLL_DECL int __cdecl DATATBLS_GetMonsterLevelInArea(int nLevelId, uint8_t nDifficulty, BOOL bExpansion);
 //D2Common.0x6FD60560
-int* __fastcall DATATBLS_GetPortalLevels(int* pnPortalLevels);
+int* __cdecl DATATBLS_GetPortalLevels(int* pnPortalLevels);
 //D2Common.0x6FD60570
-void __fastcall DATATBLS_LoadLevelDefsBin(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadLevelDefsBin(HD2ARCHIVE hArchive);
 //D2Common.0x6FD60D60
-void __fastcall DATATBLS_UnloadLevelDefsBin();
+void __cdecl DATATBLS_UnloadLevelDefsBin();
 //D2Common.0x6FD60D90 (#10010)
-D2COMMON_DLL_DECL struct D2LevelDefBin* __fastcall DATATBLS_GetLevelDefRecord(int nLevelId);
+D2COMMON_DLL_DECL struct D2LevelDefBin* __cdecl DATATBLS_GetLevelDefRecord(int nLevelId);
 //D2Common.0x6FD60DC0
-void __fastcall DATATBLS_LoadLevelTypesTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadLevelTypesTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD61450
-void __fastcall DATATBLS_UnloadLevelTypesTxt();
+void __cdecl DATATBLS_UnloadLevelTypesTxt();
 //D2Common.0x6FD61460 (#10023)
-D2COMMON_DLL_DECL struct D2LvlTypesTxt* __stdcall DATATBLS_GetLevelTypesTxtRecord(int nLevelType);
+D2COMMON_DLL_DECL struct D2LvlTypesTxt* __cdecl DATATBLS_GetLevelTypesTxtRecord(int nLevelType);
 //D2Common.0x6FD614A0 (#11226)
-D2COMMON_DLL_DECL bool __stdcall DATATBLS_CheckActInLevelTypesTxt(int nLevelType, uint8_t nAct);
+D2COMMON_DLL_DECL bool __cdecl DATATBLS_CheckActInLevelTypesTxt(int nLevelType, uint8_t nAct);
 //D2Common.0x6FD61500 (#11227)
-D2COMMON_DLL_DECL void __stdcall DATATBLS_GetFileNameFromLevelTypeAndFileId(int nLevelType, int nFile, char* szFile);
+D2COMMON_DLL_DECL void __cdecl DATATBLS_GetFileNameFromLevelTypeAndFileId(int nLevelType, int nFile, char* szFile);
 //D2Common.0x6FD61570
-void __fastcall DATATBLS_LoadLvlPrestTxt(HD2ARCHIVE hArchive, int a2);
+void __cdecl DATATBLS_LoadLvlPrestTxt(HD2ARCHIVE hArchive, int a2);
 //D2Common.0x6FD61AD0
-void __fastcall DATATBLS_UnloadLvlPrestTxt();
+void __cdecl DATATBLS_UnloadLvlPrestTxt();
 //D2Common.0x6FD61B50 (#10024)
-D2COMMON_DLL_DECL struct D2LvlPrestTxt* __stdcall DATATBLS_GetLvlPrestTxtRecord(int nId);
+D2COMMON_DLL_DECL struct D2LvlPrestTxt* __cdecl DATATBLS_GetLvlPrestTxtRecord(int nId);
 //D2Common.0x6FD61B80
-struct D2LvlPrestTxt* __fastcall DATATBLS_GetLvlPrestTxtRecordFromLevelId(int nLevelId);
+struct D2LvlPrestTxt* __cdecl DATATBLS_GetLvlPrestTxtRecordFromLevelId(int nLevelId);
 //D2Common.0x6FD61BC0
-void __fastcall DATATBLS_LoadLvlWarpTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadLvlWarpTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD61DD0
-void __fastcall DATATBLS_UnloadLvlWarpTxt();
+void __cdecl DATATBLS_UnloadLvlWarpTxt();
 //D2Common.0x6FD61DE0
-struct D2LvlWarpTxt* __fastcall DATATBLS_GetLvlWarpTxtRecordFromLevelIdAndDirection(int nLevelId, char szDirection);
+struct D2LvlWarpTxt* __cdecl DATATBLS_GetLvlWarpTxtRecordFromLevelIdAndDirection(int nLevelId, char szDirection);
 //D2Common.0x6FD61E60
-void __fastcall DATATBLS_LoadLvlMazeTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadLvlMazeTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD61F90
-void __fastcall DATATBLS_UnloadLvlMazeTxt();
+void __cdecl DATATBLS_UnloadLvlMazeTxt();
 //D2Common.0x6FD61FA0
-struct D2LvlMazeTxt* __fastcall DATATBLS_GetLvlMazeTxtRecordFromLevelId(int nLevelId);
+struct D2LvlMazeTxt* __cdecl DATATBLS_GetLvlMazeTxtRecordFromLevelId(int nLevelId);
 //D2Common.0x6FD62020
-void __fastcall DATATBLS_LoadLvlSubTxt(HD2ARCHIVE hArchive, int a2, int a3);
+void __cdecl DATATBLS_LoadLvlSubTxt(HD2ARCHIVE hArchive, int a2, int a3);
 //D2Common.0x6FD62600
-void __fastcall DATATBLS_UnloadLvlSubTxt();
+void __cdecl DATATBLS_UnloadLvlSubTxt();
 //D2Common.0x6FD626F0
-struct D2LvlSubTxt* __fastcall DATATBLS_GetLvlSubTxtRecord(int nSubType);
+struct D2LvlSubTxt* __cdecl DATATBLS_GetLvlSubTxtRecord(int nSubType);
 //D2Common.0x6FD62780
-void __fastcall DATATBLS_AllocGlobalTileLibraryHash();
+void __cdecl DATATBLS_AllocGlobalTileLibraryHash();
 //D2Common.0x6FD628A0
-void __fastcall DATATBLS_FreeGlobalTileLibraryHash();
+void __cdecl DATATBLS_FreeGlobalTileLibraryHash();
 //D2Common.0x6FD628C0
-void __fastcall DATATBLS_LoadAutomapTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadAutomapTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD62D30 (#10011)
-D2COMMON_DLL_DECL int __fastcall DATATBLS_GetAutomapCellId(uint32_t dwAutomapLevelType, uint32_t dwAutomapTileType, int nStyle, int nSequence);
+D2COMMON_DLL_DECL int __cdecl DATATBLS_GetAutomapCellId(uint32_t dwAutomapLevelType, uint32_t dwAutomapTileType, int nStyle, int nSequence);
 //D2Common.0x6FD62E70
-void __fastcall DATATBLS_FreeAutomap();
+void __cdecl DATATBLS_FreeAutomap();
 

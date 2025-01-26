@@ -137,7 +137,7 @@ enum D2C_Language STRTABLE_GetLanguage()
  * 1.13c: D2Lang.0x6FC09BC0 (#10002)
  * 1.14c: Game.0x00523510
  */
-void __stdcall STR_GroupIntDigits(struct Unicode* pUnicode, int nValue, int nMaxLength)
+void __cdecl STR_GroupIntDigits(struct Unicode* pUnicode, int nValue, int nMaxLength)
 {
 	D2_ASSERT(nMaxLength > 2);
 
@@ -161,7 +161,7 @@ void __stdcall STR_GroupIntDigits(struct Unicode* pUnicode, int nValue, int nMax
  * 1.13c: D2Lang.0x6FC09A80 (#10006)
  * 1.14c: Game.0x005228A0
  */
-void __stdcall STR_GroupUintDigits(struct Unicode* pUnicode, unsigned int dwValue, int nMaxLength)
+void __cdecl STR_GroupUintDigits(struct Unicode* pUnicode, unsigned int dwValue, int nMaxLength)
 {
 	D2_ASSERT(nMaxLength > 2);
 

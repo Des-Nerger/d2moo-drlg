@@ -56,7 +56,7 @@ D2LANG_DLL_DECL enum D2C_Language STRTABLE_GetLanguage();
  * 1.13c: D2Lang.0x6FC09BC0 (#10002)
  * 1.14c: Game.0x00523510
  */
-D2LANG_DLL_DECL void __stdcall STR_GroupIntDigits(
+D2LANG_DLL_DECL void __cdecl STR_GroupIntDigits(
 		struct Unicode* pUnicode, int nValue, int nMaxLength);
 
 /**
@@ -74,5 +74,5 @@ D2LANG_DLL_DECL void __stdcall STR_GroupIntDigits(
  * 1.13c: D2Lang.0x6FC09A80 (#10006)
  * 1.14c: Game.0x005228A0
  */
-D2LANG_DLL_DECL void __stdcall STR_GroupUintDigits(
+D2LANG_DLL_DECL void __cdecl STR_GroupUintDigits(
 		struct Unicode* pUnicode, unsigned int dwValue, int nMaxLength);

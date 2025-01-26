@@ -247,96 +247,96 @@ enum D2C_StateMasks
 #pragma pack()
 
 //D2Common.0x6FDB4560 (#10486)
-D2COMMON_DLL_DECL void __stdcall STATES_ToggleState(struct D2Unit* pUnit, int nState, BOOL bSet);
+D2COMMON_DLL_DECL void __cdecl STATES_ToggleState(struct D2Unit* pUnit, int nState, BOOL bSet);
 //D2Common.0x6FDB45A0 (#10487)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckState(struct D2Unit* pUnit, int nState);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckState(struct D2Unit* pUnit, int nState);
 //D2Common.0x6FDB45F0 (#10488)
-D2COMMON_DLL_DECL void __stdcall STATES_ToggleGfxStateFlag(struct D2Unit* pUnit, int nState, BOOL bSet);
+D2COMMON_DLL_DECL void __cdecl STATES_ToggleGfxStateFlag(struct D2Unit* pUnit, int nState, BOOL bSet);
 //D2Common.0x6FDB4670 (#10489)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckGfxStateFlag(struct D2Unit* pUnit, int nState);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckGfxStateFlag(struct D2Unit* pUnit, int nState);
 //D2Common.0x6FDB46C0 (#10491)
-D2COMMON_DLL_DECL void __stdcall STATES_ClearGfxStateFlags(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl STATES_ClearGfxStateFlags(struct D2Unit* pUnit);
 //D2Common.0x6FDB4710 (#10490)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_IsAnyGfxStateFlagSet(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_IsAnyGfxStateFlagSet(struct D2Unit* pUnit);
 //D2Common.0x6FDB4760 (#10492)
-D2COMMON_DLL_DECL uint32_t* __stdcall STATES_GetGfxStateFlags(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL uint32_t* __cdecl STATES_GetGfxStateFlags(struct D2Unit* pUnit);
 //D2Common.0x6FDB4790 (#10493)
-D2COMMON_DLL_DECL void __stdcall STATES_UpdateStayDeathFlags(struct D2Unit* pUnit, BOOL bIsBoss);
+D2COMMON_DLL_DECL void __cdecl STATES_UpdateStayDeathFlags(struct D2Unit* pUnit, BOOL bIsBoss);
 //D2Common.0x6FDB48F0 (#10494)
-D2COMMON_DLL_DECL uint32_t* __stdcall D2COMMON_10494_STATES_GetStatFlags(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL uint32_t* __cdecl D2COMMON_10494_STATES_GetStatFlags(struct D2Unit* pUnit);
 //D2Common.0x6FDB4900 (#10495)
-D2COMMON_DLL_DECL int __fastcall STATES_GetNumberOfStateFlags();
+D2COMMON_DLL_DECL int __cdecl STATES_GetNumberOfStateFlags();
 //D2Common.0x6FDB4920 (#10496)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskAuraByStateId(int nState);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskAuraByStateId(int nState);
 //D2Common.0x6FDB4960 (#10503)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskAuraOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskAuraOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB49D0 (#10500)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskPgsvByStateId(int nState);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskPgsvByStateId(int nState);
 //D2Common.0x6FDB4A10 (#11234)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskPgsvOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskPgsvOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB4A80 (#10501)
-D2COMMON_DLL_DECL void __stdcall STATES_UpdatePgsvFlags(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl STATES_UpdatePgsvFlags(struct D2Unit* pUnit);
 //D2Common.0x6FDB4B20 (#10558)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskHideByStateId(int nState);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskHideByStateId(int nState);
 //D2Common.0x6FDB4B50 (#10557)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskHideOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskHideOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB4BC0 (#10502)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskActiveOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskActiveOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB4C30 (#11272)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskRemHitOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskRemHitOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB4CA0 (#10538)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskDamBlueOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskDamBlueOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB4D10 (#10545)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskDamRedOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskDamRedOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB4D80 (#10537)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskAttBlueOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskAttBlueOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB4DF0 (#10544)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskAttRedOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskAttRedOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB4E60 (#10551)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_IsUnitShapeShifted(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_IsUnitShapeShifted(struct D2Unit* pUnit);
 //D2Common.0x6FDB4E80 (#10497)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskCurseByStateId(int nState);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskCurseByStateId(int nState);
 //D2Common.0x6FDB4EC0 (#10498)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskCurableByStateId(int nState);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskCurableByStateId(int nState);
 //D2Common.0x6FDB4F00 (#10554)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskStayDeathOnUnitByStateId(struct D2Unit* pUnit, int nState);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskStayDeathOnUnitByStateId(struct D2Unit* pUnit, int nState);
 //D2Common.0x6FDB4F60
-BOOL __fastcall STATES_CheckStateMaskRestrictOnUnit(struct D2Unit* pUnit, struct D2Skill* pSkill);
+BOOL __cdecl STATES_CheckStateMaskRestrictOnUnit(struct D2Unit* pUnit, struct D2Skill* pSkill);
 //D2Common.0x6FDB4FC0 (#10536)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskBlueOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskBlueOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB5030 (#10539)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskArmBlueOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskArmBlueOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB50A0 (#10540)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskRFBlueOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskRFBlueOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB5110 (#10541)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskRCBlueOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskRCBlueOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB5180 (#10542)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskRLBlueOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskRLBlueOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB51F0 (#10543)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskRPBlueOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskRPBlueOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB5260 (#10546)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskArmRedOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskArmRedOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB52D0 (#10547)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskRFRedOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskRFRedOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB5340 (#10548)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskRCRedOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskRCRedOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB53B0 (#10549)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskRLRedOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskRLRedOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB5420 (#10550)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskRPRedOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskRPRedOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB5490 (#10552)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskExpOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskExpOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB5500 (#10553)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskExpByStateId(int nState);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskExpByStateId(int nState);
 //D2Common.0x6FDB5540 (#10555)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskShatterOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskShatterOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB55B0 (#10556)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskShatterByStateId(int nState);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskShatterByStateId(int nState);
 //D2Common.0x6FDB55F0 (#10559)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskLifeOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskLifeOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB5660 (#10560)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskUdeadOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskUdeadOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB56D0 (#10561)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskGreenOnUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskGreenOnUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB5740 (#11303)
-D2COMMON_DLL_DECL BOOL __stdcall STATES_CheckStateMaskOnUnit(struct D2Unit* pUnit, int nStateMask);
+D2COMMON_DLL_DECL BOOL __cdecl STATES_CheckStateMaskOnUnit(struct D2Unit* pUnit, int nStateMask);

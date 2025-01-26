@@ -12,7 +12,7 @@ static int gStatsFreedRooms;
 static int gStatsAllocatedRooms;
 
 // D2Common.0x6FDE07B0
-static void (__fastcall* gRoomExSetStatus[ROOMSTATUS_COUNT])(struct D2DrlgRoom*) =
+static void (__cdecl* gRoomExSetStatus[ROOMSTATUS_COUNT])(struct D2DrlgRoom*) =
 {
 	DRLGACTIVATE_RoomExSetStatus_ClientInRoom,
 	DRLGACTIVATE_RoomExSetStatus_ClientInSight,
@@ -21,7 +21,7 @@ static void (__fastcall* gRoomExSetStatus[ROOMSTATUS_COUNT])(struct D2DrlgRoom*)
 };
 
 // D2Common.0x6FDE07C0
-static void (__fastcall* gRoomExUnsetStatus[ROOMSTATUS_COUNT])(struct D2DrlgRoom*) =
+static void (__cdecl* gRoomExUnsetStatus[ROOMSTATUS_COUNT])(struct D2DrlgRoom*) =
 {
 	DRLGACTIVATE_RoomExIdentifyRealStatus,
 	DRLGACTIVATE_RoomExIdentifyRealStatus,
@@ -77,7 +77,7 @@ static enum D2DrlgRoomStatus DRLGACTIVATE_RoomExFindFirstStatusWithRefCount(stru
 }
 
 //D2Common.0x6FD733D0
-void __fastcall DRLGACTIVATE_RoomExSetStatus_ClientInRoom(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGACTIVATE_RoomExSetStatus_ClientInRoom(struct D2DrlgRoom* pDrlgRoom)
 {
 	DRLGACTIVATE_UpdateRoomExStatusImpl(pDrlgRoom, ROOMSTATUS_CLIENT_IN_ROOM);
 }
@@ -110,14 +110,14 @@ void DRLGACTIVATE_RoomEx_EnsureHasRoom(struct D2DrlgRoom* pDrlgRoom, bool bInitT
 }
 
 //D2Common.0x6FD73450
-void __fastcall DRLGACTIVATE_RoomExSetStatus_ClientInSight(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGACTIVATE_RoomExSetStatus_ClientInSight(struct D2DrlgRoom* pDrlgRoom)
 {
 	DRLGACTIVATE_RoomEx_EnsureHasRoom(pDrlgRoom, true);
 	DRLGACTIVATE_UpdateRoomExStatusImpl(pDrlgRoom, ROOMSTATUS_CLIENT_IN_SIGHT);
 }
 
 //D2Common.0x6FD73550
-void __fastcall DRLGACTIVATE_RoomExSetStatus_ClientOutOfSight(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGACTIVATE_RoomExSetStatus_ClientOutOfSight(struct D2DrlgRoom* pDrlgRoom)
 {
 	if (pDrlgRoom->dwFlags & DRLGROOMFLAG_TILELIB_LOADED 
 		&& (pDrlgRoom->nType != DRLGTYPE_PRESET || (pDrlgRoom->dwFlags & DRLGROOMFLAG_PRESET_UNITS_ADDED) != 0))
@@ -132,7 +132,7 @@ void __fastcall DRLGACTIVATE_RoomExSetStatus_ClientOutOfSight(struct D2DrlgRoom*
 }
 
 //D2Common.0x6FD736F0
-void __fastcall DRLGACTIVATE_RoomExSetStatus_Untile(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGACTIVATE_RoomExSetStatus_Untile(struct D2DrlgRoom* pDrlgRoom)
 {
 	if (!(pDrlgRoom->dwFlags & DRLGROOMFLAG_TILELIB_LOADED))
 	{
@@ -147,7 +147,7 @@ void __fastcall DRLGACTIVATE_RoomExSetStatus_Untile(struct D2DrlgRoom* pDrlgRoom
 }
 
 //D2Common.0x6FD73790
-void __fastcall DRLGACTIVATE_RoomExIdentifyRealStatus(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGACTIVATE_RoomExIdentifyRealStatus(struct D2DrlgRoom* pDrlgRoom)
 {
 	if (pDrlgRoom->fRoomStatus >= ROOMSTATUS_COUNT || pDrlgRoom->wRoomsInList[pDrlgRoom->fRoomStatus] == 0)
 	{
@@ -160,7 +160,7 @@ void __fastcall DRLGACTIVATE_RoomExIdentifyRealStatus(struct D2DrlgRoom* pDrlgRo
 }
 
 //D2Common.0x6FD73880
-void __fastcall DRLGACTIVATE_RoomExStatusUnset_Untile(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGACTIVATE_RoomExStatusUnset_Untile(struct D2DrlgRoom* pDrlgRoom)
 {
 	if (pDrlgRoom->fRoomStatus != ROOMSTATUS_COUNT)
 	{
@@ -178,7 +178,7 @@ void __fastcall DRLGACTIVATE_RoomExStatusUnset_Untile(struct D2DrlgRoom* pDrlgRo
 }
 
 //D2Common.0x6FD73A30
-void __fastcall DRLGACTIVATE_RoomExPropagateSetStatus(void* pMemPool, struct D2DrlgRoom* pDrlgRoom, uint8_t nStatus)
+void __cdecl DRLGACTIVATE_RoomExPropagateSetStatus(void* pMemPool, struct D2DrlgRoom* pDrlgRoom, uint8_t nStatus)
 {
 	if (pDrlgRoom->nRoomsNear == 0)
 	{
@@ -206,7 +206,7 @@ void __fastcall DRLGACTIVATE_RoomExPropagateSetStatus(void* pMemPool, struct D2D
 }
 
 //D2Common.0x6FD73BE0
-void __fastcall DRLGACTIVATE_RoomExPropagateUnsetStatus(struct D2DrlgRoom* pDrlgRoom, uint8_t nStatus)
+void __cdecl DRLGACTIVATE_RoomExPropagateUnsetStatus(struct D2DrlgRoom* pDrlgRoom, uint8_t nStatus)
 {
 	for (int i = 0; i < pDrlgRoom->nRoomsNear; ++i)
 	{
@@ -261,7 +261,7 @@ static void DRLGACTIVATE_RoomUnsetAndPropagateStatus(struct D2DrlgRoom* pDrlgRoo
 }
 
 //D2Common.0x6FD739A0
-void __fastcall DRLGACTIVATE_SetClientIsInSight(struct D2Drlg* pDrlg, int nLevelId, int nX, int nY, struct D2DrlgRoom* pDrlgRoomHint)
+void __cdecl DRLGACTIVATE_SetClientIsInSight(struct D2Drlg* pDrlg, int nLevelId, int nX, int nY, struct D2DrlgRoom* pDrlgRoomHint)
 {
 	struct D2DrlgLevel* pLevel = DRLG_GetLevel(pDrlg, nLevelId);
 	if (pDrlgRoomHint && pDrlgRoomHint->pLevel->nLevelId != nLevelId)
@@ -277,7 +277,7 @@ void __fastcall DRLGACTIVATE_SetClientIsInSight(struct D2Drlg* pDrlg, int nLevel
 }
 
 //D2Common.0x6FD73B40
-void __fastcall DRLGACTIVATE_UnsetClientIsInSight(struct D2Drlg* pDrlg, int nLevelId, int nX, int nY, struct D2DrlgRoom* pDrlgRoomHint)
+void __cdecl DRLGACTIVATE_UnsetClientIsInSight(struct D2Drlg* pDrlg, int nLevelId, int nX, int nY, struct D2DrlgRoom* pDrlgRoomHint)
 {
 	struct D2DrlgLevel* pLevel = DRLG_GetLevel(pDrlg, nLevelId);
 	if (pDrlgRoomHint && pDrlgRoomHint->pLevel->nLevelId != nLevelId)
@@ -294,7 +294,7 @@ void __fastcall DRLGACTIVATE_UnsetClientIsInSight(struct D2Drlg* pDrlg, int nLev
 
 
 //D2Common.0x6FD73C40
-void __fastcall DRLGACTIVATE_ChangeClientRoom(struct D2DrlgRoom* pPreviousRoom, struct D2DrlgRoom* pNewRoom)
+void __cdecl DRLGACTIVATE_ChangeClientRoom(struct D2DrlgRoom* pPreviousRoom, struct D2DrlgRoom* pNewRoom)
 {
 	if (pPreviousRoom == pNewRoom)
 	{
@@ -313,7 +313,7 @@ void __fastcall DRLGACTIVATE_ChangeClientRoom(struct D2DrlgRoom* pPreviousRoom, 
 }
 
 //D2Common.0x6FD73CF0
-void __fastcall DRLGACTIVATE_InitializeRoomEx(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGACTIVATE_InitializeRoomEx(struct D2DrlgRoom* pDrlgRoom)
 {
 	if (!(pDrlgRoom->dwFlags & DRLGROOMFLAG_TILELIB_LOADED))
 	{
@@ -329,7 +329,7 @@ void __fastcall DRLGACTIVATE_InitializeRoomEx(struct D2DrlgRoom* pDrlgRoom)
 }
 
 //D2Common.0x6FD73D80
-struct D2ActiveRoom* __fastcall DRLGACTIVATE_StreamRoomAtCoords(struct D2Drlg* pDrlg, int nX, int nY)
+struct D2ActiveRoom* __cdecl DRLGACTIVATE_StreamRoomAtCoords(struct D2Drlg* pDrlg, int nX, int nY)
 {
 	struct D2DrlgRoom* pDrlgRoom = DRLG_GetRoomExFromCoordinates(nX, nY, pDrlg, 0, 0);
 	if (pDrlgRoom)
@@ -341,7 +341,7 @@ struct D2ActiveRoom* __fastcall DRLGACTIVATE_StreamRoomAtCoords(struct D2Drlg* p
 }
 
 //D2Common.0x6FD73E30
-void __fastcall DRLGACTIVATE_InitializeRoomExStatusLists(struct D2Drlg* pDrlg)
+void __cdecl DRLGACTIVATE_InitializeRoomExStatusLists(struct D2Drlg* pDrlg)
 {
 	for (int nStatus = 0; nStatus < ROOMSTATUS_COUNT; ++nStatus)
 	{
@@ -364,7 +364,7 @@ static struct D2DrlgRoom* DRLGACTIVATE_RoomExStatusList_GetFirst(struct D2Drlg* 
 }
 
 //D2Common.0x6FD73E60
-struct D2ActiveRoom* __fastcall DRLGACTIVATE_GetARoomInClientSight(struct D2Drlg* pDrlg)
+struct D2ActiveRoom* __cdecl DRLGACTIVATE_GetARoomInClientSight(struct D2Drlg* pDrlg)
 {
 	struct D2DrlgRoom* pDrlgRoom = DRLGACTIVATE_RoomExStatusList_GetFirst(pDrlg, ROOMSTATUS_CLIENT_IN_ROOM);
 	if (pDrlgRoom)
@@ -380,7 +380,7 @@ struct D2ActiveRoom* __fastcall DRLGACTIVATE_GetARoomInClientSight(struct D2Drlg
 }
 
 //D2Common.0x6FD73E90
-struct D2ActiveRoom* __fastcall DRLGACTIVATE_GetARoomInSightButWithoutClient(struct D2Drlg* pDrlg, struct D2DrlgRoom* pDrlgRoom)
+struct D2ActiveRoom* __cdecl DRLGACTIVATE_GetARoomInSightButWithoutClient(struct D2Drlg* pDrlg, struct D2DrlgRoom* pDrlgRoom)
 {
 	struct D2DrlgRoom* pNextStatusRoom = pDrlgRoom->pStatusNext;
 	if (pNextStatusRoom)
@@ -401,7 +401,7 @@ struct D2ActiveRoom* __fastcall DRLGACTIVATE_GetARoomInSightButWithoutClient(str
 }
 
 //D2Common.0x6FD73EF0 (#10015)
-void __fastcall DRLGACTIVATE_GetRoomsAllocationStats(int* pOutStatsClientAllocatedRooms, int* pOutStatsClientFreedRooms, int* pOutStatsAllocatedRooms, int* pOutStatsFreedRooms)
+void __cdecl DRLGACTIVATE_GetRoomsAllocationStats(int* pOutStatsClientAllocatedRooms, int* pOutStatsClientFreedRooms, int* pOutStatsAllocatedRooms, int* pOutStatsFreedRooms)
 {
 	*pOutStatsClientAllocatedRooms = gStatsClientAllocatedRooms;
 	*pOutStatsClientFreedRooms = gStatsClientFreedRooms;
@@ -410,7 +410,7 @@ void __fastcall DRLGACTIVATE_GetRoomsAllocationStats(int* pOutStatsClientAllocat
 }
 
 //D2Common.0x6FD73F20 (#10003)
-void __stdcall DRLGACTIVATE_Update(struct D2Drlg* pDrlg)
+void __cdecl DRLGACTIVATE_Update(struct D2Drlg* pDrlg)
 {
 	if (DRLG_IsOnClient(pDrlg))
 	{
@@ -464,7 +464,7 @@ void __stdcall DRLGACTIVATE_Update(struct D2Drlg* pDrlg)
 }
 
 //D2Common.0x6FD74060
-BOOL __fastcall DRLGACTIVATE_TestRoomCanUnTile(struct D2DrlgRoom* pDrlgRoom)
+BOOL __cdecl DRLGACTIVATE_TestRoomCanUnTile(struct D2DrlgRoom* pDrlgRoom)
 {
 	if (pDrlgRoom->dwFlags & DRLGROOMFLAG_HASPORTAL)
 	{
@@ -493,7 +493,7 @@ BOOL __fastcall DRLGACTIVATE_TestRoomCanUnTile(struct D2DrlgRoom* pDrlgRoom)
 }
 
 //D2Common.0x6FD740F0
-void __fastcall DRLGACTIVATE_ToggleHasPortalFlag(struct D2DrlgRoom* pDrlgRoom, BOOL bReset)
+void __cdecl DRLGACTIVATE_ToggleHasPortalFlag(struct D2DrlgRoom* pDrlgRoom, BOOL bReset)
 {
 	if (bReset)
 	{
@@ -506,7 +506,7 @@ void __fastcall DRLGACTIVATE_ToggleHasPortalFlag(struct D2DrlgRoom* pDrlgRoom, B
 }
 
 //D2Common.0x6FD74110
-uint8_t __fastcall DRLGACTIVATE_GetRoomStatusFlags(struct D2DrlgRoom* pDrlgRoom)
+uint8_t __cdecl DRLGACTIVATE_GetRoomStatusFlags(struct D2DrlgRoom* pDrlgRoom)
 {
 	return pDrlgRoom->fRoomStatus;
 }

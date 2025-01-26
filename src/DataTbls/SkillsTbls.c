@@ -6,7 +6,7 @@
 #include <Storm.h>
 
 //D2Common.0x6FD498D0
-int __fastcall DATATBLS_MapSkillsTxtKeywordToNumber(char* szKey)
+int __cdecl DATATBLS_MapSkillsTxtKeywordToNumber(char* szKey)
 {
 	if (0 == SStrCmpI(szKey, "min", 32))
 	{
@@ -44,14 +44,14 @@ int __fastcall DATATBLS_MapSkillsTxtKeywordToNumber(char* szKey)
 
 //D2Common.0x6FD49980
 //TODO: Find a name
-int __fastcall sub_6FD49980(int nValue)
+int __cdecl sub_6FD49980(int nValue)
 {
 	return (nValue == 6) + 2;
 }
 
 //D2Common.0x6FD49990
 //TODO: Find a name
-int __fastcall sub_6FD49990(char* szText, int* a2, int a3, int nKeywordNumber)
+int __cdecl sub_6FD49990(char* szText, int* a2, int a3, int nKeywordNumber)
 {
 	struct D2TxtLink* pLinker = sgptDataTables->pSkillCalcLinker;
 	char szCode[4] = {};
@@ -190,7 +190,7 @@ int __fastcall sub_6FD49990(char* szText, int* a2, int a3, int nKeywordNumber)
 }
 
 //D2Common.0x6FD49D20
-void __fastcall DATATBLS_SkillCalcLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn)
+void __cdecl DATATBLS_SkillCalcLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn)
 {
 	unsigned int nNewSize = 0;
 	unsigned int nSizeEx = 0;
@@ -256,7 +256,7 @@ void __fastcall DATATBLS_SkillCalcLinker(char* pSrc, void* pRecord, int nOffset,
 }
 
 //D2Common.0x6FD49E40
-void __fastcall DATATBLS_SkillDescCalcLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn)
+void __cdecl DATATBLS_SkillDescCalcLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn)
 {
 	unsigned int nNewSize = 0;
 	unsigned int nSizeEx = 0;
@@ -322,7 +322,7 @@ void __fastcall DATATBLS_SkillDescCalcLinker(char* pSrc, void* pRecord, int nOff
 }
 
 //D2Common.0x6FD49F60
-void __fastcall DATATBLS_LoadSkills_SkillDescTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadSkills_SkillDescTxt(HD2ARCHIVE hArchive)
 {
 	struct D2PetTypeTxt* pPetTypeTxtRecord = NULL;
 	struct D2TxtLink* pSkillDescLinker = NULL;
@@ -877,7 +877,7 @@ void __fastcall DATATBLS_LoadSkills_SkillDescTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD4E350
-void __fastcall DATATBLS_UnloadSkills_SkillDescTxt()
+void __cdecl DATATBLS_UnloadSkills_SkillDescTxt()
 {
 	if (sgptDataTables->nClassSkillCount)
 	{
@@ -930,7 +930,7 @@ void __fastcall DATATBLS_UnloadSkills_SkillDescTxt()
 
 //1.10f: Inlined at various places
 //1.13c: D2Common.0x6FD51250
-struct D2SkillsTxt* __fastcall DATATBLS_GetSkillsTxtRecord(int nSkillId)
+struct D2SkillsTxt* __cdecl DATATBLS_GetSkillsTxtRecord(int nSkillId)
 {
 	if (nSkillId >= 0 && nSkillId < sgptDataTables->nSkillsTxtRecordCount)
 	{
@@ -941,7 +941,7 @@ struct D2SkillsTxt* __fastcall DATATBLS_GetSkillsTxtRecord(int nSkillId)
 }
 
 //Inlined at various places
-struct D2SkillDescTxt* __fastcall DATATBLS_GetSkillDescTxtRecord(int nSkillDesc)
+struct D2SkillDescTxt* __cdecl DATATBLS_GetSkillDescTxtRecord(int nSkillDesc)
 {
 	if (nSkillDesc >= 0 && nSkillDesc < sgptDataTables->nSkillDescTxtRecordCount)
 	{

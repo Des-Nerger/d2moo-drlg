@@ -29,16 +29,16 @@ struct D2DrlgOutdoorRoom
 
 
 //D2Common.0x6FD83D20
-void __fastcall DRLGOUTROOM_FreeDrlgOutdoorRoom(struct D2DrlgRoom* pDrlgRoom);
+void __cdecl DRLGOUTROOM_FreeDrlgOutdoorRoom(struct D2DrlgRoom* pDrlgRoom);
 //D2Common.0x6FD83D90
-void __fastcall DRLGOUTROOM_FreeDrlgOutdoorRoomData(struct D2DrlgRoom* pDrlgRoom);
+void __cdecl DRLGOUTROOM_FreeDrlgOutdoorRoomData(struct D2DrlgRoom* pDrlgRoom);
 //D2Common.0x6FD83DE0
-void __fastcall DRLGOUTROOM_AllocDrlgOutdoorRoom(struct D2DrlgRoom* pDrlgRoom);
+void __cdecl DRLGOUTROOM_AllocDrlgOutdoorRoom(struct D2DrlgRoom* pDrlgRoom);
 //D2Common.6FD83E20
-void __fastcall DRLGOUTROOM_InitializeDrlgOutdoorRoom(struct D2DrlgRoom* pDrlgRoom);
+void __cdecl DRLGOUTROOM_InitializeDrlgOutdoorRoom(struct D2DrlgRoom* pDrlgRoom);
 //D2Common.0x6FD83EC0
-BOOL __fastcall DRLGOUTROOM_LinkLevelsByLevelCoords(struct D2DrlgLevelLinkData* pLevelLinkData);
+BOOL __cdecl DRLGOUTROOM_LinkLevelsByLevelCoords(struct D2DrlgLevelLinkData* pLevelLinkData);
 //D2Common.0x6FD83F70
-BOOL __fastcall DRLGOUTROOM_LinkLevelsByLevelDef(struct D2DrlgLevelLinkData* pLevelLinkData);
+BOOL __cdecl DRLGOUTROOM_LinkLevelsByLevelDef(struct D2DrlgLevelLinkData* pLevelLinkData);
 //D2Common.0x6FD84010
-BOOL __fastcall DRLGOUTROOM_LinkLevelsByOffsetCoords(struct D2DrlgLevelLinkData* pLevelLinkData);
+BOOL __cdecl DRLGOUTROOM_LinkLevelsByOffsetCoords(struct D2DrlgLevelLinkData* pLevelLinkData);

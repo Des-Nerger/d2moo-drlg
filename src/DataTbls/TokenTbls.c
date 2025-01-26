@@ -7,7 +7,7 @@
 
 
 //D2Common.0x6FD729C0
-void __fastcall DATATBLS_LoadPlrType_ModeTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadPlrType_ModeTxt(HD2ARCHIVE hArchive)
 {
 	struct D2PlrModeTypeTxt* pPlrModeTypeTxt = NULL;
 	struct D2PlrModeTypeTxt* pPlrType = NULL;
@@ -42,7 +42,7 @@ void __fastcall DATATBLS_LoadPlrType_ModeTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD72B30
-void __fastcall DATATBLS_LoadMonModeTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadMonModeTxt(HD2ARCHIVE hArchive)
 {
 	struct D2BinField pTbl[] =
 	{
@@ -74,7 +74,7 @@ void __fastcall DATATBLS_LoadMonModeTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD72E50
-void __fastcall DATATBLS_LoadObjType_ModeTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadObjType_ModeTxt(HD2ARCHIVE hArchive)
 {
 	struct D2ObjModeTypeTxt* pObjModeTypeTxt = NULL;
 
@@ -109,7 +109,7 @@ void __fastcall DATATBLS_LoadObjType_ModeTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD72FC0
-void __fastcall DATATBLS_LoadCompositTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadCompositTxt(HD2ARCHIVE hArchive)
 {
 	struct D2BinField pTbl[] =
 	{
@@ -122,7 +122,7 @@ void __fastcall DATATBLS_LoadCompositTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD73040
-void __fastcall DATATBLS_LoadArmTypeTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadArmTypeTxt(HD2ARCHIVE hArchive)
 {
 	struct D2BinField pTbl[] =
 	{
@@ -135,7 +135,7 @@ void __fastcall DATATBLS_LoadArmTypeTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD730C0
-void __fastcall DATATBLS_UnloadPlrMode_Type_MonMode_ObjMode_Type_Composit_ArmtypeTxt()
+void __cdecl DATATBLS_UnloadPlrMode_Type_MonMode_ObjMode_Type_Composit_ArmtypeTxt()
 {
 	if (sgptDataTables->pPlrModeDataTables.pPlrModeTypeTxt)
 	{
@@ -169,25 +169,25 @@ void __fastcall DATATBLS_UnloadPlrMode_Type_MonMode_ObjMode_Type_Composit_Armtyp
 }
 
 //D2Common.0x6FD73150 (#10643)
-struct D2PlrModeDataTbl* __fastcall DATATBLS_GetPlrMode_TypeDataTables()
+struct D2PlrModeDataTbl* __cdecl DATATBLS_GetPlrMode_TypeDataTables()
 {
 	return &sgptDataTables->pPlrModeDataTables;
 }
 
 //D2Common.0x6FD73160 (#10644)
-struct D2MonModeDataTbl* __fastcall DATATBLS_GetMonModeDataTables()
+struct D2MonModeDataTbl* __cdecl DATATBLS_GetMonModeDataTables()
 {
 	return &sgptDataTables->pMonModeDataTables;
 }
 
 //D2Common.0x6FD73170 (#10645)
-struct D2ObjModeDataTbl* __fastcall DATATBLS_GetObjMode_TypeDataTables()
+struct D2ObjModeDataTbl* __cdecl DATATBLS_GetObjMode_TypeDataTables()
 {
 	return &sgptDataTables->pObjModeDataTables;
 }
 
 //D2Common.0x6FD73180 (#10646)
-struct D2PlrModeTypeTxt* __stdcall DATATBLS_GetPlrModeTypeTxtRecord(int nIndex, int bGetMode)
+struct D2PlrModeTypeTxt* __cdecl DATATBLS_GetPlrModeTypeTxtRecord(int nIndex, int bGetMode)
 {
 	if (nIndex >= sgptDataTables->pPlrModeDataTables.nPlrModeTypeTxtRecordCount)
 	{
@@ -212,7 +212,7 @@ struct D2PlrModeTypeTxt* __stdcall DATATBLS_GetPlrModeTypeTxtRecord(int nIndex, 
 }
 
 //D2Common.0x6FD73230 (#10647)
-struct D2MonModeTxt* __stdcall DATATBLS_GetMonModeTxtRecord(int nIndex, int bGetMode)
+struct D2MonModeTxt* __cdecl DATATBLS_GetMonModeTxtRecord(int nIndex, int bGetMode)
 {
 	if (nIndex >= sgptDataTables->pMonModeDataTables.nMonModeTxtRecordCount)
 	{
@@ -235,7 +235,7 @@ struct D2MonModeTxt* __stdcall DATATBLS_GetMonModeTxtRecord(int nIndex, int bGet
 }
 
 //D2Common.0x6FD732B0 (#10648)
-struct D2ObjModeTypeTxt* __stdcall DATATBLS_GetObjModeTypeTxtRecord(int nIndex, int bGetMode)
+struct D2ObjModeTypeTxt* __cdecl DATATBLS_GetObjModeTypeTxtRecord(int nIndex, int bGetMode)
 {
 	if (nIndex >= sgptDataTables->pObjModeDataTables.nObjModeTypeTxtRecordCount)
 	{
@@ -257,7 +257,7 @@ struct D2ObjModeTypeTxt* __stdcall DATATBLS_GetObjModeTypeTxtRecord(int nIndex, 
 }
 
 //D2Common.0x6FD73330 (#10649)
-struct D2CompositTxt* __stdcall DATATBLS_GetCompositTxtRecord(int nComposit)
+struct D2CompositTxt* __cdecl DATATBLS_GetCompositTxtRecord(int nComposit)
 {
 	D2_ASSERT(&sgptDataTables->pCompositTxt[nComposit]);
 
@@ -265,7 +265,7 @@ struct D2CompositTxt* __stdcall DATATBLS_GetCompositTxtRecord(int nComposit)
 }
 
 //D2Common.0x6FD73370 (#10650)
-struct D2ArmTypeTxt* __stdcall DATATBLS_GetArmTypeTxtRecord(int nId)
+struct D2ArmTypeTxt* __cdecl DATATBLS_GetArmTypeTxtRecord(int nId)
 {
 	D2_ASSERT(&sgptDataTables->pArmTypeTxt[nId]);
 	return &sgptDataTables->pArmTypeTxt[nId];

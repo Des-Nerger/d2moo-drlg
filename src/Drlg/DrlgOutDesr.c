@@ -18,7 +18,7 @@ struct D2DrlgOutDesertInit				// size: 0x10
 
 
 //Inlined in D2Common.0x6FD7D430
-void __fastcall DRLGOUTDESR_PlaceDesertTransitionToTown(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTDESR_PlaceDesertTransitionToTown(struct D2DrlgLevel* pLevel)
 {
 	struct D2DrlgOrth* pTownRoomData = pLevel->pOutdoors->pRoomData;
 
@@ -41,7 +41,7 @@ void __fastcall DRLGOUTDESR_PlaceDesertTransitionToTown(struct D2DrlgLevel* pLev
 }
 
 //D2Common.0x6FD7D430
-void __fastcall DRLGOUTDESR_InitAct2OutdoorLevel(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTDESR_InitAct2OutdoorLevel(struct D2DrlgLevel* pLevel)
 {
 	const int nLevelPrestIds1[] = { LVLPREST_ACT2_DESERT_OASIS_1, LVLPREST_ACT2_DESERT_RUINS_08X08, LVLPREST_ACT2_DESERT_FILL_BONE_1, LVLPREST_ACT2_DESERT_FILL_BONE_2, LVLPREST_ACT2_DESERT_FILL_HEAD_1, LVLPREST_ACT2_DESERT_FILL_MESA_1, LVLPREST_ACT2_DESERT_FILL_WAGON_1 };
 	const int nLevelPrestIds2[] = { LVLPREST_ACT2_DESERT_OASIS_1, LVLPREST_ACT2_DESERT_RUINS_08X08, LVLPREST_ACT2_DESERT_FILL_HEAD_2, LVLPREST_ACT2_DESERT_FILL_MESA_1 };
@@ -108,7 +108,7 @@ void __fastcall DRLGOUTDESR_InitAct2OutdoorLevel(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7D870
-void __fastcall DRLGOUTDESR_PlacePresetVariants(struct D2DrlgLevel* pLevel, const int* pLevelPrestIds, unsigned int nVariants, BOOL bIterateFiles)
+void __cdecl DRLGOUTDESR_PlacePresetVariants(struct D2DrlgLevel* pLevel, const int* pLevelPrestIds, unsigned int nVariants, BOOL bIterateFiles)
 {
 	unsigned int nRand = SEED_RollLimitedRandomNumber(&pLevel->pSeed, nVariants);
 
@@ -131,7 +131,7 @@ void __fastcall DRLGOUTDESR_PlacePresetVariants(struct D2DrlgLevel* pLevel, cons
 }
 
 //D2Common.6FD7D950
-void __fastcall DRLGOUTDESR_PlaceCliffs(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTDESR_PlaceCliffs(struct D2DrlgLevel* pLevel)
 {
 	static const struct D2DrlgOutDesertInit pOutDesertInit[8][5] =
 	{
@@ -202,7 +202,7 @@ void __fastcall DRLGOUTDESR_PlaceCliffs(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7D9B0
-void __fastcall DRLGOUTDESR_PlaceBorders(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTDESR_PlaceBorders(struct D2DrlgLevel* pLevel)
 {
 	DRLGOUTDOORS_AddAct124SecondaryBorder(pLevel, 2, LVLPREST_ACT2_DESERT_BORDER_1);
 	DRLGOUTDOORS_AddAct124SecondaryBorder(pLevel, 1, LVLPREST_ACT2_DESERT_BORDER_1);
@@ -210,7 +210,7 @@ void __fastcall DRLGOUTDESR_PlaceBorders(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7D9F0
-void __fastcall DRLGOUTDESR_AddExits(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTDESR_AddExits(struct D2DrlgLevel* pLevel)
 {
 	int nLevelPrestId = 0;
 
@@ -246,7 +246,7 @@ void __fastcall DRLGOUTDESR_AddExits(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7DA60
-void __fastcall DRLGOUTDESR_PlaceFillsInFarOasis(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTDESR_PlaceFillsInFarOasis(struct D2DrlgLevel* pLevel)
 {
 	const int nLevelPrestIds1[4] = { LVLPREST_ACT2_DESERT_RUINS_08X08, LVLPREST_ACT2_DESERT_FILL_HEAD_1, LVLPREST_ACT2_DESERT_FILL_MESA_1, LVLPREST_ACT2_DESERT_FILL_WAGON_1 };
 	const int nLevelPrestIds2[1] = { LVLPREST_ACT2_DESERT_OASIS_1 };
@@ -257,7 +257,7 @@ void __fastcall DRLGOUTDESR_PlaceFillsInFarOasis(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7DAC0
-void __fastcall DRLGOUTDESR_PlaceRuinsInLostCity(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTDESR_PlaceRuinsInLostCity(struct D2DrlgLevel* pLevel)
 {
 	const int nLevelPrestIds[4] = { LVLPREST_ACT2_DESERT_RUINS_ELDER, LVLPREST_ACT2_DESERT_RUINS_16X16, LVLPREST_ACT2_DESERT_RUINS_16X08, LVLPREST_ACT2_DESERT_RUINS_08X16 };
 
@@ -265,7 +265,7 @@ void __fastcall DRLGOUTDESR_PlaceRuinsInLostCity(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7DB00
-void __fastcall DRLGOUTDESR_PlaceFillsInLostCity(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTDESR_PlaceFillsInLostCity(struct D2DrlgLevel* pLevel)
 {
 	const int nLevelPrestIds1[5] = { LVLPREST_ACT2_DESERT_OASIS_1, LVLPREST_ACT2_DESERT_FILL_HEAD_2, LVLPREST_ACT2_DESERT_FILL_MESA_1, LVLPREST_ACT2_DESERT_FILL_BERMS_1, LVLPREST_ACT2_DESERT_FILL_BERMS_2 };
 	const int nLevelPrestIds2[1] = { LVLPREST_ACT2_DESERT_RUINS_08X08 };
@@ -276,7 +276,7 @@ void __fastcall DRLGOUTDESR_PlaceFillsInLostCity(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.6FD7DB70
-void __fastcall DRLGOUTDESR_PlaceTombEntriesInCanyon(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTDESR_PlaceTombEntriesInCanyon(struct D2DrlgLevel* pLevel)
 {
 	static const struct D2DrlgOutDesertInit pOutDesertInit[9] =
 	{
@@ -300,7 +300,7 @@ void __fastcall DRLGOUTDESR_PlaceTombEntriesInCanyon(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7DBC0
-void __fastcall DRLGOUTDESR_PlaceFillsInCanyon(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTDESR_PlaceFillsInCanyon(struct D2DrlgLevel* pLevel)
 {
 	const int nLevelPrestIds1[5] = { LVLPREST_ACT2_DESERT_FILL_BONE_1, LVLPREST_ACT2_DESERT_FILL_BONE_2, LVLPREST_ACT2_DESERT_FILL_BERMS_3, LVLPREST_ACT2_DESERT_FILL_BERMS_4, LVLPREST_ACT2_DESERT_FILL_WAGON_1 };
 	const int nLevelPrestIds2[2] = { LVLPREST_ACT2_DESERT_VALLEY_RUIN_1, LVLPREST_ACT2_DESERT_VALLEY_RUIN_2 };

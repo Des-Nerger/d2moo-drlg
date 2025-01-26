@@ -9,7 +9,7 @@
 
 //D2Common.0x6FD7FC20
 //TODO: v19
-void __fastcall DRLGOUTJUNG_BuildJungle(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTJUNG_BuildJungle(struct D2DrlgLevel* pLevel)
 {
 	static const int dword_6FDCFB18[] =
 	{
@@ -89,7 +89,7 @@ void __fastcall DRLGOUTJUNG_BuildJungle(struct D2DrlgLevel* pLevel)
 
 //D2Common.0x6FD7FE50
 //TODO: v5, v10
-void __fastcall DRLGOUTJUNG_BuildLowerKurast(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTJUNG_BuildLowerKurast(struct D2DrlgLevel* pLevel)
 {
 	int nWidth = pLevel->nWidth / 8 - 1;
 	int nHeight = pLevel->nHeight / 8 - 1;
@@ -129,7 +129,7 @@ void __fastcall DRLGOUTJUNG_BuildLowerKurast(struct D2DrlgLevel* pLevel)
 
 //D2Common.0x6FD7FFA0
 //TODO: v7, v8
-void __fastcall DRLGOUTJUNG_BuildKurastBazaar(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTJUNG_BuildKurastBazaar(struct D2DrlgLevel* pLevel)
 {
 	int nWidth = pLevel->nWidth / 8 - 1;
 	int nHeight = pLevel->nHeight / 8 - 1;
@@ -167,7 +167,7 @@ void __fastcall DRLGOUTJUNG_BuildKurastBazaar(struct D2DrlgLevel* pLevel)
 
 //D2Common.0x6FD800E0
 //TODO: v8
-void __fastcall DRLGOUTJUNG_BuildUpperKurast(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTJUNG_BuildUpperKurast(struct D2DrlgLevel* pLevel)
 {
 	int nWidth = pLevel->nWidth / 8 - 1;
 	int nHeight = pLevel->nHeight / 8 - 1;
@@ -206,7 +206,7 @@ void __fastcall DRLGOUTJUNG_BuildUpperKurast(struct D2DrlgLevel* pLevel)
 
 //D2Common.0x6FD80230
 //TODO: Rename variables
-void __fastcall DRLGOUTJUNG_SpawnRandomPreset(struct D2DrlgLevel* pLevel, int nLevelPrestId1, int nLevelPrestId2, int a4)
+void __cdecl DRLGOUTJUNG_SpawnRandomPreset(struct D2DrlgLevel* pLevel, int nLevelPrestId1, int nLevelPrestId2, int a4)
 {
 	int v8; // edi@1
 	int *v11; // ebx@2

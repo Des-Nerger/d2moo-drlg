@@ -7,7 +7,7 @@
 #include <D2BitManip.h>
 
 //Used in some of the following functions
-__forceinline BOOL __fastcall STATES_CheckStateMaskByStateId(int nState, int nStateMask)
+__forceinline BOOL __cdecl STATES_CheckStateMaskByStateId(int nState, int nStateMask)
 {
 	if (nState >= 0 && nState < sgptDataTables->nStatesTxtRecordCount)
 	{
@@ -19,7 +19,7 @@ __forceinline BOOL __fastcall STATES_CheckStateMaskByStateId(int nState, int nSt
 
 
 //D2Common.0x6FDB4560 (#10486)
-void __stdcall STATES_ToggleState(struct D2Unit* pUnit, int nState, BOOL bSet)
+void __cdecl STATES_ToggleState(struct D2Unit* pUnit, int nState, BOOL bSet)
 {
 	if (nState >= 0 && nState < sgptDataTables->nStatesTxtRecordCount)
 	{
@@ -29,7 +29,7 @@ void __stdcall STATES_ToggleState(struct D2Unit* pUnit, int nState, BOOL bSet)
 }
 
 //D2Common.0x6FDB45A0 (#10487)
-BOOL __stdcall STATES_CheckState(struct D2Unit* pUnit, int nState)
+BOOL __cdecl STATES_CheckState(struct D2Unit* pUnit, int nState)
 {
 	if (pUnit && (pUnit->dwUnitType == UNIT_PLAYER || pUnit->dwUnitType == UNIT_MONSTER || pUnit->dwUnitType == UNIT_MISSILE) && nState >= 0 && nState < sgptDataTables->nStatesTxtRecordCount)
 	{
@@ -43,7 +43,7 @@ BOOL __stdcall STATES_CheckState(struct D2Unit* pUnit, int nState)
 }
 
 //D2Common.0x6FDB45F0 (#10488)
-void __stdcall STATES_ToggleGfxStateFlag(struct D2Unit* pUnit, int nState, BOOL bSet)
+void __cdecl STATES_ToggleGfxStateFlag(struct D2Unit* pUnit, int nState, BOOL bSet)
 {
 	uint32_t* pGfxFlags = D2COMMON_STATES_GetListGfxFlags_6FDB8AC0(pUnit);
 
@@ -63,7 +63,7 @@ void __stdcall STATES_ToggleGfxStateFlag(struct D2Unit* pUnit, int nState, BOOL 
 }
 
 //D2Common.0x6FDB4670 (#10489)
-BOOL __stdcall STATES_CheckGfxStateFlag(struct D2Unit* pUnit, int nState)
+BOOL __cdecl STATES_CheckGfxStateFlag(struct D2Unit* pUnit, int nState)
 {
 	uint32_t* pGfxFlags = NULL;
 
@@ -80,7 +80,7 @@ BOOL __stdcall STATES_CheckGfxStateFlag(struct D2Unit* pUnit, int nState)
 }
 
 //D2Common.0x6FDB46C0 (#10491)
-void __stdcall STATES_ClearGfxStateFlags(struct D2Unit* pUnit)
+void __cdecl STATES_ClearGfxStateFlags(struct D2Unit* pUnit)
 {
 	uint32_t* pGfxFlags = D2COMMON_STATES_GetListGfxFlags_6FDB8AC0(pUnit);
 
@@ -91,7 +91,7 @@ void __stdcall STATES_ClearGfxStateFlags(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB4710 (#10490)
-BOOL __stdcall STATES_IsAnyGfxStateFlagSet(struct D2Unit* pUnit)
+BOOL __cdecl STATES_IsAnyGfxStateFlagSet(struct D2Unit* pUnit)
 {
 	uint32_t* pGfxFlags = NULL;
 	int nCounter = 0;
@@ -115,7 +115,7 @@ BOOL __stdcall STATES_IsAnyGfxStateFlagSet(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB4760 (#10492)
-uint32_t* __stdcall STATES_GetGfxStateFlags(struct D2Unit* pUnit)
+uint32_t* __cdecl STATES_GetGfxStateFlags(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -123,7 +123,7 @@ uint32_t* __stdcall STATES_GetGfxStateFlags(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB4790 (#10493)
-void __stdcall STATES_UpdateStayDeathFlags(struct D2Unit* pUnit, BOOL bIsBoss)
+void __cdecl STATES_UpdateStayDeathFlags(struct D2Unit* pUnit, BOOL bIsBoss)
 {
 	uint32_t* pStatFlags = NULL;
 	uint32_t* pGfxFlags = NULL;
@@ -163,43 +163,43 @@ void __stdcall STATES_UpdateStayDeathFlags(struct D2Unit* pUnit, BOOL bIsBoss)
 }
 
 //D2Common.0x6FDB48F0 (#10494)
-uint32_t* __stdcall D2COMMON_10494_STATES_GetStatFlags(struct D2Unit* pUnit)
+uint32_t* __cdecl D2COMMON_10494_STATES_GetStatFlags(struct D2Unit* pUnit)
 {
 	return D2COMMON_STATES_GetStatFlags_6FDB8A90(pUnit);
 }
 
 //D2Common.0x6FDB4900 (#10495)
-int __fastcall STATES_GetNumberOfStateFlags()
+int __cdecl STATES_GetNumberOfStateFlags()
 {
 	return (sgptDataTables->nStatesTxtRecordCount + 31) / 32;
 }
 
 //D2Common.0x6FDB4920 (#10496)
-BOOL __stdcall STATES_CheckStateMaskAuraByStateId(int nState)
+BOOL __cdecl STATES_CheckStateMaskAuraByStateId(int nState)
 {
 	return STATES_CheckStateMaskByStateId(nState, STATEMASK_AURA);
 }
 
 //D2Common.0x6FDB4960 (#10503)
-BOOL __stdcall STATES_CheckStateMaskAuraOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskAuraOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_AURA);
 }
 
 //D2Common.0x6FDB49D0 (#10500)
-BOOL __stdcall STATES_CheckStateMaskPgsvByStateId(int nState)
+BOOL __cdecl STATES_CheckStateMaskPgsvByStateId(int nState)
 {
 	return STATES_CheckStateMaskByStateId(nState, STATEMASK_PGSV);
 }
 
 //D2Common.0x6FDB4A10 (#11234)
-BOOL __stdcall STATES_CheckStateMaskPgsvOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskPgsvOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_PGSV);
 }
 
 //D2Common.0x6FDB4A80 (#10501)
-void __stdcall STATES_UpdatePgsvFlags(struct D2Unit* pUnit)
+void __cdecl STATES_UpdatePgsvFlags(struct D2Unit* pUnit)
 {
 	uint32_t* pStatFlags = NULL;
 	uint32_t* pGfxFlags = NULL;
@@ -220,55 +220,55 @@ void __stdcall STATES_UpdatePgsvFlags(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB4B20 (#10558)
-BOOL __stdcall STATES_CheckStateMaskHideByStateId(int nState)
+BOOL __cdecl STATES_CheckStateMaskHideByStateId(int nState)
 {
 	return STATES_CheckStateMaskByStateId(nState, STATEMASK_HIDE);
 }
 
 //D2Common.0x6FDB4B50 (#10557)
-BOOL __stdcall STATES_CheckStateMaskHideOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskHideOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_HIDE);
 }
 
 //D2Common.0x6FDB4BC0 (#10502)
-BOOL __stdcall STATES_CheckStateMaskActiveOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskActiveOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_ACTIVE);
 }
 
 //D2Common.0x6FDB4C30 (#11272)
-BOOL __stdcall STATES_CheckStateMaskRemHitOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskRemHitOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_REMHIT);
 }
 
 //D2Common.0x6FDB4CA0 (#10538)
-BOOL __stdcall STATES_CheckStateMaskDamBlueOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskDamBlueOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_DAMBLUE);
 }
 
 //D2Common.0x6FDB4D10 (#10545)
-BOOL __stdcall STATES_CheckStateMaskDamRedOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskDamRedOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_DAMRED);
 }
 
 //D2Common.0x6FDB4D80 (#10537)
-BOOL __stdcall STATES_CheckStateMaskAttBlueOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskAttBlueOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_ATTBLUE);
 }
 
 //D2Common.0x6FDB4DF0 (#10544)
-BOOL __stdcall STATES_CheckStateMaskAttRedOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskAttRedOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_ATTRED);
 }
 
 //D2Common.0x6FDB4E60 (#10551)
-BOOL __stdcall STATES_IsUnitShapeShifted(struct D2Unit* pUnit)
+BOOL __cdecl STATES_IsUnitShapeShifted(struct D2Unit* pUnit)
 {
 	if (pUnit)
 	{
@@ -279,7 +279,7 @@ BOOL __stdcall STATES_IsUnitShapeShifted(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB4E80 (#10497)
-BOOL __stdcall STATES_CheckStateMaskCurseByStateId(int nState)
+BOOL __cdecl STATES_CheckStateMaskCurseByStateId(int nState)
 {
 	if (nState >= 0 && nState < sgptDataTables->nStatesTxtRecordCount)
 	{
@@ -290,13 +290,13 @@ BOOL __stdcall STATES_CheckStateMaskCurseByStateId(int nState)
 }
 
 //D2Common.0x6FDB4EC0 (#10498)
-BOOL __stdcall STATES_CheckStateMaskCurableByStateId(int nState)
+BOOL __cdecl STATES_CheckStateMaskCurableByStateId(int nState)
 {
 	return STATES_CheckStateMaskByStateId(nState, STATEMASK_CURABLE);
 }
 
 //D2Common.0x6FDB4F00 (#10554)
-BOOL __stdcall STATES_CheckStateMaskStayDeathOnUnitByStateId(struct D2Unit* pUnit, int nState)
+BOOL __cdecl STATES_CheckStateMaskStayDeathOnUnitByStateId(struct D2Unit* pUnit, int nState)
 {
 	if (nState >= 0 && nState < sgptDataTables->nStatesTxtRecordCount)
 	{
@@ -314,121 +314,121 @@ BOOL __stdcall STATES_CheckStateMaskStayDeathOnUnitByStateId(struct D2Unit* pUni
 }
 
 //D2Common.0x6FDB4F60
-BOOL __fastcall STATES_CheckStateMaskRestrictOnUnit(struct D2Unit* pUnit, struct D2Skill* pSkill)
+BOOL __cdecl STATES_CheckStateMaskRestrictOnUnit(struct D2Unit* pUnit, struct D2Skill* pSkill)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_RESTRICT);
 }
 
 //D2Common.0x6FDB4FC0 (#10536)
-BOOL __stdcall STATES_CheckStateMaskBlueOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskBlueOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_BLUE);
 }
 
 //D2Common.0x6FDB5030 (#10539)
-BOOL __stdcall STATES_CheckStateMaskArmBlueOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskArmBlueOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_ARMBLUE);
 }
 
 //D2Common.0x6FDB50A0 (#10540)
-BOOL __stdcall STATES_CheckStateMaskRFBlueOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskRFBlueOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_RFBLUE);
 }
 
 //D2Common.0x6FDB5110 (#10541)
-BOOL __stdcall STATES_CheckStateMaskRCBlueOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskRCBlueOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_RCBLUE);
 }
 
 //D2Common.0x6FDB5180 (#10542)
-BOOL __stdcall STATES_CheckStateMaskRLBlueOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskRLBlueOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_RLBLUE);
 }
 
 //D2Common.0x6FDB51F0 (#10543)
-BOOL __stdcall STATES_CheckStateMaskRPBlueOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskRPBlueOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_RPBLUE);
 }
 
 //D2Common.0x6FDB5260 (#10546)
-BOOL __stdcall STATES_CheckStateMaskArmRedOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskArmRedOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_ARMRED);
 }
 
 //D2Common.0x6FDB52D0 (#10547)
-BOOL __stdcall STATES_CheckStateMaskRFRedOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskRFRedOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_RFRED);
 }
 
 //D2Common.0x6FDB5340 (#10548)
-BOOL __stdcall STATES_CheckStateMaskRCRedOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskRCRedOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_RCRED);
 }
 
 //D2Common.0x6FDB53B0 (#10549)
-BOOL __stdcall STATES_CheckStateMaskRLRedOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskRLRedOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_RLRED);
 }
 
 //D2Common.0x6FDB5420 (#10550)
-BOOL __stdcall STATES_CheckStateMaskRPRedOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskRPRedOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_RPRED);
 }
 
 //D2Common.0x6FDB5490 (#10552)
-BOOL __stdcall STATES_CheckStateMaskExpOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskExpOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_EXP);
 }
 
 //D2Common.0x6FDB5500 (#10553)
-BOOL __stdcall STATES_CheckStateMaskExpByStateId(int nState)
+BOOL __cdecl STATES_CheckStateMaskExpByStateId(int nState)
 {
 	return STATES_CheckStateMaskByStateId(nState, STATEMASK_EXP);
 }
 
 //D2Common.0x6FDB5540 (#10555)
-BOOL __stdcall STATES_CheckStateMaskShatterOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskShatterOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_SHATTER);
 }
 
 //D2Common.0x6FDB55B0 (#10556)
-BOOL __stdcall STATES_CheckStateMaskShatterByStateId(int nState)
+BOOL __cdecl STATES_CheckStateMaskShatterByStateId(int nState)
 {
 	return STATES_CheckStateMaskByStateId(nState, STATEMASK_SHATTER);
 }
 
 //D2Common.0x6FDB55F0 (#10559)
-BOOL __stdcall STATES_CheckStateMaskLifeOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskLifeOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_LIFE);
 }
 
 //D2Common.0x6FDB5660 (#10560)
-BOOL __stdcall STATES_CheckStateMaskUdeadOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskUdeadOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_UDEAD);
 }
 
 //D2Common.0x6FDB56D0 (#10561)
-BOOL __stdcall STATES_CheckStateMaskGreenOnUnit(struct D2Unit* pUnit)
+BOOL __cdecl STATES_CheckStateMaskGreenOnUnit(struct D2Unit* pUnit)
 {
 	return STATES_CheckStateMaskOnUnit(pUnit, STATEMASK_GREEN);
 }
 
 //D2Common.0x6FDB5740 (#11303)
-BOOL __stdcall STATES_CheckStateMaskOnUnit(struct D2Unit* pUnit, int nStateMask)
+BOOL __cdecl STATES_CheckStateMaskOnUnit(struct D2Unit* pUnit, int nStateMask)
 {
 
 	if (pUnit && nStateMask >= 0 && nStateMask < 40)

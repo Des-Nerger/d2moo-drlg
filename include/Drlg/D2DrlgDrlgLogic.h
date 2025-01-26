@@ -36,29 +36,29 @@ struct D2DrlgLogicalRoomInfo // aka struct D2DrlgCoordList
 #pragma pack()
 
 //D2Common.0x6FD76420
-void __fastcall DRLGLOGIC_FreeDrlgCoordList(struct D2DrlgRoom* pDrlgRoom);
+void __cdecl DRLGLOGIC_FreeDrlgCoordList(struct D2DrlgRoom* pDrlgRoom);
 //D2Common.0x6FD764A0
 //TODO: v28, a1
-void __fastcall DRLGLOGIC_InitializeDrlgCoordList(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pTileTypeGrid, struct D2DrlgGrid* pFloorGrid, struct D2DrlgGrid* pWallGrid);
+void __cdecl DRLGLOGIC_InitializeDrlgCoordList(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pTileTypeGrid, struct D2DrlgGrid* pFloorGrid, struct D2DrlgGrid* pWallGrid);
 //D2Common.0x6FD76830
-void __fastcall DRLGLOGIC_SetTileGridFlags(struct D2UnkDrlgLogic* a1, int nX, int nY, int a4);
+void __cdecl DRLGLOGIC_SetTileGridFlags(struct D2UnkDrlgLogic* a1, int nX, int nY, int a4);
 //D2Common.0x6FD769B0
-void __fastcall sub_6FD769B0(struct D2DrlgRoom* pDrlgRoom);
+void __cdecl sub_6FD769B0(struct D2DrlgRoom* pDrlgRoom);
 //D2Common.0x6FD76A90
-void __fastcall sub_6FD76A90(struct D2DrlgRoom* pDrlgRoom1, struct D2DrlgRoom* pDrlgRoom2, int nX, int nY);
+void __cdecl sub_6FD76A90(struct D2DrlgRoom* pDrlgRoom1, struct D2DrlgRoom* pDrlgRoom2, int nX, int nY);
 //D2Common.0x6FD76B90
-void __fastcall sub_6FD76B90(struct D2DrlgRoom* pDrlgRoom, int nIndex1, int nIndex2, BOOL bNode);
+void __cdecl sub_6FD76B90(struct D2DrlgRoom* pDrlgRoom, int nIndex1, int nIndex2, BOOL bNode);
 //D2Common.0x6FD76C20
-BOOL __fastcall DRLG_CheckLayer1ButNotWallObject(struct D2DrlgTileData* pTileData);
+BOOL __cdecl DRLG_CheckLayer1ButNotWallObject(struct D2DrlgTileData* pTileData);
 //D2Common.0x6FD76C50
-void __fastcall DRLGLOGIC_SetCoordListForTiles(struct D2DrlgRoom* pDrlgRoom);
+void __cdecl DRLGLOGIC_SetCoordListForTiles(struct D2DrlgRoom* pDrlgRoom);
 //D2Common.0x6FD76CF0
-void __fastcall DRLGLOGIC_AssignCoordListsForGrids(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgLogicalRoomInfo* pDrlgCoordList, int nLists);
+void __cdecl DRLGLOGIC_AssignCoordListsForGrids(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgLogicalRoomInfo* pDrlgCoordList, int nLists);
 //D2Common.0x6FD76F90
-void __fastcall DRLGLOGIC_AllocCoordLists(struct D2DrlgRoom* pDrlgRoom);
+void __cdecl DRLGLOGIC_AllocCoordLists(struct D2DrlgRoom* pDrlgRoom);
 //D2Common.0x6FD77080
-int __fastcall DRLGLOGIC_GetRoomCoordListIndex(struct D2DrlgRoom* pDrlgRoom, int nX, int nY);
+int __cdecl DRLGLOGIC_GetRoomCoordListIndex(struct D2DrlgRoom* pDrlgRoom, int nX, int nY);
 //D2Common.0x6FD77110
-struct D2RoomCoordList* __fastcall sub_6FD77110(struct D2DrlgRoom* pDrlgRoom, int nX, int nY);
+struct D2RoomCoordList* __cdecl sub_6FD77110(struct D2DrlgRoom* pDrlgRoom, int nX, int nY);
 //D2Common.0x6FD77190
-struct D2RoomCoordList* __fastcall DRLGLOGIC_GetRoomCoordList(struct D2DrlgRoom* pDrlgRoom);
+struct D2RoomCoordList* __cdecl DRLGLOGIC_GetRoomCoordList(struct D2DrlgRoom* pDrlgRoom);

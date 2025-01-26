@@ -44,20 +44,20 @@ struct D2PathIDAStarContext                           // sizof 0x36FD8
 
 //1.10f: D2Common.0x6FDA7970
 //1.13c: D2Common.0x6FDC0E40
-int __fastcall PATH_IdaStar_6FDA7970(struct D2PathInfo* pPathInfo);
+int __cdecl PATH_IdaStar_6FDA7970(struct D2PathInfo* pPathInfo);
 
 //1.10f: D2Common.0x6FDA7D40
 //1.13c: D2Common.0x6FDC08F0
-struct D2PathIDAStarNode* __fastcall PATH_IDAStar_VisitNodes(struct D2PathIDAStarContext* pContext, int nFScoreCutoff, struct D2PathInfo* pPathInfo);
+struct D2PathIDAStarNode* __cdecl PATH_IDAStar_VisitNodes(struct D2PathIDAStarContext* pContext, int nFScoreCutoff, struct D2PathInfo* pPathInfo);
 
 //1.10c: D2Common.0x6FDA81C0
 //1.13f: D2Common.0x6FDC07E0
-void __fastcall PATH_IDAStar_GetNextNeighborIndex(struct D2PathIDAStarNode* pNode, struct D2PathIDAStarContext* pContext);
+void __cdecl PATH_IDAStar_GetNextNeighborIndex(struct D2PathIDAStarNode* pNode, struct D2PathIDAStarContext* pContext);
 
 //1.10f: Inlined
 //1.13c: D2Common.0x6FDC0840
-struct D2PathIDAStarNode* __fastcall sub_6FDC0840(struct D2PathIDAStarNode* pNode, struct D2PathIDAStarContext* pContext);
+struct D2PathIDAStarNode* __cdecl sub_6FDC0840(struct D2PathIDAStarNode* pNode, struct D2PathIDAStarContext* pContext);
 
 //1.10f: Inlined
 //1.13c: D2Common.0x6FDC0650
-signed int __fastcall PATH_IDAStar_FlushNodeToDynamicPath(struct D2PathIDAStarNode* pNode, struct D2PathInfo* pPathInfo);
+signed int __cdecl PATH_IDAStar_FlushNodeToDynamicPath(struct D2PathIDAStarNode* pNode, struct D2PathInfo* pPathInfo);

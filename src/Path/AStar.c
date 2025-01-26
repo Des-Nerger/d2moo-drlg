@@ -127,7 +127,7 @@ struct D2PathFoWallNode* PATH_AStar_PopBestScoreForVisit(struct D2PathFoWallCont
 //1.00:  D2Common.0x10056EC0
 //1.10f: D2Common.0x6FDA69E0
 //1.13c: D2Common.0x6FDCB630
-int __fastcall PATH_AStar_ComputePath(struct D2PathInfo* pPathInfo)
+int __cdecl PATH_AStar_ComputePath(struct D2PathInfo* pPathInfo)
 {
 	if (!PATH_AStar_TargetLocationHasEnoughRoom(pPathInfo))
 	{
@@ -178,7 +178,7 @@ int __fastcall PATH_AStar_ComputePath(struct D2PathInfo* pPathInfo)
 }
 
 //D2Common.0x6FDA6D10
-int __fastcall PATH_AStar_PushToVisitedCache(struct D2PathFoWallContext* pContext, struct D2PathFoWallNode* pNode)
+int __cdecl PATH_AStar_PushToVisitedCache(struct D2PathFoWallContext* pContext, struct D2PathFoWallNode* pNode)
 {
 	const uint8_t nHash = (gaIdaStar_PointCacheHashMaskX[pNode->tPoint.X & 0x7F] + gaIdaStar_PointCacheHashMaskY[pNode->tPoint.Y & 0x7F]) & 0x7F;
 	pNode->pNextCachePoint = pContext->aVisitedCache[nHash];
@@ -188,7 +188,7 @@ int __fastcall PATH_AStar_PushToVisitedCache(struct D2PathFoWallContext* pContex
 
 //1.10f: D2Common.0x6FDA6D50
 //1.13c: D2Common.0x6FDCB3C0
-BOOL __fastcall PATH_AStar_ExploreChildren(struct D2PathInfo* pPathInfo, struct D2PathFoWallContext* pContext, struct D2PathFoWallNode* a3, struct D2PathPoint tTargetCoord)
+BOOL __cdecl PATH_AStar_ExploreChildren(struct D2PathInfo* pPathInfo, struct D2PathFoWallContext* pContext, struct D2PathFoWallNode* a3, struct D2PathPoint tTargetCoord)
 {
 	static const struct D2Coord aOffsets[] =
 	{
@@ -232,7 +232,7 @@ BOOL __fastcall PATH_AStar_ExploreChildren(struct D2PathInfo* pPathInfo, struct 
 // |2 3 5 7
 // |0 2 4 6
 // +-------dX
-int __stdcall PATH_AStar_Heuristic(struct D2PathPoint tPoint1, struct D2PathPoint tPoint2)
+int __cdecl PATH_AStar_Heuristic(struct D2PathPoint tPoint1, struct D2PathPoint tPoint2)
 {
 	const int nDiffX = abs(tPoint1.X - tPoint2.X);
 	const int nDiffY = abs(tPoint1.Y - tPoint2.Y);
@@ -262,7 +262,7 @@ int16_t PATH_AStar_HeuristicForNeighbor(struct D2PathPoint tPoint, struct D2Path
 //1.00:  D2Common.0x10057A10
 //1.10f: D2Common.0x6FDA7280
 //1.13c: D2Common.0x6FDCAF20
-struct D2PathFoWallNode* __fastcall PATH_AStar_GetNodeFromPendingCache(struct D2PathFoWallContext* pContext, struct D2PathPoint tPathPoint)
+struct D2PathFoWallNode* __cdecl PATH_AStar_GetNodeFromPendingCache(struct D2PathFoWallContext* pContext, struct D2PathPoint tPathPoint)
 {
 	const uint8_t nHash = (uint8_t)((gaIdaStar_PointCacheHashMaskX[tPathPoint.X & 0x7F] + gaIdaStar_PointCacheHashMaskY[tPathPoint.Y & 0x7F]) & 0x7F);
 	for (struct D2PathFoWallNode* pNode = pContext->aPendingCache[nHash];
@@ -280,7 +280,7 @@ struct D2PathFoWallNode* __fastcall PATH_AStar_GetNodeFromPendingCache(struct D2
 //1.00:  D2Common.0x10057A10
 //1.10f: D2Common.0x6FDA72D0
 //1.13c: D2Common.0x6FDCAED0
-struct D2PathFoWallNode* __fastcall PATH_AStar_FindPointInVisitedCache(struct D2PathFoWallContext* pContext, struct D2PathPoint tPathPoint)
+struct D2PathFoWallNode* __cdecl PATH_AStar_FindPointInVisitedCache(struct D2PathFoWallContext* pContext, struct D2PathPoint tPathPoint)
 {
 	const uint8_t nHash = (uint8_t)((gaIdaStar_PointCacheHashMaskX[tPathPoint.X & 0x7F] + gaIdaStar_PointCacheHashMaskY[tPathPoint.Y & 0x7F]) & 0x7F);
 	for (struct D2PathFoWallNode* pNode = pContext->aVisitedCache[nHash];
@@ -297,7 +297,7 @@ struct D2PathFoWallNode* __fastcall PATH_AStar_FindPointInVisitedCache(struct D2
 
 //1.10f: D2Common.0x6FDA7320
 //1.13c: D2Common.0x6FDCAE20
-void __fastcall PATH_AStar_MakeCandidate(struct D2PathFoWallContext* pContext, struct D2PathFoWallNode* pNode)
+void __cdecl PATH_AStar_MakeCandidate(struct D2PathFoWallContext* pContext, struct D2PathFoWallNode* pNode)
 {
 	const uint8_t nHash = (gaIdaStar_PointCacheHashMaskX[pNode->tPoint.X & 0x7F] + gaIdaStar_PointCacheHashMaskY[pNode->tPoint.Y & 0x7F]) & 0x7F;
 	pNode->pNextCachePoint = pContext->aPendingCache[nHash];
@@ -318,8 +318,8 @@ void __fastcall PATH_AStar_MakeCandidate(struct D2PathFoWallContext* pContext, s
 
 //1.10f: D2Common.0x6FDA7390
 //1.13c: D2Common.0x6FDCAC50
-//Should be __thiscall but we have to use __fastcall, hence nUnused
-void __fastcall PATH_AStar_PropagateNewFScoreToChildren(struct D2PathFoWallContext* pContext, int nUnused, struct D2PathFoWallNode* pNewNode)
+//Should be __cdecl but we have to use __cdecl, hence nUnused
+void __cdecl PATH_AStar_PropagateNewFScoreToChildren(struct D2PathFoWallContext* pContext, int nUnused, struct D2PathFoWallNode* pNewNode)
 {
 	D2_MAYBE_UNUSED(nUnused);
 
@@ -349,7 +349,7 @@ void __fastcall PATH_AStar_PropagateNewFScoreToChildren(struct D2PathFoWallConte
 
 //1.10f: D2Common.0x6FDA7450
 //1.13c: Inlined
-struct D2PathFoWallNode* __fastcall PATH_AStar_GetNewNode(struct D2PathFoWallContext* pContext)
+struct D2PathFoWallNode* __cdecl PATH_AStar_GetNewNode(struct D2PathFoWallContext* pContext)
 {
 	if (pContext->nNodesCount == ARRAY_SIZE(pContext->aNodesStorage))
 	{
@@ -376,7 +376,7 @@ static void PATH_AStar_AddChildToNode(struct D2PathFoWallNode* pNode, struct D2P
 
 //1.10f: D2Common.0x6FDA7490
 //1.13c: D2Common.0x6FDCAFB0
-BOOL __fastcall PATH_AStar_EvaluateNeighbor(struct D2PathInfo* pPathInfo, struct D2PathFoWallContext* pContext, struct D2PathFoWallNode* pCurrentNode, struct D2PathPoint tNewPointCoord, struct D2PathPoint tTargetCoord)
+BOOL __cdecl PATH_AStar_EvaluateNeighbor(struct D2PathInfo* pPathInfo, struct D2PathFoWallContext* pContext, struct D2PathFoWallNode* pCurrentNode, struct D2PathPoint tNewPointCoord, struct D2PathPoint tTargetCoord)
 {
 	const int16_t nDistanceBetweenPoints = PATH_AStar_HeuristicForNeighbor(pCurrentNode->tPoint, tNewPointCoord);
 	const int16_t nNewPointDistance = pCurrentNode->nBestDistanceFromStart + nDistanceBetweenPoints;
@@ -438,7 +438,7 @@ BOOL __fastcall PATH_AStar_EvaluateNeighbor(struct D2PathInfo* pPathInfo, struct
 // Takes a node list, and builds the path using straight lines into the path info.
 // Note that the node list stores the path from the end to the beginning (in reverse order).
 // It also seems like it won't copy the last point of the path list (first of the array), not sure if it's intended or not.
-signed int __fastcall PATH_AStar_FlushNodeToDynamicPath(struct D2PathFoWallNode* pNode, struct D2PathInfo* pPathInfo)
+signed int __cdecl PATH_AStar_FlushNodeToDynamicPath(struct D2PathFoWallNode* pNode, struct D2PathInfo* pPathInfo)
 {
 	if (!pNode)
 	{

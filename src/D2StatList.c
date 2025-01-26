@@ -11,7 +11,7 @@
 
 
 //D2Common.0x6FDB57C0 (#10563)
-BOOL __stdcall STATLIST_AreUnitsAligned(struct D2Unit* pUnit1, struct D2Unit* pUnit2)
+BOOL __cdecl STATLIST_AreUnitsAligned(struct D2Unit* pUnit1, struct D2Unit* pUnit2)
 {
 	if (pUnit1 && pUnit2)
 	{
@@ -35,7 +35,7 @@ BOOL __stdcall STATLIST_AreUnitsAligned(struct D2Unit* pUnit1, struct D2Unit* pU
 
 #define IMPLEMENT_StatArray_FUNCTIONS_ON(T, StatType) \
 /* Helper function */ \
-static int __fastcall T##_FindInsertionIndex(const struct T* pStatsArray, D2SLayerStatId_PackedType nLayer_StatId, bool* pAlreadyInArray) \
+static int __cdecl T##_FindInsertionIndex(const struct T* pStatsArray, D2SLayerStatId_PackedType nLayer_StatId, bool* pAlreadyInArray) \
 { \
 	if (pAlreadyInArray) \
 	{ \
@@ -80,7 +80,7 @@ int T##_DichotomicSearch(const struct T* pStatArray, D2SLayerStatId_PackedType n
 } \
  \
 /* Helper function */ \
-struct StatType* __fastcall T##_InsertStat(void* pMemPool, struct T* pStatsArray, D2SLayerStatId_PackedType nLayer_StatId, int insertionIdx) \
+struct StatType* __cdecl T##_InsertStat(void* pMemPool, struct T* pStatsArray, D2SLayerStatId_PackedType nLayer_StatId, int insertionIdx) \
 { \
 	if (pStatsArray->nStatCount >= pStatsArray->nCapacity) \
 	{ \
@@ -104,7 +104,7 @@ IMPLEMENT_StatArray_FUNCTIONS_ON(D2ModStatsArray, D2SLayerStatId)
 IMPLEMENT_StatArray_FUNCTIONS_ON(D2StatsArray, D2Stat)
 
 // Helper function
-static struct D2Stat* __fastcall STATLIST_GetOrInsertStat(void* pMemPool, struct D2StatsArray* pStatsArray, D2SLayerStatId_PackedType nLayer_StatId)
+static struct D2Stat* __cdecl STATLIST_GetOrInsertStat(void* pMemPool, struct D2StatsArray* pStatsArray, D2SLayerStatId_PackedType nLayer_StatId)
 {
 	bool bFoundStatInArray = false;
 	const int insertionIdx = D2StatsArray_FindInsertionIndex(pStatsArray, nLayer_StatId, &bFoundStatInArray);
@@ -163,7 +163,7 @@ static int ComputeStatPercentage(int nValue, struct D2StatListEx* pStatListEx, u
 }
 
 //D2Common.0x6FDB5830
-int __fastcall sub_6FDB5830(struct D2StatListEx* pStatListEx, D2SLayerStatId_PackedType nLayer_StatId)
+int __cdecl sub_6FDB5830(struct D2StatListEx* pStatListEx, D2SLayerStatId_PackedType nLayer_StatId)
 {
 	int nAccumulatedValue = 0;
 
@@ -442,7 +442,7 @@ int __fastcall sub_6FDB5830(struct D2StatListEx* pStatListEx, D2SLayerStatId_Pac
 
 
 //D2Common.0x6FDB6300
-int __fastcall STATLIST_FindStatIndex_6FDB6300(struct D2StatsArray* pStatArray, D2SLayerStatId_PackedType nLayer_StatId)
+int __cdecl STATLIST_FindStatIndex_6FDB6300(struct D2StatsArray* pStatArray, D2SLayerStatId_PackedType nLayer_StatId)
 {
 	return D2StatsArray_DichotomicSearch(pStatArray, nLayer_StatId);
 }
@@ -465,7 +465,7 @@ static int STATLIST_ApplyMinValue(int nValue, struct D2ItemStatCostTxt* pItemSta
 }
 
 //D2Common.0x6FDB6340
-int __fastcall STATLIST_GetBaseStat_6FDB6340(struct D2StatList* pStatList, D2SLayerStatId_PackedType nLayer_StatId, struct D2ItemStatCostTxt* pItemStatCostTxtRecord)
+int __cdecl STATLIST_GetBaseStat_6FDB6340(struct D2StatList* pStatList, D2SLayerStatId_PackedType nLayer_StatId, struct D2ItemStatCostTxt* pItemStatCostTxtRecord)
 {
 	struct D2Stat* pStat = STATLIST_FindStat_6FDB6920(&pStatList->Stats, nLayer_StatId);
 	if (pStat)
@@ -476,7 +476,7 @@ int __fastcall STATLIST_GetBaseStat_6FDB6340(struct D2StatList* pStatList, D2SLa
 }
 
 //D2Common.0x6FDB63E0
-int __fastcall STATLIST_GetTotalStat_6FDB63E0(struct D2StatList* pStatList, D2SLayerStatId_PackedType nLayer_StatId, struct D2ItemStatCostTxt* pItemStatCostTxtRecord)
+int __cdecl STATLIST_GetTotalStat_6FDB63E0(struct D2StatList* pStatList, D2SLayerStatId_PackedType nLayer_StatId, struct D2ItemStatCostTxt* pItemStatCostTxtRecord)
 {
 	D2_VERIFY(pStatList != nullptr);
 	struct D2StatListEx* pStatListEx = STATLIST_StatListExCast(pStatList);
@@ -491,7 +491,7 @@ int __fastcall STATLIST_GetTotalStat_6FDB63E0(struct D2StatList* pStatList, D2SL
 }
 
 //D2Common.0x6FDB64A0
-int __fastcall sub_6FDB64A0(struct D2StatListEx* pStatListEx, D2SLayerStatId_PackedType nLayer_StatId, struct D2ItemStatCostTxt* pItemStatCostTxtRecord, struct D2Unit* pUnit)
+int __cdecl sub_6FDB64A0(struct D2StatListEx* pStatListEx, D2SLayerStatId_PackedType nLayer_StatId, struct D2ItemStatCostTxt* pItemStatCostTxtRecord, struct D2Unit* pUnit)
 {
 	int nNewValue = sub_6FDB5830(pStatListEx, nLayer_StatId);
 
@@ -642,14 +642,14 @@ int __fastcall sub_6FDB64A0(struct D2StatListEx* pStatListEx, D2SLayerStatId_Pac
 }
 
 //D2Common.0x6FDB6920
-struct D2Stat* __fastcall STATLIST_FindStat_6FDB6920(struct D2StatsArray* pStatArray, D2SLayerStatId_PackedType nLayer_StatId)
+struct D2Stat* __cdecl STATLIST_FindStat_6FDB6920(struct D2StatsArray* pStatArray, D2SLayerStatId_PackedType nLayer_StatId)
 {
 	const int nStatIndex = STATLIST_FindStatIndex_6FDB6300(pStatArray, nLayer_StatId);
 	return (nStatIndex >= 0) ? &pStatArray->pStat[nStatIndex] : nullptr;
 }
 
 //D2Common.0x6FDB6970
-struct D2Stat* __fastcall STATLIST_InsertStatOrFail_6FDB6970(void* pMemPool, struct D2StatsArray* pStatsArray, D2SLayerStatId_PackedType nLayer_StatId)
+struct D2Stat* __cdecl STATLIST_InsertStatOrFail_6FDB6970(void* pMemPool, struct D2StatsArray* pStatsArray, D2SLayerStatId_PackedType nLayer_StatId)
 {
 	bool bFoundStatInArray = false;
 	int insertionIdx = D2StatsArray_FindInsertionIndex(pStatsArray, nLayer_StatId, &bFoundStatInArray);
@@ -661,7 +661,7 @@ struct D2Stat* __fastcall STATLIST_InsertStatOrFail_6FDB6970(void* pMemPool, str
 }
 
 //D2Common.0x6FDB6A30
-void __fastcall STATLIST_RemoveStat_6FDB6A30(void* pMemPool, struct D2StatsArray* pStatEx, struct D2Stat* pStat)
+void __cdecl STATLIST_RemoveStat_6FDB6A30(void* pMemPool, struct D2StatsArray* pStatEx, struct D2Stat* pStat)
 {
 	int nIndex = pStat - pStatEx->pStat;
 
@@ -684,7 +684,7 @@ void __fastcall STATLIST_RemoveStat_6FDB6A30(void* pMemPool, struct D2StatsArray
 }
 
 //D2Common.0x6FDB6AB0
-void __fastcall STATLIST_UpdateUnitStat_6FDB6AB0(struct D2StatListEx* pStatListEx, D2SLayerStatId_PackedType nLayer_StatId, int nNewValue, struct D2ItemStatCostTxt* pItemStatCostTxtRecord, struct D2Unit* pUnit)
+void __cdecl STATLIST_UpdateUnitStat_6FDB6AB0(struct D2StatListEx* pStatListEx, D2SLayerStatId_PackedType nLayer_StatId, int nNewValue, struct D2ItemStatCostTxt* pItemStatCostTxtRecord, struct D2Unit* pUnit)
 {
 	struct D2StatsArray* pStatsArray = &pStatListEx->FullStats;
 	bool bFoundStatInArray = false;
@@ -708,7 +708,7 @@ void __fastcall STATLIST_UpdateUnitStat_6FDB6AB0(struct D2StatListEx* pStatListE
 }
 
 //D2Common.0x6FDB6C10
-void __fastcall sub_6FDB6C10(struct D2StatListEx* pStatListEx, D2SLayerStatId_PackedType nLayer_StatId, int nValue, struct D2Unit* pUnit)
+void __cdecl sub_6FDB6C10(struct D2StatListEx* pStatListEx, D2SLayerStatId_PackedType nLayer_StatId, int nValue, struct D2Unit* pUnit)
 {
 	if (!nValue)
 	{
@@ -758,7 +758,7 @@ void __fastcall sub_6FDB6C10(struct D2StatListEx* pStatListEx, D2SLayerStatId_Pa
 }
 
 //D2Common.0x6FDB6E30
-void __stdcall D2Common_ExpireStatList_6FDB6E30(struct D2StatList* pStatList)
+void __cdecl D2Common_ExpireStatList_6FDB6E30(struct D2StatList* pStatList)
 {
 	if (!pStatList)
 	{
@@ -870,7 +870,7 @@ void __stdcall D2Common_ExpireStatList_6FDB6E30(struct D2StatList* pStatList)
 }
 
 //D2Common.0x6FDB7030 (#10485)
-void __stdcall STATLIST_FreeStatList(struct D2StatList* pStatList)
+void __cdecl STATLIST_FreeStatList(struct D2StatList* pStatList)
 {
 	if (pStatList && !STATLIST_IsExtended(pStatList))
 	{
@@ -879,7 +879,7 @@ void __stdcall STATLIST_FreeStatList(struct D2StatList* pStatList)
 }
 
 //D2Common.0x6FDB7050
-void __fastcall D2Common_STATLIST_FreeStatListImpl_6FDB7050(struct D2StatList* pStatList)
+void __cdecl D2Common_STATLIST_FreeStatListImpl_6FDB7050(struct D2StatList* pStatList)
 {
 
 	D2Common_ExpireStatList_6FDB6E30(pStatList);
@@ -930,7 +930,7 @@ void __fastcall D2Common_STATLIST_FreeStatListImpl_6FDB7050(struct D2StatList* p
 }
 
 //D2Common.0x6FDB7110 (#10527)
-void __stdcall STATLIST_FreeStatListEx(struct D2Unit* pUnit)
+void __cdecl STATLIST_FreeStatListEx(struct D2Unit* pUnit)
 {
 	if (pUnit->pStatListEx)
 	{
@@ -944,7 +944,7 @@ void __stdcall STATLIST_FreeStatListEx(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB7140 (#10470)
-struct D2StatList* __stdcall STATLIST_AllocStatList(void* pMemPool, uint32_t fFilter, uint32_t dwTimeout, int nUnitType, D2UnitGUID nUnitGUID)
+struct D2StatList* __cdecl STATLIST_AllocStatList(void* pMemPool, uint32_t fFilter, uint32_t dwTimeout, int nUnitType, D2UnitGUID nUnitGUID)
 {
 	struct D2StatList* pStatList = D2_CALLOC_STRC_POOL(pMemPool, struct D2StatList);
 
@@ -958,7 +958,7 @@ struct D2StatList* __stdcall STATLIST_AllocStatList(void* pMemPool, uint32_t fFi
 }
 
 //D2Common.0x6FDB7190 (#10526)
-void __stdcall STATLIST_AllocStatListEx(struct D2Unit* pUnit, char nFlags, StatListValueChangeFunc pfOnValueChanged, struct D2Game* pGame)
+void __cdecl STATLIST_AllocStatListEx(struct D2Unit* pUnit, char nFlags, StatListValueChangeFunc pfOnValueChanged, struct D2Game* pGame)
 {
 	STATLIST_FreeStatListEx(pUnit);
 
@@ -977,7 +977,7 @@ void __stdcall STATLIST_AllocStatListEx(struct D2Unit* pUnit, char nFlags, StatL
 }
 
 //D2Common.0x6FDB7260 (#10471)
-int __stdcall STATLIST_GetOwnerType(struct D2StatList* pStatList)
+int __cdecl STATLIST_GetOwnerType(struct D2StatList* pStatList)
 {
 	if (pStatList)
 	{
@@ -988,7 +988,7 @@ int __stdcall STATLIST_GetOwnerType(struct D2StatList* pStatList)
 }
 
 //D2Common.0x6FD912D0 (#10472)
-D2UnitGUID __stdcall STATLIST_GetOwnerGUID(struct D2StatList* pStatList)
+D2UnitGUID __cdecl STATLIST_GetOwnerGUID(struct D2StatList* pStatList)
 {
 	if (pStatList)
 	{
@@ -1000,7 +1000,7 @@ D2UnitGUID __stdcall STATLIST_GetOwnerGUID(struct D2StatList* pStatList)
 }
 
 //D2Common.0x6FDB7280 (#11304)
-int __stdcall STATLIST_GetBaseStatsCount(struct D2StatList* pStatList)
+int __cdecl STATLIST_GetBaseStatsCount(struct D2StatList* pStatList)
 {
 	if (pStatList)
 	{
@@ -1011,7 +1011,7 @@ int __stdcall STATLIST_GetBaseStatsCount(struct D2StatList* pStatList)
 }
 
 //D2Common.0x6FDB72A0 (#11305)
-int __stdcall STATLIST_GetFullStatsCountFromUnit(struct D2Unit* pUnit)
+int __cdecl STATLIST_GetFullStatsCountFromUnit(struct D2Unit* pUnit)
 {
 	if (pUnit && pUnit->pStatListEx)
 	{
@@ -1022,7 +1022,7 @@ int __stdcall STATLIST_GetFullStatsCountFromUnit(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB72C0 (#10478)
-void __stdcall STATLIST_SetState(struct D2StatList* pStatList, int nState)
+void __cdecl STATLIST_SetState(struct D2StatList* pStatList, int nState)
 {
 	if (pStatList)
 	{
@@ -1031,7 +1031,7 @@ void __stdcall STATLIST_SetState(struct D2StatList* pStatList, int nState)
 }
 
 //D2Common.0x6FDB72E0 (#10479)
-int __stdcall STATLIST_GetState(struct D2StatList* pStatList)
+int __cdecl STATLIST_GetState(struct D2StatList* pStatList)
 {
 	if (pStatList)
 	{
@@ -1042,7 +1042,7 @@ int __stdcall STATLIST_GetState(struct D2StatList* pStatList)
 }
 
 //D2Common.0x6FDB7300 (#10528)
-void __stdcall STATLIST_SetExpireFrame(struct D2StatList* pStatList, int nExpireFrame)
+void __cdecl STATLIST_SetExpireFrame(struct D2StatList* pStatList, int nExpireFrame)
 {
 	if (pStatList)
 	{
@@ -1056,7 +1056,7 @@ void __stdcall STATLIST_SetExpireFrame(struct D2StatList* pStatList, int nExpire
 }
 
 //D2Common.0x6FDB7320 (#10529)
-int __stdcall STATLIST_GetExpireFrame(struct D2StatList* pStatList)
+int __cdecl STATLIST_GetExpireFrame(struct D2StatList* pStatList)
 {
 	if (pStatList)
 	{
@@ -1068,7 +1068,7 @@ int __stdcall STATLIST_GetExpireFrame(struct D2StatList* pStatList)
 }
 
 //D2Common.0x6FDB7340 (#10475)
-void __stdcall D2COMMON_10475_PostStatToStatList(struct D2Unit* pUnit, struct D2StatList* pStatList, BOOL bResetFlag)
+void __cdecl D2COMMON_10475_PostStatToStatList(struct D2Unit* pUnit, struct D2StatList* pStatList, BOOL bResetFlag)
 {
 	struct D2StatListEx* pUnitStatListEx = STATLIST_StatListExCast((struct D2StatList *)pUnit->pStatListEx);
 	if (pUnitStatListEx)
@@ -1175,7 +1175,7 @@ void __stdcall D2COMMON_10475_PostStatToStatList(struct D2Unit* pUnit, struct D2
 }
 
 //D2Common.0x6FDB7560 (#10464)
-void __stdcall STATLIST_AddStat(struct D2StatList* pStatList, int nStatId, int nValue, uint16_t nLayer)
+void __cdecl STATLIST_AddStat(struct D2StatList* pStatList, int nStatId, int nValue, uint16_t nLayer)
 {
 	if (!pStatList || !nValue)
 	{
@@ -1210,7 +1210,7 @@ void __stdcall STATLIST_AddStat(struct D2StatList* pStatList, int nStatId, int n
 }
 
 //D2Common.0x6FDB7690
-void __fastcall STATLIST_InsertStatModOrFail_6FDB7690(struct D2StatList* pStatList, D2SLayerStatId_PackedType nLayer_StatId)
+void __cdecl STATLIST_InsertStatModOrFail_6FDB7690(struct D2StatList* pStatList, D2SLayerStatId_PackedType nLayer_StatId)
 {
 	struct D2StatListEx* pStatListEx = STATLIST_StatListExCast(pStatList);
 	if (pStatListEx)
@@ -1241,13 +1241,13 @@ void __fastcall STATLIST_InsertStatModOrFail_6FDB7690(struct D2StatList* pStatLi
 }
 
 //D2Common.0x6FDB77B0 (#10463)
-BOOL __stdcall STATLIST_SetStat(struct D2StatList* pStatList, int nStatId, int nValue, uint16_t nLayer)
+BOOL __cdecl STATLIST_SetStat(struct D2StatList* pStatList, int nStatId, int nValue, uint16_t nLayer)
 {
 	return STATLIST_SetBaseStat(pStatList, nStatId, nValue, nLayer, NULL);
 }
 
 //D2Common.0x6FDB7910 (#10465)
-void __stdcall STATLIST_SetStatIfListIsValid(struct D2StatList* pStatList, int nStatId, int nValue, uint16_t nLayer)
+void __cdecl STATLIST_SetStatIfListIsValid(struct D2StatList* pStatList, int nStatId, int nValue, uint16_t nLayer)
 {
 	if (pStatList)
 	{
@@ -1256,7 +1256,7 @@ void __stdcall STATLIST_SetStatIfListIsValid(struct D2StatList* pStatList, int n
 }
 
 //D2Common.0x6FDB7930 (#11294)
-BOOL __stdcall STATLIST_SetBaseStat(struct D2StatList* pStatList, int nStatId, int nValue, uint16_t nLayer, struct D2Unit* pUnit)
+BOOL __cdecl STATLIST_SetBaseStat(struct D2StatList* pStatList, int nStatId, int nValue, uint16_t nLayer, struct D2Unit* pUnit)
 {
 	if (!pStatList)
 	{
@@ -1307,7 +1307,7 @@ BOOL __stdcall STATLIST_SetBaseStat(struct D2StatList* pStatList, int nStatId, i
 }
 
 //D2Common.0x6FDB7A90 (#11295)
-void __stdcall STATLIST_SetBaseStat2(struct D2StatList* pStatList, int nStatId, int nValue, uint16_t nLayer, struct D2Unit* pUnit)
+void __cdecl STATLIST_SetBaseStat2(struct D2StatList* pStatList, int nStatId, int nValue, uint16_t nLayer, struct D2Unit* pUnit)
 {
 	if (pStatList)
 	{
@@ -1316,7 +1316,7 @@ void __stdcall STATLIST_SetBaseStat2(struct D2StatList* pStatList, int nStatId, 
 }
 
 //D2Common.0x6FDB7AB0 (#10517)
-void __stdcall STATLIST_SetUnitStat(struct D2Unit* pUnit, int nStatId, int nValue, uint16_t nLayer)
+void __cdecl STATLIST_SetUnitStat(struct D2Unit* pUnit, int nStatId, int nValue, uint16_t nLayer)
 {
 	if (STATLIST_SetStat((struct D2StatList *)pUnit->pStatListEx, nStatId, nValue, nLayer))
 	{
@@ -1328,7 +1328,7 @@ void __stdcall STATLIST_SetUnitStat(struct D2Unit* pUnit, int nStatId, int nValu
 }
 
 //D2Common.0x6FDB7B00 (#10518)
-void __stdcall STATLIST_AddUnitStat(struct D2Unit* pUnit, int nStatId, int nValue, uint16_t nLayer)
+void __cdecl STATLIST_AddUnitStat(struct D2Unit* pUnit, int nStatId, int nValue, uint16_t nLayer)
 {
 	if (nValue)
 	{
@@ -1337,7 +1337,7 @@ void __stdcall STATLIST_AddUnitStat(struct D2Unit* pUnit, int nStatId, int nValu
 }
 
 //D2Common.0x6FDB7B30 (#10521)
-int __stdcall STATLIST_GetUnitBaseStat(struct D2Unit* pUnit, int nStatId, uint16_t nLayer)
+int __cdecl STATLIST_GetUnitBaseStat(struct D2Unit* pUnit, int nStatId, uint16_t nLayer)
 {
 	if (!pUnit || !pUnit->pStatListEx)
 	{
@@ -1356,7 +1356,7 @@ int __stdcall STATLIST_GetUnitBaseStat(struct D2Unit* pUnit, int nStatId, uint16
 
 // Helper function
 // Different than STATLIST_GetStatValue in that it may use FullStats
-static int32_t __stdcall STATLIST_GetTotalStatValue(struct D2StatList* pStatList, int nStatId, uint16_t nLayer)
+static int32_t __cdecl STATLIST_GetTotalStatValue(struct D2StatList* pStatList, int nStatId, uint16_t nLayer)
 {
 	if (!pStatList)
 	{
@@ -1372,7 +1372,7 @@ static int32_t __stdcall STATLIST_GetTotalStatValue(struct D2StatList* pStatList
 }
 
 //D2Common.0x6FDB7C30 (#10519)
-int32_t __stdcall STATLIST_UnitGetStatValue(const struct D2Unit* pUnit, int nStatId, uint16_t nLayer)
+int32_t __cdecl STATLIST_UnitGetStatValue(const struct D2Unit* pUnit, int nStatId, uint16_t nLayer)
 {
 	return STATLIST_GetTotalStatValue((struct D2StatList *)pUnit->pStatListEx, nStatId, nLayer);
 }
@@ -1385,14 +1385,14 @@ int32_t __stdcall STATLIST_UnitGetStatValue(const struct D2Unit* pUnit, int nSta
 // This can easily be tracked by checking the function responsible for computing the defense rate and its usage of both functions.
 // - 1.00 to 1.05 : UNITS_GetDefenseRate#10426. STATLIST_UnitGetStatValue#10497. STATLIST_UnitGetItemStatOrSkillStatValue#10498.
 // - 1.08 to 1.10f: UNITS_GetDefenseRate#10431. STATLIST_UnitGetStatValue#10519. STATLIST_UnitGetItemStatOrSkillStatValue#10520.
-int32_t __stdcall STATLIST_UnitGetItemStatOrSkillStatValue(struct D2Unit* pUnit, int nStatId, uint16_t nLayer)
+int32_t __cdecl STATLIST_UnitGetItemStatOrSkillStatValue(struct D2Unit* pUnit, int nStatId, uint16_t nLayer)
 {
 	return STATLIST_UnitGetStatValue(pUnit, nStatId, nLayer);
 }
 
 
 //D2Common.0x6FDB7D40 (#10466)
-int __stdcall STATLIST_GetStatValue(struct D2StatList* pStatList, int nStatId, uint16_t nLayer)
+int __cdecl STATLIST_GetStatValue(struct D2StatList* pStatList, int nStatId, uint16_t nLayer)
 {
 	if (!pStatList)
 	{
@@ -1416,7 +1416,7 @@ int __stdcall STATLIST_GetStatValue(struct D2StatList* pStatList, int nStatId, u
 
 
 //D2Common.0x6FDB7F40 (#10522)
-int __stdcall STATLIST_GetUnitStatBonus(struct D2Unit* pUnit, int nStatId, uint16_t nLayer)
+int __cdecl STATLIST_GetUnitStatBonus(struct D2Unit* pUnit, int nStatId, uint16_t nLayer)
 {
 
 
@@ -1458,7 +1458,7 @@ int __stdcall STATLIST_GetUnitStatBonus(struct D2Unit* pUnit, int nStatId, uint1
 }
 
 //D2Common.0x6FDB80C0 (#10515)
-void __stdcall STATLIST_DeactivateTemporaryStates(struct D2Unit* pUnit)
+void __cdecl STATLIST_DeactivateTemporaryStates(struct D2Unit* pUnit)
 {
 	if (pUnit->pStatListEx == nullptr || !(pUnit->pStatListEx->dwFlags & STATLIST_NEWLENGTH))
 	{
@@ -1491,7 +1491,7 @@ void __stdcall STATLIST_DeactivateTemporaryStates(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB8120 (#10467)
-int __stdcall D2Common_10467(struct D2StatList* pStatList, int nStat)
+int __cdecl D2Common_10467(struct D2StatList* pStatList, int nStat)
 {
 	if (pStatList && nStat < pStatList->Stats.nStatCount)
 	{
@@ -1502,7 +1502,7 @@ int __stdcall D2Common_10467(struct D2StatList* pStatList, int nStat)
 }
 
 //D2Common.0x6FDB8150 (#10468)
-void __stdcall STATLIST_RemoveAllStats(struct D2StatList* pStatList)
+void __cdecl STATLIST_RemoveAllStats(struct D2StatList* pStatList)
 {
 	if (pStatList == nullptr)
 	{
@@ -1516,7 +1516,7 @@ void __stdcall STATLIST_RemoveAllStats(struct D2StatList* pStatList)
 }
 
 //D2Common.0x6FDB8190
-struct D2StatList* __stdcall D2Common_GetStateFromStatListEx_6FDB8190(struct D2StatListEx* pStatListEx, int nStateId)
+struct D2StatList* __cdecl D2Common_GetStateFromStatListEx_6FDB8190(struct D2StatListEx* pStatListEx, int nStateId)
 {
 	if (pStatListEx && nStateId)
 	{
@@ -1543,7 +1543,7 @@ struct D2StatList* __stdcall D2Common_GetStateFromStatListEx_6FDB8190(struct D2S
 }
 
 //D2Common.0x6FDB81E0 (#10480)
-struct D2StatList* __stdcall STATLIST_GetStatListFromUnitAndState(struct D2Unit* pUnit, int nState)
+struct D2StatList* __cdecl STATLIST_GetStatListFromUnitAndState(struct D2Unit* pUnit, int nState)
 {
 	if (pUnit->pStatListEx && STATLIST_IsExtended((struct D2StatList *)pUnit->pStatListEx))
 	{
@@ -1554,7 +1554,7 @@ struct D2StatList* __stdcall STATLIST_GetStatListFromUnitAndState(struct D2Unit*
 }
 
 //D2Common.0x6FDB8200 (#10482)
-struct D2StatList* __stdcall STATLIST_GetStatListFromFlag(struct D2StatList* pStatList, int nFlag)
+struct D2StatList* __cdecl STATLIST_GetStatListFromFlag(struct D2StatList* pStatList, int nFlag)
 {
 	if (!pStatList)
 	{
@@ -1570,7 +1570,7 @@ struct D2StatList* __stdcall STATLIST_GetStatListFromFlag(struct D2StatList* pSt
 }
 
 //D2Common.0x6FDB8230 (#10481)
-struct D2StatList* __stdcall STATLIST_GetStatListFromUnitAndFlag(struct D2Unit* pUnit, int nFlag)
+struct D2StatList* __cdecl STATLIST_GetStatListFromUnitAndFlag(struct D2Unit* pUnit, int nFlag)
 {
 	if (pUnit->pStatListEx && STATLIST_IsExtended((struct D2StatList *)pUnit->pStatListEx))
 	{
@@ -1589,7 +1589,7 @@ struct D2StatList* __stdcall STATLIST_GetStatListFromUnitAndFlag(struct D2Unit* 
 }
 
 //D2Common.0x6FDB8270 (#10483)
-struct D2StatList* __stdcall STATLIST_GetStatListFromUnitStateOrFlag(struct D2Unit* pUnit, int nState, int nFlag)
+struct D2StatList* __cdecl STATLIST_GetStatListFromUnitStateOrFlag(struct D2Unit* pUnit, int nState, int nFlag)
 {
 	if (pUnit->pStatListEx && STATLIST_IsExtended((struct D2StatList *)pUnit->pStatListEx))
 	{
@@ -1605,7 +1605,7 @@ struct D2StatList* __stdcall STATLIST_GetStatListFromUnitStateOrFlag(struct D2Un
 }
 
 //D2Common.0x6FDB82C0 (#10484)
-struct D2StatList* __stdcall STATLIST_GetStatListFromUnitStateAndFlag(struct D2Unit* pUnit, int nState, int nFlag)
+struct D2StatList* __cdecl STATLIST_GetStatListFromUnitStateAndFlag(struct D2Unit* pUnit, int nState, int nFlag)
 {
 	if (pUnit->pStatListEx && STATLIST_IsExtended((struct D2StatList *)pUnit->pStatListEx))
 	{
@@ -1623,7 +1623,7 @@ struct D2StatList* __stdcall STATLIST_GetStatListFromUnitStateAndFlag(struct D2U
 }
 
 //D2Common.0x6FDB8310 (#10523)
-void __stdcall STATLIST_MergeStatLists(struct D2Unit* pTarget, struct D2Unit* pUnit, BOOL bType)
+void __cdecl STATLIST_MergeStatLists(struct D2Unit* pTarget, struct D2Unit* pUnit, BOOL bType)
 {
 	if (pTarget && pUnit && pUnit->pStatListEx)
 	{
@@ -1652,7 +1652,7 @@ void __stdcall STATLIST_MergeStatLists(struct D2Unit* pTarget, struct D2Unit* pU
 
 
 //D2Common.0x6FDB83A0 (#10535)
-struct D2Unit* __stdcall STATLIST_GetOwner(struct D2Unit* pUnit, BOOL* pStatNotDynamic)
+struct D2Unit* __cdecl STATLIST_GetOwner(struct D2Unit* pUnit, BOOL* pStatNotDynamic)
 {
 	if (!pUnit || !pUnit->pStatListEx || !pUnit->pStatListEx->pParent || !STATLIST_IsExtended((struct D2StatList *)pUnit->pStatListEx->pParent))
 	{
@@ -1671,7 +1671,7 @@ struct D2Unit* __stdcall STATLIST_GetOwner(struct D2Unit* pUnit, BOOL* pStatNotD
 }
 
 //D2Common.0x6FDB8420 (#10512)
-void __stdcall D2Common_10512(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int nStatId, void (__fastcall* pfCallback)(struct D2Unit*, int, int, struct D2Unit*))
+void __cdecl D2Common_10512(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int nStatId, void (__cdecl* pfCallback)(struct D2Unit*, int, int, struct D2Unit*))
 {
 	if (!pUnit1 || !pUnit1->pStatListEx || !STATLIST_IsExtended((struct D2StatList *)pUnit1->pStatListEx))
 	{
@@ -1693,7 +1693,7 @@ void __stdcall D2Common_10512(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int 
 }
 
 //D2Common.0x6FDB84E0 (#10513)
-void __stdcall D2Common_10513(struct D2Unit* pUnit1, struct D2Unit* pUnit2, void (__fastcall* pfCallback)(struct D2Unit*, int, int, struct D2Unit*))
+void __cdecl D2Common_10513(struct D2Unit* pUnit1, struct D2Unit* pUnit2, void (__cdecl* pfCallback)(struct D2Unit*, int, int, struct D2Unit*))
 {
 	if (!pUnit1 || (!pUnit2 && pfCallback) || !pUnit1->pStatListEx || !STATLIST_IsExtended((struct D2StatList *)pUnit1->pStatListEx))
 	{
@@ -1715,7 +1715,7 @@ void __stdcall D2Common_10513(struct D2Unit* pUnit1, struct D2Unit* pUnit2, void
 }
 
 //D2Common.0x6FDB85D0 (#10511)
-void __stdcall STATLIST_FreeModStats(struct D2Unit* pUnit)
+void __cdecl STATLIST_FreeModStats(struct D2Unit* pUnit)
 {
 	if (pUnit && pUnit->pStatListEx && STATLIST_IsExtended((struct D2StatList *)pUnit->pStatListEx))
 	{
@@ -1731,7 +1731,7 @@ void __stdcall STATLIST_FreeModStats(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB8620 (#10562)
-int __stdcall STATLIST_GetUnitAlignment(struct D2Unit* pUnit)
+int __cdecl STATLIST_GetUnitAlignment(struct D2Unit* pUnit)
 {
 	if (!pUnit || !pUnit->pStatListEx)
 	{
@@ -1757,7 +1757,7 @@ int __stdcall STATLIST_GetUnitAlignment(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB8750 (#10534)
-void __stdcall D2Common_10534(struct D2Unit* pUnit)
+void __cdecl D2Common_10534(struct D2Unit* pUnit)
 {
 	if (pUnit && pUnit->pStatListEx)
 	{
@@ -1766,7 +1766,7 @@ void __stdcall D2Common_10534(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB8770 (#10530)
-BOOL __stdcall D2COMMON_10530_D2CheckStatlistFlagDMGRed(struct D2Unit* pUnit)
+BOOL __cdecl D2COMMON_10530_D2CheckStatlistFlagDMGRed(struct D2Unit* pUnit)
 {
 	if (pUnit && pUnit->pStatListEx)
 	{
@@ -1777,13 +1777,13 @@ BOOL __stdcall D2COMMON_10530_D2CheckStatlistFlagDMGRed(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB87A0 (#10532)
-int __stdcall STATLIST_GetTotalStatValue_Layer0(struct D2StatList* pStatListEx, int nStatId)
+int __cdecl STATLIST_GetTotalStatValue_Layer0(struct D2StatList* pStatListEx, int nStatId)
 {
 	return STATLIST_GetTotalStatValue((struct D2StatList *)pStatListEx, nStatId, 0);
 }
 
 //D2Common.0x6FDB8890 (#10533)
-void __stdcall STATLIST_RemoveAllStatsFromOverlay(struct D2Unit* pUnit)
+void __cdecl STATLIST_RemoveAllStatsFromOverlay(struct D2Unit* pUnit)
 {
 
 	if (pUnit && pUnit->pStatListEx)
@@ -1807,7 +1807,7 @@ void __stdcall STATLIST_RemoveAllStatsFromOverlay(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB8900
-void __stdcall D2Common_STATES_ToggleState_6FDB8900(struct D2Unit* pUnit, int nState, BOOL bSet)
+void __cdecl D2Common_STATES_ToggleState_6FDB8900(struct D2Unit* pUnit, int nState, BOOL bSet)
 {
 	
 	if (pUnit && pUnit->pStatListEx && STATLIST_IsExtended((struct D2StatList *)pUnit->pStatListEx))
@@ -1838,7 +1838,7 @@ void __stdcall D2Common_STATES_ToggleState_6FDB8900(struct D2Unit* pUnit, int nS
 }
 
 //D2Common.0x6FDB8A90
-uint32_t* __stdcall D2COMMON_STATES_GetStatFlags_6FDB8A90(struct D2Unit* pUnit)
+uint32_t* __cdecl D2COMMON_STATES_GetStatFlags_6FDB8A90(struct D2Unit* pUnit)
 {
 	if (pUnit && pUnit->pStatListEx && STATLIST_IsExtended((struct D2StatList *)pUnit->pStatListEx))
 	{
@@ -1849,7 +1849,7 @@ uint32_t* __stdcall D2COMMON_STATES_GetStatFlags_6FDB8A90(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB8AC0
-uint32_t* __stdcall D2COMMON_STATES_GetListGfxFlags_6FDB8AC0(struct D2Unit* pUnit)
+uint32_t* __cdecl D2COMMON_STATES_GetListGfxFlags_6FDB8AC0(struct D2Unit* pUnit)
 {
 	if (pUnit && pUnit->pStatListEx && STATLIST_IsExtended((struct D2StatList *)pUnit->pStatListEx))
 	{
@@ -1860,7 +1860,7 @@ uint32_t* __stdcall D2COMMON_STATES_GetListGfxFlags_6FDB8AC0(struct D2Unit* pUni
 }
 
 //D2Common.0x6FDB8B10 (#10516)
-void __stdcall STATLIST_UpdateStatListsExpiration(struct D2Unit* pUnit, int nFrame)
+void __cdecl STATLIST_UpdateStatListsExpiration(struct D2Unit* pUnit, int nFrame)
 {
 	if (pUnit == nullptr || pUnit->pStatListEx == nullptr || !STATLIST_IsExtended((struct D2StatList *)pUnit->pStatListEx))
 	{
@@ -1895,7 +1895,7 @@ void __stdcall STATLIST_UpdateStatListsExpiration(struct D2Unit* pUnit, int nFra
 
 
 // Helper function
-int __stdcall STATLIST_CopyStatsData(struct D2StatsArray* pStatsArray, struct D2Stat* pOutStatBuffer, int nBufferSize)
+int __cdecl STATLIST_CopyStatsData(struct D2StatsArray* pStatsArray, struct D2Stat* pOutStatBuffer, int nBufferSize)
 {
 	int nStatCount = pStatsArray->nStatCount;
 	if (nStatCount >= nBufferSize)
@@ -1914,7 +1914,7 @@ int __stdcall STATLIST_CopyStatsData(struct D2StatsArray* pStatsArray, struct D2
 }
 
 //D2Common.0x6FDB8BA0 (#11268)
-int __stdcall STATLIST_GetFullStatsDataFromUnit(struct D2Unit* pUnit, struct D2Stat* pOutStatBuffer, int nBufferSize)
+int __cdecl STATLIST_GetFullStatsDataFromUnit(struct D2Unit* pUnit, struct D2Stat* pOutStatBuffer, int nBufferSize)
 {
 	if (pUnit && pUnit->pStatListEx && STATLIST_IsExtended((struct D2StatList *)pUnit->pStatListEx))
 	{
@@ -1924,7 +1924,7 @@ int __stdcall STATLIST_GetFullStatsDataFromUnit(struct D2Unit* pUnit, struct D2S
 }
 
 //D2Common.0x6FDB8C00 (#11243)
-int __stdcall STATLIST_GetBaseStatsData(struct D2StatList* pStatListEx, struct D2Stat* pOutStatBuffer, int nBufferSize)
+int __cdecl STATLIST_GetBaseStatsData(struct D2StatList* pStatListEx, struct D2Stat* pOutStatBuffer, int nBufferSize)
 {
 	if (pStatListEx)
 	{
@@ -1934,7 +1934,7 @@ int __stdcall STATLIST_GetBaseStatsData(struct D2StatList* pStatListEx, struct D
 }
 
 //D2Common.0x6FDB8C50 (#10573)
-void __stdcall STATLIST_MergeBaseStats(struct D2StatList* pTargetStatList, struct D2StatList* pSourceStatlist)
+void __cdecl STATLIST_MergeBaseStats(struct D2StatList* pTargetStatList, struct D2StatList* pSourceStatlist)
 {
 	if (pTargetStatList && pSourceStatlist)
 	{
@@ -1946,7 +1946,7 @@ void __stdcall STATLIST_MergeBaseStats(struct D2StatList* pTargetStatList, struc
 }
 
 //D2Common.0x6FDB8CA0 (#10477)
-void __stdcall STATLIST_SetStatRemoveCallback(struct D2StatList* pStatList, StatListRemoveCallback pfStatRemove)
+void __cdecl STATLIST_SetStatRemoveCallback(struct D2StatList* pStatList, StatListRemoveCallback pfStatRemove)
 {
 	if (pStatList)
 	{
@@ -1955,7 +1955,7 @@ void __stdcall STATLIST_SetStatRemoveCallback(struct D2StatList* pStatList, Stat
 }
 
 //D2Common.0x6FDB8CC0 (#10469)
-void __stdcall D2Common_10469(struct D2Unit* pUnit)
+void __cdecl D2Common_10469(struct D2Unit* pUnit)
 {
 	if (pUnit && pUnit->pStatListEx && STATLIST_IsExtended((struct D2StatList *)pUnit->pStatListEx))
 	{
@@ -2013,7 +2013,7 @@ static void STATLIST_ClampStat(struct D2StatListEx* pStatListEx, int nStatId)
 }
 
 //D2Common.0x6FDB8D30 (#10514)
-void __stdcall STATLIST_ClampStaminaManaHP(struct D2Unit* pUnit)
+void __cdecl STATLIST_ClampStaminaManaHP(struct D2Unit* pUnit)
 {
 	if (pUnit && pUnit->pStatListEx)
 	{
@@ -2024,7 +2024,7 @@ void __stdcall STATLIST_ClampStaminaManaHP(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB8EB0 (#10574)
-BOOL __stdcall D2Common_10574(struct D2Unit* pUnit, int nStateId, BOOL bSet)
+BOOL __cdecl D2Common_10574(struct D2Unit* pUnit, int nStateId, BOOL bSet)
 {
 
 	if (nStateId && pUnit->pStatListEx && STATLIST_IsExtended((struct D2StatList *)pUnit->pStatListEx))
@@ -2059,7 +2059,7 @@ BOOL __stdcall D2Common_10574(struct D2Unit* pUnit, int nStateId, BOOL bSet)
 }
 
 //D2Common.0x6FDB8F30 (#10525)
-void __stdcall D2Common_10525(struct D2Unit* pUnit1, struct D2Unit* pUnit2)
+void __cdecl D2Common_10525(struct D2Unit* pUnit1, struct D2Unit* pUnit2)
 {
 	if (!pUnit1 || !pUnit2 || !(pUnit1->dwUnitType == UNIT_PLAYER || pUnit1->dwUnitType == UNIT_MONSTER))
 	{
@@ -2103,38 +2103,38 @@ void __stdcall D2Common_10525(struct D2Unit* pUnit1, struct D2Unit* pUnit2)
 }
 
 //D2Common.0x6FDB91C0 (#10474)
-void __stdcall D2Common_10474(struct D2Unit* pUnused, struct D2StatList* pStatList)
+void __cdecl D2Common_10474(struct D2Unit* pUnused, struct D2StatList* pStatList)
 {
 	D2_MAYBE_UNUSED(pUnused);
 	D2Common_ExpireStatList_6FDB6E30(pStatList);
 }
 
 //D2Common.0x6FDB91D0 (#10564)
-int __stdcall STATLIST_GetMaxLifeFromUnit(struct D2Unit* pUnit)
+int __cdecl STATLIST_GetMaxLifeFromUnit(struct D2Unit* pUnit)
 {
 	return D2Common_11248(NULL, pUnit, STAT_MAXHP);
 }
 
 //D2Common.0x6FDB92C0 (#10565)
-int __stdcall STATLIST_GetMaxManaFromUnit(struct D2Unit* pUnit)
+int __cdecl STATLIST_GetMaxManaFromUnit(struct D2Unit* pUnit)
 {
 	return D2Common_11248(NULL, pUnit, STAT_MAXMANA);
 }
 
 //D2Common.0x6FDB93B0 (#10566)
-int __stdcall STATLIST_GetMaxStaminaFromUnit(struct D2Unit* pUnit)
+int __cdecl STATLIST_GetMaxStaminaFromUnit(struct D2Unit* pUnit)
 {
 	return D2Common_11248(NULL, pUnit, STAT_MAXSTAMINA);
 }
 
 //D2Common.0x6FDB94A0 (#10567)
-int __stdcall STATLIST_GetMaxDurabilityFromUnit(struct D2Unit* pUnit)
+int __cdecl STATLIST_GetMaxDurabilityFromUnit(struct D2Unit* pUnit)
 {
 	return D2Common_11248(NULL, pUnit, STAT_MAXDURABILITY);
 }
 
 //D2Common.0x6FDB95D0 (#10568)
-int __stdcall STATLIST_GetMaxDamageFromUnit(struct D2Unit* pUnit, BOOL b2Handed)
+int __cdecl STATLIST_GetMaxDamageFromUnit(struct D2Unit* pUnit, BOOL b2Handed)
 {
 	if (b2Handed)
 	{
@@ -2147,7 +2147,7 @@ int __stdcall STATLIST_GetMaxDamageFromUnit(struct D2Unit* pUnit, BOOL b2Handed)
 }
 
 //D2Common.0x6FDB96F0 (#10569)
-int __stdcall STATLIST_GetMinDamageFromUnit(struct D2Unit* pUnit, BOOL b2Handed)
+int __cdecl STATLIST_GetMinDamageFromUnit(struct D2Unit* pUnit, BOOL b2Handed)
 {
 	if (b2Handed)
 	{
@@ -2160,25 +2160,25 @@ int __stdcall STATLIST_GetMinDamageFromUnit(struct D2Unit* pUnit, BOOL b2Handed)
 }
 
 //D2Common.0x6FDB9810 (#10570)
-int __stdcall STATLIST_GetMaxThrowDamageFromUnit(struct D2Unit* pUnit)
+int __cdecl STATLIST_GetMaxThrowDamageFromUnit(struct D2Unit* pUnit)
 {
 	return D2Common_11248(NULL, pUnit, STAT_ITEM_THROW_MAXDAMAGE);
 }
 
 //D2Common.0x6FDB9900 (#10571)
-int __stdcall STATLIST_GetMinThrowDamageFromUnit(struct D2Unit* pUnit)
+int __cdecl STATLIST_GetMinThrowDamageFromUnit(struct D2Unit* pUnit)
 {
 	return D2Common_11248(NULL, pUnit, STAT_ITEM_THROW_MINDAMAGE);
 }
 
 //D2Common.0x6FDB99F0 (#10572)
-int __stdcall STATLIST_GetDefenseFromUnit(struct D2Unit* pUnit)
+int __cdecl STATLIST_GetDefenseFromUnit(struct D2Unit* pUnit)
 {
 	return D2Common_11248(NULL, pUnit, STAT_ARMORCLASS);
 }
 
 //D2Common.0x6FDB9AE0 (#10524)
-void __stdcall STATLIST_ExpireUnitStatlist(struct D2Unit* pUnused, struct D2Unit* pUnit)
+void __cdecl STATLIST_ExpireUnitStatlist(struct D2Unit* pUnused, struct D2Unit* pUnit)
 {
 	D2_MAYBE_UNUSED(pUnused);
 	if (pUnit && pUnit->pStatListEx)
@@ -2188,14 +2188,14 @@ void __stdcall STATLIST_ExpireUnitStatlist(struct D2Unit* pUnused, struct D2Unit
 }
 
 //D2Common.0x6FDB9B00 (#10531)
-int __stdcall D2Common_10531_SetStatInStatListLayer0(struct D2StatList* pStatList, int nStatId, int nValue, int nUnused)
+int __cdecl D2Common_10531_SetStatInStatListLayer0(struct D2StatList* pStatList, int nStatId, int nValue, int nUnused)
 {
 	D2_MAYBE_UNUSED(nUnused);
 	return STATLIST_SetStat(pStatList, nStatId, nValue, 0);
 }
 
 //D2Common.0x6FDB9B10 (#11248)
-int __stdcall D2Common_11248(struct D2Unit* pUnused, struct D2Unit* pUnit, int nStatId)
+int __cdecl D2Common_11248(struct D2Unit* pUnused, struct D2Unit* pUnit, int nStatId)
 {
 	D2_MAYBE_UNUSED(pUnused);
 	if (pUnit)
@@ -2207,13 +2207,13 @@ int __stdcall D2Common_11248(struct D2Unit* pUnused, struct D2Unit* pUnit, int n
 }
 
 //D2Common.0x6FDA9E60 (#11264)
-void __stdcall STATLIST_SetSkillId(struct D2StatList* pStatList, int nSkillId)
+void __cdecl STATLIST_SetSkillId(struct D2StatList* pStatList, int nSkillId)
 {
 	pStatList->dwSkillNo = nSkillId;
 }
 
 //D2Common.0x6FDB9C10 (#11265)
-int __stdcall STATLIST_GetSkillId(struct D2StatList* pStatList)
+int __cdecl STATLIST_GetSkillId(struct D2StatList* pStatList)
 {
 	if (pStatList)
 	{
@@ -2225,7 +2225,7 @@ int __stdcall STATLIST_GetSkillId(struct D2StatList* pStatList)
 }
 
 //D2Common.0x6FDB9C20 (#11266)
-void __stdcall STATLIST_SetSkillLevel(struct D2StatList* pStatList, int nSkillLevel)
+void __cdecl STATLIST_SetSkillLevel(struct D2StatList* pStatList, int nSkillLevel)
 {
 	if (pStatList)
 	{
@@ -2237,7 +2237,7 @@ void __stdcall STATLIST_SetSkillLevel(struct D2StatList* pStatList, int nSkillLe
 }
 
 //D2Common.0x6FDA9E70 (#11267)
-int __stdcall STATLIST_GetSkillLevel(struct D2StatList* pStatList)
+int __cdecl STATLIST_GetSkillLevel(struct D2StatList* pStatList)
 {
 	if (pStatList)
 	{
@@ -2249,13 +2249,13 @@ int __stdcall STATLIST_GetSkillLevel(struct D2StatList* pStatList)
 }
 
 //D2Common.0x6FDB9C30 (#11269)
-int __stdcall D2COMMON_11269_CopyStats(struct D2StatListEx* pStatListEx, int nStatId, struct D2Stat* pBuffer, int nBufferSize)
+int __cdecl D2COMMON_11269_CopyStats(struct D2StatListEx* pStatListEx, int nStatId, struct D2Stat* pBuffer, int nBufferSize)
 {
 	return D2Common_CopyStats_6FDB9C50((struct D2StatList *)pStatListEx, nStatId, pBuffer, nBufferSize);
 }
 
 //D2Common.0x6FDB9C50
-int __fastcall D2Common_CopyStats_6FDB9C50(struct D2StatList* pStatList, int nStatId, struct D2Stat* pBuffer, int nBufferSize)
+int __cdecl D2Common_CopyStats_6FDB9C50(struct D2StatList* pStatList, int nStatId, struct D2Stat* pBuffer, int nBufferSize)
 {
 	if (!pStatList)
 	{
@@ -2287,7 +2287,7 @@ int __fastcall D2Common_CopyStats_6FDB9C50(struct D2StatList* pStatList, int nSt
 }
 
 //D2Common.0x6FDB9D20 (#11270)
-int __stdcall STATLIST_CopyStats(struct D2Unit* pUnit, int nStatId, struct D2Stat* pBuffer, int nBufferSize)
+int __cdecl STATLIST_CopyStats(struct D2Unit* pUnit, int nStatId, struct D2Stat* pBuffer, int nBufferSize)
 {
 	struct D2StatListEx* pStatListEx = STATLIST_StatListExCast((struct D2StatList *)pUnit->pStatListEx);
 	if (pStatListEx)
@@ -2298,7 +2298,7 @@ int __stdcall STATLIST_CopyStats(struct D2Unit* pUnit, int nStatId, struct D2Sta
 }
 
 //D2Common.0x6FDB9D60 (#11273)
-int __stdcall D2Common_11273(struct D2Unit* pUnit, int nStatId)
+int __cdecl D2Common_11273(struct D2Unit* pUnit, int nStatId)
 {
 	struct D2StatListEx* pStatListEx = STATLIST_StatListExCast((struct D2StatList *)pUnit->pStatListEx);
 	if (pStatListEx)
@@ -2310,7 +2310,7 @@ int __stdcall D2Common_11273(struct D2Unit* pUnit, int nStatId)
 
 
 // Helper function
-BOOL __stdcall D2Common_11274_11275_Impl(struct D2Unit* pTarget, struct D2Unit* pUnit, bool addOrSubstract)
+BOOL __cdecl D2Common_11274_11275_Impl(struct D2Unit* pTarget, struct D2Unit* pUnit, bool addOrSubstract)
 {
 
 	if (!pTarget || !pUnit || !pUnit->pStatListEx)
@@ -2352,13 +2352,13 @@ BOOL __stdcall D2Common_11274_11275_Impl(struct D2Unit* pTarget, struct D2Unit* 
 }
 
 //D2Common.0x6FDB9D90 (#11274)
-BOOL __stdcall D2Common_11274(struct D2Unit* pTarget, struct D2Unit* pUnit)
+BOOL __cdecl D2Common_11274(struct D2Unit* pTarget, struct D2Unit* pUnit)
 {
 	return D2Common_11274_11275_Impl(pTarget, pUnit, true);
 }
 
 //D2Common.0x6FDB9E60 (#11275)
-BOOL __stdcall D2Common_11275(struct D2Unit* pTarget, struct D2Unit* pUnit)
+BOOL __cdecl D2Common_11275(struct D2Unit* pTarget, struct D2Unit* pUnit)
 {
 	return D2Common_11274_11275_Impl(pTarget, pUnit, false);
 }

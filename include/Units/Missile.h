@@ -93,7 +93,7 @@ struct D2MissileData
 	struct D2MissileStream* pStream;			//0x30
 };
 
-typedef void(__fastcall* MissileInitFunc)(struct D2Unit*, int32_t);
+typedef void(__cdecl* MissileInitFunc)(struct D2Unit*, int32_t);
 struct D2Missile
 {
 	uint32_t dwFlags;							//0x00
@@ -123,106 +123,106 @@ struct D2Missile
 #pragma pack()
 
 //D2Common.0x6FDB9F30 (#11115)
-D2COMMON_DLL_DECL void __stdcall MISSILE_AllocMissileData(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL void __cdecl MISSILE_AllocMissileData(struct D2Unit* pMissile);
 //D2Common.0x6FDB9F80 (#11116)
-D2COMMON_DLL_DECL void __stdcall MISSILE_FreeMissileData(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL void __cdecl MISSILE_FreeMissileData(struct D2Unit* pMissile);
 //D2Common.0x6FDB9FC0 (#11117)
-D2COMMON_DLL_DECL uint32_t __stdcall MISSILE_GetFlags(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL uint32_t __cdecl MISSILE_GetFlags(struct D2Unit* pMissile);
 //D2Common.0x6FDB9FE0 (#11118)
-D2COMMON_DLL_DECL void __stdcall MISSILE_SetFlags(struct D2Unit* pMissile, uint32_t dwFlags);
+D2COMMON_DLL_DECL void __cdecl MISSILE_SetFlags(struct D2Unit* pMissile, uint32_t dwFlags);
 //D2Common.0x6FDBA000 (#11119)
-D2COMMON_DLL_DECL void __stdcall MISSILE_SetLevel(struct D2Unit* pMissile, uint16_t nLevel);
+D2COMMON_DLL_DECL void __cdecl MISSILE_SetLevel(struct D2Unit* pMissile, uint16_t nLevel);
 //D2Common.0x6FDBA020 (#11120)
-D2COMMON_DLL_DECL uint32_t __stdcall MISSILE_GetLevel(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL uint32_t __cdecl MISSILE_GetLevel(struct D2Unit* pMissile);
 //D2Common.0x6FDBA040 (#11126)
-D2COMMON_DLL_DECL void __stdcall MISSILE_SetSkill(struct D2Unit* pMissile, int nSkill);
+D2COMMON_DLL_DECL void __cdecl MISSILE_SetSkill(struct D2Unit* pMissile, int nSkill);
 //D2Common.0x6FDBA080 (#11127)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetSkill(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetSkill(struct D2Unit* pMissile);
 //D2Common.0x6FDBA0A0 (#11121)
-D2COMMON_DLL_DECL void __stdcall MISSILE_SetTotalFrames(struct D2Unit* pMissile, int nTotalFrames);
+D2COMMON_DLL_DECL void __cdecl MISSILE_SetTotalFrames(struct D2Unit* pMissile, int nTotalFrames);
 //D2Common.0x6FDBA0E0 (#11122)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetTotalFrames(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetTotalFrames(struct D2Unit* pMissile);
 //D2Common.0x6FDBA100 (#11123)
-D2COMMON_DLL_DECL void __stdcall MISSILE_SetCurrentFrame(struct D2Unit* pMissile, int nCurrentFrame);
+D2COMMON_DLL_DECL void __cdecl MISSILE_SetCurrentFrame(struct D2Unit* pMissile, int nCurrentFrame);
 //D2Common.0x6FDBA140 (#11124)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetCurrentFrame(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetCurrentFrame(struct D2Unit* pMissile);
 //D2Common.0x6FDBA160 (#11125)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetRemainingFrames(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetRemainingFrames(struct D2Unit* pMissile);
 //D2Common.0x6FDBA190 (#11128)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetClassId(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetClassId(struct D2Unit* pMissile);
 //D2Common.0x6FDBA1B0 (#11129)
-D2COMMON_DLL_DECL void __stdcall MISSILE_SetOwner(struct D2Unit* pMissile, struct D2Unit* pOwner);
+D2COMMON_DLL_DECL void __cdecl MISSILE_SetOwner(struct D2Unit* pMissile, struct D2Unit* pOwner);
 //D2Common.0x6FDBA230 (#11130)
-D2COMMON_DLL_DECL BOOL __stdcall MISSILE_CheckUnitIfOwner(struct D2Unit* pMissile, struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl MISSILE_CheckUnitIfOwner(struct D2Unit* pMissile, struct D2Unit* pUnit);
 //D2Common.0x6FDBA2B0 (#11131)
-D2COMMON_DLL_DECL void __stdcall MISSILE_SetStreamMissile(struct D2Unit* pMissile, uint16_t nStreamMissile);
+D2COMMON_DLL_DECL void __cdecl MISSILE_SetStreamMissile(struct D2Unit* pMissile, uint16_t nStreamMissile);
 //D2Common.0x6FDBA2D0 (#11132)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetStreamMissile(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetStreamMissile(struct D2Unit* pMissile);
 //D2Common.0x6FDBA300 (#11133)
-D2COMMON_DLL_DECL void __stdcall MISSILE_SetStreamRange(struct D2Unit* pMissile, short nStreamRange);
+D2COMMON_DLL_DECL void __cdecl MISSILE_SetStreamRange(struct D2Unit* pMissile, short nStreamRange);
 //D2Common.0x6FDBA320 (#11134)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetStreamRange(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetStreamRange(struct D2Unit* pMissile);
 //D2Common.0x6FDBA340 (#11135)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetHitClass(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetHitClass(struct D2Unit* pMissile);
 //D2Common.0x6FDBA390 (#11136)
-D2COMMON_DLL_DECL void __stdcall MISSILE_SetActivateFrame(struct D2Unit* pMissile, int nActivateFrame);
+D2COMMON_DLL_DECL void __cdecl MISSILE_SetActivateFrame(struct D2Unit* pMissile, int nActivateFrame);
 //D2Common.0x6FDBA3D0 (#11137)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetActivateFrame(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetActivateFrame(struct D2Unit* pMissile);
 //D2Common.0x6FDBA3F0 (#11138)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetAnimSpeed(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetAnimSpeed(struct D2Unit* pMissile);
 //D2Common.0x6FDBA410 (#11139)
-D2COMMON_DLL_DECL void __stdcall MISSILE_SetAnimSpeed(struct D2Unit* pMissile, int nAnimSpeed);
+D2COMMON_DLL_DECL void __cdecl MISSILE_SetAnimSpeed(struct D2Unit* pMissile, int nAnimSpeed);
 //D2Common.0x6FDBA450
-void __fastcall MISSILE_SetStream(struct D2Unit* pMissile, struct D2MissileStream* pStream);
+void __cdecl MISSILE_SetStream(struct D2Unit* pMissile, struct D2MissileStream* pStream);
 //D2Common.0x6FDBA470
-struct D2MissileStream* __fastcall MISSILE_GetStream(struct D2Unit* pMissile);
+struct D2MissileStream* __cdecl MISSILE_GetStream(struct D2Unit* pMissile);
 //D2Common.0x6FDBA490 (#11140)
-D2COMMON_DLL_DECL void __stdcall MISSILE_SetTargetX(struct D2Unit* pMissile, int nTargetX);
+D2COMMON_DLL_DECL void __cdecl MISSILE_SetTargetX(struct D2Unit* pMissile, int nTargetX);
 //D2Common.0x6FDBA4B0 (#11141)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetTargetX(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetTargetX(struct D2Unit* pMissile);
 //D2Common.0x6FDBA4D0 (#11142)
-D2COMMON_DLL_DECL void __stdcall MISSILE_SetTargetY(struct D2Unit* pMissile, int nTargetY);
+D2COMMON_DLL_DECL void __cdecl MISSILE_SetTargetY(struct D2Unit* pMissile, int nTargetY);
 //D2Common.0x6FDBA4F0 (#11143)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetTargetY(struct D2Unit* pMissile);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetTargetY(struct D2Unit* pMissile);
 //D2Common.0x6FDBA510 (#11144)
-D2COMMON_DLL_DECL void __stdcall MISSILE_SetHomeType(struct D2Unit* pMissile, struct D2Unit* pTarget);
+D2COMMON_DLL_DECL void __cdecl MISSILE_SetHomeType(struct D2Unit* pMissile, struct D2Unit* pTarget);
 //D2Common.0x6FDBA550 (#11145)
-D2COMMON_DLL_DECL void __stdcall MISSILE_GetHomeType(struct D2Unit* pMissile, int* nHomeType, D2UnitGUID* nHomeGUID);
+D2COMMON_DLL_DECL void __cdecl MISSILE_GetHomeType(struct D2Unit* pMissile, int* nHomeType, D2UnitGUID* nHomeGUID);
 //D2Common.0x6FDBA5B0 (#11217)
-D2COMMON_DLL_DECL void __stdcall MISSILE_CalculateDamageData(struct D2MissileDamageData* pMissileDamageData, struct D2Unit* pOwner, struct D2Unit* pOrigin, struct D2Unit* pMissile, int nLevel);
+D2COMMON_DLL_DECL void __cdecl MISSILE_CalculateDamageData(struct D2MissileDamageData* pMissileDamageData, struct D2Unit* pOwner, struct D2Unit* pOrigin, struct D2Unit* pMissile, int nLevel);
 //D2Common.0x6FDBADF0
-BOOL __fastcall MISSILE_HasBonusStats(struct D2Unit* pUnit, struct D2Unit* pItem);
+BOOL __cdecl MISSILE_HasBonusStats(struct D2Unit* pUnit, struct D2Unit* pItem);
 //D2Common.0x6FDBAED0
-void __fastcall MISSILE_AddStatsToDamage(struct D2MissileDamageData* pMissileDamageData, struct D2Unit* pMissile, uint8_t nShift);
+void __cdecl MISSILE_AddStatsToDamage(struct D2MissileDamageData* pMissileDamageData, struct D2Unit* pMissile, uint8_t nShift);
 //D2Common.0x6FDBB060
-void __fastcall MISSILE_CalculateFinalDamage(struct D2MissileDamageData* pMissileDamageData, int nSrcDamage);
+void __cdecl MISSILE_CalculateFinalDamage(struct D2MissileDamageData* pMissileDamageData, int nSrcDamage);
 //D2Common.0x6FDBB1B0
-int __fastcall MISSILE_CalculateMasteryBonus(struct D2Unit* pUnit, int nElemType, int nSrcDamage);
+int __cdecl MISSILE_CalculateMasteryBonus(struct D2Unit* pUnit, int nElemType, int nSrcDamage);
 //D2Common.0x6FDBB2E0 (#11218)
-D2COMMON_DLL_DECL void __stdcall MISSILE_SetDamageStats(struct D2Unit* pOwner, struct D2Unit* pMissile, struct D2MissileDamageData* pMissileDamageData, int nLevel);
+D2COMMON_DLL_DECL void __cdecl MISSILE_SetDamageStats(struct D2Unit* pOwner, struct D2Unit* pMissile, struct D2MissileDamageData* pMissileDamageData, int nLevel);
 //D2Common.0x6FDBB5A0 (#11285)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetMinDamage(struct D2Unit* pMissile, struct D2Unit* pOwner, int nMissileId, int nLevel);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetMinDamage(struct D2Unit* pMissile, struct D2Unit* pOwner, int nMissileId, int nLevel);
 //D2Common.0x6FDBB710 (#11286)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetMaxDamage(struct D2Unit* pMissile, struct D2Unit* pOwner, int nMissileId, int nLevel);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetMaxDamage(struct D2Unit* pMissile, struct D2Unit* pOwner, int nMissileId, int nLevel);
 //D2Common.0x6FDBB880 (#11289)
-D2COMMON_DLL_DECL uint8_t __stdcall MISSILE_GetElemTypeFromMissileId(int nMissileId);
+D2COMMON_DLL_DECL uint8_t __cdecl MISSILE_GetElemTypeFromMissileId(int nMissileId);
 //D2Common.0x6FDBB8C0 (#11287)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetMinElemDamage(struct D2Unit* pMissile, struct D2Unit* pOwner, int nMissileId, int nLevel);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetMinElemDamage(struct D2Unit* pMissile, struct D2Unit* pOwner, int nMissileId, int nLevel);
 //D2Common.0x6FDBBA30 (#11288)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetMaxElemDamage(struct D2Unit* pMissile, struct D2Unit* pOwner, int nMissileId, int nLevel);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetMaxElemDamage(struct D2Unit* pMissile, struct D2Unit* pOwner, int nMissileId, int nLevel);
 //D2Common.0x6FDBBBA0 (#11221)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetElementalLength(int nUnused, struct D2Unit* pMissile, int nMissileId, int nLevel);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetElementalLength(int nUnused, struct D2Unit* pMissile, int nMissileId, int nLevel);
 //D2Common.0x6FDBBC50 (#11290)
-D2COMMON_DLL_DECL int __stdcall MISSILE_GetSpecialParamValue(struct D2Unit* pMissile, struct D2Unit* pOwner, uint8_t nParamId, int nMissileId, int nLevel);
+D2COMMON_DLL_DECL int __cdecl MISSILE_GetSpecialParamValue(struct D2Unit* pMissile, struct D2Unit* pOwner, uint8_t nParamId, int nMissileId, int nLevel);
 //D2Common.0x6FDBC060
-int __fastcall MISSILE_GetCalcParamValue(int32_t nParamId, void* pUserData);
+int __cdecl MISSILE_GetCalcParamValue(int32_t nParamId, void* pUserData);
 //D2Common.0x6FDBC080
-int __fastcall MISSILE_GetMinimum(int a1, int a2, int a3, void* pUserData);
+int __cdecl MISSILE_GetMinimum(int a1, int a2, int a3, void* pUserData);
 //D2Common.0x6FDBC090
-int __fastcall MISSILE_GetMaximum(int a1, int a2, int a3, void* pUserData);
+int __cdecl MISSILE_GetMaximum(int a1, int a2, int a3, void* pUserData);
 //D2Common.0x6FDBC0A0
-int __fastcall MISSILE_GetRandomNumberInRange(int nMin, int nMax, int nUnused, void* pUserData);
+int __cdecl MISSILE_GetRandomNumberInRange(int nMin, int nMax, int nUnused, void* pUserData);
 //D2Common.0x6FDBC120
-int __fastcall MISSILE_GetSpecialParamValueForSkillMissile(int nSkillId, int nParamId, int nUnused, void* pUserData);
+int __cdecl MISSILE_GetSpecialParamValueForSkillMissile(int nSkillId, int nParamId, int nUnused, void* pUserData);
 //D2Common.0x6FDBC170 (#11284)
-D2COMMON_DLL_DECL int __stdcall MISSILE_EvaluateMissileFormula(struct D2Unit* pMissile, struct D2Unit* pOwner, unsigned int nCalc, int nMissileId, int nLevel);
+D2COMMON_DLL_DECL int __cdecl MISSILE_EvaluateMissileFormula(struct D2Unit* pMissile, struct D2Unit* pOwner, unsigned int nCalc, int nMissileId, int nLevel);

@@ -54,7 +54,7 @@ struct D2LANG_DLL_DECL Unicode {
  *
  * D2Lang.0x6FC11150 (#10022) ?compare@Unicode@@SIHU1@0@Z
  */
-BOOL __fastcall Unicode_compare(struct Unicode lhs, struct Unicode rhs);
+BOOL __cdecl Unicode_compare(struct Unicode lhs, struct Unicode rhs);
 
 /**
  * Returns whether the specified character in the string is the last
@@ -65,7 +65,7 @@ BOOL __fastcall Unicode_compare(struct Unicode lhs, struct Unicode rhs);
  *
  * D2Lang.0x6FC11190 (#10031) ?isWordEnd@Unicode@@SIHPBU1@I@Z
  */
-BOOL __fastcall Unicode_isWordEnd(const struct Unicode* str, size_t index);
+BOOL __cdecl Unicode_isWordEnd(const struct Unicode* str, size_t index);
 
 /**
  * Performs string conversions on the supplied parameters, similar
@@ -91,7 +91,7 @@ void __cdecl Unicode_sprintf(
  *
  * D2Lang.0x6FC113F0 (#10034) ?strcat@Unicode@@SIPAU1@PAU1@PBU1@@Z
  */
-struct Unicode* __fastcall Unicode_strcat(struct Unicode* dest, const struct Unicode* src);
+struct Unicode* __cdecl Unicode_strcat(struct Unicode* dest, const struct Unicode* src);
 
 /**
  * Returns the first occurrence of a character in a null-terminated
@@ -102,7 +102,7 @@ struct Unicode* __fastcall Unicode_strcat(struct Unicode* dest, const struct Uni
  *
  * D2Lang.0x6FC113C0 (#10035) ?strchr@Unicode@@SIPAU1@PBU1@U1@@Z
  */
-struct Unicode* __fastcall Unicode_strchr(const struct Unicode* str, struct Unicode ch);
+struct Unicode* __cdecl Unicode_strchr(const struct Unicode* str, struct Unicode ch);
 
 /**
  * Compares two null-terminated strings lexicographically. Returns
@@ -110,7 +110,7 @@ struct Unicode* __fastcall Unicode_strchr(const struct Unicode* str, struct Unic
  *
  * D2Lang.0x6FC11210 (#10036) ?strcmp@Unicode@@SIHPBU1@0@Z
  */
-int __fastcall Unicode_strcmp(const struct Unicode* str1, const struct Unicode* str2);
+int __cdecl Unicode_strcmp(const struct Unicode* str1, const struct Unicode* str2);
 
 /**
  * Copies the characters from a null-terminated source string into a
@@ -119,7 +119,7 @@ int __fastcall Unicode_strcmp(const struct Unicode* str1, const struct Unicode* 
  *
  * D2Lang.0x6FC114A0 (#10038) ?strcpy@Unicode@@SIPAU1@PAU1@PBU1@@Z
  */
-struct Unicode* __fastcall Unicode_strcpy(struct Unicode* dest, const struct Unicode* src);
+struct Unicode* __cdecl Unicode_strcpy(struct Unicode* dest, const struct Unicode* src);
 
 /**
  * Performs lexicographical, case-insensitive comparison between two
@@ -131,7 +131,7 @@ struct Unicode* __fastcall Unicode_strcpy(struct Unicode* dest, const struct Uni
  *
  * D2Lang.0x6FC112A0 (#10039) ?stricmp@Unicode@@SIHPBU1@0@Z
  */
-int __fastcall Unicode_stricmp(const struct Unicode* str1, const struct Unicode* str2);
+int __cdecl Unicode_stricmp(const struct Unicode* str1, const struct Unicode* str2);
 
 /**
  * Performs lexicographical, case-insensitive comparison between two
@@ -143,7 +143,7 @@ int __fastcall Unicode_stricmp(const struct Unicode* str1, const struct Unicode*
  *
  * D2Lang.0x6FC11310 (#10045) ?strnicmp@Unicode@@SIHPBU1@0I@Z
  */
-int __fastcall Unicode_strnicmp(const struct Unicode* str1, const struct Unicode* str2, size_t count);
+int __cdecl Unicode_strnicmp(const struct Unicode* str1, const struct Unicode* str2, size_t count);
 
 /**
  * Returns the length of the null-terminated string. If the string
@@ -151,7 +151,7 @@ int __fastcall Unicode_strnicmp(const struct Unicode* str1, const struct Unicode
  *
  * D2Lang.0x6FC114C0 (#10040) ?strlen@Unicode@@SIHPBU1@@Z
  */
-int __fastcall Unicode_strlen(const struct Unicode* str);
+int __cdecl Unicode_strlen(const struct Unicode* str);
 
 /**
  * Appends a null-terminated string to the end of a destination
@@ -162,7 +162,7 @@ int __fastcall Unicode_strlen(const struct Unicode* str);
  *
  * D2Lang.0x6FC11420 (#10041) ?strncat@Unicode@@SIPAU1@PAU1@PBU1@H@Z
  */
-struct Unicode* __fastcall Unicode_strncat(
+struct Unicode* __cdecl Unicode_strncat(
     struct Unicode* dest,
     const struct Unicode* src,
     int count);
@@ -181,7 +181,7 @@ struct Unicode* __fastcall Unicode_strncat(
  *
  * D2Lang.0x6FC11250 (#10042) ?strncmp@Unicode@@SIHPBU1@0I@Z
  */
-int __fastcall Unicode_strncmp(
+int __cdecl Unicode_strncmp(
     const struct Unicode* str1,
     const struct Unicode* str2,
     size_t count);
@@ -199,7 +199,7 @@ int __fastcall Unicode_strncmp(
  * 1.13c: D2Lang.0x6FC0B0D0 (#10044)
  * ?strncpy@Unicode@@SIPAU1@PAU1@PBU1@H@Z
  */
-struct Unicode* __fastcall Unicode_strncpy(
+struct Unicode* __cdecl Unicode_strncpy(
     struct Unicode* dest, const struct Unicode* src, int count);
 
 /**
@@ -210,7 +210,7 @@ struct Unicode* __fastcall Unicode_strncpy(
  *
  * D2Lang.0x6FC0B020 (#10046) ?strstr@Unicode@@SIPAU1@PBU1@0@Z
  */
-struct Unicode* __fastcall Unicode_strstr(
+struct Unicode* __cdecl Unicode_strstr(
     const struct Unicode* str,
     const struct Unicode* substr);
 
@@ -225,7 +225,7 @@ struct Unicode* __fastcall Unicode_strstr(
  *
  * D2Lang.0x6FC12A40 (#10051) ?toUnicode@Unicode@@SIPAU1@PAU1@PBDH@Z
  */
-struct Unicode* __fastcall Unicode_toUnicode(
+struct Unicode* __cdecl Unicode_toUnicode(
     struct Unicode* dest,
     const char* src,
     int count);
@@ -240,7 +240,7 @@ struct Unicode* __fastcall Unicode_toUnicode(
  * 1.10: D2Lang.0x6FC11C20 (#10055)
  * ?unicode2Win@Unicode@@SIPADPADPBU1@H@Z
  */
-char* __fastcall Unicode_unicode2Win(
+char* __cdecl Unicode_unicode2Win(
     char* dest, const struct Unicode* src, int count);
 
 /**
@@ -258,10 +258,10 @@ char* __fastcall Unicode_unicode2Win(
  *
  * D2Lang.0x6FC12B60 (#10053) ?toUtf@Unicode@@SIPADPADPBU1@H@Z
  */
-char* __fastcall Unicode_toUtf(char* dest, const struct Unicode* src, int count);
+char* __cdecl Unicode_toUtf(char* dest, const struct Unicode* src, int count);
 
 //1.10f: D2Lang.0x6FC11B30 (#10059) ?utf8ToUnicode@Unicode@@SIPAU1@PAU1@PBDH@Z
-struct Unicode* __fastcall Unicode_utf8ToUnicode(struct Unicode* dest, char const* src, int count);
+struct Unicode* __cdecl Unicode_utf8ToUnicode(struct Unicode* dest, char const* src, int count);
 
 /**
  * Converts a null-terminated 7-bit ASCII string into a
@@ -273,7 +273,7 @@ struct Unicode* __fastcall Unicode_utf8ToUnicode(struct Unicode* dest, char cons
  * 1.10: D2Lang.0x6FC11BD0 (#10062)
  * ?win2Unicode@Unicode@@SIPAU1@PAU1@PBDH@Z
  */
-struct Unicode* __fastcall Unicode_win2Unicode(
+struct Unicode* __cdecl Unicode_win2Unicode(
     struct Unicode* dest, const char* src, int count);
 
 // D2Lang.0x6FC11C50 (#10023) ?directionality@Unicode@@QAE?AW4Direction@1@XZ
@@ -297,7 +297,7 @@ BOOL Unicode_isASCII(struct Unicode self);
 BOOL Unicode_isAlpha(struct Unicode self);
 
 // D2Lang.0x6FC11A30 (#10027) ?isLineBreak@Unicode@@SIHPBU1@I@Z
-BOOL __fastcall Unicode_isLineBreak(const struct Unicode* str, size_t count);
+BOOL __cdecl Unicode_isLineBreak(const struct Unicode* str, size_t count);
 
 // D2Lang.0x6FC11050 (#10028) ?isNewline@Unicode@@QBEHXZ
 BOOL Unicode_isNewline(struct Unicode self);

@@ -47,7 +47,7 @@ const int dword_6FDD2BD8[] =
 
 
 //D2Common.0x6FDAEB10 (#10938)
-short __stdcall SKILLS_GetPassiveState(int nSkillId)
+short __cdecl SKILLS_GetPassiveState(int nSkillId)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = DATATBLS_GetSkillsTxtRecord(nSkillId);
 
@@ -61,7 +61,7 @@ short __stdcall SKILLS_GetPassiveState(int nSkillId)
 
 //D2Common.0x6FDAEB60 (#11271)
 //TODO: v8
-int __stdcall SKILLS_GetSpecialParamValue(struct D2Unit* pUnit, uint8_t nParamId, int nSkillId, int nSkillLevel)
+int __cdecl SKILLS_GetSpecialParamValue(struct D2Unit* pUnit, uint8_t nParamId, int nSkillId, int nSkillLevel)
 {
 	struct D2SkillDescTxt* pSkillDescTxtRecord = NULL;
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
@@ -416,7 +416,7 @@ int __stdcall SKILLS_GetSpecialParamValue(struct D2Unit* pUnit, uint8_t nParamId
 }
 
 //D2Common.0x6FDAF6A0
-int __fastcall sub_6FDAF6A0(int32_t nParamId, void* pUserData)
+int __cdecl sub_6FDAF6A0(int32_t nParamId, void* pUserData)
 {
 	struct D2SkillCalc * pSkillCalc = (struct D2SkillCalc*) pUserData;
 	if (pSkillCalc)
@@ -428,7 +428,7 @@ int __fastcall sub_6FDAF6A0(int32_t nParamId, void* pUserData)
 }
 
 //D2Common.0x6FDAF6C0
-int __fastcall sub_6FDAF6C0(int nSkillId, int nParamId, int nUnused, void* pUserData)
+int __cdecl sub_6FDAF6C0(int nSkillId, int nParamId, int nUnused, void* pUserData)
 {
 	D2_MAYBE_UNUSED(nUnused);
 	struct D2Skill* pSkill = NULL;
@@ -454,7 +454,7 @@ int __fastcall sub_6FDAF6C0(int nSkillId, int nParamId, int nUnused, void* pUser
 }
 
 //D2Common.0x6FDAF780
-int __fastcall sub_6FDAF780(int nMissileId, int nParamId, int nUnused, void* pUserData)
+int __cdecl sub_6FDAF780(int nMissileId, int nParamId, int nUnused, void* pUserData)
 {
 	D2_MAYBE_UNUSED(nUnused);
 	struct D2SkillCalc* pSkillCalc = (struct D2SkillCalc*)pUserData;
@@ -467,7 +467,7 @@ int __fastcall sub_6FDAF780(int nMissileId, int nParamId, int nUnused, void* pUs
 }
 
 //D2Common.0x6FDAF7A0
-int __fastcall sub_6FDAF7A0(int nSkillId, int a2, int a3, void* pUserData)
+int __cdecl sub_6FDAF7A0(int nSkillId, int a2, int a3, void* pUserData)
 {
 	struct D2SkillCalc* pSkillCalc = (struct D2SkillCalc*)pUserData;
 	if (pSkillCalc)
@@ -479,7 +479,7 @@ int __fastcall sub_6FDAF7A0(int nSkillId, int a2, int a3, void* pUserData)
 }
 
 //D2Common.0x6FDAF7E0 (#11276)
-int __stdcall SKILLS_EvaluateSkillFormula(struct D2Unit* pUnit, unsigned int nCalc, int nSkillId, int nSkillLevel)
+int __cdecl SKILLS_EvaluateSkillFormula(struct D2Unit* pUnit, unsigned int nCalc, int nSkillId, int nSkillLevel)
 {
 	struct D2SkillCalc pSkillCalc = {};
 
@@ -496,7 +496,7 @@ int __stdcall SKILLS_EvaluateSkillFormula(struct D2Unit* pUnit, unsigned int nCa
 }
 
 //D2Common.0x6FDAF850 (#11302)
-int __stdcall SKILLS_EvaluateSkillDescFormula(struct D2Unit* pUnit, unsigned int nCalc, int nSkillId, int nSkillLevel)
+int __cdecl SKILLS_EvaluateSkillDescFormula(struct D2Unit* pUnit, unsigned int nCalc, int nSkillId, int nSkillLevel)
 {
 	struct D2SkillCalc pSkillCalc = {};
 
@@ -513,7 +513,7 @@ int __stdcall SKILLS_EvaluateSkillDescFormula(struct D2Unit* pUnit, unsigned int
 }
 
 //D2Common.0x6FDAF8C0 (#10940)
-void __stdcall SKILLS_RefreshSkill(struct D2Unit* pUnit, int nSkillId)
+void __cdecl SKILLS_RefreshSkill(struct D2Unit* pUnit, int nSkillId)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
 	struct D2StatList* pStatList = NULL;
@@ -604,7 +604,7 @@ void __stdcall SKILLS_RefreshSkill(struct D2Unit* pUnit, int nSkillId)
 }
 
 //D2Common.0x6FDAFB40 (#10941)
-void __stdcall SKILLS_RefreshPassiveSkills(struct D2Unit* pUnit)
+void __cdecl SKILLS_RefreshPassiveSkills(struct D2Unit* pUnit)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
 	struct D2Skill* pSkill = NULL;
@@ -633,7 +633,7 @@ void __stdcall SKILLS_RefreshPassiveSkills(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDAFC30
-struct D2Skill* __fastcall SKILLS_GetHighestLevelSkillFromSkillId(struct D2Unit* pUnit, int nSkillId)
+struct D2Skill* __cdecl SKILLS_GetHighestLevelSkillFromSkillId(struct D2Unit* pUnit, int nSkillId)
 {
 	struct D2Skill* pHighestLevelSkill = NULL;
 
@@ -652,7 +652,7 @@ struct D2Skill* __fastcall SKILLS_GetHighestLevelSkillFromSkillId(struct D2Unit*
 }
 
 //D2Common.0x6FDAFC80 (#10942)
-int __stdcall SKILLS_GetSkillModeFromUnit(struct D2Unit* pUnit, struct D2Skill* pSkill)
+int __cdecl SKILLS_GetSkillModeFromUnit(struct D2Unit* pUnit, struct D2Skill* pSkill)
 {
 	if (pUnit && pSkill)
 	{
@@ -663,14 +663,14 @@ int __stdcall SKILLS_GetSkillModeFromUnit(struct D2Unit* pUnit, struct D2Skill* 
 }
 
 //D2Common.0x6FDAFCA0 (#11049)
-int __stdcall SKILLS_Return1(int a1)
+int __cdecl SKILLS_Return1(int a1)
 {
 	REMOVE_LATER_Trace("SKILLS_Return1: Useless");
 	return 1;
 }
 
 //D2Common.0x6FDAFCB0 (#10944)
-int __stdcall SKILLS_GetRange(struct D2Skill* pSkill)
+int __cdecl SKILLS_GetRange(struct D2Skill* pSkill)
 {
 	if (pSkill && pSkill->pSkillsTxt)
 	{
@@ -681,7 +681,7 @@ int __stdcall SKILLS_GetRange(struct D2Skill* pSkill)
 }
 
 //D2Common.0x6FDAFCD0 (#10945)
-struct D2SkillList* __stdcall SKILLS_AllocSkillList(void* pMemPool)
+struct D2SkillList* __cdecl SKILLS_AllocSkillList(void* pMemPool)
 {
 	struct D2SkillList* pSkillList = D2_CALLOC_STRC_POOL(pMemPool, struct D2SkillList);
 
@@ -691,7 +691,7 @@ struct D2SkillList* __stdcall SKILLS_AllocSkillList(void* pMemPool)
 }
 
 //D2Common.0x6FDAFD10 (#10946)
-void __stdcall SKILLS_InitSkillList(struct D2Unit* pUnit)
+void __cdecl SKILLS_InitSkillList(struct D2Unit* pUnit)
 {
 	struct D2CharStatsTxt* pCharStatsTxtRecord = NULL;
 	int nClass = 0;
@@ -732,7 +732,7 @@ void __stdcall SKILLS_InitSkillList(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDAFEA0 (#10947)
-struct D2Skill* __stdcall SKILLS_GetNextSkill(struct D2Skill* pSkill)
+struct D2Skill* __cdecl SKILLS_GetNextSkill(struct D2Skill* pSkill)
 {
 	if (pSkill)
 	{
@@ -744,7 +744,7 @@ struct D2Skill* __stdcall SKILLS_GetNextSkill(struct D2Skill* pSkill)
 }
 
 //D2Common.0x6FDAFEA0 (#10948)
-struct D2Skill* __stdcall SKILLS_GetFirstSkillFromSkillList(struct D2SkillList* pSkillList)
+struct D2Skill* __cdecl SKILLS_GetFirstSkillFromSkillList(struct D2SkillList* pSkillList)
 {
 	if (pSkillList)
 	{
@@ -756,7 +756,7 @@ struct D2Skill* __stdcall SKILLS_GetFirstSkillFromSkillList(struct D2SkillList* 
 }
 
 //D2Common.0x6FDAFEC0
-struct D2Skill* __fastcall SKILLS_GetLeftSkillFromSkillList(struct D2SkillList* pSkillList)
+struct D2Skill* __cdecl SKILLS_GetLeftSkillFromSkillList(struct D2SkillList* pSkillList)
 {
 	D2_ASSERT(pSkillList);
 
@@ -764,7 +764,7 @@ struct D2Skill* __fastcall SKILLS_GetLeftSkillFromSkillList(struct D2SkillList* 
 }
 
 //D2Common.0x6FDAFEF0
-struct D2Skill* __fastcall SKILLS_GetRightSkillFromSkillList(struct D2SkillList* pSkillList)
+struct D2Skill* __cdecl SKILLS_GetRightSkillFromSkillList(struct D2SkillList* pSkillList)
 {
 	D2_ASSERT(pSkillList);
 
@@ -772,7 +772,7 @@ struct D2Skill* __fastcall SKILLS_GetRightSkillFromSkillList(struct D2SkillList*
 }
 
 //D2Common.0x6FDAFF20
-void __fastcall SKILLS_SetUsedSkillInSkillList(struct D2SkillList* pSkillList, struct D2Skill* pUsedSkill)
+void __cdecl SKILLS_SetUsedSkillInSkillList(struct D2SkillList* pSkillList, struct D2Skill* pUsedSkill)
 {
 	if (pSkillList)
 	{
@@ -781,7 +781,7 @@ void __fastcall SKILLS_SetUsedSkillInSkillList(struct D2SkillList* pSkillList, s
 }
 
 //D2Common.0x6FDAFF30
-struct D2Skill* __fastcall SKILLS_GetUsedSkillFromSkillList(struct D2SkillList* pSkillList)
+struct D2Skill* __cdecl SKILLS_GetUsedSkillFromSkillList(struct D2SkillList* pSkillList)
 {
 	if (pSkillList)
 	{
@@ -792,25 +792,25 @@ struct D2Skill* __fastcall SKILLS_GetUsedSkillFromSkillList(struct D2SkillList* 
 }
 
 //D2Common.0x6FDAFF40 (#10949)
-struct D2Skill* __fastcall SKILLS_GetSkillById(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID)
+struct D2Skill* __cdecl SKILLS_GetSkillById(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID)
 {
 	return SKILLS_GetSkill(pUnit, nSkillId, nOwnerGUID);
 }
 
 //D2Common.0x6FDAFF80 (#10950)
-struct D2Skill* __fastcall SKILLS_GetHighestLevelSkillFromUnitAndId(struct D2Unit* pUnit, int nSkillId)
+struct D2Skill* __cdecl SKILLS_GetHighestLevelSkillFromUnitAndId(struct D2Unit* pUnit, int nSkillId)
 {
 	return SKILLS_GetHighestLevelSkillFromSkillId(pUnit, nSkillId);
 }
 
 //D2Common.0x6FDAFFD0 (#10951)
-void __stdcall SKILLS_RemoveSkill(struct D2Unit* pUnit, int nSkillId, const char* szFile, int nLine)
+void __cdecl SKILLS_RemoveSkill(struct D2Unit* pUnit, int nSkillId, const char* szFile, int nLine)
 {
 	D2COMMON_SKILLS_RemoveSkill_6FDAFFF0(pUnit, nSkillId, 1, szFile, nLine);
 }
 
 //D2Common.0x6FDAFFF0
-void __fastcall D2COMMON_SKILLS_RemoveSkill_6FDAFFF0(struct D2Unit* pUnit, int nSkillId, BOOL bDecrementAndCheckSkillLevel, const char* szFile, int nLine)
+void __cdecl D2COMMON_SKILLS_RemoveSkill_6FDAFFF0(struct D2Unit* pUnit, int nSkillId, BOOL bDecrementAndCheckSkillLevel, const char* szFile, int nLine)
 {
 	if (!pUnit)
 	{
@@ -894,7 +894,7 @@ void __fastcall D2COMMON_SKILLS_RemoveSkill_6FDAFFF0(struct D2Unit* pUnit, int n
 }
 
 //D2Common.0x6FDB0270 (#10958)
-void* __stdcall D2Common_10958(struct D2Unit* pUnit, void* a2)
+void* __cdecl D2Common_10958(struct D2Unit* pUnit, void* a2)
 {
 	void* pResult = NULL;
 
@@ -908,7 +908,7 @@ void* __stdcall D2Common_10958(struct D2Unit* pUnit, void* a2)
 }
 
 //D2Common.0x6FDB02A0 (#10959)
-void* __stdcall D2Common_10959(struct D2Unit* pUnit)
+void* __cdecl D2Common_10959(struct D2Unit* pUnit)
 {
 	if (pUnit && pUnit->pSkills)
 	{
@@ -919,7 +919,7 @@ void* __stdcall D2Common_10959(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB02C0 (#10960)
-void __stdcall SKILLS_FreeSkillList(struct D2Unit* pUnit)
+void __cdecl SKILLS_FreeSkillList(struct D2Unit* pUnit)
 {
 	struct D2SkillList* pSkillList = NULL;
 	struct D2Skill* pNextSkill = NULL;
@@ -945,7 +945,7 @@ void __stdcall SKILLS_FreeSkillList(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB0320 (#10952)
-struct D2Skill* __stdcall SKILLS_AddSkill(struct D2Unit* pUnit, int nSkillId)
+struct D2Skill* __cdecl SKILLS_AddSkill(struct D2Unit* pUnit, int nSkillId)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
 	struct D2Skill* pPreviousSkill = NULL;
@@ -1042,7 +1042,7 @@ struct D2Skill* __stdcall SKILLS_AddSkill(struct D2Unit* pUnit, int nSkillId)
 }
 
 //D2Common.0x6FDB04D0 (#10953)
-void __stdcall SKILLS_AssignSkill(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL bRemove, const char* szFile, int nLine)
+void __cdecl SKILLS_AssignSkill(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL bRemove, const char* szFile, int nLine)
 {
 	struct D2Skill* pSkill = NULL;
 
@@ -1089,7 +1089,7 @@ void __stdcall SKILLS_AssignSkill(struct D2Unit* pUnit, int nSkillId, int nSkill
 }
 
 //D2Common.0x6FDB05E0 (#10954)
-void __stdcall D2Common_10954(struct D2Unit* pUnit, D2UnitGUID nOwnerGUID, int nSkillId, int nSkillLevel, int nCharges, BOOL bFreeMemory)
+void __cdecl D2Common_10954(struct D2Unit* pUnit, D2UnitGUID nOwnerGUID, int nSkillId, int nSkillLevel, int nCharges, BOOL bFreeMemory)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
 	struct D2SkillList* pSkillList = NULL;
@@ -1207,7 +1207,7 @@ void __stdcall D2Common_10954(struct D2Unit* pUnit, D2UnitGUID nOwnerGUID, int n
 }
 
 //D2Common.0x6FDB08C0 (#10957)
-D2UnitGUID __stdcall SKILLS_GetOwnerGUIDFromSkill(struct D2Skill* pSkill)
+D2UnitGUID __cdecl SKILLS_GetOwnerGUIDFromSkill(struct D2Skill* pSkill)
 {
 	D2_ASSERT(pSkill);
 
@@ -1215,7 +1215,7 @@ D2UnitGUID __stdcall SKILLS_GetOwnerGUIDFromSkill(struct D2Skill* pSkill)
 }
 
 //D2Common.0x6FDB08F0 (#10955)
-BOOL __stdcall SKILLS_GetSkillInfo(struct D2Skill* pSkill, D2UnitGUID* pOwnerGUID, int* pSkillId, int* pSkillLevel, int* pCharges)
+BOOL __cdecl SKILLS_GetSkillInfo(struct D2Skill* pSkill, D2UnitGUID* pOwnerGUID, int* pSkillId, int* pSkillLevel, int* pCharges)
 {
 	D2_ASSERT(pSkill);
 
@@ -1247,7 +1247,7 @@ BOOL __stdcall SKILLS_GetSkillInfo(struct D2Skill* pSkill, D2UnitGUID* pOwnerGUI
 }
 
 //D2Common.0x6FDB0960 (#10956)
-BOOL __stdcall SKILLS_SetCharges(struct D2Skill* pSkill, int nCharges)
+BOOL __cdecl SKILLS_SetCharges(struct D2Skill* pSkill, int nCharges)
 {
 	D2_ASSERT(pSkill);
 
@@ -1263,7 +1263,7 @@ BOOL __stdcall SKILLS_SetCharges(struct D2Skill* pSkill, int nCharges)
 }
 
 //D2Common.0x6FDB09A0 (#10961)
-void __stdcall SKILLS_SetLeftActiveSkill(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID)
+void __cdecl SKILLS_SetLeftActiveSkill(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = DATATBLS_GetSkillsTxtRecord(nSkillId);
 	D2_ASSERT(pSkillsTxtRecord);
@@ -1298,7 +1298,7 @@ void __stdcall SKILLS_SetLeftActiveSkill(struct D2Unit* pUnit, int nSkillId, D2U
 }
 
 //D2Common.0x6FDB0A30 (#10962)
-void __stdcall SKILLS_SetRightActiveSkill(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID)
+void __cdecl SKILLS_SetRightActiveSkill(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
 	struct D2Skill* pSkill = NULL;
@@ -1337,7 +1337,7 @@ void __stdcall SKILLS_SetRightActiveSkill(struct D2Unit* pUnit, int nSkillId, D2
 }
 
 //D2Common.0x6FDB0AC0 (#10963)
-int __stdcall SKILLS_GetSkillIdFromSkill(struct D2Skill* pSkill, const char* szFile, int nLine)
+int __cdecl SKILLS_GetSkillIdFromSkill(struct D2Skill* pSkill, const char* szFile, int nLine)
 {
 	if (pSkill)
 	{
@@ -1351,7 +1351,7 @@ int __stdcall SKILLS_GetSkillIdFromSkill(struct D2Skill* pSkill, const char* szF
 }
 
 //D2Common.0x6FDB0AF0 (#10965)
-int __fastcall SKILLS_GetSeqNumFromSkill(struct D2Unit* pUnit, struct D2Skill* pSkill)
+int __cdecl SKILLS_GetSeqNumFromSkill(struct D2Unit* pUnit, struct D2Skill* pSkill)
 {
 	struct D2MonStatsTxt* pMonStatsTxtRecord = NULL;
 	int nCounter = 0;
@@ -1387,7 +1387,7 @@ int __fastcall SKILLS_GetSeqNumFromSkill(struct D2Unit* pUnit, struct D2Skill* p
 }
 
 //D2Common.0x6FDB0B70 (#10964)
-int __stdcall SKILLS_GetUseState(struct D2Unit* pUnit, struct D2Skill* pSkill)
+int __cdecl SKILLS_GetUseState(struct D2Unit* pUnit, struct D2Skill* pSkill)
 {
 	struct D2Unit* pRightHandItem = NULL;
 	struct D2Unit* pLeftHandItem = NULL;
@@ -1619,7 +1619,7 @@ int __stdcall SKILLS_GetUseState(struct D2Unit* pUnit, struct D2Skill* pSkill)
 
 //D2Common.0x6FDB0F50
 //TODO: Check name
-BOOL __fastcall D2Common_SKILLMANA_CheckStat_6FDB0F50(struct D2Unit* pUnit, struct D2Skill* pSkill)
+BOOL __cdecl D2Common_SKILLMANA_CheckStat_6FDB0F50(struct D2Unit* pUnit, struct D2Skill* pSkill)
 {
 	int nRequiredMana = 0;
 	int nSkillLevel = 0;
@@ -1660,7 +1660,7 @@ BOOL __fastcall D2Common_SKILLMANA_CheckStat_6FDB0F50(struct D2Unit* pUnit, stru
 }
 
 //D2Common.0x6FDB1050
-struct D2Unit* __fastcall sub_6FDB1050(struct D2Inventory* pInventory, int nBodyLoc)
+struct D2Unit* __cdecl sub_6FDB1050(struct D2Inventory* pInventory, int nBodyLoc)
 {
 	if (nBodyLoc == BODYLOC_LARM)
 	{
@@ -1673,7 +1673,7 @@ struct D2Unit* __fastcall sub_6FDB1050(struct D2Inventory* pInventory, int nBody
 }
 
 //D2Common.0x6FDB1070
-BOOL __fastcall sub_6FDB1070(struct D2Unit* pUnit, struct D2Skill* pSkill)
+BOOL __cdecl sub_6FDB1070(struct D2Unit* pUnit, struct D2Skill* pSkill)
 {
 	struct D2Unit* pItem = NULL;
 	int nSkillLevel = 0;
@@ -1719,7 +1719,7 @@ BOOL __fastcall sub_6FDB1070(struct D2Unit* pUnit, struct D2Skill* pSkill)
 }
 
 //D2Common.0x6FDB1130
-BOOL __fastcall sub_6FDB1130(struct D2Unit* pItem, struct D2Unit* pUnit, struct D2SkillsTxt* pSkillsTxtRecord, int nType)
+BOOL __cdecl sub_6FDB1130(struct D2Unit* pItem, struct D2Unit* pUnit, struct D2SkillsTxt* pSkillsTxtRecord, int nType)
 {
 
 	if (!pItem)
@@ -1825,7 +1825,7 @@ BOOL __fastcall sub_6FDB1130(struct D2Unit* pItem, struct D2Unit* pUnit, struct 
 
 //D2Common.0x6FDB1380
 //TODO: Check name
-BOOL __fastcall D2Common_SKILLS_CheckShapeRestriction_6FDB1380(struct D2Unit* pUnit, struct D2Skill* pSkill)
+BOOL __cdecl D2Common_SKILLS_CheckShapeRestriction_6FDB1380(struct D2Unit* pUnit, struct D2Skill* pSkill)
 {
 	if (pUnit == nullptr || pSkill == nullptr || pSkill->pSkillsTxt == nullptr) {
 		return FALSE;
@@ -1864,7 +1864,7 @@ BOOL __fastcall D2Common_SKILLS_CheckShapeRestriction_6FDB1380(struct D2Unit* pU
 
 //D2Common.0x6FDB1400
 //TODO: Check name
-BOOL __fastcall D2Common_SKILLMANA_CheckStartStat_6FDB1400(struct D2Unit* pUnit, struct D2Skill* pSkill)
+BOOL __cdecl D2Common_SKILLMANA_CheckStartStat_6FDB1400(struct D2Unit* pUnit, struct D2Skill* pSkill)
 {
 	if (!pUnit || pUnit->dwUnitType != UNIT_PLAYER || pSkill->pSkillsTxt->wStartMana <= 0
 		|| STATLIST_UnitGetStatValue(pUnit, STAT_MANA, 0) >= (int)pSkill->pSkillsTxt->wStartMana << 8 || STATES_CheckState(pUnit, STATE_INFERNO))
@@ -1876,7 +1876,7 @@ BOOL __fastcall D2Common_SKILLMANA_CheckStartStat_6FDB1400(struct D2Unit* pUnit,
 }
 
 //D2Common.0x6FDB1450
-BOOL __fastcall SKILLS_CheckSkillDelay(struct D2Unit* pUnit, struct D2Skill* pSkill)
+BOOL __cdecl SKILLS_CheckSkillDelay(struct D2Unit* pUnit, struct D2Skill* pSkill)
 {
 	if (pUnit && pUnit->dwUnitType == UNIT_PLAYER && STATES_CheckState(pUnit, STATE_SKILLDELAY))
 	{
@@ -1890,7 +1890,7 @@ BOOL __fastcall SKILLS_CheckSkillDelay(struct D2Unit* pUnit, struct D2Skill* pSk
 }
 
 //D2Common.0x6FDB1540 (#10966)
-struct D2SkillsTxt* __fastcall SKILLS_GetSkillsTxtRecordFromSkill(struct D2Skill* pSkill)
+struct D2SkillsTxt* __cdecl SKILLS_GetSkillsTxtRecordFromSkill(struct D2Skill* pSkill)
 {
 	if (pSkill)
 	{
@@ -1901,7 +1901,7 @@ struct D2SkillsTxt* __fastcall SKILLS_GetSkillsTxtRecordFromSkill(struct D2Skill
 }
 
 //D2Common.0x6FDB1550 (#10967)
-int __stdcall SKILLS_GetShrineSkillLevelBonus(struct D2Unit* pUnit)
+int __cdecl SKILLS_GetShrineSkillLevelBonus(struct D2Unit* pUnit)
 {
 	if (STATES_CheckState(pUnit, STATE_SHRINE_SKILL))
 	{
@@ -1912,7 +1912,7 @@ int __stdcall SKILLS_GetShrineSkillLevelBonus(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB1580
-int __fastcall SKILLS_GetBonusSkillLevel(struct D2Unit* pUnit, struct D2Skill* pSkill)
+int __cdecl SKILLS_GetBonusSkillLevel(struct D2Unit* pUnit, struct D2Skill* pSkill)
 {
 	struct D2SkillDescTxt* pSkillDescTxtRecord = NULL;
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
@@ -1991,7 +1991,7 @@ int __fastcall SKILLS_GetBonusSkillLevel(struct D2Unit* pUnit, struct D2Skill* p
 }
 
 //D2Common.0x6FDB1700 (#10968)
-int __stdcall SKILLS_GetSkillLevel(struct D2Unit* pUnit, struct D2Skill* pSkill, BOOL bBonus)
+int __cdecl SKILLS_GetSkillLevel(struct D2Unit* pUnit, struct D2Skill* pSkill, BOOL bBonus)
 {
 	int nSkillLevel = 0;
 	int nMaxLevel = 0;
@@ -2023,7 +2023,7 @@ int __stdcall SKILLS_GetSkillLevel(struct D2Unit* pUnit, struct D2Skill* pSkill,
 }
 
 //D2Common.0x6FDB1750 (#11029)
-int __stdcall SKILLS_GetBonusSkillLevelFromSkillId(struct D2Unit* pUnit, int nSkillId)
+int __cdecl SKILLS_GetBonusSkillLevelFromSkillId(struct D2Unit* pUnit, int nSkillId)
 {
 	struct D2Skill* pSkill = NULL;
 	
@@ -2046,7 +2046,7 @@ int __stdcall SKILLS_GetBonusSkillLevelFromSkillId(struct D2Unit* pUnit, int nSk
 }
 
 //D2Common.0x6FDB17A0 (#11030)
-void __stdcall D2Common_11030(struct D2Unit* pUnit, int nSkillId, int a3)
+void __cdecl D2Common_11030(struct D2Unit* pUnit, int nSkillId, int a3)
 {
 	struct D2Skill* pSkill = NULL;
 
@@ -2078,7 +2078,7 @@ void __stdcall D2Common_11030(struct D2Unit* pUnit, int nSkillId, int a3)
 }
 
 //D2Common.0x6FDB1820 (#11031)
-void __stdcall D2Common_11031(struct D2Unit* pUnit, int nSkillId, int a3)
+void __cdecl D2Common_11031(struct D2Unit* pUnit, int nSkillId, int a3)
 {
 	struct D2Skill* pSkill = SKILLS_GetSkill(pUnit, nSkillId, -1);
 
@@ -2109,7 +2109,7 @@ void __stdcall D2Common_11031(struct D2Unit* pUnit, int nSkillId, int a3)
 }
 
 //D2Common.0x6FDB18B0 (#10974)
-void __stdcall SKILLS_SetSkillMode(struct D2Skill* pSkill, int nSkillMode)
+void __cdecl SKILLS_SetSkillMode(struct D2Skill* pSkill, int nSkillMode)
 {
 	if (pSkill && nSkillMode >= 0 && nSkillMode <= 32)
 	{
@@ -2118,7 +2118,7 @@ void __stdcall SKILLS_SetSkillMode(struct D2Skill* pSkill, int nSkillMode)
 }
 
 //D2Common.0x6FDB18D0 (#10975)
-int __stdcall SKILLS_GetSkillMode(struct D2Skill* pSkill)
+int __cdecl SKILLS_GetSkillMode(struct D2Skill* pSkill)
 {
 	if (pSkill)
 	{
@@ -2130,7 +2130,7 @@ int __stdcall SKILLS_GetSkillMode(struct D2Skill* pSkill)
 }
 
 //D2Common.0x6FDB18F0 (#10969)
-int __stdcall D2Common_10969(struct D2Skill* pSkill)
+int __cdecl D2Common_10969(struct D2Skill* pSkill)
 {
 	D2_ASSERT(pSkill);
 
@@ -2138,7 +2138,7 @@ int __stdcall D2Common_10969(struct D2Skill* pSkill)
 }
 
 //D2Common.0x6FDB1920 (#10970)
-void __stdcall D2Common_10970(struct D2Skill* pSkill, int nUnknown)
+void __cdecl D2Common_10970(struct D2Skill* pSkill, int nUnknown)
 {
 	D2_ASSERT(pSkill);
 
@@ -2146,7 +2146,7 @@ void __stdcall D2Common_10970(struct D2Skill* pSkill, int nUnknown)
 }
 
 //D2Common.0x6FDB1950 (#10971)
-int __stdcall D2Common_10971(struct D2Skill* pSkill)
+int __cdecl D2Common_10971(struct D2Skill* pSkill)
 {
 	D2_ASSERT(pSkill);
 
@@ -2154,7 +2154,7 @@ int __stdcall D2Common_10971(struct D2Skill* pSkill)
 }
 
 //D2Common.0x6FDB1980 (#10972)
-void __stdcall D2Common_10972(struct D2Skill* pSkill, int nUnknown)
+void __cdecl D2Common_10972(struct D2Skill* pSkill, int nUnknown)
 {
 	D2_ASSERT(pSkill);
 
@@ -2162,7 +2162,7 @@ void __stdcall D2Common_10972(struct D2Skill* pSkill, int nUnknown)
 }
 
 //D2Common.0x6FDB19B0 (#10973)
-void __stdcall D2Common_10973(struct D2Skill* pSkill)
+void __cdecl D2Common_10973(struct D2Skill* pSkill)
 {
 	D2_ASSERT(pSkill);
 
@@ -2171,7 +2171,7 @@ void __stdcall D2Common_10973(struct D2Skill* pSkill)
 }
 
 //D2Common.0x6FDB19F0 (#10976)
-int __stdcall SKILLS_GetParam1(struct D2Skill* pSkill)
+int __cdecl SKILLS_GetParam1(struct D2Skill* pSkill)
 {
 	D2_ASSERT(pSkill);
 
@@ -2179,7 +2179,7 @@ int __stdcall SKILLS_GetParam1(struct D2Skill* pSkill)
 }
 
 //D2Common.0x6FDB1A20 (#10977)
-int __stdcall SKILLS_GetParam2(struct D2Skill* pSkill)
+int __cdecl SKILLS_GetParam2(struct D2Skill* pSkill)
 {
 	D2_ASSERT(pSkill);
 
@@ -2187,7 +2187,7 @@ int __stdcall SKILLS_GetParam2(struct D2Skill* pSkill)
 }
 
 //D2Common.0x6FDB1A50 (#10978)
-int __stdcall SKILLS_GetParam3(struct D2Skill* pSkill)
+int __cdecl SKILLS_GetParam3(struct D2Skill* pSkill)
 {
 	D2_ASSERT(pSkill);
 
@@ -2195,7 +2195,7 @@ int __stdcall SKILLS_GetParam3(struct D2Skill* pSkill)
 }
 
 //D2Common.0x6FDB1A80 (#10979)
-int __stdcall SKILLS_GetParam4(struct D2Skill* pSkill)
+int __cdecl SKILLS_GetParam4(struct D2Skill* pSkill)
 {
 	D2_ASSERT(pSkill);
 
@@ -2203,7 +2203,7 @@ int __stdcall SKILLS_GetParam4(struct D2Skill* pSkill)
 }
 
 //D2Common.0x6FDB1AB0 (#10980)
-void __stdcall SKILLS_SetParam1(struct D2Skill* pSkill, int nPar1)
+void __cdecl SKILLS_SetParam1(struct D2Skill* pSkill, int nPar1)
 {
 	D2_ASSERT(pSkill);
 
@@ -2211,7 +2211,7 @@ void __stdcall SKILLS_SetParam1(struct D2Skill* pSkill, int nPar1)
 }
 
 //D2Common.0x6FDB1AE0 (#10981)
-void __stdcall SKILLS_SetParam2(struct D2Skill* pSkill, int nPar2)
+void __cdecl SKILLS_SetParam2(struct D2Skill* pSkill, int nPar2)
 {
 	D2_ASSERT(pSkill);
 
@@ -2219,7 +2219,7 @@ void __stdcall SKILLS_SetParam2(struct D2Skill* pSkill, int nPar2)
 }
 
 //D2Common.0x6FDB1B10 (#10982)
-void __stdcall SKILLS_SetParam3(struct D2Skill* pSkill, int nPar3)
+void __cdecl SKILLS_SetParam3(struct D2Skill* pSkill, int nPar3)
 {
 	D2_ASSERT(pSkill);
 
@@ -2227,7 +2227,7 @@ void __stdcall SKILLS_SetParam3(struct D2Skill* pSkill, int nPar3)
 }
 
 //D2Common.0x6FDB1B40 (#10983)
-void __stdcall SKILLS_SetParam4(struct D2Skill* pSkill, int nPar4)
+void __cdecl SKILLS_SetParam4(struct D2Skill* pSkill, int nPar4)
 {
 	D2_ASSERT(pSkill);
 
@@ -2235,7 +2235,7 @@ void __stdcall SKILLS_SetParam4(struct D2Skill* pSkill, int nPar4)
 }
 
 //D2Common.0x6FDB1B70 (#10984)
-void __stdcall SKILLS_SetFlags(struct D2Skill* pSkill, int nFlags)
+void __cdecl SKILLS_SetFlags(struct D2Skill* pSkill, int nFlags)
 {
 	D2_ASSERT(pSkill);
 
@@ -2243,7 +2243,7 @@ void __stdcall SKILLS_SetFlags(struct D2Skill* pSkill, int nFlags)
 }
 
 //D2Common.0x6FDB1BA0 (#10985)
-int __stdcall SKILLS_GetFlags(struct D2Skill* pSkill)
+int __cdecl SKILLS_GetFlags(struct D2Skill* pSkill)
 {
 	if (pSkill)
 	{
@@ -2255,7 +2255,7 @@ int __stdcall SKILLS_GetFlags(struct D2Skill* pSkill)
 }
 
 //D2Common.0x6FDB1BC0 (#10986)
-int __stdcall SKILLS_GetRequiredLevel(int nSkillId)
+int __cdecl SKILLS_GetRequiredLevel(int nSkillId)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = DATATBLS_GetSkillsTxtRecord(nSkillId);
 
@@ -2268,7 +2268,7 @@ int __stdcall SKILLS_GetRequiredLevel(int nSkillId)
 }
 
 //D2Common.0x6FDB1C00 (#10987)
-int __stdcall SKILLS_GetRequiredLevelBasedOnCurrent(struct D2Unit* pUnit, int nSkillId)
+int __cdecl SKILLS_GetRequiredLevelBasedOnCurrent(struct D2Unit* pUnit, int nSkillId)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
 	struct D2Skill* pSkill = NULL;
@@ -2299,7 +2299,7 @@ int __stdcall SKILLS_GetRequiredLevelBasedOnCurrent(struct D2Unit* pUnit, int nS
 }
 
 //D2Common.0x6FDB1C80 (#10988)
-BOOL __stdcall SKILLS_CheckRequiredSkills(struct D2Unit* pUnit, int nSkillId)
+BOOL __cdecl SKILLS_CheckRequiredSkills(struct D2Unit* pUnit, int nSkillId)
 {
 	struct D2SkillsTxt* pReqSkillSkillsTxtRecord = NULL;
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
@@ -2367,7 +2367,7 @@ BOOL __stdcall SKILLS_CheckRequiredSkills(struct D2Unit* pUnit, int nSkillId)
 }
 
 //D2Common.0x6FDB1F80
-struct D2Skill* __fastcall SKILLS_GetSkill(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID)
+struct D2Skill* __cdecl SKILLS_GetSkill(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID)
 {
 	struct D2Skill* pSkill = NULL;
 
@@ -2387,7 +2387,7 @@ struct D2Skill* __fastcall SKILLS_GetSkill(struct D2Unit* pUnit, int nSkillId, D
 }
 
 //D2Common.0x6FDB1FC0 (#10989)
-BOOL __stdcall SKILLS_CheckRequiredAttributes(struct D2Unit* pUnit, int nSkillId)
+BOOL __cdecl SKILLS_CheckRequiredAttributes(struct D2Unit* pUnit, int nSkillId)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = DATATBLS_GetSkillsTxtRecord(nSkillId);
 
@@ -2412,7 +2412,7 @@ BOOL __stdcall SKILLS_CheckRequiredAttributes(struct D2Unit* pUnit, int nSkillId
 }
 
 //D2Common.0x6FDB2110 (#10999)
-int __stdcall SKILLS_GetToHitFactor(struct D2Unit* pUnit, int nSkillId, int nSkillLevel)
+int __cdecl SKILLS_GetToHitFactor(struct D2Unit* pUnit, int nSkillId, int nSkillLevel)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
 	unsigned int nCalc = 0;
@@ -2435,7 +2435,7 @@ int __stdcall SKILLS_GetToHitFactor(struct D2Unit* pUnit, int nSkillId, int nSki
 }
 
 //D2Common.0x6FDB21E0 (#11000)
-int __stdcall SKILLS_GetHighestSkillLevelById(struct D2Unit* pUnit, int nSkillId)
+int __cdecl SKILLS_GetHighestSkillLevelById(struct D2Unit* pUnit, int nSkillId)
 {
 	struct D2Skill* pSkill = NULL;
 
@@ -2452,7 +2452,7 @@ int __stdcall SKILLS_GetHighestSkillLevelById(struct D2Unit* pUnit, int nSkillId
 }
 
 //D2Common.0x6FDB2280 (#11001)
-int __stdcall SKILLS_GetManaCosts(int nSkillId, int nSkillLevel)
+int __cdecl SKILLS_GetManaCosts(int nSkillId, int nSkillLevel)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = DATATBLS_GetSkillsTxtRecord(nSkillId);
 
@@ -2465,7 +2465,7 @@ int __stdcall SKILLS_GetManaCosts(int nSkillId, int nSkillLevel)
 }
 
 //D2Common.0x6FDB22E0
-int __fastcall SKILLS_CalculateDamageBonusByLevel(int nLevel, int* pLevelDamage)
+int __cdecl SKILLS_CalculateDamageBonusByLevel(int nLevel, int* pLevelDamage)
 {
 	if (nLevel > 1 && pLevelDamage)
 	{
@@ -2496,7 +2496,7 @@ int __fastcall SKILLS_CalculateDamageBonusByLevel(int nLevel, int* pLevelDamage)
 }
 
 //D2Common.0x6FDB2390 (#11002)
-int __stdcall SKILLS_GetMinPhysDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4)
+int __cdecl SKILLS_GetMinPhysDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
 	struct D2Unit* pItem = NULL;
@@ -2562,7 +2562,7 @@ int __stdcall SKILLS_GetMinPhysDamage(struct D2Unit* pUnit, int nSkillId, int nS
 }
 
 //D2Common.0x6FDB25D0 (#11003)
-int __stdcall SKILLS_GetMaxPhysDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4)
+int __cdecl SKILLS_GetMaxPhysDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
 	struct D2Unit* pItem = NULL;
@@ -2629,7 +2629,7 @@ int __stdcall SKILLS_GetMaxPhysDamage(struct D2Unit* pUnit, int nSkillId, int nS
 }
 
 //D2Common.0x6FDB2810 (#11004)
-int __stdcall SKILLS_GetMinElemDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4)
+int __cdecl SKILLS_GetMinElemDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
 	int nDamage = 0;
@@ -2663,7 +2663,7 @@ int __stdcall SKILLS_GetMinElemDamage(struct D2Unit* pUnit, int nSkillId, int nS
 }
 
 //D2Common.0x6FDB29D0
-int __fastcall SKILLS_CalculateMasteryBonus(struct D2Unit* pUnit, int nElemType, int nSrcDamage)
+int __cdecl SKILLS_CalculateMasteryBonus(struct D2Unit* pUnit, int nElemType, int nSrcDamage)
 {
 	int32_t statId = 0;
 
@@ -2691,7 +2691,7 @@ int __fastcall SKILLS_CalculateMasteryBonus(struct D2Unit* pUnit, int nElemType,
 }
 
 //D2Common.0x6FDB2B00 (#11005)
-int __stdcall SKILLS_GetMaxElemDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4)
+int __cdecl SKILLS_GetMaxElemDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
 	int nDamage = 0;
@@ -2725,7 +2725,7 @@ int __stdcall SKILLS_GetMaxElemDamage(struct D2Unit* pUnit, int nSkillId, int nS
 }
 
 //D2Common.0x6FDB2CA0 (#11006)
-int __stdcall SKILLS_GetElementalLength(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL bUnused)
+int __cdecl SKILLS_GetElementalLength(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL bUnused)
 {
 	D2_MAYBE_UNUSED(bUnused);
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
@@ -2771,14 +2771,14 @@ int __stdcall SKILLS_GetElementalLength(struct D2Unit* pUnit, int nSkillId, int 
 }
 
 //D2Common.0x6FDB2E70 (#11239)
-int __stdcall SKILLS_Return0(int arg)
+int __cdecl SKILLS_Return0(int arg)
 {
 	REMOVE_LATER_Trace("SKILLS_Return0: Useless");
 	return 0;
 }
 
 //D2Common.0x6FDB2E80 (#11008)
-int __stdcall SKILLS_GetClassIdFromSkillId(int nSkillId)
+int __cdecl SKILLS_GetClassIdFromSkillId(int nSkillId)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = DATATBLS_GetSkillsTxtRecord(nSkillId);
 
@@ -2791,7 +2791,7 @@ int __stdcall SKILLS_GetClassIdFromSkillId(int nSkillId)
 }
 
 //D2Common.0x6FDB2EC0 (#11010)
-BOOL __stdcall SKILLS_IsPlayerClassSkill(int nSkillId, int* pPlayerClass)
+BOOL __cdecl SKILLS_IsPlayerClassSkill(int nSkillId, int* pPlayerClass)
 {
 	D2_ASSERT(pPlayerClass);
 
@@ -2800,7 +2800,7 @@ BOOL __stdcall SKILLS_IsPlayerClassSkill(int nSkillId, int* pPlayerClass)
 }
 
 //D2Common.0x6FDB2F40 (#11011)
-int __stdcall SKILLS_GetQuantity(struct D2Skill* pSkill)
+int __cdecl SKILLS_GetQuantity(struct D2Skill* pSkill)
 {
 	D2_ASSERT(pSkill);
 
@@ -2808,7 +2808,7 @@ int __stdcall SKILLS_GetQuantity(struct D2Skill* pSkill)
 }
 
 //D2Common.0x6FDB2F70 (#11012)
-void __stdcall SKILLS_SetQuantity(struct D2Skill* pSkill, int nQuantity)
+void __cdecl SKILLS_SetQuantity(struct D2Skill* pSkill, int nQuantity)
 {
 	D2_ASSERT(pSkill);
 
@@ -2816,7 +2816,7 @@ void __stdcall SKILLS_SetQuantity(struct D2Skill* pSkill, int nQuantity)
 }
 
 //D2Common.0x6FDB2FA0 (#11014)
-int __stdcall D2Common_11014_ConvertShapeShiftedMode(int nArrayIndex, int nMonsterId)
+int __cdecl D2Common_11014_ConvertShapeShiftedMode(int nArrayIndex, int nMonsterId)
 {
 	int nMode = dword_6FDD2BD8[nArrayIndex];
 	
@@ -2855,7 +2855,7 @@ int __stdcall D2Common_11014_ConvertShapeShiftedMode(int nArrayIndex, int nMonst
 }
 
 //D2Common.0x6FDB30A0 (#11013)
-void __stdcall D2COMMON_11013_ConvertMode(struct D2Unit* pUnit, int* pType, int* pClass, int* pMode, const char* szFile, int nLine)
+void __cdecl D2COMMON_11013_ConvertMode(struct D2Unit* pUnit, int* pType, int* pClass, int* pMode, const char* szFile, int nLine)
 {
 	if (!(pUnit && (pUnit->dwFlagEx & UNITFLAGEX_ISSHAPESHIFTED) && sgptDataTables->nTransformStates > 0))
 	{
@@ -2913,7 +2913,7 @@ void __stdcall D2COMMON_11013_ConvertMode(struct D2Unit* pUnit, int* pType, int*
 }
 
 //D2Common.0x6FDB3290 (#11015)
-void __stdcall D2Common_11015(struct D2Unit* pUnit, int a2, int nSkillId)
+void __cdecl D2Common_11015(struct D2Unit* pUnit, int a2, int nSkillId)
 {
 	struct D2Skill* pSkill = NULL;
 	int nPosition = 0;
@@ -2952,7 +2952,7 @@ void __stdcall D2Common_11015(struct D2Unit* pUnit, int a2, int nSkillId)
 }
 
 //D2Common.0x6FDB3340 (#11016)
-int __stdcall D2Common_11016(struct D2Unit* pUnit, struct D2Skill* pSkill)
+int __cdecl D2Common_11016(struct D2Unit* pUnit, struct D2Skill* pSkill)
 {
 	int nRange = 0;
 
@@ -2976,7 +2976,7 @@ int __stdcall D2Common_11016(struct D2Unit* pUnit, struct D2Skill* pSkill)
 
 //D2Common.0x6FDB33A0 (#11017)
 //TODO: Check name
-BOOL __stdcall D2COMMON_11017_CheckUnitIfConsumeable(struct D2Unit* pUnit, int a2)
+BOOL __cdecl D2COMMON_11017_CheckUnitIfConsumeable(struct D2Unit* pUnit, int a2)
 {
 	struct D2MonStats2Txt* pMonStats2TxtRecord = NULL;
 
@@ -2993,7 +2993,7 @@ BOOL __stdcall D2COMMON_11017_CheckUnitIfConsumeable(struct D2Unit* pUnit, int a
 }
 
 //D2Common.0x6FDB3480 (#11020)
-BOOL __stdcall D2Common_11020(struct D2Unit* pUnit)
+BOOL __cdecl D2Common_11020(struct D2Unit* pUnit)
 {
 	if (SKILLS_CanUnitCorpseBeSelected(pUnit) && UNITS_IsSoftMonster(pUnit))
 	{
@@ -3004,7 +3004,7 @@ BOOL __stdcall D2Common_11020(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB3520 (#11022)
-BOOL __stdcall SKILLS_CanUnitCorpseBeSelected(struct D2Unit* pUnit)
+BOOL __cdecl SKILLS_CanUnitCorpseBeSelected(struct D2Unit* pUnit)
 {
 	struct D2MonStats2Txt* pMonStats2TxtRecord = NULL;
 
@@ -3021,7 +3021,7 @@ BOOL __stdcall SKILLS_CanUnitCorpseBeSelected(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB35B0 (#11024)
-int __stdcall D2Common_11024(struct D2Unit* pUnit, struct D2Unit* pItem, struct D2Skill* pSkill, int nType, BOOL* pHasThrowBonus)
+int __cdecl D2Common_11024(struct D2Unit* pUnit, struct D2Unit* pItem, struct D2Skill* pSkill, int nType, BOOL* pHasThrowBonus)
 {
 	int nStatId = 0;
 	int nValue = 0;
@@ -3081,7 +3081,7 @@ int __stdcall D2Common_11024(struct D2Unit* pUnit, struct D2Unit* pItem, struct 
 }
 
 //D2Common.0x6FDB36D0 (#11023)
-int __stdcall SKILLS_GetWeaponMasteryBonus(struct D2Unit* pUnit, struct D2Unit* pItem, struct D2Skill* pSkill, int nType)
+int __cdecl SKILLS_GetWeaponMasteryBonus(struct D2Unit* pUnit, struct D2Unit* pItem, struct D2Skill* pSkill, int nType)
 {
 	int nStatId = 0;
 	int nValue = 0;
@@ -3135,7 +3135,7 @@ int __stdcall SKILLS_GetWeaponMasteryBonus(struct D2Unit* pUnit, struct D2Unit* 
 }
 
 //D2Common.0x6FDB37B0 (#11032)
-int __stdcall D2Common_11032(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, int nType)
+int __cdecl D2Common_11032(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, int nType)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
 	int nThrowStatId = 0;
@@ -3176,7 +3176,7 @@ int __stdcall D2Common_11032(struct D2Unit* pUnit, int nSkillId, int nSkillLevel
 }
 
 //D2Common.0x6FDB3910 (#11025)
-BOOL __stdcall D2Common_11025(int nX1, int nY1, int nX2, int nY2, struct D2ActiveRoom* pRoom, int a6)
+BOOL __cdecl D2Common_11025(int nX1, int nY1, int nX2, int nY2, struct D2ActiveRoom* pRoom, int a6)
 {
 	struct D2Coord pCoords1 = {};
 	struct D2Coord pCoords2 = {};
@@ -3190,7 +3190,7 @@ BOOL __stdcall D2Common_11025(int nX1, int nY1, int nX2, int nY2, struct D2Activ
 }
 
 //D2Common.0x6FDB3960 (#11026)
-BOOL __stdcall D2Common_11026(int nX, int nY, struct D2Unit* pUnit, uint16_t nColMask)
+BOOL __cdecl D2Common_11026(int nX, int nY, struct D2Unit* pUnit, uint16_t nColMask)
 {
 	struct D2Coord pCoords1 = {};
 	struct D2Coord pCoords2 = {};
@@ -3204,7 +3204,7 @@ BOOL __stdcall D2Common_11026(int nX, int nY, struct D2Unit* pUnit, uint16_t nCo
 }
 
 //D2Common.0x6FDB3A10 (#11027)
-int __stdcall SKILLS_GetShiftedManaCosts(int nSkillId, int nLevel)
+int __cdecl SKILLS_GetShiftedManaCosts(int nSkillId, int nLevel)
 {
 	int nMana = SKILLS_GetManaCosts(nSkillId, nLevel) >> 8;
 
@@ -3218,13 +3218,13 @@ int __stdcall SKILLS_GetShiftedManaCosts(int nSkillId, int nLevel)
 }
 
 //D2Common.0x6FDB3A90 (#11028)
-int __stdcall D2Common_11028(int a1)
+int __cdecl D2Common_11028(int a1)
 {
 	return 20 * (5 * a1 + 5) / (a1 + 8);
 }
 
 //D2Common.0x6FDB3AB0 (#11033)
-int __stdcall D2Common_11033(int nLevel, int nParam, int nMax)
+int __cdecl D2Common_11033(int nLevel, int nParam, int nMax)
 {
 	int nValue = nParam + (nMax - nParam) * 110 * nLevel / (nLevel + 6) / 100;
 
@@ -3237,7 +3237,7 @@ int __stdcall D2Common_11033(int nLevel, int nParam, int nMax)
 }
 
 //D2Common.0x6FDB3B00 (#11034)
-int __stdcall D2Common_11034(int nLevel, int nSkillId)
+int __cdecl D2Common_11034(int nLevel, int nSkillId)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = DATATBLS_GetSkillsTxtRecord(nSkillId);
 
@@ -3250,7 +3250,7 @@ int __stdcall D2Common_11034(int nLevel, int nSkillId)
 }
 
 //D2Common.0x6FDB3B90 (#11035)
-int __stdcall D2Common_11035(int nLevel, int nSkillId)
+int __cdecl D2Common_11035(int nLevel, int nSkillId)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = DATATBLS_GetSkillsTxtRecord(nSkillId);
 
@@ -3264,7 +3264,7 @@ int __stdcall D2Common_11035(int nLevel, int nSkillId)
 
 //D2Common.0x6FDB3C20 (#11036)
 //TODO: Check name
-int __stdcall D2COMMON_11036_GetMonCurseResistanceSubtraction(int nLevel, int nSkillId)
+int __cdecl D2COMMON_11036_GetMonCurseResistanceSubtraction(int nLevel, int nSkillId)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = DATATBLS_GetSkillsTxtRecord(nSkillId);
 
@@ -3277,7 +3277,7 @@ int __stdcall D2COMMON_11036_GetMonCurseResistanceSubtraction(int nLevel, int nS
 }
 
 //D2Common.0x6FDB3CB0 (#11037)
-BOOL __stdcall SKILLS_CheckIfCanLeapTo(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int* pX, int* pY)
+BOOL __cdecl SKILLS_CheckIfCanLeapTo(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int* pX, int* pY)
 {
 	struct D2ActiveRoom* pRoom = NULL;
 	int nDivisor = 0;
@@ -3346,7 +3346,7 @@ BOOL __stdcall SKILLS_CheckIfCanLeapTo(struct D2Unit* pUnit1, struct D2Unit* pUn
 
 //D2Common.0x6FDB3F60 (#11039)
 //TODO: Check name
-int __stdcall D2COMMON_11039_CheckWeaponIsMissileBased(struct D2Unit* pUnit, int* pValue)
+int __cdecl D2COMMON_11039_CheckWeaponIsMissileBased(struct D2Unit* pUnit, int* pValue)
 {
 	int nWeaponClass = 0;
 	int nValue = 0;
@@ -3437,7 +3437,7 @@ int __stdcall D2COMMON_11039_CheckWeaponIsMissileBased(struct D2Unit* pUnit, int
 }
 
 //D2Common.0x6FDB4020 (#11040)
-BOOL __stdcall SKILLS_IsEnhanceable(int nSkillId)
+BOOL __cdecl SKILLS_IsEnhanceable(int nSkillId)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = DATATBLS_GetSkillsTxtRecord(nSkillId);
 
@@ -3450,7 +3450,7 @@ BOOL __stdcall SKILLS_IsEnhanceable(int nSkillId)
 }
 
 //D2Common.0x6FDB4070 (#11230)
-BOOL __stdcall SKILLS_RemoveTransformStatesFromShapeshiftedUnit(struct D2Unit* pUnit)
+BOOL __cdecl SKILLS_RemoveTransformStatesFromShapeshiftedUnit(struct D2Unit* pUnit)
 {
 	struct D2StatList* pStatList = NULL;
 
@@ -3478,7 +3478,7 @@ BOOL __stdcall SKILLS_RemoveTransformStatesFromShapeshiftedUnit(struct D2Unit* p
 }
 
 //D2Common.0x6FDB4100 (#11041)
-int __stdcall SKILLS_GetClassSkillId(int nClassId, int nPosition)
+int __cdecl SKILLS_GetClassSkillId(int nClassId, int nPosition)
 {
 	if (nClassId >= 0 && nClassId < NUMBER_OF_PLAYERCLASSES && nPosition >= 0 && nPosition < sgptDataTables->nClassSkillCount[nClassId])
 	{
@@ -3489,7 +3489,7 @@ int __stdcall SKILLS_GetClassSkillId(int nClassId, int nPosition)
 }
 
 //D2Common.0x6FDB4150 (#11042)
-int __stdcall SKILLS_GetPlayerSkillCount(int nClassId)
+int __cdecl SKILLS_GetPlayerSkillCount(int nClassId)
 {
 	if (nClassId >= 0 && nClassId < 7)
 	{
@@ -3500,7 +3500,7 @@ int __stdcall SKILLS_GetPlayerSkillCount(int nClassId)
 }
 
 //D2Common.0x6FDB4180 (#11043)
-int __stdcall D2Common_11043(struct D2Unit* pUnit)
+int __cdecl D2Common_11043(struct D2Unit* pUnit)
 {
 	struct D2Unit* pItem = NULL;
 	int nAttackSpeed = 19;
@@ -3524,7 +3524,7 @@ int __stdcall D2Common_11043(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDB41D0 (#11047)
-int __stdcall SKILLS_GetConcentrationDamageBonus(struct D2Unit* pUnit, int nSkillId)
+int __cdecl SKILLS_GetConcentrationDamageBonus(struct D2Unit* pUnit, int nSkillId)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
 	struct D2StatList* pStatList = NULL;
@@ -3546,7 +3546,7 @@ int __stdcall SKILLS_GetConcentrationDamageBonus(struct D2Unit* pUnit, int nSkil
 }
 
 //D2Common.0x6FDB4260 (#11283)
-void __stdcall SKILLS_CalculateKickDamage(struct D2Unit* pUnit, int* pMinDamage, int* pMaxDamage, int* pDamagePercent)
+void __cdecl SKILLS_CalculateKickDamage(struct D2Unit* pUnit, int* pMinDamage, int* pMaxDamage, int* pDamagePercent)
 {
 	struct D2ItemsTxt* pItemsTxtRecord = NULL;
 	struct D2Unit* pRightHandItem = NULL;

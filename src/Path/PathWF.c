@@ -19,7 +19,7 @@ struct D2PathMov
 
 // D2Common.0x6FD68400 (1.13C)
 // Inlined (1.10f)
-void __vectorcall PATH_ReplaceSubpathPoints(struct D2PathMov* pMov, struct D2PathPoint* pPoints, int* pSubPathStartIdx, int nSubPathLastIdx, int* nMaxIndex)
+void __cdecl PATH_ReplaceSubpathPoints(struct D2PathMov* pMov, struct D2PathPoint* pPoints, int* pSubPathStartIdx, int nSubPathLastIdx, int* nMaxIndex)
 {
 	// negative if shrinking, positive is growing
 	const int nPointsDiff = (*pSubPathStartIdx - nSubPathLastIdx) + (pMov->nPoints - 1);
@@ -51,7 +51,7 @@ static const struct D2Coord gnDirectionsToAdjacentCellOffsets[16] =
 
 //1.10f: Inlined
 //1.13C: D2Common.0x6FD686D0
-BOOL __vectorcall PATH_FindNonCollidingTargetPoint(struct D2PathInfo* pInfo, struct D2PathMov* pMov)
+BOOL __cdecl PATH_FindNonCollidingTargetPoint(struct D2PathInfo* pInfo, struct D2PathMov* pMov)
 {
 	D2_ASSERT(pInfo && pMov && pInfo->pDynamicPath->pUnit && (pInfo->pDynamicPath->pUnit->dwUnitType == UNIT_PLAYER || pInfo->pDynamicPath->pUnit->dwUnitType == UNIT_MONSTER));
 
@@ -91,7 +91,7 @@ BOOL __vectorcall PATH_FindNonCollidingTargetPoint(struct D2PathInfo* pInfo, str
 // We try to advance both paths at the same pace (one point by one point), and both evaluate paths to avoid but stay close to obstacles.
 // This effectively makes the unit slide along walls
 // If the path would be too long, then it goes straight to the first collision along the line.
-int __fastcall PATH_FindSubpathWithoutObstacles(struct D2PathInfo* pInfo, struct D2PathPoint tSubPathStart, struct D2PathPoint* pPathPoints, int* pSubPathStartIdx, int* nMaxIndex, int nMaxLength, int nMajorDirection)
+int __cdecl PATH_FindSubpathWithoutObstacles(struct D2PathInfo* pInfo, struct D2PathPoint tSubPathStart, struct D2PathPoint* pPathPoints, int* pSubPathStartIdx, int* nMaxIndex, int nMaxLength, int nMajorDirection)
 {
 	//1.10f: D2Common.0x6FDD2480
 	//1.13C: D2Common.0x6FDE5158
@@ -320,7 +320,7 @@ int __fastcall PATH_FindSubpathWithoutObstacles(struct D2PathInfo* pInfo, struct
 
 //D2Common.0x6FDAC170 (1.10f)
 //D2Common.0x6FD68310 (1.13c)
-int __fastcall PATH_SimplifyToLines(struct D2PathPoint* pOutPathPoints, struct D2PathPoint* pInputPoints, struct D2PathPoint tStartCoord, signed int nbTempPoints)
+int __cdecl PATH_SimplifyToLines(struct D2PathPoint* pOutPathPoints, struct D2PathPoint* pInputPoints, struct D2PathPoint tStartCoord, signed int nbTempPoints)
 {
 	if (nbTempPoints >= 2)
 	{
@@ -499,7 +499,7 @@ static int PATH_BresenhamLine(struct D2PathPoint tStartPoint, struct D2PathPoint
 // Author: Araksson
 // D2Common.0x6FDAC270 (1.10f) 
 // D2Common.0x6FD68C40 (1.13C)
-int __fastcall PATH_ComputePathOrSlideAlongObstacles(struct D2PathInfo* ptPathInfo)
+int __cdecl PATH_ComputePathOrSlideAlongObstacles(struct D2PathInfo* ptPathInfo)
 {
 	D2_ASSERT(ptPathInfo->pDynamicPath->pUnit && (ptPathInfo->pDynamicPath->pUnit->dwUnitType == UNIT_PLAYER || ptPathInfo->pDynamicPath->pUnit->dwUnitType == UNIT_MONSTER));
 

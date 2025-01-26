@@ -42,18 +42,18 @@ struct D2WaypointTable
 #pragma pack()
 
 //D2Common.0x6FDC3D20 (#11153)
-D2COMMON_DLL_DECL BOOL __stdcall WAYPOINTS_GetLevelIdFromWaypointNo(short nWaypointNo, int* pLevelId);
+D2COMMON_DLL_DECL BOOL __cdecl WAYPOINTS_GetLevelIdFromWaypointNo(short nWaypointNo, int* pLevelId);
 //D2Common.0x6FDC3D90 (#11152)
-D2COMMON_DLL_DECL BOOL __stdcall WAYPOINTS_GetWaypointNoFromLevelId(int nLevelId, short* pWaypointNo);
+D2COMMON_DLL_DECL BOOL __cdecl WAYPOINTS_GetWaypointNoFromLevelId(int nLevelId, short* pWaypointNo);
 //D2Common.0x6FDC3DE0 (#11146)
-D2COMMON_DLL_DECL int __stdcall WAYPOINTS_IsActivated(struct D2WaypointData* pData, uint16_t wField);
+D2COMMON_DLL_DECL int __cdecl WAYPOINTS_IsActivated(struct D2WaypointData* pData, uint16_t wField);
 //D2Common.0x6FDC3E80 (#11147)
-D2COMMON_DLL_DECL void __stdcall WAYPOINTS_ActivateWaypoint(struct D2WaypointData* pData, uint16_t wField);
+D2COMMON_DLL_DECL void __cdecl WAYPOINTS_ActivateWaypoint(struct D2WaypointData* pData, uint16_t wField);
 //D2Common.0x6FDC3F20 (#11148)
-D2COMMON_DLL_DECL struct D2WaypointData* __stdcall WAYPOINTS_AllocWaypointData(void* pMemPool);
+D2COMMON_DLL_DECL struct D2WaypointData* __cdecl WAYPOINTS_AllocWaypointData(void* pMemPool);
 //D2Common.0x6FDC3F70 (#11149)
-D2COMMON_DLL_DECL void __stdcall WAYPOINTS_FreeWaypointData(void* pMemPool, struct D2WaypointData* pData);
+D2COMMON_DLL_DECL void __cdecl WAYPOINTS_FreeWaypointData(void* pMemPool, struct D2WaypointData* pData);
 //D2Common.0x6FDC3FD0 (#11150)
-D2COMMON_DLL_DECL void __stdcall WAYPOINTS_CopyAndValidateWaypointData(struct D2WaypointData* pDestination, struct D2WaypointData* pSource);
+D2COMMON_DLL_DECL void __cdecl WAYPOINTS_CopyAndValidateWaypointData(struct D2WaypointData* pDestination, struct D2WaypointData* pSource);
 //D2Common.0x6FDC4060 (#11151)
-D2COMMON_DLL_DECL void __stdcall WAYPOINTS_ValidateAndCopyWaypointData(struct D2WaypointData* pSource, struct D2WaypointData* pDestination);
+D2COMMON_DLL_DECL void __cdecl WAYPOINTS_ValidateAndCopyWaypointData(struct D2WaypointData* pSource, struct D2WaypointData* pDestination);

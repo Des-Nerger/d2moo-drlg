@@ -2,7 +2,7 @@
 #include <D2DataTbls.h>
 
 //D2Common.0x6FD542D0
-void __fastcall DATATBLS_LoadInventoryTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadInventoryTxt(HD2ARCHIVE hArchive)
 {
 	struct D2BinField pTbl[] =
 	{
@@ -86,13 +86,13 @@ void __fastcall DATATBLS_LoadInventoryTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD54F10
-void __fastcall DATATBLS_UnloadInventoryTxt()
+void __cdecl DATATBLS_UnloadInventoryTxt()
 {
 	DATATBLS_UnloadBin(sgptDataTables->pInventoryTxt);
 }
 
 //D2Common.0x6FD54F20 (#10635)
-void __stdcall DATATBLS_GetInventoryRect(int nInventoryTxtId, int bHigherRes, struct D2InvRect* pInvRect)
+void __cdecl DATATBLS_GetInventoryRect(int nInventoryTxtId, int bHigherRes, struct D2InvRect* pInvRect)
 {
 
 	D2_ASSERT(sgptDataTables->pInventoryTxt);
@@ -109,7 +109,7 @@ void __stdcall DATATBLS_GetInventoryRect(int nInventoryTxtId, int bHigherRes, st
 }
 
 //D2Common.0x6FD54FB0 (#10636)
-void __stdcall DATATBLS_GetInventoryGridInfo(int nInventoryTxtId, int bHigherRes, struct D2InventoryGridInfo* pInventoryGridInfo)
+void __cdecl DATATBLS_GetInventoryGridInfo(int nInventoryTxtId, int bHigherRes, struct D2InventoryGridInfo* pInventoryGridInfo)
 {
 	struct D2InventoryTxt* pInventoryTxtRecord = NULL;
 	int nIndex = nInventoryTxtId + 16 * bHigherRes;
@@ -123,7 +123,7 @@ void __stdcall DATATBLS_GetInventoryGridInfo(int nInventoryTxtId, int bHigherRes
 }
 
 //D2Common.0x6FD55030 (#10637)
-void __stdcall DATATBLS_GetInventoryComponentGrid(int nInventoryTxtId, int bHigherRes, struct D2InvCompGrid* pInvCompGrid, int nComponent)
+void __cdecl DATATBLS_GetInventoryComponentGrid(int nInventoryTxtId, int bHigherRes, struct D2InvCompGrid* pInvCompGrid, int nComponent)
 {
 	int nIndex = nInventoryTxtId + 16 * bHigherRes;
 

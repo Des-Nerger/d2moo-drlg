@@ -15,7 +15,7 @@
 
 
 //D2Common.0x6FD8A460
-void __fastcall DRLGTILESUB_AddSecondaryBorder(struct D2UnkOutdoor* a1)
+void __cdecl DRLGTILESUB_AddSecondaryBorder(struct D2UnkOutdoor* a1)
 {
 	struct D2LvlSubTxt* pLvlSubTxtRecord = NULL;
 	struct D2DrlgSubstGroup* pSubstGroup = NULL;
@@ -145,7 +145,7 @@ void __fastcall DRLGTILESUB_AddSecondaryBorder(struct D2UnkOutdoor* a1)
 
 //D2Common.0x6FD8A750
 //TODO: variable names
-BOOL __fastcall DRLGTILESUB_TestReplaceSubPreset(int a1, int a2, struct D2UnkOutdoor* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord)
+BOOL __cdecl DRLGTILESUB_TestReplaceSubPreset(int a1, int a2, struct D2UnkOutdoor* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord)
 {
 	int nFloorFlags = 0;
 	int nWallFlags = 0;
@@ -220,7 +220,7 @@ BOOL __fastcall DRLGTILESUB_TestReplaceSubPreset(int a1, int a2, struct D2UnkOut
 
 //D2Common.0x6FD8A8E0
 //TODO: variable names
-void __fastcall DRLGTILESUB_ReplaceSubPreset(int a1, int a2, struct D2UnkOutdoor* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord, int a6)
+void __cdecl DRLGTILESUB_ReplaceSubPreset(int a1, int a2, struct D2UnkOutdoor* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord, int a6)
 {
 	int nFloorFlags = 0;
 	int nWallFlags = 0;
@@ -287,7 +287,7 @@ void __fastcall DRLGTILESUB_ReplaceSubPreset(int a1, int a2, struct D2UnkOutdoor
 }
 
 //D2Common.0x6FD8AA80
-void __fastcall sub_6FD8AA80(struct D2UnkOutdoor2* a1)
+void __cdecl sub_6FD8AA80(struct D2UnkOutdoor2* a1)
 {
 	struct D2DrlgSubstGroup* pSubstGroup = NULL;
 	struct D2LvlSubTxt* pLvlSubTxtRecord = NULL;
@@ -359,7 +359,7 @@ void __fastcall sub_6FD8AA80(struct D2UnkOutdoor2* a1)
 }
 
 //D2Common.0x6FD8ACE0
-void __fastcall sub_6FD8ACE0(void* pMemPool, int nX, int nY, struct D2UnkOutdoor2* a4, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord, int a7)
+void __cdecl sub_6FD8ACE0(void* pMemPool, int nX, int nY, struct D2UnkOutdoor2* a4, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord, int a7)
 {
 	int nCounter = 0;
 	int nFlags = 0;
@@ -443,7 +443,7 @@ void __fastcall sub_6FD8ACE0(void* pMemPool, int nX, int nY, struct D2UnkOutdoor
 }
 
 //D2Common.0x6FD8B010
-BOOL __fastcall sub_6FD8B010(int a1, int a2, struct D2UnkOutdoor2* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord)
+BOOL __cdecl sub_6FD8B010(int a1, int a2, struct D2UnkOutdoor2* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord)
 {
 	int nFlags = 0;
 
@@ -474,7 +474,7 @@ BOOL __fastcall sub_6FD8B010(int a1, int a2, struct D2UnkOutdoor2* a3, struct D2
 }
 
 //D2Common.0x6FD8B130
-BOOL __fastcall sub_6FD8B130(int a1, int a2, struct D2UnkOutdoor2* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord)
+BOOL __cdecl sub_6FD8B130(int a1, int a2, struct D2UnkOutdoor2* a3, struct D2DrlgSubstGroup* pSubstGroup, struct D2LvlSubTxt* pLvlSubTxtRecord)
 {
 	int nTileType = 0;
 	int nFloorFlags1 = 0;
@@ -544,7 +544,7 @@ BOOL __fastcall sub_6FD8B130(int a1, int a2, struct D2UnkOutdoor2* a3, struct D2
 }
 
 //D2Common.0x6FD8B290
-void __fastcall DRLGTILESUB_DoSubstitutions(struct D2UnkOutdoor2* pOutdoorLevel, struct D2LvlSubTxt* pLvlSubTxtRecord)
+void __cdecl DRLGTILESUB_DoSubstitutions(struct D2UnkOutdoor2* pOutdoorLevel, struct D2LvlSubTxt* pLvlSubTxtRecord)
 {
 	if (!pLvlSubTxtRecord->pDrlgFile->nSubstGroups)
 	{
@@ -615,7 +615,7 @@ void __fastcall DRLGTILESUB_DoSubstitutions(struct D2UnkOutdoor2* pOutdoorLevel,
 }
 
 //D2Common.0x6FD8B640
-void __fastcall DRLGTILESUB_InitializeDrlgFile(HD2ARCHIVE hArchive, struct D2LvlSubTxt* pLvlSubTxtRecord)
+void __cdecl DRLGTILESUB_InitializeDrlgFile(HD2ARCHIVE hArchive, struct D2LvlSubTxt* pLvlSubTxtRecord)
 {
 	struct D2DrlgFile** ppDrlgFile = NULL;
 	struct D2DrlgCoord pDrlgCoord = {};
@@ -660,7 +660,7 @@ void __fastcall DRLGTILESUB_InitializeDrlgFile(HD2ARCHIVE hArchive, struct D2Lvl
 }
 
 //D2Common.0x6FD8B770
-void __fastcall DRLGTILESUB_FreeDrlgFile(struct D2LvlSubTxt* pLvlSubTxtRecord)
+void __cdecl DRLGTILESUB_FreeDrlgFile(struct D2LvlSubTxt* pLvlSubTxtRecord)
 {
 	if (pLvlSubTxtRecord->pDrlgFile)
 	{
@@ -678,7 +678,7 @@ void __fastcall DRLGTILESUB_FreeDrlgFile(struct D2LvlSubTxt* pLvlSubTxtRecord)
 }
 
 //D2Common.0x6FD8B7E0
-int __fastcall DRLGTILESUB_PickSubThemes(struct D2DrlgRoom* pDrlgRoom, int nSubType, int nSubTheme)
+int __cdecl DRLGTILESUB_PickSubThemes(struct D2DrlgRoom* pDrlgRoom, int nSubType, int nSubTheme)
 {
 	struct D2LvlSubTxt* pLvlSubTxtRecord = NULL;
 	int nCounter = 0;

@@ -5,7 +5,7 @@
 
 //1.10f: 0x6FF524D0
 //1.13c: 0x6FF69CB0
-int __fastcall DATATBLS_IntStackPop(struct Fog64IntStack* pCalcStack)
+int __cdecl DATATBLS_IntStackPop(struct Fog64IntStack* pCalcStack)
 {
 	if (pCalcStack->nSize <= 0)
 	{
@@ -17,7 +17,7 @@ int __fastcall DATATBLS_IntStackPop(struct Fog64IntStack* pCalcStack)
 
 //1.10f: 0x6FF524B0
 //1.13c: 0x6FF69CD0
-void __fastcall DATATBLS_IntStackPush(struct Fog64IntStack* pCalcStack, int32_t nValue)
+void __cdecl DATATBLS_IntStackPush(struct Fog64IntStack* pCalcStack, int32_t nValue)
 {
 	if (pCalcStack->nSize < Fog64IntStack_nCapacity)
 	{
@@ -171,7 +171,7 @@ static void DATATBLS_EvaluateBinaryOperator(struct Fog64IntStack* pCalcStack, en
 
 //1.10f: 0x6FF51E30 (#10253)
 //1.13c: 0x6FF69E90 (#10253)
-int __stdcall DATATBLS_CalcEvaluateExpression(const union FOGASTNode* pExpressionBuffer, int32_t nExpressionBufferSize, CalcFogCallBack2_t fpParamCallBack, struct D2CalcCallbackInfo* pTableData, int nTableSize, void* pUserData)
+int __cdecl DATATBLS_CalcEvaluateExpression(const union FOGASTNode* pExpressionBuffer, int32_t nExpressionBufferSize, CalcFogCallBack2_t fpParamCallBack, struct D2CalcCallbackInfo* pTableData, int nTableSize, void* pUserData)
 {
 	if (nExpressionBufferSize <= 0)
 	{
@@ -248,7 +248,7 @@ int __stdcall DATATBLS_CalcEvaluateExpression(const union FOGASTNode* pExpressio
 }
 
 // Helper function
-static union FOGASTNode* __fastcall DATATBLS_ExpressionBuffer_PushConstant(union FOGASTNode* pExpressionBufferPos, union FOGASTNode* pExpressionBufferStart, int szBufferSize, struct FOGExpressionParserContext* pCalc, int32_t nValue, bool bCallback)
+static union FOGASTNode* __cdecl DATATBLS_ExpressionBuffer_PushConstant(union FOGASTNode* pExpressionBufferPos, union FOGASTNode* pExpressionBufferStart, int szBufferSize, struct FOGExpressionParserContext* pCalc, int32_t nValue, bool bCallback)
 {
 	union FOGASTNode* pNewExpressionBufferPos;
 
@@ -294,14 +294,14 @@ static union FOGASTNode* __fastcall DATATBLS_ExpressionBuffer_PushConstant(union
 
 //1.10f: 0x6FF53280
 //1.13c: 0x6FF69680
-union FOGASTNode* __fastcall DATATBLS_ExpressionBuffer_PushRawConstant(union FOGASTNode* pExpressionBufferPos, union FOGASTNode* pExpressionBufferStart, int szBufferSize, struct FOGExpressionParserContext* pCalc, int32_t nValue)
+union FOGASTNode* __cdecl DATATBLS_ExpressionBuffer_PushRawConstant(union FOGASTNode* pExpressionBufferPos, union FOGASTNode* pExpressionBufferStart, int szBufferSize, struct FOGExpressionParserContext* pCalc, int32_t nValue)
 {
 	return DATATBLS_ExpressionBuffer_PushConstant(pExpressionBufferPos, pExpressionBufferStart, szBufferSize, pCalc, nValue, false);
 }
 
 //1.10f: Inlined
 //1.13c: 0x6FF695E0
-union FOGASTNode* __fastcall DATATBLS_ExpressionBuffer_PushCallbackConstant(union FOGASTNode* pExpressionBufferPos, union FOGASTNode* pExpressionBufferStart, int szBufferSize, struct FOGExpressionParserContext* pCalc, int32_t nValue)
+union FOGASTNode* __cdecl DATATBLS_ExpressionBuffer_PushCallbackConstant(union FOGASTNode* pExpressionBufferPos, union FOGASTNode* pExpressionBufferStart, int szBufferSize, struct FOGExpressionParserContext* pCalc, int32_t nValue)
 {
 	return DATATBLS_ExpressionBuffer_PushConstant(pExpressionBufferPos, pExpressionBufferStart, szBufferSize, pCalc, nValue, true);
 }
@@ -379,7 +379,7 @@ static const enum FOGASTType aASTOperatorPrecedence[24] = {
 
 //1.10f: 0x6FF53000
 //1.13c: 0x6FF69790
-BOOL __fastcall DATATABLS_CheckPrecendence(enum FOGASTType nPreviousCalcType, enum FOGASTType nNewCalcType)
+BOOL __cdecl DATATABLS_CheckPrecendence(enum FOGASTType nPreviousCalcType, enum FOGASTType nNewCalcType)
 {
 	if (nPreviousCalcType == AST_CallbackTable || nNewCalcType == AST_CallbackTable || nPreviousCalcType >= AST_Ternary_Colon)
 	{
@@ -393,7 +393,7 @@ BOOL __fastcall DATATABLS_CheckPrecendence(enum FOGASTType nPreviousCalcType, en
 
 //1.10f: 0x6FF530B0
 //1.13c: 0x6FF69CF0
-union FOGASTNode* __fastcall DATATBLS_Evaluate_HandleNewOp(union FOGASTNode* pASTBufferPos, union FOGASTNode* pASTBufferStart, int nASTBufferSize, struct FOGExpressionParserContext* pContext, enum FOGASTType nNewASTType, CalcGetFunctionParameterCount_t pfnGetFunctionParametersCount, int nTokenAssociatedValue)
+union FOGASTNode* __cdecl DATATBLS_Evaluate_HandleNewOp(union FOGASTNode* pASTBufferPos, union FOGASTNode* pASTBufferStart, int nASTBufferSize, struct FOGExpressionParserContext* pContext, enum FOGASTType nNewASTType, CalcGetFunctionParameterCount_t pfnGetFunctionParametersCount, int nTokenAssociatedValue)
 {
 	while (pContext->nPendingOps > 0)
 	{
@@ -686,7 +686,7 @@ const char* DATATABLS_ParseExpressionToken(const char* szExpression, enum FOGCal
 
 //1.10f: 0x6FF524F0 (#10254)
 //1.13c: 0x6FF5BB20 (#10254)
-int __stdcall DATATBLS_CompileExpression(const char* szFormulaString, union FOGASTNode* pOutASTBuffer, int nOutASTBufferSize, CalcGetKeyWordToNumber_t pfnFunctionNameToId, CalcGetFunctionParameterCount_t pfnGetFunctionParameterCount, CalcGetLinkerIndex_t pfnLinkParse)
+int __cdecl DATATBLS_CompileExpression(const char* szFormulaString, union FOGASTNode* pOutASTBuffer, int nOutASTBufferSize, CalcGetKeyWordToNumber_t pfnFunctionNameToId, CalcGetFunctionParameterCount_t pfnGetFunctionParameterCount, CalcGetLinkerIndex_t pfnLinkParse)
 {
 	bool bPendingValue = false;
 	bool bHasAnyFunctionCall = false;

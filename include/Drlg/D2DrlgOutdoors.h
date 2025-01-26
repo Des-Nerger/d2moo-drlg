@@ -81,48 +81,48 @@ inline union D2DrlgOutdoorPackedGrid2Info DRLGOUTDOORS_GetPackedGrid2Info(struct
 }
 
 //D2Common.0x6FD7DC20
-int __fastcall DRLGOUTDOORS_GetOutLinkVisFlag(struct D2DrlgLevel* pLevel, struct D2DrlgVertex* pDrlgVertex);
+int __cdecl DRLGOUTDOORS_GetOutLinkVisFlag(struct D2DrlgLevel* pLevel, struct D2DrlgVertex* pDrlgVertex);
 //D2Common.0x6FD7DD00
-int __fastcall DRLGOUTDOORS_GetPresetIndexFromGridCell(struct D2DrlgLevel* pLevel, int nX, int nY);
+int __cdecl DRLGOUTDOORS_GetPresetIndexFromGridCell(struct D2DrlgLevel* pLevel, int nX, int nY);
 //D2Common.0x6FD7DD40
-void __fastcall DRLGOUTDOORS_AlterAdjacentPresetGridCells(struct D2DrlgLevel* pLevel, int nX, int nY);
+void __cdecl DRLGOUTDOORS_AlterAdjacentPresetGridCells(struct D2DrlgLevel* pLevel, int nX, int nY);
 //D2Common.0x6FD7DD70
-void __fastcall DRLGOUTDOORS_SetBlankGridCell(struct D2DrlgLevel* pLevel, int nX, int nY);
+void __cdecl DRLGOUTDOORS_SetBlankGridCell(struct D2DrlgLevel* pLevel, int nX, int nY);
 //D2Common.0x6FD7DDB0
-unsigned int __fastcall DRLGOUTDOORS_TestGridCellNonLvlLink(struct D2DrlgLevel* pLevel, int nX, int nY);
+unsigned int __cdecl DRLGOUTDOORS_TestGridCellNonLvlLink(struct D2DrlgLevel* pLevel, int nX, int nY);
 //D2Common.0x6FD7DDD0
-BOOL __fastcall DRLGOUTDOORS_TestGridCellSpawnValid(struct D2DrlgLevel* pLevel, int nX, int nY);
+BOOL __cdecl DRLGOUTDOORS_TestGridCellSpawnValid(struct D2DrlgLevel* pLevel, int nX, int nY);
 //D2Common.0x6FD7DDF0
-BOOL __fastcall DRLGOUTDOORS_TestOutdoorLevelPreset(struct D2DrlgLevel* pLevel, int nX, int nY, int nLevelPrestId, int nOffset, char nFlags);
+BOOL __cdecl DRLGOUTDOORS_TestOutdoorLevelPreset(struct D2DrlgLevel* pLevel, int nX, int nY, int nLevelPrestId, int nOffset, char nFlags);
 //D2Common.0x6FD7DEF0
-void __fastcall DRLGOUTDOORS_SpawnOutdoorLevelPresetEx(struct D2DrlgLevel* pLevel, int nX, int nY, int nLevelPrestId, int nPickedFile, BOOL bBorder);
+void __cdecl DRLGOUTDOORS_SpawnOutdoorLevelPresetEx(struct D2DrlgLevel* pLevel, int nX, int nY, int nLevelPrestId, int nPickedFile, BOOL bBorder);
 //D2Common.0x6FD7E0F0
-BOOL __fastcall DRLGOUTDOORS_SpawnPresetFarAway(struct D2DrlgLevel* pLevel, struct D2DrlgCoord* pDrlgCoord, int nLvlPrestId, int nRand, int nOffset, char nFlags);
+BOOL __cdecl DRLGOUTDOORS_SpawnPresetFarAway(struct D2DrlgLevel* pLevel, struct D2DrlgCoord* pDrlgCoord, int nLvlPrestId, int nRand, int nOffset, char nFlags);
 //D2Common.0x6FD7E330
-BOOL __fastcall DRLGOUTDOORS_SpawnOutdoorLevelPreset(struct D2DrlgLevel* pLevel, int nLevelPrestId, int nRand, int nOffset, char nFlags);
+BOOL __cdecl DRLGOUTDOORS_SpawnOutdoorLevelPreset(struct D2DrlgLevel* pLevel, int nLevelPrestId, int nRand, int nOffset, char nFlags);
 //D2Common.0x6FD7E4D0
-BOOL __fastcall DRLGOUTDOORS_SpawnRandomOutdoorDS1(struct D2DrlgLevel* pLevel, int nLvlPrestId, int nRand);
+BOOL __cdecl DRLGOUTDOORS_SpawnRandomOutdoorDS1(struct D2DrlgLevel* pLevel, int nLvlPrestId, int nRand);
 //D2Common.0x6FD7E6D0
-void __fastcall DRLGOUTDOORS_SpawnAct12Waypoint(struct D2DrlgLevel* pLevel);
+void __cdecl DRLGOUTDOORS_SpawnAct12Waypoint(struct D2DrlgLevel* pLevel);
 //D2Common.0x6FD7E940
-void __fastcall DRLGOUTDOORS_SpawnAct12Shrines(struct D2DrlgLevel* pLevel, int nShrines);
+void __cdecl DRLGOUTDOORS_SpawnAct12Shrines(struct D2DrlgLevel* pLevel, int nShrines);
 //D2Common.0x6FD7EB20
-void __fastcall DRLGOUTDOORS_AddAct124SecondaryBorder(struct D2DrlgLevel* pLevel, int nLvlSubId, int nLevelPrestId);
+void __cdecl DRLGOUTDOORS_AddAct124SecondaryBorder(struct D2DrlgLevel* pLevel, int nLvlSubId, int nLevelPrestId);
 //D2Common.0x6FD7EBA0
-void __fastcall DRLGOUTDOORS_AllocOutdoorInfo(struct D2DrlgLevel* pLevel);
+void __cdecl DRLGOUTDOORS_AllocOutdoorInfo(struct D2DrlgLevel* pLevel);
 //D2Common.0x6FD7EBD0
-void __fastcall DRLGOUTDOORS_GenerateLevel(struct D2DrlgLevel* pLevel);
+void __cdecl DRLGOUTDOORS_GenerateLevel(struct D2DrlgLevel* pLevel);
 //D2Common.0x6FD7EEE0
-void __fastcall DRLGOUTDOORS_FreeOutdoorInfo(struct D2DrlgLevel* pLevel, BOOL bKeepRoomData);
+void __cdecl DRLGOUTDOORS_FreeOutdoorInfo(struct D2DrlgLevel* pLevel, BOOL bKeepRoomData);
 //D2Common.0x6FD7EFE0
-void __fastcall DRLG_OUTDOORS_GenerateDirtPath(struct D2DrlgLevel* pLevel, struct D2DrlgRoom* pDrlgRoom);
+void __cdecl DRLG_OUTDOORS_GenerateDirtPath(struct D2DrlgLevel* pLevel, struct D2DrlgRoom* pDrlgRoom);
 //D2Common.0x6FD7F250
-void __fastcall DRLGOUTDOORS_SpawnAct1DirtPaths(struct D2DrlgLevel* pLevel);
+void __cdecl DRLGOUTDOORS_SpawnAct1DirtPaths(struct D2DrlgLevel* pLevel);
 //D2Common.0x6FD7F500
-void __fastcall DRLGOUTDOORS_CalculatePathCoordinates(struct D2DrlgLevel* pLevel, struct D2DrlgVertex* pVertex1, struct D2DrlgVertex* pVertex2);
+void __cdecl DRLGOUTDOORS_CalculatePathCoordinates(struct D2DrlgLevel* pLevel, struct D2DrlgVertex* pVertex1, struct D2DrlgVertex* pVertex2);
 //D2Common.0x6FD7F5B0
-void __fastcall sub_6FD7F5B0(struct D2DrlgLevel* pLevel);
+void __cdecl sub_6FD7F5B0(struct D2DrlgLevel* pLevel);
 //D2Common.0x6FD7F810
-void __fastcall sub_6FD7F810(struct D2DrlgLevel* pLevel, int nVertexId);
+void __cdecl sub_6FD7F810(struct D2DrlgLevel* pLevel, int nVertexId);
 //D2Common.0x6FD7F9B0
-void __fastcall DRLGOUTDOORS_InitAct4OutdoorLevel(struct D2DrlgLevel* pLevel);
+void __cdecl DRLGOUTDOORS_InitAct4OutdoorLevel(struct D2DrlgLevel* pLevel);

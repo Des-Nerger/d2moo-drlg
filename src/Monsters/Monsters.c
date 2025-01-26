@@ -62,7 +62,7 @@ struct D2UnkHire5
 
 
 //D2Common.0x6FDA4C10 (#11082)
-int __fastcall MONSTERS_HirelingInit(BOOL bExpansion, struct D2Unit* pMonster, int nLowSeed, int nAct, int nDifficulty, struct D2HirelingInit* pHirelingInit)
+int __cdecl MONSTERS_HirelingInit(BOOL bExpansion, struct D2Unit* pMonster, int nLowSeed, int nAct, int nDifficulty, struct D2HirelingInit* pHirelingInit)
 {
 	struct D2HirelingTxt* pHirelingTxtRecord = NULL;
 	struct D2HirelingTxt* pRecord = NULL;
@@ -179,7 +179,7 @@ int __fastcall MONSTERS_HirelingInit(BOOL bExpansion, struct D2Unit* pMonster, i
 
 //D2Common.0x6FDA4E20
 //TODO: Unknown structs, a2 probably not struct D2HirelingInit
-BOOL __fastcall D2Common_11081(int nLowSeed, struct D2HirelingInit* pHirelingInit, uint8_t a3)
+BOOL __cdecl D2Common_11081(int nLowSeed, struct D2HirelingInit* pHirelingInit, uint8_t a3)
 {
 	static const int dword_6FDE4A84[] =
 	{
@@ -352,7 +352,7 @@ BOOL __fastcall D2Common_11081(int nLowSeed, struct D2HirelingInit* pHirelingIni
 }
 
 //D2Common.0x6FDA51A0 (#11085)
-const struct Unicode* __fastcall MONSTERS_GetHirelingDescString(int nId)
+const struct Unicode* __cdecl MONSTERS_GetHirelingDescString(int nId)
 {
 	//D2Common.0x6FDD16E0
 	static const short gnHirelingDescStringIds[9] =
@@ -369,7 +369,7 @@ const struct Unicode* __fastcall MONSTERS_GetHirelingDescString(int nId)
 }
 
 //D2Common.0x6FDA51C0 (#11086)
-int __fastcall MONSTERS_GetActFromHirelingTxt(BOOL bExpansion, int nClassId, uint16_t nNameId)
+int __cdecl MONSTERS_GetActFromHirelingTxt(BOOL bExpansion, int nClassId, uint16_t nNameId)
 {
 	struct D2HirelingTxt* pHirelingTxtRecord = NULL;
 
@@ -391,13 +391,13 @@ int __fastcall MONSTERS_GetActFromHirelingTxt(BOOL bExpansion, int nClassId, uin
 }
 
 //D2Common.0x6FDA5200 (#11084)
-int __stdcall MONSTERS_GetHirelingExpForNextLevel(int nLevel, int nExpPerLevel)
+int __cdecl MONSTERS_GetHirelingExpForNextLevel(int nLevel, int nExpPerLevel)
 {
 	return nExpPerLevel * nLevel * nLevel * (nLevel + 1);
 }
 
 //D2Common.0x6FDA5220 (#11083)
-int __stdcall MONSTERS_GetHirelingResurrectionCost(struct D2Unit* pHireling)
+int __cdecl MONSTERS_GetHirelingResurrectionCost(struct D2Unit* pHireling)
 {
 	int nLevel = STATLIST_UnitGetStatValue(pHireling, STAT_LEVEL, 0);
 	int nCost = 15 * nLevel * nLevel / 2;
@@ -411,7 +411,7 @@ int __stdcall MONSTERS_GetHirelingResurrectionCost(struct D2Unit* pHireling)
 }
 
 //D2Common.0x6FDA5270 (#11068)
-int __stdcall D2COMMON_11068_GetCompInfo(struct D2Unit* pMonster, int nComponent)
+int __cdecl D2COMMON_11068_GetCompInfo(struct D2Unit* pMonster, int nComponent)
 {
 	struct D2MonStats2Txt* pMonStats2TxtRecord = NULL;
 
@@ -428,7 +428,7 @@ int __stdcall D2COMMON_11068_GetCompInfo(struct D2Unit* pMonster, int nComponent
 }
 
 //D2Common.0x6FDA52F0 (#11069)
-uint32_t __stdcall D2Common_11069(struct D2Unit* pMonster, unsigned int nIndex, unsigned int nComponent)
+uint32_t __cdecl D2Common_11069(struct D2Unit* pMonster, unsigned int nIndex, unsigned int nComponent)
 {
 	// NOLINTBEGIN(clang-diagnostic-multichar)
 	static uint32_t dword_6FDE4DC8[7] =
@@ -575,7 +575,7 @@ uint32_t __stdcall D2Common_11069(struct D2Unit* pMonster, unsigned int nIndex, 
 }
 
 //D2Common.0x6FDA5450 (#11070)
-int __stdcall D2Common_11070(int nMonsterId, unsigned int nComponent, unsigned int a3)
+int __cdecl D2Common_11070(int nMonsterId, unsigned int nComponent, unsigned int a3)
 {
 	struct D2MonStats2Txt* pMonStats2TxtRecord = NULL;
 
@@ -592,7 +592,7 @@ int __stdcall D2Common_11070(int nMonsterId, unsigned int nComponent, unsigned i
 }
 
 //D2Common.0x6FDA54E0 (#11050)
-int __stdcall D2Common_11050(struct D2Unit* pUnit, int a2)
+int __cdecl D2Common_11050(struct D2Unit* pUnit, int a2)
 {
 	struct D2MonStatsTxt* pMonStatsTxtRecord = NULL;
 	int nFrameCount = 0;
@@ -677,7 +677,7 @@ int __stdcall D2Common_11050(struct D2Unit* pUnit, int a2)
 }
 
 //D2Common.0x6FDA55E0 (#11052)
-uint8_t __stdcall D2Common_11052(uint8_t a1)
+uint8_t __cdecl D2Common_11052(uint8_t a1)
 {
 	//D2Common.0x6FDE4F28
 	static const uint8_t byte_6FDE4F28[] =
@@ -690,7 +690,7 @@ uint8_t __stdcall D2Common_11052(uint8_t a1)
 }
 
 //D2Common.0x6FDA5600 (#11053)
-uint8_t __stdcall D2Common_11053(uint8_t a1)
+uint8_t __cdecl D2Common_11053(uint8_t a1)
 {
 	//D2Common.0x6FDE4F68
 	static const uint8_t byte_6FDE4F68[] =
@@ -703,7 +703,7 @@ uint8_t __stdcall D2Common_11053(uint8_t a1)
 }
 
 //D2Common.0x6FDA5620 (#11054)
-uint8_t __stdcall D2Common_11054(uint8_t a1)
+uint8_t __cdecl D2Common_11054(uint8_t a1)
 {
 	//D2Common.0x6FDE4FA8
 	static const uint8_t byte_6FDE4FA8[] =
@@ -715,7 +715,7 @@ uint8_t __stdcall D2Common_11054(uint8_t a1)
 }
 
 //D2Common.0x6FDA5640 (#11055)
-void __stdcall D2Common_11055(uint8_t a1, int* a2, int* a3)
+void __cdecl D2Common_11055(uint8_t a1, int* a2, int* a3)
 {
 	//D2Common.0x6FDD1738
 	static const int8_t byte_6FDD1738[] =
@@ -734,7 +734,7 @@ void __stdcall D2Common_11055(uint8_t a1, int* a2, int* a3)
 }
 
 //D2Common.0x6FDA5670 (#11297)
-void __fastcall MONSTERS_SetMonsterNameInMonsterData(struct D2Unit* pMonster, const struct Unicode* wszName)
+void __cdecl MONSTERS_SetMonsterNameInMonsterData(struct D2Unit* pMonster, const struct Unicode* wszName)
 {
 	if (pMonster && pMonster->dwUnitType == UNIT_MONSTER && pMonster->pMonsterData)
 	{
@@ -748,7 +748,7 @@ void __fastcall MONSTERS_SetMonsterNameInMonsterData(struct D2Unit* pMonster, co
 }
 
 //D2Common.0x6FDA56C0
-BOOL __fastcall MONSTERS_CanBeInTown(struct D2Unit* pMonster)
+BOOL __cdecl MONSTERS_CanBeInTown(struct D2Unit* pMonster)
 {
 	struct D2MonStatsTxt* pMonStatsTxtRecord = NULL;
 
@@ -768,7 +768,7 @@ BOOL __fastcall MONSTERS_CanBeInTown(struct D2Unit* pMonster)
 }
 
 //D2Common.0x6FDA5750 (#11057)
-BOOL __stdcall MONSTERS_IsSandLeaper(struct D2Unit* pMonster, BOOL bAlwaysReturnFalse)
+BOOL __cdecl MONSTERS_IsSandLeaper(struct D2Unit* pMonster, BOOL bAlwaysReturnFalse)
 {
 	struct D2MonStatsTxt* pMonStatsTxtRecord = NULL;
 	int nClassId = 0;
@@ -811,7 +811,7 @@ BOOL __stdcall MONSTERS_IsSandLeaper(struct D2Unit* pMonster, BOOL bAlwaysReturn
 }
 
 //D2Common.0x6FDA57D0 (#11058)
-BOOL __stdcall MONSTERS_IsDemon(struct D2Unit* pMonster)
+BOOL __cdecl MONSTERS_IsDemon(struct D2Unit* pMonster)
 {
 	struct D2MonStatsTxt* pMonStatsTxtRecord = NULL;
 
@@ -828,7 +828,7 @@ BOOL __stdcall MONSTERS_IsDemon(struct D2Unit* pMonster)
 }
 
 //D2Common.0x6FDA5830 (#11059)
-BOOL __stdcall MONSTERS_IsUndead(struct D2Unit* pMonster)
+BOOL __cdecl MONSTERS_IsUndead(struct D2Unit* pMonster)
 {
 	struct D2MonStatsTxt* pMonStatsTxtRecord = NULL;
 
@@ -845,7 +845,7 @@ BOOL __stdcall MONSTERS_IsUndead(struct D2Unit* pMonster)
 }
 
 //D2Common.0x6FDA58A0 (#11060)
-BOOL __stdcall MONSTERS_IsBoss(struct D2MonStatsTxt* pMonStatsTxtRecord, struct D2Unit* pMonster)
+BOOL __cdecl MONSTERS_IsBoss(struct D2MonStatsTxt* pMonStatsTxtRecord, struct D2Unit* pMonster)
 {
 	if (pMonster && pMonster->dwUnitType == UNIT_MONSTER)
 	{
@@ -864,7 +864,7 @@ BOOL __stdcall MONSTERS_IsBoss(struct D2MonStatsTxt* pMonStatsTxtRecord, struct 
 }
 
 //D2Common.0x6FDA5900 (#11064)
-BOOL __stdcall MONSTERS_IsDead(struct D2Unit* pMonster)
+BOOL __cdecl MONSTERS_IsDead(struct D2Unit* pMonster)
 {
 	if (pMonster && pMonster->dwUnitType == UNIT_MONSTER)
 	{
@@ -875,7 +875,7 @@ BOOL __stdcall MONSTERS_IsDead(struct D2Unit* pMonster)
 }
 
 //D2Common.0x6FDA5930 (#11280)
-int __stdcall MONSTERS_GetSpawnMode_XY(struct D2Unit* pMonster, BOOL bFromMonster, int nSkillId, int nSkillLevel, int* pSpawnMode, int* pX, int* pY)
+int __cdecl MONSTERS_GetSpawnMode_XY(struct D2Unit* pMonster, BOOL bFromMonster, int nSkillId, int nSkillLevel, int* pSpawnMode, int* pX, int* pY)
 {
 	D2_MAYBE_UNUSED(nSkillLevel);
 	struct D2MonStatsTxt* pMonStatsTxtRecord = NULL;
@@ -945,7 +945,7 @@ int __stdcall MONSTERS_GetSpawnMode_XY(struct D2Unit* pMonster, BOOL bFromMonste
 }
 
 //D2Common.0x6FDA5B30 (#11061)
-void __stdcall MONSTERS_GetMinionSpawnInfo(struct D2Unit* pMonster, int* pId, int* pX, int* pY, int* pSpawnMode, int nDifficulty, int(__fastcall* pfSpawnClassCallback)(struct D2Unit*))
+void __cdecl MONSTERS_GetMinionSpawnInfo(struct D2Unit* pMonster, int* pId, int* pX, int* pY, int* pSpawnMode, int nDifficulty, int(__cdecl* pfSpawnClassCallback)(struct D2Unit*))
 {
 	int nChainId = 0;
 	int nBaseId = 0;
@@ -1101,7 +1101,7 @@ void __stdcall MONSTERS_GetMinionSpawnInfo(struct D2Unit* pMonster, int* pId, in
 }
 
 //D2Common.0x6FDA6410 (#11051)
-uint8_t __stdcall MONSTERS_GetMaximalLightRadius(struct D2Unit* pMonster)
+uint8_t __cdecl MONSTERS_GetMaximalLightRadius(struct D2Unit* pMonster)
 {
 	struct D2ItemsTxt* pItemsTxtRecord = NULL;
 	uint8_t nMaxLightRadius = 0;
@@ -1133,7 +1133,7 @@ uint8_t __stdcall MONSTERS_GetMaximalLightRadius(struct D2Unit* pMonster)
 }
 
 //D2Common.0x6FDA64B0 (#11063)
-int __stdcall D2Common_11063(struct D2ActiveRoom* pRoom, int nMonsterId)
+int __cdecl D2Common_11063(struct D2ActiveRoom* pRoom, int nMonsterId)
 {
 	struct D2MonStatsTxt* pMonStatsTxtRecord = NULL;
 	struct D2LevelsTxt* pLevelsTxtRecord = NULL;
@@ -1189,7 +1189,7 @@ int __stdcall D2Common_11063(struct D2ActiveRoom* pRoom, int nMonsterId)
 }
 
 //D2Common.0x6FDA6620 (#11065)
-BOOL __stdcall MONSTERS_IsPrimeEvil(struct D2Unit* pMonster)
+BOOL __cdecl MONSTERS_IsPrimeEvil(struct D2Unit* pMonster)
 {
 	struct D2MonStatsTxt* pMonStatsTxtRecord = NULL;
 
@@ -1206,7 +1206,7 @@ BOOL __stdcall MONSTERS_IsPrimeEvil(struct D2Unit* pMonster)
 }
 
 //D2Common.0x6FDA6680 (#11066)
-void __stdcall D2Common_11066(struct D2Unit* pMonster, int* pDirectionX, int* pDirectionY)
+void __cdecl D2Common_11066(struct D2Unit* pMonster, int* pDirectionX, int* pDirectionY)
 {
 	//D2Common.0x6FDD1778
 	static const struct D2Coord dword_6FDD1778[] =
@@ -1232,7 +1232,7 @@ void __stdcall D2Common_11066(struct D2Unit* pMonster, int* pDirectionX, int* pD
 }
 
 //D2Common.0x6FDA6730 (#11067)
-int __stdcall MONSTERS_GetHirelingTypeId(struct D2Unit* pHireling)
+int __cdecl MONSTERS_GetHirelingTypeId(struct D2Unit* pHireling)
 {
 	if (pHireling && pHireling->dwUnitType == UNIT_MONSTER)
 	{
@@ -1276,7 +1276,7 @@ static struct D2ClassicStatAdjustment aClassicStatAdjustments[] =
 };
 
 //1.10f: D2Common.0x6FDA6790 (#11246)
-void __stdcall MONSTERS_ApplyClassicScaling(struct D2Unit* pMonster, BOOL bExpansion, uint8_t nDifficulty)
+void __cdecl MONSTERS_ApplyClassicScaling(struct D2Unit* pMonster, BOOL bExpansion, uint8_t nDifficulty)
 {
 	struct D2MonStatsTxt* pMonStatsTxtRecord = NULL;
 
@@ -1300,7 +1300,7 @@ void __stdcall MONSTERS_ApplyClassicScaling(struct D2Unit* pMonster, BOOL bExpan
 }
 
 //D2Common.0x6FDA6920
-int __fastcall MONSTERS_GetBaseIdFromMonsterId(int nMonsterId)
+int __cdecl MONSTERS_GetBaseIdFromMonsterId(int nMonsterId)
 {
 	struct D2MonStatsTxt* pMonStatsTxtRecord = DATATBLS_GetMonStatsTxtRecord(nMonsterId);
 
@@ -1313,7 +1313,7 @@ int __fastcall MONSTERS_GetBaseIdFromMonsterId(int nMonsterId)
 }
 
 //D2Common.0x6FDA6950
-int __fastcall MONSTERS_GetClassIdFromMonsterChain(int nMonsterId, int nChainId)
+int __cdecl MONSTERS_GetClassIdFromMonsterChain(int nMonsterId, int nChainId)
 {
 	struct D2MonStatsTxt* pMonStatsTxtRecord = NULL;
 	int nClassId = 0;
@@ -1340,7 +1340,7 @@ int __fastcall MONSTERS_GetClassIdFromMonsterChain(int nMonsterId, int nChainId)
 }
 
 //D2Common.0x6FDA69C0
-int __fastcall MONSTERS_ValidateMonsterId(int nMonsterId)
+int __cdecl MONSTERS_ValidateMonsterId(int nMonsterId)
 {
 	if (nMonsterId >= 0 && nMonsterId < sgptDataTables->nMonStatsTxtRecordCount)
 	{

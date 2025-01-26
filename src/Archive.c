@@ -42,7 +42,7 @@
  * 1.13c: Inline
  * 1.14c: Game.0x00514B24
  */
-BOOL __fastcall ARCHIVE_OpenFile(HD2ARCHIVE hArchive, const char* szFilePath, HSFILE* phFile, BOOL bFileNotFoundLogSkipped)
+BOOL __cdecl ARCHIVE_OpenFile(HD2ARCHIVE hArchive, const char* szFilePath, HSFILE* phFile, BOOL bFileNotFoundLogSkipped)
 {
 	BOOL bFileOpenSucceeded = FOG_FOpenFile(szFilePath, phFile);
 	if (!bFileOpenSucceeded)
@@ -66,7 +66,7 @@ BOOL __fastcall ARCHIVE_OpenFile(HD2ARCHIVE hArchive, const char* szFilePath, HS
  * 1.13c: Inline
  * 1.14c: Game.0x00514B60
  */
-void __fastcall ARCHIVE_CloseFile(HD2ARCHIVE hArchive, HSFILE hFile)
+void __cdecl ARCHIVE_CloseFile(HD2ARCHIVE hArchive, HSFILE hFile)
 {
 	D2_ASSERT(hFile != nullptr);
 	FOG_FCloseFile(hFile);
@@ -80,7 +80,7 @@ void __fastcall ARCHIVE_CloseFile(HD2ARCHIVE hArchive, HSFILE hFile)
  * 1.14c: Game.0x00514B87
  * D2XBeta: D2Server.dll.0x10009C76
  */
-uint32_t __fastcall ARCHIVE_GetFileSize(HD2ARCHIVE hArchive, HSFILE hFile, uint32_t* pdwFileSizeHigh)
+uint32_t __cdecl ARCHIVE_GetFileSize(HD2ARCHIVE hArchive, HSFILE hFile, uint32_t* pdwFileSizeHigh)
 {
 	D2_ASSERT(hFile != nullptr);
 
@@ -104,7 +104,7 @@ uint32_t __fastcall ARCHIVE_GetFileSize(HD2ARCHIVE hArchive, HSFILE hFile, uint3
  * Static library; may be defined in multiple places than ones listed:
  * 1.10: D2CMP.0x6FE0047A
  */
-uint32_t __fastcall ARCHIVE_SetFilePointer(HD2ARCHIVE hArchive, HSFILE hFile, int32_t lDistanceToMove, int32_t* lpDistanceToMoveHigh, uint32_t dwMoveMethod)
+uint32_t __cdecl ARCHIVE_SetFilePointer(HD2ARCHIVE hArchive, HSFILE hFile, int32_t lDistanceToMove, int32_t* lpDistanceToMoveHigh, uint32_t dwMoveMethod)
 {
 	D2_ASSERT(hFile != nullptr);
 
@@ -126,7 +126,7 @@ uint32_t __fastcall ARCHIVE_SetFilePointer(HD2ARCHIVE hArchive, HSFILE hFile, in
  * 1.13c: D2Lang.0x6FC07C00
  * 1.14c: Game.0x00514C61
  */
-void __fastcall ARCHIVE_ReadFileToBuffer(HD2ARCHIVE hArchive, HSFILE hFile, void* pBuffer, size_t dwBytesToRead)
+void __cdecl ARCHIVE_ReadFileToBuffer(HD2ARCHIVE hArchive, HSFILE hFile, void* pBuffer, size_t dwBytesToRead)
 {
 	D2_ASSERT(hFile != nullptr);
 
@@ -152,7 +152,7 @@ void __fastcall ARCHIVE_ReadFileToBuffer(HD2ARCHIVE hArchive, HSFILE hFile, void
  * 1.13c: D2Lang.0x6FC07EF0
  * 1.14c: Game.0x00514D55
  */
-void* __fastcall ARCHIVE_AllocateBufferAndReadFile(HD2ARCHIVE hArchive, const char* szFilePath, size_t* pdwBytesWritten, const char* szSrcPath, int nLine)
+void* __cdecl ARCHIVE_AllocateBufferAndReadFile(HD2ARCHIVE hArchive, const char* szFilePath, size_t* pdwBytesWritten, const char* szSrcPath, int nLine)
 {
 	HSFILE hFile;
 	
@@ -182,7 +182,7 @@ void* __fastcall ARCHIVE_AllocateBufferAndReadFile(HD2ARCHIVE hArchive, const ch
 }
 
 //1.10f: D2Win.0x6F8B24B1
-int __fastcall ARCHIVE_FindAndOpenArchiveFromCDRom(LPSTR szOutPath, LPCSTR szFileName, int nPriority, HSARCHIVE* phArchive)
+int __cdecl ARCHIVE_FindAndOpenArchiveFromCDRom(LPSTR szOutPath, LPCSTR szFileName, int nPriority, HSARCHIVE* phArchive)
 {
 	CHAR Buffer[MAX_PATH];
 	DWORD nLength = GetLogicalDriveStringsA(MAX_PATH, Buffer);
@@ -212,9 +212,9 @@ int __fastcall ARCHIVE_FindAndOpenArchiveFromCDRom(LPSTR szOutPath, LPCSTR szFil
 }
 
 //1.10f: D2Win.0x6F8B2419
-HSARCHIVE __fastcall ARCHIVE_FindAndOpenArchive(LPSTR szOutPath, LPCSTR szModuleName, LPCSTR szFileName, const char* szLabel, int nPriority, BOOL bSomething)
+HSARCHIVE __cdecl ARCHIVE_FindAndOpenArchive(LPSTR szOutPath, LPCSTR szModuleName, LPCSTR szFileName, const char* szLabel, int nPriority, BOOL bSomething)
 {
-	D2_MAYBE_UNUSED(szModuleName); // __thiscall => __fastcall, unused.
+	D2_MAYBE_UNUSED(szModuleName); // __cdecl => __cdecl, unused.
 	uint32_t bFileOpenFlags = bSomething ? 3 : 2;
 	HSARCHIVE hArchiveFile;
 	lstrcpyA(szOutPath, szFileName);
@@ -246,7 +246,7 @@ HSARCHIVE __fastcall ARCHIVE_FindAndOpenArchive(LPSTR szOutPath, LPCSTR szModule
 }
 
 //1.10f: D2Win.0x6F8B2399
-struct D2ArchiveHandle* __fastcall ARCHIVE_LoadMPQFile(const char* szModuleName, const char* szFileName, const char* szLabel, int a4, HANDLE hFile, ARCHIVE_ShowMessageFunctionPtr pfShowMessage, int nPriority)
+struct D2ArchiveHandle* __cdecl ARCHIVE_LoadMPQFile(const char* szModuleName, const char* szFileName, const char* szLabel, int a4, HANDLE hFile, ARCHIVE_ShowMessageFunctionPtr pfShowMessage, int nPriority)
 {
 	struct D2ArchiveHandle* pMpqHandle = D2_ALLOC_STRC(struct D2ArchiveHandle);
 	pMpqHandle->hArchive = NULL;
@@ -270,7 +270,7 @@ struct D2ArchiveHandle* __fastcall ARCHIVE_LoadMPQFile(const char* szModuleName,
 }
 
 //1.10f: D2Win.0x6F8B2548
-void __fastcall ARCHIVE_UnloadMPQFile(struct D2ArchiveHandle* pMPQHandle)
+void __cdecl ARCHIVE_UnloadMPQFile(struct D2ArchiveHandle* pMPQHandle)
 {
 	if (pMPQHandle->hArchive)
 	{

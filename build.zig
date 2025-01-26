@@ -13,8 +13,10 @@ pub fn build(b: *Build) void {
                     .abi = .gnu,
                 },
                 .whitelist = &.{
+                    // .{ .cpu_arch = .aarch64, .os_tag = .windows, .abi = .gnu },
                     // .{ .cpu_arch = .thumb, .os_tag = .windows, .abi = .gnu },
                     .{ .cpu_arch = .x86, .os_tag = .windows, .abi = .gnu },
+                    // .{ .cpu_arch = .x86_64, .os_tag = .windows, .abi = .gnu },
                 },
             }),
             .optimize = b.standardOptimizeOption(.{ .preferred_optimize_mode = .ReleaseSafe }),

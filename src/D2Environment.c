@@ -71,7 +71,7 @@ static const struct D2EnvironmentCycle* ENVIRONMENT_GetCycle(int nCycle, int nAc
 
 
 //D2Common.0x6FD8D8E0
-struct D2DrlgEnvironment* __fastcall ENVIRONMENT_AllocDrlgEnvironment(void* pMemPool)
+struct D2DrlgEnvironment* __cdecl ENVIRONMENT_AllocDrlgEnvironment(void* pMemPool)
 {
 	struct D2DrlgEnvironment* pEnvironment = D2_CALLOC_STRC_POOL(pMemPool, struct D2DrlgEnvironment);
 	
@@ -94,7 +94,7 @@ struct D2DrlgEnvironment* __fastcall ENVIRONMENT_AllocDrlgEnvironment(void* pMem
 }
 
 //D2Common.0x6FD8D970
-void __fastcall ENVIRONMENT_UpdateLightIntensity(struct D2DrlgEnvironment* pEnvironment, int nLevelId, int nAct)
+void __cdecl ENVIRONMENT_UpdateLightIntensity(struct D2DrlgEnvironment* pEnvironment, int nLevelId, int nAct)
 {
 	int nTargetIntensity = 0;
 
@@ -192,7 +192,7 @@ static uint8_t LerpLightColor(uint8_t nThis, uint8_t nNext, double lerpRatio)
 }
 
 //D2Common.0x6FD8DAC0
-void __fastcall ENVIRONMENT_UpdateLightColor(struct D2DrlgEnvironment* pEnvironment, int nAct)
+void __cdecl ENVIRONMENT_UpdateLightColor(struct D2DrlgEnvironment* pEnvironment, int nAct)
 {
 	const int nCycleIndex = pEnvironment->nCycleIndex;
 	const int nNextCycleIndex = (nCycleIndex + 1) % NUM_ENVIRONMENT_CYCLES;
@@ -207,13 +207,13 @@ void __fastcall ENVIRONMENT_UpdateLightColor(struct D2DrlgEnvironment* pEnvironm
 }
 
 //D2Common.6FD8DBE0
-void __fastcall ENVIRONMENT_FreeDrlgEnvironment(void* pMemPool, struct D2DrlgEnvironment* pEnvironment)
+void __cdecl ENVIRONMENT_FreeDrlgEnvironment(void* pMemPool, struct D2DrlgEnvironment* pEnvironment)
 {
 	D2_FREE_POOL(pMemPool, pEnvironment);
 }
 
 //D2Common.0x6FD8DC00 (#10923)
-BOOL __stdcall ENVIRONMENT_UpdatePeriodOfDay(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom)
+BOOL __cdecl ENVIRONMENT_UpdatePeriodOfDay(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom)
 {
 	struct D2DrlgEnvironment* pEnvironment = DUNGEON_GetEnvironmentFromAct(pAct);
 
@@ -237,7 +237,7 @@ BOOL __stdcall ENVIRONMENT_UpdatePeriodOfDay(struct D2DrlgAct* pAct, struct D2Ac
 }
 
 //D2Common.0x6FD8DC70
-void __fastcall ENVIRONMENT_UpdateTicks(struct D2DrlgEnvironment* pEnvironment, int nActNo)
+void __cdecl ENVIRONMENT_UpdateTicks(struct D2DrlgEnvironment* pEnvironment, int nActNo)
 {
 	
 	++pEnvironment->nTicks;
@@ -288,7 +288,7 @@ void __fastcall ENVIRONMENT_UpdateTicks(struct D2DrlgEnvironment* pEnvironment, 
 }
 
 //D2Common.0x6FD8DD60 (#10924)
-BOOL __stdcall ENVIRONMENT_UpdateCycleIndex(struct D2DrlgAct* pAct, int nActNo)
+BOOL __cdecl ENVIRONMENT_UpdateCycleIndex(struct D2DrlgAct* pAct, int nActNo)
 {
 	struct D2DrlgEnvironment* pEnvironment = DUNGEON_GetEnvironmentFromAct(pAct);
 	if (pEnvironment)
@@ -321,7 +321,7 @@ BOOL __stdcall ENVIRONMENT_UpdateCycleIndex(struct D2DrlgAct* pAct, int nActNo)
 }
 
 //D2Common.0x6FD8DDD0 (#10927)
-void __stdcall ENVIRONMENT_GetLightColorFromAct(struct D2DrlgAct* pAct, uint8_t* pRed, uint8_t* pGreen, uint8_t* pBlue)
+void __cdecl ENVIRONMENT_GetLightColorFromAct(struct D2DrlgAct* pAct, uint8_t* pRed, uint8_t* pGreen, uint8_t* pBlue)
 {
 	struct D2DrlgEnvironment* pEnvironment = DUNGEON_GetEnvironmentFromAct(pAct);
 	if (pEnvironment)
@@ -333,7 +333,7 @@ void __stdcall ENVIRONMENT_GetLightColorFromAct(struct D2DrlgAct* pAct, uint8_t*
 }
 
 //D2Common.0x6FD8DE00 (#10926)
-int __stdcall ENVIRONMENT_GetIntensityFromAct(struct D2DrlgAct* pAct)
+int __cdecl ENVIRONMENT_GetIntensityFromAct(struct D2DrlgAct* pAct)
 {
 	struct D2DrlgEnvironment* pEnvironment = DUNGEON_GetEnvironmentFromAct(pAct);
 	if (pEnvironment)
@@ -344,7 +344,7 @@ int __stdcall ENVIRONMENT_GetIntensityFromAct(struct D2DrlgAct* pAct)
 }
 
 //D2Common.0x6FD8DE20 (#10933)
-int __stdcall ENVIRONMENT_GetPeriodOfDayFromAct(struct D2DrlgAct* pAct, int* pBaseTime)
+int __cdecl ENVIRONMENT_GetPeriodOfDayFromAct(struct D2DrlgAct* pAct, int* pBaseTime)
 {
 	struct D2DrlgEnvironment* pEnvironment = DUNGEON_GetEnvironmentFromAct(pAct);
 	if (pEnvironment)
@@ -375,7 +375,7 @@ int __stdcall ENVIRONMENT_GetPeriodOfDayFromAct(struct D2DrlgAct* pAct, int* pBa
 }
 
 //D2Common.0x6FD8DE70 (#10928) - UNUSED
-int __stdcall ENVIRONMENT_GetUnusedMember(struct D2DrlgAct* pAct)
+int __cdecl ENVIRONMENT_GetUnusedMember(struct D2DrlgAct* pAct)
 {
 	struct D2DrlgEnvironment* pEnvironment = DUNGEON_GetEnvironmentFromAct(pAct);
 	if (pEnvironment)
@@ -388,7 +388,7 @@ int __stdcall ENVIRONMENT_GetUnusedMember(struct D2DrlgAct* pAct)
 }
 
 //D2Common.0x6FD8DE90 (#10929) - UNUSED
-void __stdcall ENVIRONMENT_NextEnvCycle(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom)
+void __cdecl ENVIRONMENT_NextEnvCycle(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom)
 {
 	struct D2DrlgEnvironment* pEnvironment = DUNGEON_GetEnvironmentFromAct(pAct);
 	
@@ -423,13 +423,13 @@ void __stdcall ENVIRONMENT_NextEnvCycle(struct D2DrlgAct* pAct, struct D2ActiveR
 }
 
 //D2Common.0x6FD8DF30 (#10930)
-int __stdcall ENVIRONMENT_GetCycleIndexFromAct(struct D2DrlgAct* pAct)
+int __cdecl ENVIRONMENT_GetCycleIndexFromAct(struct D2DrlgAct* pAct)
 {
 	return DUNGEON_GetEnvironmentFromAct(pAct)->nCycleIndex;
 }
 
 //D2Common.0x6FD8DF40 (#10932)
-void __stdcall ENVIRONMENT_InitializeEnvironment(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom, int nIndex, int nTicks, BOOL bEclipse)
+void __cdecl ENVIRONMENT_InitializeEnvironment(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom, int nIndex, int nTicks, BOOL bEclipse)
 {
 	D2_ASSERT(nIndex >= 0);
 	D2_ASSERT(nIndex < NUM_ENVIRONMENT_CYCLES);
@@ -484,7 +484,7 @@ void __stdcall ENVIRONMENT_InitializeEnvironment(struct D2DrlgAct* pAct, struct 
 }
 
 //D2Common.0x6FD8E080 (#10931)
-void __stdcall ENVIRONMENT_GetCycleIndex_Ticks_EclipseFromAct(struct D2DrlgAct* pAct, int* pCycleIndex, int* pTicks, BOOL* pEclipse)
+void __cdecl ENVIRONMENT_GetCycleIndex_Ticks_EclipseFromAct(struct D2DrlgAct* pAct, int* pCycleIndex, int* pTicks, BOOL* pEclipse)
 {
 	struct D2DrlgEnvironment* pEnvironment = DUNGEON_GetEnvironmentFromAct(pAct);
 
@@ -494,7 +494,7 @@ void __stdcall ENVIRONMENT_GetCycleIndex_Ticks_EclipseFromAct(struct D2DrlgAct* 
 }
 
 //D2Common.0x6FD8E0B0 (#10925) - UNUSED
-void __stdcall ENVIRONMENT_GetStatistics(struct D2DrlgAct* pAct, float* pCos, float* pLast, float* pSin, int* a5)
+void __cdecl ENVIRONMENT_GetStatistics(struct D2DrlgAct* pAct, float* pCos, float* pLast, float* pSin, int* a5)
 {
 	struct D2DrlgEnvironment* pEnvironment = DUNGEON_GetEnvironmentFromAct(pAct);
 
@@ -506,13 +506,13 @@ void __stdcall ENVIRONMENT_GetStatistics(struct D2DrlgAct* pAct, float* pCos, fl
 }
 
 //D2Common.0x6FD8E0F0 (#10934) - UNUSED
-int __stdcall ENVIRONMENT_GetTimeRateFromAct(struct D2DrlgAct* pAct)
+int __cdecl ENVIRONMENT_GetTimeRateFromAct(struct D2DrlgAct* pAct)
 {
 	return DUNGEON_GetEnvironmentFromAct(pAct)->nTimeRate;
 }
 
 //D2Common.0x6FD8E100 (#10935) - UNUSED
-void __stdcall ENVIRONMENT_SetNextTimeRate(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom)
+void __cdecl ENVIRONMENT_SetNextTimeRate(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom)
 {
 	
 	struct D2DrlgEnvironment* pEnvironment = DUNGEON_GetEnvironmentFromAct(pAct);
@@ -550,7 +550,7 @@ void __stdcall ENVIRONMENT_SetNextTimeRate(struct D2DrlgAct* pAct, struct D2Acti
 }
 
 //D2Common.0x6FD8E1B0 (#10936)
-void __stdcall ENVIRONMENT_TaintedSunBegin(struct D2DrlgAct* pAct)
+void __cdecl ENVIRONMENT_TaintedSunBegin(struct D2DrlgAct* pAct)
 {
 	struct D2DrlgEnvironment* pEnvironment = DUNGEON_GetEnvironmentFromAct(pAct);
 
@@ -561,7 +561,7 @@ void __stdcall ENVIRONMENT_TaintedSunBegin(struct D2DrlgAct* pAct)
 }
 
 //D2Common.0x6FD8E1E0 (#10937)
-void __stdcall ENVIRONMENT_TaintedSunEnd(struct D2DrlgAct* pAct)
+void __cdecl ENVIRONMENT_TaintedSunEnd(struct D2DrlgAct* pAct)
 {
 	struct D2DrlgEnvironment* pEnvironment = DUNGEON_GetEnvironmentFromAct(pAct);
 

@@ -119,7 +119,7 @@ static const int gnBarricadeCliffBorderIds[14][2] =
 
 
 //D2Common.0x6FD80480
-void __fastcall DRLGOUTPLACE_BuildKurast(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTPLACE_BuildKurast(struct D2DrlgLevel* pLevel)
 {
 	switch (pLevel->nLevelId)
 	{
@@ -179,7 +179,7 @@ void __fastcall DRLGOUTPLACE_BuildKurast(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD806A0
-void __fastcall DRLGOUTPLACE_InitAct3OutdoorLevel(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTPLACE_InitAct3OutdoorLevel(struct D2DrlgLevel* pLevel)
 {
 	DRLGOUTPLACE_SetOutGridLinkFlags(pLevel);
 	DRLGOUTJUNG_BuildJungle(pLevel);
@@ -226,7 +226,7 @@ char byte_6FDCFB80[] = { 1, 0, -1, 0 };
 char byte_6FDCFB84[] = { 0, 1, 0, -1 };
 
 //D2Common.0x6FD80750
-BOOL __fastcall sub_6FD80750(struct D2DrlgLevel* pLevel, int nVertexId)
+BOOL __cdecl sub_6FD80750(struct D2DrlgLevel* pLevel, int nVertexId)
 {
 	int nX1 = (pLevel->pOutdoors->pVertices[6 + nVertexId].nPosX - pLevel->nPosX) / 8;
 	int nY1 = (pLevel->pOutdoors->pVertices[6 + nVertexId].nPosY - pLevel->nPosY) / 8;
@@ -496,8 +496,8 @@ LABEL_26:
 
 
 //TODO: Remove
-//D2FUNC(D2COMMON, 6FD80750, BOOL, __fastcall, (struct D2DrlgLevel*, int), 0x40750)
-//BOOL __fastcall sub_6FD80750(struct D2DrlgLevel* pLevel, int nVertexId)
+//D2FUNC(D2COMMON, 6FD80750, BOOL, __cdecl, (struct D2DrlgLevel*, int), 0x40750)
+//BOOL __cdecl sub_6FD80750(struct D2DrlgLevel* pLevel, int nVertexId)
 //{
 //	return D2COMMON_6FD80750(pLevel, nVertexId);
 //}
@@ -541,7 +541,7 @@ static const enum D2C_LvlPrestIds levelPrestBorder[13][4] = {
 };
 
 //D2Common.0x6FD80BE0
-int __fastcall sub_6FD80BE0(int a1, int a2, int a3)
+int __cdecl sub_6FD80BE0(int a1, int a2, int a3)
 {
 	const int lutIndex = a1 + 3 * a2 + 4;
 	D2_MAYBE_UNUSED(lutIndex);
@@ -559,7 +559,7 @@ int __fastcall sub_6FD80BE0(int a1, int a2, int a3)
 }
 
 //D2Common.0x6FD80C10
-int __fastcall sub_6FD80C10(int a1, int a2, int a3, int a4, int a5)
+int __cdecl sub_6FD80C10(int a1, int a2, int a3, int a4, int a5)
 {
 	int v6 = 0;
 
@@ -606,7 +606,7 @@ int __fastcall sub_6FD80C10(int a1, int a2, int a3, int a4, int a5)
 }
 
 //D2Common.0x6FD80C80
-void __fastcall DRLGOUTPLACE_SetBlankBorderGridCells(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTPLACE_SetBlankBorderGridCells(struct D2DrlgLevel* pLevel)
 {	const struct D2Coord aOffsets[4][2] = {
 		{{  0,  0 }, {  1,  1 }},
 		{{  1,  0 }, { -1,  1 }}, 
@@ -646,7 +646,7 @@ void __fastcall DRLGOUTPLACE_SetBlankBorderGridCells(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD80DA0
-void __fastcall DRLGOUTPLACE_SetOutGridLinkFlags(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTPLACE_SetOutGridLinkFlags(struct D2DrlgLevel* pLevel)
 {
 	struct D2DrlgVertex* pVertex = pLevel->pOutdoors->pVertex;
 	struct D2DrlgVertex* pNext = pVertex->pNext;
@@ -670,7 +670,7 @@ void __fastcall DRLGOUTPLACE_SetOutGridLinkFlags(struct D2DrlgLevel* pLevel)
 
 //D2Common.0x6FD80E10
 //TODO: v41, v61
-void __fastcall DRLGOUTPLACE_PlaceAct1245OutdoorBorders(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTPLACE_PlaceAct1245OutdoorBorders(struct D2DrlgLevel* pLevel)
 {
 	static const int nDesertBorderIds[5][2] =
 	{
@@ -967,7 +967,7 @@ void __fastcall DRLGOUTPLACE_PlaceAct1245OutdoorBorders(struct D2DrlgLevel* pLev
 }
 
 //D2Common.0x6FD81330
-BOOL __fastcall sub_6FD81330(struct D2DrlgLevelLinkData* pLevelLinkData)
+BOOL __cdecl sub_6FD81330(struct D2DrlgLevelLinkData* pLevelLinkData)
 {
 	struct D2LevelDefBin* pLevelDefBinRecord = NULL;
 
@@ -984,7 +984,7 @@ BOOL __fastcall sub_6FD81330(struct D2DrlgLevelLinkData* pLevelLinkData)
 }
 
 //D2Common.0x6FD81380
-BOOL __fastcall sub_6FD81380(struct D2DrlgLevelLinkData* pLevelLinkData)
+BOOL __cdecl sub_6FD81380(struct D2DrlgLevelLinkData* pLevelLinkData)
 {
 	if (pLevelLinkData->nRand[1][pLevelLinkData->nIteration] == -1)
 	{
@@ -1007,7 +1007,7 @@ BOOL __fastcall sub_6FD81380(struct D2DrlgLevelLinkData* pLevelLinkData)
 }
 
 //D2Common.0x6FD81430
-void __fastcall sub_6FD81430(struct D2DrlgCoord* pDrlgCoord1, struct D2DrlgCoord* pDrlgCoord2, int a3, int a4)
+void __cdecl sub_6FD81430(struct D2DrlgCoord* pDrlgCoord1, struct D2DrlgCoord* pDrlgCoord2, int a3, int a4)
 {
 	switch (a3)
 	{
@@ -1073,7 +1073,7 @@ void __fastcall sub_6FD81430(struct D2DrlgCoord* pDrlgCoord1, struct D2DrlgCoord
 }
 
 //D2Common.0x6FD81530
-BOOL __fastcall sub_6FD81530(struct D2DrlgLevelLinkData* pLevelLinkData)
+BOOL __cdecl sub_6FD81530(struct D2DrlgLevelLinkData* pLevelLinkData)
 {
 	if (pLevelLinkData->nRand[1][pLevelLinkData->nIteration] == -1)
 	{
@@ -1095,7 +1095,7 @@ BOOL __fastcall sub_6FD81530(struct D2DrlgLevelLinkData* pLevelLinkData)
 }
 
 //D2Common.0x6FD815E0
-void __fastcall sub_6FD815E0(struct D2DrlgCoord* pDrlgCoord1, struct D2DrlgCoord* pDrlgCoord2, int a3, int a4)
+void __cdecl sub_6FD815E0(struct D2DrlgCoord* pDrlgCoord1, struct D2DrlgCoord* pDrlgCoord2, int a3, int a4)
 {
 	switch (a3)
 	{
@@ -1185,7 +1185,7 @@ void __fastcall sub_6FD815E0(struct D2DrlgCoord* pDrlgCoord1, struct D2DrlgCoord
 }
 
 //D2Common.0x6FD81720
-BOOL __fastcall sub_6FD81720(struct D2DrlgLevelLinkData* pLevelLinkData)
+BOOL __cdecl sub_6FD81720(struct D2DrlgLevelLinkData* pLevelLinkData)
 {
 	int nRand2 = 0;
 	int nRand0 = 0;
@@ -1225,7 +1225,7 @@ BOOL __fastcall sub_6FD81720(struct D2DrlgLevelLinkData* pLevelLinkData)
 }
 
 //D2Common.0x6FD81850
-void __fastcall sub_6FD81850(struct D2DrlgCoord* pDrlgCoord1, struct D2DrlgCoord* pDrlgCoord2, int a3, int a4)
+void __cdecl sub_6FD81850(struct D2DrlgCoord* pDrlgCoord1, struct D2DrlgCoord* pDrlgCoord2, int a3, int a4)
 {
 	switch (a3)
 	{
@@ -1291,7 +1291,7 @@ void __fastcall sub_6FD81850(struct D2DrlgCoord* pDrlgCoord1, struct D2DrlgCoord
 }
 
 //D2Common.0x6FD81950
-BOOL __fastcall sub_6FD81950(struct D2DrlgLevelLinkData* pLevelLinkData)
+BOOL __cdecl sub_6FD81950(struct D2DrlgLevelLinkData* pLevelLinkData)
 {
 	int nRand2 = 0;
 	int nRand0 = 0;
@@ -1334,7 +1334,7 @@ BOOL __fastcall sub_6FD81950(struct D2DrlgLevelLinkData* pLevelLinkData)
 }
 
 //D2Common.0x6FD81AD0
-BOOL __fastcall sub_6FD81AD0(struct D2DrlgLevelLinkData* pLevelLinkData)
+BOOL __cdecl sub_6FD81AD0(struct D2DrlgLevelLinkData* pLevelLinkData)
 {
 	pLevelLinkData->nRand[1][pLevelLinkData->nIteration] = 0;
 	pLevelLinkData->nRand[0][pLevelLinkData->nIteration] = pLevelLinkData->nRand[1][pLevelLinkData->nIteration];
@@ -1345,7 +1345,7 @@ BOOL __fastcall sub_6FD81AD0(struct D2DrlgLevelLinkData* pLevelLinkData)
 }
 
 //D2Common.0x6FD81B30
-BOOL __fastcall sub_6FD81B30(struct D2DrlgLevelLinkData* pLevelLinkData)
+BOOL __cdecl sub_6FD81B30(struct D2DrlgLevelLinkData* pLevelLinkData)
 {
 	int nRand = 0;
 
@@ -1379,7 +1379,7 @@ BOOL __fastcall sub_6FD81B30(struct D2DrlgLevelLinkData* pLevelLinkData)
 }
 
 //D2Common.0x6FD81BF0
-BOOL __fastcall sub_6FD81BF0(struct D2DrlgLevelLinkData* pLevelLinkData)
+BOOL __cdecl sub_6FD81BF0(struct D2DrlgLevelLinkData* pLevelLinkData)
 {
 	int nRand = 0;
 
@@ -1406,7 +1406,7 @@ BOOL __fastcall sub_6FD81BF0(struct D2DrlgLevelLinkData* pLevelLinkData)
 }
 
 //D2Common.0x6FD81CA0
-BOOL __fastcall sub_6FD81CA0(struct D2DrlgLevelLinkData* pLevelLinkData)
+BOOL __cdecl sub_6FD81CA0(struct D2DrlgLevelLinkData* pLevelLinkData)
 {
 	pLevelLinkData->nRand[1][pLevelLinkData->nIteration] = 3;
 	pLevelLinkData->nRand[0][pLevelLinkData->nIteration] = pLevelLinkData->nRand[1][pLevelLinkData->nIteration];
@@ -1426,7 +1426,7 @@ BOOL __fastcall sub_6FD81CA0(struct D2DrlgLevelLinkData* pLevelLinkData)
 }
 
 //D2Common.0x6FD81D60
-void __fastcall DRLGOUTPLACE_CreateLevelConnections(struct D2Drlg* pDrlg, uint8_t nAct)
+void __cdecl DRLGOUTPLACE_CreateLevelConnections(struct D2Drlg* pDrlg, uint8_t nAct)
 {
 	struct D2LevelDefBin* pLevelDefBinRecord = NULL;
 	struct D2DrlgLevel* pAdjacentLevel = NULL;
@@ -1513,7 +1513,7 @@ void __fastcall DRLGOUTPLACE_CreateLevelConnections(struct D2Drlg* pDrlg, uint8_
 
 //D2Common.0x6FD82050
 //TODO: Rename variables
-BOOL __fastcall sub_6FD82050(struct D2DrlgLevelLinkData* pLevelLinkData, int nIteration)
+BOOL __cdecl sub_6FD82050(struct D2DrlgLevelLinkData* pLevelLinkData, int nIteration)
 {
 	static const BOOL dword_6FDD05C0[] =
 	{
@@ -1555,7 +1555,7 @@ BOOL __fastcall sub_6FD82050(struct D2DrlgLevelLinkData* pLevelLinkData, int nIt
 }
 
 //D2Common.0x6FD82130
-BOOL __fastcall sub_6FD82130(struct D2DrlgLevelLinkData* pLevelLinkData, int nIteration)
+BOOL __cdecl sub_6FD82130(struct D2DrlgLevelLinkData* pLevelLinkData, int nIteration)
 {
 	BOOL bResult = FALSE;
 	int nCounter = 0;
@@ -1588,7 +1588,7 @@ BOOL __fastcall sub_6FD82130(struct D2DrlgLevelLinkData* pLevelLinkData, int nIt
 }
 
 //D2Common.0x6FD821E0
-BOOL __fastcall DRLGOUTPLACE_LinkAct2Outdoors(struct D2DrlgLevelLinkData* pLevelLinkData, int nIteration)
+BOOL __cdecl DRLGOUTPLACE_LinkAct2Outdoors(struct D2DrlgLevelLinkData* pLevelLinkData, int nIteration)
 {
 	int nLevelLink = gAct2OutdoorDrlgLink[nIteration].nLevelLink;
 
@@ -1604,7 +1604,7 @@ BOOL __fastcall DRLGOUTPLACE_LinkAct2Outdoors(struct D2DrlgLevelLinkData* pLevel
 }
 
 //D2Common.0x6FD82240
-BOOL __fastcall DRLGOUTPLACE_LinkAct2Canyon(struct D2DrlgLevelLinkData* pLevelLinkData, int nIteration)
+BOOL __cdecl DRLGOUTPLACE_LinkAct2Canyon(struct D2DrlgLevelLinkData* pLevelLinkData, int nIteration)
 {
 	int nLevelLink = gAct2CanyonDrlgLink[nIteration].nLevelLink;
 
@@ -1620,7 +1620,7 @@ BOOL __fastcall DRLGOUTPLACE_LinkAct2Canyon(struct D2DrlgLevelLinkData* pLevelLi
 }
 
 //D2Comon.0x6FD822A0
-BOOL __fastcall DRLGOUTPLACE_LinkAct4Outdoors(struct D2DrlgLevelLinkData* pLevelLinkData, int nIteration)
+BOOL __cdecl DRLGOUTPLACE_LinkAct4Outdoors(struct D2DrlgLevelLinkData* pLevelLinkData, int nIteration)
 {
 	int nLevelLink = gAct4OutdoorDrlgLink[nIteration].nLevelLink;
 
@@ -1636,7 +1636,7 @@ BOOL __fastcall DRLGOUTPLACE_LinkAct4Outdoors(struct D2DrlgLevelLinkData* pLevel
 }
 
 //D2Common.0x6FD82300
-BOOL __fastcall DRLGOUTPLACE_LinkAct4ChaosSanctum(struct D2DrlgLevelLinkData* pLevelLinkData, int nIteration)
+BOOL __cdecl DRLGOUTPLACE_LinkAct4ChaosSanctum(struct D2DrlgLevelLinkData* pLevelLinkData, int nIteration)
 {
 	int nLevelLink = gAct4ChaosSanctumDrlgLink[nIteration].nLevelLink;
 
@@ -1652,7 +1652,7 @@ BOOL __fastcall DRLGOUTPLACE_LinkAct4ChaosSanctum(struct D2DrlgLevelLinkData* pL
 }
 
 //D2Common.0x6FD82360
-void __fastcall sub_6FD82360(struct D2DrlgLevel* pLevel, int nIteration, int* pRand)
+void __cdecl sub_6FD82360(struct D2DrlgLevel* pLevel, int nIteration, int* pRand)
 {
 	static const struct D2UnkOutdoor3 stru_6FDD06C0[15] =
 	{
@@ -1693,7 +1693,7 @@ void __fastcall sub_6FD82360(struct D2DrlgLevel* pLevel, int nIteration, int* pR
 
 //D2Common.0x6FD823C0
 //TODO: v28 stuff
-void __fastcall sub_6FD823C0(struct D2Drlg* pDrlg, struct D2DrlgLink* pDrlgLink, int(__fastcall* a3)(struct D2DrlgLevelLinkData*, int), void(__fastcall* a4)(struct D2DrlgLevel*, int, int*))
+void __cdecl sub_6FD823C0(struct D2Drlg* pDrlg, struct D2DrlgLink* pDrlgLink, int(__cdecl* a3)(struct D2DrlgLevelLinkData*, int), void(__cdecl* a4)(struct D2DrlgLevel*, int, int*))
 {
 	struct D2DrlgLevelLinkData pLevelLinkData = {};
 	struct D2LevelDefBin* pLevelDefBinRecord = NULL;
@@ -1732,7 +1732,7 @@ void __fastcall sub_6FD823C0(struct D2Drlg* pDrlg, struct D2DrlgLink* pDrlgLink,
 		pLevelLinkData.nIteration = nCounter;
 		pLevelLinkData.nCurrentLevel = pDrlgLink[nCounter].nLevel;
 
-		if (((BOOL(__fastcall*)(struct D2DrlgLevelLinkData*))pDrlgLink[nCounter].pfLinker)(&pLevelLinkData))
+		if (((BOOL(__cdecl*)(struct D2DrlgLevelLinkData*))pDrlgLink[nCounter].pfLinker)(&pLevelLinkData))
 		{
 			if (!a3 || a3(&pLevelLinkData, nCounter))
 			{
@@ -1833,7 +1833,7 @@ void __fastcall sub_6FD823C0(struct D2Drlg* pDrlg, struct D2DrlgLink* pDrlgLink,
 }
 
 //D2Common.0x6FD826D0
-void __fastcall sub_6FD826D0(struct D2Drlg* pDrlg, int nStartId, int nEndId)
+void __cdecl sub_6FD826D0(struct D2Drlg* pDrlg, int nStartId, int nEndId)
 {
 	struct D2DrlgWarp* pDrlgWarp = NULL;
 	struct D2DrlgLevel* pLevel = NULL;
@@ -1854,7 +1854,7 @@ void __fastcall sub_6FD826D0(struct D2Drlg* pDrlg, int nStartId, int nEndId)
 }
 
 //D2Common.0x6FD82750
-void __fastcall sub_6FD82750(struct D2Drlg* pDrlg, int nStartId, int nEndId)
+void __cdecl sub_6FD82750(struct D2Drlg* pDrlg, int nStartId, int nEndId)
 {
 	struct D2DrlgLevel* pWarpLevel = NULL;
 	struct D2DrlgLevel* pLevel = NULL;
@@ -2368,7 +2368,7 @@ static int DRLG_GenerateJungles_compDescenNPosY(const void* lhs, const void* rhs
 // D2Common.0x6FD82820
 // Checked to be working correctly, but with a single save only
 // See https://web.archive.org/web/20220928163841/http://www.dos486.com/diablo/jungle/ for an overview about act 3 jungles
-struct D2DrlgLevel* __fastcall DRLG_GenerateJungles(struct D2DrlgLevel* pLevel)
+struct D2DrlgLevel* __cdecl DRLG_GenerateJungles(struct D2DrlgLevel* pLevel)
 {
 	struct D2LevelDefBin* pSpiderForestLevelDef = DATATBLS_GetLevelDefRecord(LEVEL_SPIDERFOREST);
 	struct D2Drlg* pDrlg = pLevel->pDrlg;
@@ -2520,7 +2520,7 @@ struct D2DrlgLevel* __fastcall DRLG_GenerateJungles(struct D2DrlgLevel* pLevel)
 
 
 //D2Common.0x6FD83970
-void __fastcall sub_6FD83970(struct D2DrlgCoord* pDrlgCoord, struct D2Jungle* pJungle, int nRand, int nSizeX, int nSizeY)
+void __cdecl sub_6FD83970(struct D2DrlgCoord* pDrlgCoord, struct D2Jungle* pJungle, int nRand, int nSizeX, int nSizeY)
 {
 	unsigned int nTemp = 0;
 	int nX = 0;
@@ -2569,7 +2569,7 @@ void __fastcall sub_6FD83970(struct D2DrlgCoord* pDrlgCoord, struct D2Jungle* pJ
 }
 
 //D2Common.0x6FD83A20
-void __fastcall DRLGOUTPLACE_InitOutdoorRoomGrids(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGOUTPLACE_InitOutdoorRoomGrids(struct D2DrlgRoom* pDrlgRoom)
 {
 	struct D2UnkOutdoor2 a1 = {};
 
@@ -2676,7 +2676,7 @@ void __fastcall DRLGOUTPLACE_InitOutdoorRoomGrids(struct D2DrlgRoom* pDrlgRoom)
 }
 
 //D2Common.0x6FD83C90
-void __fastcall DRLGOUTPLACE_CreateOutdoorRoomEx(struct D2DrlgLevel* pLevel, int nX, int nY, int nWidth, int nHeight, int dwRoomFlags, int dwOutdoorFlags, int dwOutdoorFlagsEx, int dwDT1Mask)
+void __cdecl DRLGOUTPLACE_CreateOutdoorRoomEx(struct D2DrlgLevel* pLevel, int nX, int nY, int nWidth, int nHeight, int dwRoomFlags, int dwOutdoorFlags, int dwOutdoorFlagsEx, int dwDT1Mask)
 {
 	struct D2LevelDefBin* pLevelDefBinRecord = NULL;
 	struct D2DrlgRoom* pDrlgRoom = NULL;

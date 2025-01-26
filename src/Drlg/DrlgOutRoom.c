@@ -11,7 +11,7 @@
 //TODO: Check calls with struct DrlgGrid args
 
 //D2Common.0x6FD83D20
-void __fastcall DRLGOUTROOM_FreeDrlgOutdoorRoom(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGOUTROOM_FreeDrlgOutdoorRoom(struct D2DrlgRoom* pDrlgRoom)
 {
 	if (pDrlgRoom->pOutdoor)
 	{
@@ -23,7 +23,7 @@ void __fastcall DRLGOUTROOM_FreeDrlgOutdoorRoom(struct D2DrlgRoom* pDrlgRoom)
 }
 
 //D2Common.0x6FD83D90
-void __fastcall DRLGOUTROOM_FreeDrlgOutdoorRoomData(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGOUTROOM_FreeDrlgOutdoorRoomData(struct D2DrlgRoom* pDrlgRoom)
 {
 	if (pDrlgRoom->pOutdoor)
 	{
@@ -36,13 +36,13 @@ void __fastcall DRLGOUTROOM_FreeDrlgOutdoorRoomData(struct D2DrlgRoom* pDrlgRoom
 }
 
 //D2Common.0x6FD83DE0
-void __fastcall DRLGOUTROOM_AllocDrlgOutdoorRoom(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGOUTROOM_AllocDrlgOutdoorRoom(struct D2DrlgRoom* pDrlgRoom)
 {
 	pDrlgRoom->pOutdoor = D2_CALLOC_STRC_POOL(pDrlgRoom->pLevel->pDrlg->pMempool, struct D2DrlgOutdoorRoom);
 }
 
 //D2Common.6FD83E20
-void __fastcall DRLGOUTROOM_InitializeDrlgOutdoorRoom(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGOUTROOM_InitializeDrlgOutdoorRoom(struct D2DrlgRoom* pDrlgRoom)
 {
 	DRLGROOMTILE_AllocTileGrid(pDrlgRoom);
 	DRLGROOMTILE_CountWallWarpTiles(pDrlgRoom, &pDrlgRoom->pOutdoor->pWallGrid, &pDrlgRoom->pOutdoor->pTileTypeGrid, 0, 0);
@@ -60,7 +60,7 @@ void __fastcall DRLGOUTROOM_InitializeDrlgOutdoorRoom(struct D2DrlgRoom* pDrlgRo
 }
 
 //D2Common.0x6FD83EC0
-BOOL __fastcall DRLGOUTROOM_LinkLevelsByLevelCoords(struct D2DrlgLevelLinkData* pLevelLinkData)
+BOOL __cdecl DRLGOUTROOM_LinkLevelsByLevelCoords(struct D2DrlgLevelLinkData* pLevelLinkData)
 {
 	int nRand = SEED_RollRandomNumber(&pLevelLinkData->pSeed) & 1;
 
@@ -85,7 +85,7 @@ BOOL __fastcall DRLGOUTROOM_LinkLevelsByLevelCoords(struct D2DrlgLevelLinkData* 
 }
 
 //D2Common.0x6FD83F70
-BOOL __fastcall DRLGOUTROOM_LinkLevelsByLevelDef(struct D2DrlgLevelLinkData* pLevelLinkData)
+BOOL __cdecl DRLGOUTROOM_LinkLevelsByLevelDef(struct D2DrlgLevelLinkData* pLevelLinkData)
 {
 	struct D2LevelDefBin* pLevelDefBin = NULL;
 	int nRand = SEED_RollRandomNumber(&pLevelLinkData->pSeed) & 1;
@@ -113,7 +113,7 @@ BOOL __fastcall DRLGOUTROOM_LinkLevelsByLevelDef(struct D2DrlgLevelLinkData* pLe
 }
 
 //D2Common.0x6FD84010
-BOOL __fastcall DRLGOUTROOM_LinkLevelsByOffsetCoords(struct D2DrlgLevelLinkData* pLevelLinkData)
+BOOL __cdecl DRLGOUTROOM_LinkLevelsByOffsetCoords(struct D2DrlgLevelLinkData* pLevelLinkData)
 {
 	static const struct D2Coord pOffsetCoords[4] =
 	{

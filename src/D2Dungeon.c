@@ -17,7 +17,7 @@
 
 
 //D2Common.0x6FD8B8A0 (#10038)
-struct D2DrlgAct* __stdcall DUNGEON_AllocAct(uint8_t nAct, uint32_t nInitSeed, BOOL bClient, struct D2Game* pGame, uint8_t nDifficulty, void* pMemPool, int nTownLevelId, AUTOMAPFN pfAutoMap, TOWNAUTOMAPFN pfTownAutoMap)
+struct D2DrlgAct* __cdecl DUNGEON_AllocAct(uint8_t nAct, uint32_t nInitSeed, BOOL bClient, struct D2Game* pGame, uint8_t nDifficulty, void* pMemPool, int nTownLevelId, AUTOMAPFN pfAutoMap, TOWNAUTOMAPFN pfTownAutoMap)
 {
 	struct D2DrlgAct* pAct = D2_CALLOC_STRC_POOL(pMemPool, struct D2DrlgAct);
 
@@ -40,7 +40,7 @@ struct D2DrlgAct* __stdcall DUNGEON_AllocAct(uint8_t nAct, uint32_t nInitSeed, B
 }
 
 //D2Common.0x6FD8B950 (#10039)
-void __stdcall DUNGEON_FreeAct(struct D2DrlgAct* pAct)
+void __cdecl DUNGEON_FreeAct(struct D2DrlgAct* pAct)
 {
 	struct D2ActiveRoom* pRoom = NULL;
 	struct D2ActiveRoom* pNext = NULL;
@@ -71,13 +71,13 @@ void __stdcall DUNGEON_FreeAct(struct D2DrlgAct* pAct)
 }
 
 //D2Common.0x6FD8B9D0
-void* __fastcall DUNGEON_GetMemPoolFromAct(struct D2DrlgAct* pAct)
+void* __cdecl DUNGEON_GetMemPoolFromAct(struct D2DrlgAct* pAct)
 {
 	return pAct->pMemPool;
 }
 
 //D2Common.0x6FD8B9E0 (#10026)
-void __stdcall DUNGEON_ToggleRoomTilesEnableFlag(struct D2ActiveRoom* pRoom, BOOL bEnabled)
+void __cdecl DUNGEON_ToggleRoomTilesEnableFlag(struct D2ActiveRoom* pRoom, BOOL bEnabled)
 {
 	D2_ASSERT(pRoom);
 
@@ -85,7 +85,7 @@ void __stdcall DUNGEON_ToggleRoomTilesEnableFlag(struct D2ActiveRoom* pRoom, BOO
 }
 
 //D2Common.0x6FD8BA20 (#10027)
-struct D2Unit* __stdcall DUNGEON_GetWarpTileFromRoomAndSourceLevelId(struct D2ActiveRoom* pRoom, int nSourceLevel, struct D2LvlWarpTxt** ppLvlWarpTxtRecord)
+struct D2Unit* __cdecl DUNGEON_GetWarpTileFromRoomAndSourceLevelId(struct D2ActiveRoom* pRoom, int nSourceLevel, struct D2LvlWarpTxt** ppLvlWarpTxtRecord)
 {
 	D2_ASSERT(pRoom);
 
@@ -105,7 +105,7 @@ struct D2Unit* __stdcall DUNGEON_GetWarpTileFromRoomAndSourceLevelId(struct D2Ac
 }
 
 //D2Common.0x6FD8BAB0 (#10028)
-struct D2LvlWarpTxt* __stdcall DUNGEON_GetLvlWarpTxtRecordFromRoomAndUnit(struct D2ActiveRoom* pRoom, struct D2Unit* pUnit)
+struct D2LvlWarpTxt* __cdecl DUNGEON_GetLvlWarpTxtRecordFromRoomAndUnit(struct D2ActiveRoom* pRoom, struct D2Unit* pUnit)
 {
 	D2_ASSERT(pRoom);
 
@@ -113,7 +113,7 @@ struct D2LvlWarpTxt* __stdcall DUNGEON_GetLvlWarpTxtRecordFromRoomAndUnit(struct
 }
 
 //D2Common.0x6FD8BAF0 (#10030)
-struct D2DrlgTileData* __stdcall DUNGEON_GetFloorTilesFromRoom(struct D2ActiveRoom* pRoom, int* pFloorCount)
+struct D2DrlgTileData* __cdecl DUNGEON_GetFloorTilesFromRoom(struct D2ActiveRoom* pRoom, int* pFloorCount)
 {
 	if (pRoom && pRoom->pRoomTiles)
 	{
@@ -126,7 +126,7 @@ struct D2DrlgTileData* __stdcall DUNGEON_GetFloorTilesFromRoom(struct D2ActiveRo
 }
 
 //D2Common.0x6FD8BB20 (#10031)
-struct D2DrlgTileData* __stdcall DUNGEON_GetWallTilesFromRoom(struct D2ActiveRoom* pRoom, int* pWallCount)
+struct D2DrlgTileData* __cdecl DUNGEON_GetWallTilesFromRoom(struct D2ActiveRoom* pRoom, int* pWallCount)
 {
 	D2_ASSERT(pRoom);
 
@@ -135,7 +135,7 @@ struct D2DrlgTileData* __stdcall DUNGEON_GetWallTilesFromRoom(struct D2ActiveRoo
 }
 
 //D2Common.0x6FD8BB60 (#10032)
-struct D2DrlgTileData* __stdcall DUNGEON_GetRoofTilesFromRoom(struct D2ActiveRoom* pRoom, int* pRoofCount)
+struct D2DrlgTileData* __cdecl DUNGEON_GetRoofTilesFromRoom(struct D2ActiveRoom* pRoom, int* pRoofCount)
 {
 	D2_ASSERT(pRoom);
 
@@ -144,13 +144,13 @@ struct D2DrlgTileData* __stdcall DUNGEON_GetRoofTilesFromRoom(struct D2ActiveRoo
 }
 
 //D2Common.0x6FD8BBA0 (#10033)
-struct D2DrlgTileData* __stdcall DUNGEON_GetTileDataFromAct(struct D2DrlgAct* pAct)
+struct D2DrlgTileData* __cdecl DUNGEON_GetTileDataFromAct(struct D2DrlgAct* pAct)
 {
 	return &pAct->pTileData;
 }
 
 //D2Common.0x6FD8BBB0 (#10034)
-void __stdcall DUNGEON_GetRoomCoordinates(struct D2ActiveRoom* pRoom, struct D2DrlgCoords* pCoords)
+void __cdecl DUNGEON_GetRoomCoordinates(struct D2ActiveRoom* pRoom, struct D2DrlgCoords* pCoords)
 {
 	D2_ASSERT(pCoords);
 
@@ -166,7 +166,7 @@ void __stdcall DUNGEON_GetRoomCoordinates(struct D2ActiveRoom* pRoom, struct D2D
 }
 
 //D2Common.0x6FD8BC10 (#10035)
-void __stdcall DUNGEON_GetAdjacentRoomsListFromRoom(struct D2ActiveRoom* pRoom, struct D2ActiveRoom*** pppRoomList, int* pNumRooms)
+void __cdecl DUNGEON_GetAdjacentRoomsListFromRoom(struct D2ActiveRoom* pRoom, struct D2ActiveRoom*** pppRoomList, int* pNumRooms)
 {
 	D2_ASSERT(pRoom);
 
@@ -175,7 +175,7 @@ void __stdcall DUNGEON_GetAdjacentRoomsListFromRoom(struct D2ActiveRoom* pRoom, 
 }
 
 //D2Common.0x6FD8BC50
-struct D2ActiveRoom* __fastcall DUNGEON_AllocRoom(struct D2DrlgAct* pAct, struct D2DrlgRoom* pDrlgRoom, struct D2DrlgCoords* pDrlgCoords, struct D2DrlgRoomTiles* pRoomTiles, int nLowSeed, uint32_t dwFlags)
+struct D2ActiveRoom* __cdecl DUNGEON_AllocRoom(struct D2DrlgAct* pAct, struct D2DrlgRoom* pDrlgRoom, struct D2DrlgCoords* pDrlgCoords, struct D2DrlgRoomTiles* pRoomTiles, int nLowSeed, uint32_t dwFlags)
 {
 	D2_ASSERT(pAct);
 
@@ -220,7 +220,7 @@ struct D2ActiveRoom* __fastcall DUNGEON_AllocRoom(struct D2DrlgAct* pAct, struct
 }
 
 //D2Common.0x6FD8BD90 (#10040)
-BOOL __stdcall DUNGEON_DoRoomsTouchOrOverlap(struct D2ActiveRoom* ptFirst, struct D2ActiveRoom* ptSecond)
+BOOL __cdecl DUNGEON_DoRoomsTouchOrOverlap(struct D2ActiveRoom* ptFirst, struct D2ActiveRoom* ptSecond)
 {
 	D2_ASSERT(ptFirst);
 	D2_ASSERT(ptSecond);
@@ -232,7 +232,7 @@ BOOL __stdcall DUNGEON_DoRoomsTouchOrOverlap(struct D2ActiveRoom* ptFirst, struc
 }
 
 //D2Common.0x6FD8BE30 (#10043)
-BOOL __stdcall DUNGEON_AreTileCoordinatesInsideRoom(struct D2ActiveRoom* pRoom, int nX, int nY)
+BOOL __cdecl DUNGEON_AreTileCoordinatesInsideRoom(struct D2ActiveRoom* pRoom, int nX, int nY)
 {
 	D2_ASSERT(pRoom);
 
@@ -241,7 +241,7 @@ BOOL __stdcall DUNGEON_AreTileCoordinatesInsideRoom(struct D2ActiveRoom* pRoom, 
 }
 
 //D2Common.0x6FD8BE90 (#10048)
-int __stdcall DUNGEON_CheckRoomsOverlapping_BROKEN(struct D2ActiveRoom* pPrimary, struct D2ActiveRoom* pSecondary)
+int __cdecl DUNGEON_CheckRoomsOverlapping_BROKEN(struct D2ActiveRoom* pPrimary, struct D2ActiveRoom* pSecondary)
 {
 	//This was probably meant to check if 2 rooms are overlaping / adjacent, but pSecondary is unused.
 	//In the end, this always returns 4 unless width or height is 0
@@ -270,7 +270,7 @@ int __stdcall DUNGEON_CheckRoomsOverlapping_BROKEN(struct D2ActiveRoom* pPrimary
 }
 
 //D2Commmon.0x6FD8BF00 (#10051)
-struct D2ActiveRoom* __stdcall DUNGEON_FindRoomByTileCoordinates(struct D2DrlgAct* pAct, int nX, int nY)
+struct D2ActiveRoom* __cdecl DUNGEON_FindRoomByTileCoordinates(struct D2DrlgAct* pAct, int nX, int nY)
 {
 	for (struct D2ActiveRoom* pRoom = pAct->pRoom; pRoom; pRoom = pRoom->pRoomNext)
 	{
@@ -283,7 +283,7 @@ struct D2ActiveRoom* __stdcall DUNGEON_FindRoomByTileCoordinates(struct D2DrlgAc
 }
 
 //D2Common.0x6FD8BF50 (#10050)
-struct D2ActiveRoom* __stdcall DUNGEON_GetAdjacentRoomByTileCoordinates(struct D2ActiveRoom* pRoom, int nX, int nY)
+struct D2ActiveRoom* __cdecl DUNGEON_GetAdjacentRoomByTileCoordinates(struct D2ActiveRoom* pRoom, int nX, int nY)
 {
 	struct D2ActiveRoom* pTemp = NULL;
 
@@ -303,7 +303,7 @@ struct D2ActiveRoom* __stdcall DUNGEON_GetAdjacentRoomByTileCoordinates(struct D
 }
 
 //D2Common.0x6FD8BFF0 (#10049)
-void __stdcall DUNGEON_CallRoomCallback(struct D2ActiveRoom* pRoom, ROOMCALLBACKFN pfnRoomCallback, void* pArgs)
+void __cdecl DUNGEON_CallRoomCallback(struct D2ActiveRoom* pRoom, ROOMCALLBACKFN pfnRoomCallback, void* pArgs)
 {
 	D2_ASSERT(pRoom);
 
@@ -319,7 +319,7 @@ void __stdcall DUNGEON_CallRoomCallback(struct D2ActiveRoom* pRoom, ROOMCALLBACK
 }
 
 //D2Common.0x6FD8C080 (#10052)
-void __stdcall D2Common_10052(struct D2ActiveRoom* pRoom, RECT* pRect)
+void __cdecl D2Common_10052(struct D2ActiveRoom* pRoom, RECT* pRect)
 {
 	int nTemp = 0;
 
@@ -335,7 +335,7 @@ void __stdcall D2Common_10052(struct D2ActiveRoom* pRoom, RECT* pRect)
 }
 
 //D2Common.0x6FD8C170 (#10053)
-void __stdcall DUNGEON_GetSubtileRect(struct D2ActiveRoom* pRoom, RECT* pRect)
+void __cdecl DUNGEON_GetSubtileRect(struct D2ActiveRoom* pRoom, RECT* pRect)
 {
 	D2_ASSERT(pRoom);
 
@@ -349,13 +349,13 @@ void __stdcall DUNGEON_GetSubtileRect(struct D2ActiveRoom* pRoom, RECT* pRect)
 }
 
 //D2Common.0x6FD8C210 (#10054)
-void __stdcall DUNGEON_GetRGB_IntensityFromRoom(struct D2ActiveRoom* pRoom, uint8_t* pIntensity, uint8_t* pRed, uint8_t* pGreen, uint8_t* pBlue)
+void __cdecl DUNGEON_GetRGB_IntensityFromRoom(struct D2ActiveRoom* pRoom, uint8_t* pIntensity, uint8_t* pRed, uint8_t* pGreen, uint8_t* pBlue)
 {
 	return DRLGROOM_GetRGB_IntensityFromRoomEx(pRoom->pDrlgRoom, pIntensity, pRed, pGreen, pBlue);
 }
 
 //D2Common.0x6FD8C240 (#10041)
-struct D2ActiveRoom* __stdcall DUNGEON_FindRoomBySubtileCoordinates(struct D2DrlgAct* pAct, int nX, int nY)
+struct D2ActiveRoom* __cdecl DUNGEON_FindRoomBySubtileCoordinates(struct D2DrlgAct* pAct, int nX, int nY)
 {
 	if (pAct)
 	{
@@ -372,7 +372,7 @@ struct D2ActiveRoom* __stdcall DUNGEON_FindRoomBySubtileCoordinates(struct D2Drl
 }
 
 //D2Common.0x6FD8C290
-BOOL __fastcall DUNGEON_AreSubtileCoordinatesInsideRoom(struct D2DrlgCoords* pDrlgCoords, int nX, int nY)
+BOOL __cdecl DUNGEON_AreSubtileCoordinatesInsideRoom(struct D2DrlgCoords* pDrlgCoords, int nX, int nY)
 {
 	D2_ASSERT(pDrlgCoords);
 
@@ -380,7 +380,7 @@ BOOL __fastcall DUNGEON_AreSubtileCoordinatesInsideRoom(struct D2DrlgCoords* pDr
 }
 
 //D2Common.0x6FD8C2F0 (#10046)
-struct D2ActiveRoom* __stdcall DUNGEON_FindActSpawnLocation(struct D2DrlgAct* pAct, int nLevelId, int nTileIndex, int* pX, int* pY)
+struct D2ActiveRoom* __cdecl DUNGEON_FindActSpawnLocation(struct D2DrlgAct* pAct, int nLevelId, int nTileIndex, int* pX, int* pY)
 {
 	D2_ASSERT(pAct);
 
@@ -388,7 +388,7 @@ struct D2ActiveRoom* __stdcall DUNGEON_FindActSpawnLocation(struct D2DrlgAct* pA
 }
 
 //D2Common.0x6FD8C340 (#10045)
-struct D2ActiveRoom* __stdcall DUNGEON_FindActSpawnLocationEx(struct D2DrlgAct* pAct, int nLevelId, int nTileIndex, int* pX, int* pY, int nUnitSize)
+struct D2ActiveRoom* __cdecl DUNGEON_FindActSpawnLocationEx(struct D2DrlgAct* pAct, int nLevelId, int nTileIndex, int* pX, int* pY, int nUnitSize)
 {
 	struct D2ActiveRoom* pNearRoom = NULL;
 	struct D2ActiveRoom* pRoom = NULL;
@@ -434,7 +434,7 @@ struct D2ActiveRoom* __stdcall DUNGEON_FindActSpawnLocationEx(struct D2DrlgAct* 
 }
 
 //D2Common.0x6FD8C4A0 (#10029)
-struct D2Unit* __stdcall DUNGEON_GetFirstUnitInRoom(struct D2ActiveRoom* pRoom)
+struct D2Unit* __cdecl DUNGEON_GetFirstUnitInRoom(struct D2ActiveRoom* pRoom)
 {
 	D2_ASSERT(pRoom);
 
@@ -444,7 +444,7 @@ struct D2Unit* __stdcall DUNGEON_GetFirstUnitInRoom(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8C4E0 (#10100)
-void __stdcall DUNGEON_IncreaseAlliedCountOfRoom(struct D2ActiveRoom* pRoom)
+void __cdecl DUNGEON_IncreaseAlliedCountOfRoom(struct D2ActiveRoom* pRoom)
 {
 	if (pRoom)
 	{
@@ -453,7 +453,7 @@ void __stdcall DUNGEON_IncreaseAlliedCountOfRoom(struct D2ActiveRoom* pRoom)
 }
 
 //D2Comon.0x6FD8C4F0 (#10036)
-int __stdcall DUNGEON_GetAlliedCountFromRoom(struct D2ActiveRoom* pRoom)
+int __cdecl DUNGEON_GetAlliedCountFromRoom(struct D2ActiveRoom* pRoom)
 {
 	if (pRoom)
 	{
@@ -464,7 +464,7 @@ int __stdcall DUNGEON_GetAlliedCountFromRoom(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8C510 (#10101)
-void __stdcall DUNGEON_DecreaseAlliedCountOfRoom(struct D2ActiveRoom* pRoom)
+void __cdecl DUNGEON_DecreaseAlliedCountOfRoom(struct D2ActiveRoom* pRoom)
 {
 	if (pRoom)
 	{
@@ -475,7 +475,7 @@ void __stdcall DUNGEON_DecreaseAlliedCountOfRoom(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8C550
-struct D2Unit** __fastcall DUNGEON_GetUnitListFromRoom(struct D2ActiveRoom* pRoom)
+struct D2Unit** __cdecl DUNGEON_GetUnitListFromRoom(struct D2ActiveRoom* pRoom)
 {
 	D2_ASSERT(pRoom);
 
@@ -483,7 +483,7 @@ struct D2Unit** __fastcall DUNGEON_GetUnitListFromRoom(struct D2ActiveRoom* pRoo
 }
 
 //D2Common.0x6FD8C580
-struct D2Unit** __fastcall DUNGEON_GetUnitUpdateListFromRoom(struct D2ActiveRoom* pRoom, BOOL bUpdate)
+struct D2Unit** __cdecl DUNGEON_GetUnitUpdateListFromRoom(struct D2ActiveRoom* pRoom, BOOL bUpdate)
 {
 	D2_ASSERT(pRoom);
 
@@ -496,7 +496,7 @@ struct D2Unit** __fastcall DUNGEON_GetUnitUpdateListFromRoom(struct D2ActiveRoom
 }
 
 //D2Common.0x6FD8C5C0 (#10055)
-struct D2PresetUnit* __stdcall DUNGEON_GetPresetUnitsFromRoom(struct D2ActiveRoom* pRoom)
+struct D2PresetUnit* __cdecl DUNGEON_GetPresetUnitsFromRoom(struct D2ActiveRoom* pRoom)
 {
 	D2_ASSERT(pRoom);
 
@@ -504,7 +504,7 @@ struct D2PresetUnit* __stdcall DUNGEON_GetPresetUnitsFromRoom(struct D2ActiveRoo
 }
 
 //D2Common.0x6FD8C600
-struct D2RoomCollisionGrid* __fastcall DUNGEON_GetCollisionGridFromRoom(struct D2ActiveRoom* pRoom)
+struct D2RoomCollisionGrid* __cdecl DUNGEON_GetCollisionGridFromRoom(struct D2ActiveRoom* pRoom)
 {
 	D2_ASSERT(pRoom);
 
@@ -512,7 +512,7 @@ struct D2RoomCollisionGrid* __fastcall DUNGEON_GetCollisionGridFromRoom(struct D
 }
 
 //D2Common.0x6FD8C630
-void __fastcall DUNGEON_SetCollisionGridInRoom(struct D2ActiveRoom* pRoom, struct D2RoomCollisionGrid* pCollisionGrid)
+void __cdecl DUNGEON_SetCollisionGridInRoom(struct D2ActiveRoom* pRoom, struct D2RoomCollisionGrid* pCollisionGrid)
 {
 	D2_ASSERT(pRoom);
 
@@ -520,7 +520,7 @@ void __fastcall DUNGEON_SetCollisionGridInRoom(struct D2ActiveRoom* pRoom, struc
 }
 
 //D2Common.0x6FD8C660 (#10063)
-void __stdcall DUNGEON_SetClientIsInSight(struct D2DrlgAct* pAct, int nLevelId, int nX, int nY, struct D2ActiveRoom* pRoom)
+void __cdecl DUNGEON_SetClientIsInSight(struct D2DrlgAct* pAct, int nLevelId, int nX, int nY, struct D2ActiveRoom* pRoom)
 {
 	D2_ASSERT(pAct);
 
@@ -528,7 +528,7 @@ void __stdcall DUNGEON_SetClientIsInSight(struct D2DrlgAct* pAct, int nLevelId, 
 }
 
 //D2Common.0x6FD8C6B0 (#10064)
-void __stdcall DUNGEON_UnsetClientIsInSight(struct D2DrlgAct* pAct, int nLevelId, int nX, int nY, struct D2ActiveRoom* pRoom)
+void __cdecl DUNGEON_UnsetClientIsInSight(struct D2DrlgAct* pAct, int nLevelId, int nX, int nY, struct D2ActiveRoom* pRoom)
 {
 	D2_ASSERT(pAct);
 
@@ -536,13 +536,13 @@ void __stdcall DUNGEON_UnsetClientIsInSight(struct D2DrlgAct* pAct, int nLevelId
 }
 
 //D2Common.0x6FD8C700 (#10062)
-void __stdcall DUNGEON_ChangeClientRoom(struct D2ActiveRoom* pRoom1, struct D2ActiveRoom* pRoom2)
+void __cdecl DUNGEON_ChangeClientRoom(struct D2ActiveRoom* pRoom1, struct D2ActiveRoom* pRoom2)
 {
 	DRLGACTIVATE_ChangeClientRoom(pRoom1 ? pRoom1->pDrlgRoom : nullptr, pRoom2 ? pRoom2->pDrlgRoom : nullptr);
 }
 
 //D2Common.0x6FD8C730 (#10065)
-struct D2ActiveRoom* __stdcall DUNGEON_StreamRoomAtCoords(struct D2DrlgAct* pAct, int nX, int nY)
+struct D2ActiveRoom* __cdecl DUNGEON_StreamRoomAtCoords(struct D2DrlgAct* pAct, int nX, int nY)
 {
 	D2_ASSERT(pAct);
 
@@ -550,7 +550,7 @@ struct D2ActiveRoom* __stdcall DUNGEON_StreamRoomAtCoords(struct D2DrlgAct* pAct
 }
 
 //D2Common.0x6FD8C770 (#10056)
-struct D2ActiveRoom* __stdcall DUNGEON_GetRoomFromAct(struct D2DrlgAct* pAct)
+struct D2ActiveRoom* __cdecl DUNGEON_GetRoomFromAct(struct D2DrlgAct* pAct)
 {
 	D2_ASSERT(pAct);
 
@@ -558,7 +558,7 @@ struct D2ActiveRoom* __stdcall DUNGEON_GetRoomFromAct(struct D2DrlgAct* pAct)
 }
 
 //D2Common.0x6FD8C7A0 (#10057)
-int __stdcall DUNGEON_GetLevelIdFromRoom(struct D2ActiveRoom* pRoom)
+int __cdecl DUNGEON_GetLevelIdFromRoom(struct D2ActiveRoom* pRoom)
 {
 	if (pRoom)
 	{
@@ -569,7 +569,7 @@ int __stdcall DUNGEON_GetLevelIdFromRoom(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8C7C0 (#10058)
-int __stdcall DUNGEON_GetWarpDestinationLevel(struct D2ActiveRoom* pRoom, int nSourceLevel)
+int __cdecl DUNGEON_GetWarpDestinationLevel(struct D2ActiveRoom* pRoom, int nSourceLevel)
 {
 	if (pRoom)
 	{
@@ -580,7 +580,7 @@ int __stdcall DUNGEON_GetWarpDestinationLevel(struct D2ActiveRoom* pRoom, int nS
 }
 
 //D2Common.0x6FD8C7E0 (#10059)
-int __stdcall DUNGEON_GetLevelIdFromPopulatedRoom(struct D2ActiveRoom* pRoom)
+int __cdecl DUNGEON_GetLevelIdFromPopulatedRoom(struct D2ActiveRoom* pRoom)
 {
 	if (pRoom)
 	{
@@ -591,7 +591,7 @@ int __stdcall DUNGEON_GetLevelIdFromPopulatedRoom(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8C800 (#10060)
-BOOL __stdcall DUNGEON_HasWaypoint(struct D2ActiveRoom* pRoom)
+BOOL __cdecl DUNGEON_HasWaypoint(struct D2ActiveRoom* pRoom)
 {
 	D2_ASSERT(pRoom);
 
@@ -599,7 +599,7 @@ BOOL __stdcall DUNGEON_HasWaypoint(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8C840 (#10061)
-const char* __stdcall DUNGEON_GetPickedLevelPrestFilePathFromRoom(struct D2ActiveRoom* pRoom)
+const char* __cdecl DUNGEON_GetPickedLevelPrestFilePathFromRoom(struct D2ActiveRoom* pRoom)
 {
 	if (pRoom)
 	{
@@ -610,7 +610,7 @@ const char* __stdcall DUNGEON_GetPickedLevelPrestFilePathFromRoom(struct D2Activ
 }
 
 //D2Common.0x6FD8C860 (#10066)
-void __stdcall DUNGEON_AllocDrlgDelete(struct D2ActiveRoom* pRoom, int nUnitType, D2UnitGUID nUnitGUID)
+void __cdecl DUNGEON_AllocDrlgDelete(struct D2ActiveRoom* pRoom, int nUnitType, D2UnitGUID nUnitGUID)
 {
 	struct D2DrlgDelete* pDrlgDelete = NULL;
 
@@ -626,7 +626,7 @@ void __stdcall DUNGEON_AllocDrlgDelete(struct D2ActiveRoom* pRoom, int nUnitType
 }
 
 //D2Common.0x6FD8C8B0 (#10067)
-void __stdcall DUNGEON_FreeDrlgDelete(struct D2ActiveRoom* pRoom)
+void __cdecl DUNGEON_FreeDrlgDelete(struct D2ActiveRoom* pRoom)
 {
 	struct D2DrlgDelete* pNext = NULL;
 
@@ -642,7 +642,7 @@ void __stdcall DUNGEON_FreeDrlgDelete(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8C910 (#10068)
-struct D2DrlgDelete* __stdcall DUNGEON_GetDrlgDeleteFromRoom(struct D2ActiveRoom* pRoom)
+struct D2DrlgDelete* __cdecl DUNGEON_GetDrlgDeleteFromRoom(struct D2ActiveRoom* pRoom)
 {
 	D2_ASSERT(pRoom);
 
@@ -650,7 +650,7 @@ struct D2DrlgDelete* __stdcall DUNGEON_GetDrlgDeleteFromRoom(struct D2ActiveRoom
 }
 
 //D2Common.0x6FD8C940 (#10069)
-struct D2ActiveRoom* __stdcall DUNGEON_GetARoomInClientSight(struct D2DrlgAct* pAct)
+struct D2ActiveRoom* __cdecl DUNGEON_GetARoomInClientSight(struct D2DrlgAct* pAct)
 {
 	D2_ASSERT(pAct);
 
@@ -658,7 +658,7 @@ struct D2ActiveRoom* __stdcall DUNGEON_GetARoomInClientSight(struct D2DrlgAct* p
 }
 
 //D2Common.0x6FD8C980 (#10070)
-struct D2ActiveRoom* __stdcall DUNGEON_GetARoomInSightButWithoutClient(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom)
+struct D2ActiveRoom* __cdecl DUNGEON_GetARoomInSightButWithoutClient(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom)
 {
 	D2_ASSERT(pAct);
 
@@ -668,7 +668,7 @@ struct D2ActiveRoom* __stdcall DUNGEON_GetARoomInSightButWithoutClient(struct D2
 }
 
 //D2Common.0x6FD8C9E0 (#10071)
-BOOL __stdcall DUNGEON_TestRoomCanUnTile(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom)
+BOOL __cdecl DUNGEON_TestRoomCanUnTile(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom)
 {
 	D2_ASSERT(pAct);
 	D2_ASSERTM(!pAct->bClient, "Only servers should use DungeonTestRoomCanUnTile.");
@@ -678,13 +678,13 @@ BOOL __stdcall DUNGEON_TestRoomCanUnTile(struct D2DrlgAct* pAct, struct D2Active
 }
 
 //D2Common.0x6FD8CA60 (#10072)
-bool __stdcall DUNGEON_GetRoomStatusFlags(struct D2ActiveRoom* pRoom)
+bool __cdecl DUNGEON_GetRoomStatusFlags(struct D2ActiveRoom* pRoom)
 {
 	return DRLGACTIVATE_GetRoomStatusFlags(pRoom->pDrlgRoom) >= 3;
 }
 
 //D2Common.0x6FD8CA80 (#10073)
-BOOL __stdcall D2Common_10073(struct D2ActiveRoom* pRoom)
+BOOL __cdecl D2Common_10073(struct D2ActiveRoom* pRoom)
 {
 	D2_ASSERT(pRoom);
 
@@ -705,7 +705,7 @@ BOOL __stdcall D2Common_10073(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8CAE0 (#10074)
-BOOL __stdcall D2Common_10074(struct D2ActiveRoom* pRoom)
+BOOL __cdecl D2Common_10074(struct D2ActiveRoom* pRoom)
 {
 	D2_ASSERT(pRoom);
 
@@ -713,7 +713,7 @@ BOOL __stdcall D2Common_10074(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8CB10 (#10075)
-void __stdcall D2Common_10075(struct D2ActiveRoom* pRoom, BOOL bSet)
+void __cdecl D2Common_10075(struct D2ActiveRoom* pRoom, BOOL bSet)
 {
 	D2_ASSERT(pRoom);
 
@@ -728,7 +728,7 @@ void __stdcall D2Common_10075(struct D2ActiveRoom* pRoom, BOOL bSet)
 }
 
 //D2Common.0x6FD8CB60 (#10079)
-void __stdcall DUNGEON_AddClientToRoom(struct D2ActiveRoom* pRoom, struct D2Client* pClient)
+void __cdecl DUNGEON_AddClientToRoom(struct D2ActiveRoom* pRoom, struct D2Client* pClient)
 {
 	D2_ASSERT(pRoom);
 
@@ -754,7 +754,7 @@ void __stdcall DUNGEON_AddClientToRoom(struct D2ActiveRoom* pRoom, struct D2Clie
 }
 
 //D2Common.0x6FD8CC50
-void __fastcall DUNGEON_UpdateClientListOfRoom(struct D2ActiveRoom* pRoom)
+void __cdecl DUNGEON_UpdateClientListOfRoom(struct D2ActiveRoom* pRoom)
 {
 	struct D2Client* pClient1 = NULL;
 	struct D2Client* pClient2 = NULL;
@@ -795,7 +795,7 @@ void __fastcall DUNGEON_UpdateClientListOfRoom(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8CD10 (#10080)
-void __stdcall DUNGEON_RemoveClientFromRoom(struct D2ActiveRoom* pRoom, struct D2Client* pClient)
+void __cdecl DUNGEON_RemoveClientFromRoom(struct D2ActiveRoom* pRoom, struct D2Client* pClient)
 {
 	int i = 0;
 
@@ -825,7 +825,7 @@ void __stdcall DUNGEON_RemoveClientFromRoom(struct D2ActiveRoom* pRoom, struct D
 }
 
 //D2Common.0x6FD8CDF0 (#10081)
-int __stdcall D2Common_10081_GetTileCountFromRoom(struct D2ActiveRoom* pRoom)
+int __cdecl D2Common_10081_GetTileCountFromRoom(struct D2ActiveRoom* pRoom)
 {
 	D2_ASSERT(pRoom);
 
@@ -842,7 +842,7 @@ int __stdcall D2Common_10081_GetTileCountFromRoom(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8CE40
-void __fastcall DUNGEON_FreeRoom(void* pMemPool, struct D2ActiveRoom* pRoom)
+void __cdecl DUNGEON_FreeRoom(void* pMemPool, struct D2ActiveRoom* pRoom)
 {
 	for (struct D2Unit* i = pRoom->pUnitFirst; i; i = pRoom->pUnitFirst)
 	{
@@ -869,7 +869,7 @@ void __fastcall DUNGEON_FreeRoom(void* pMemPool, struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8CF10 (#10076)
-void __stdcall DUNGEON_RemoveRoomFromAct(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom)
+void __cdecl DUNGEON_RemoveRoomFromAct(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom)
 {
 	struct D2ActiveRoom* pPreviousRoom = NULL;
 	struct D2ActiveRoom* pCurrentRoom = NULL;
@@ -926,19 +926,19 @@ void __stdcall DUNGEON_RemoveRoomFromAct(struct D2DrlgAct* pAct, struct D2Active
 }
 
 //D2Common.0x6FD8D000 (#10077)
-void __stdcall D2Common_10077(struct D2ActiveRoom* pRoom1, struct D2ActiveRoom* pRoom2)
+void __cdecl D2Common_10077(struct D2ActiveRoom* pRoom1, struct D2ActiveRoom* pRoom2)
 {
 	sub_6FD745C0(pRoom1 ? pRoom1->pDrlgRoom : NULL, pRoom2 ? pRoom2->pDrlgRoom : NULL);
 }
 
 //D2Common.0x6FD8D030 (#10078)
-void __stdcall DUNGEON_UpdateAndFreeInactiveRooms(struct D2DrlgAct* pAct)
+void __cdecl DUNGEON_UpdateAndFreeInactiveRooms(struct D2DrlgAct* pAct)
 {
 	DRLG_UpdateAndFreeInactiveRooms(pAct->pDrlg);
 }
 
 //D2Common.0x6FD8D040 (#10044)
-int __stdcall DUNGEON_CheckLOSDraw(struct D2ActiveRoom* pRoom)
+int __cdecl DUNGEON_CheckLOSDraw(struct D2ActiveRoom* pRoom)
 {
 	if (pRoom)
 	{
@@ -949,7 +949,7 @@ int __stdcall DUNGEON_CheckLOSDraw(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8D060
-struct D2DrlgEnvironment* __fastcall DUNGEON_GetEnvironmentFromAct(struct D2DrlgAct* pAct)
+struct D2DrlgEnvironment* __cdecl DUNGEON_GetEnvironmentFromAct(struct D2DrlgAct* pAct)
 {
 	D2_ASSERT(pAct);
 
@@ -957,7 +957,7 @@ struct D2DrlgEnvironment* __fastcall DUNGEON_GetEnvironmentFromAct(struct D2Drlg
 }
 
 //D2Common.0x6FD8D090 (#10088)
-struct D2Drlg* __stdcall DUNGEON_GetDrlgFromAct(struct D2DrlgAct* pAct)
+struct D2Drlg* __cdecl DUNGEON_GetDrlgFromAct(struct D2DrlgAct* pAct)
 {
 	D2_ASSERT(pAct);
 
@@ -965,7 +965,7 @@ struct D2Drlg* __stdcall DUNGEON_GetDrlgFromAct(struct D2DrlgAct* pAct)
 }
 
 //D2Common.0x6FD912D0 (#10089)
-int __stdcall DUNGEON_GetInitSeedFromAct(struct D2DrlgAct* pAct)
+int __cdecl DUNGEON_GetInitSeedFromAct(struct D2DrlgAct* pAct)
 {
 	if (pAct)
 	{
@@ -976,19 +976,19 @@ int __stdcall DUNGEON_GetInitSeedFromAct(struct D2DrlgAct* pAct)
 }
 
 //D2Common.0x6FD8D0C0 (#10007)
-struct D2DrlgRoom* __fastcall DUNGEON_GetRoomExFromRoom(struct D2ActiveRoom* pRoom)
+struct D2DrlgRoom* __cdecl DUNGEON_GetRoomExFromRoom(struct D2ActiveRoom* pRoom)
 {
 	return pRoom->pDrlgRoom;
 }
 
 //D2Common.0x6FD8D0D0 (#10086)
-BOOL __stdcall DUNGEON_IsTownLevelId(int nLevelId)
+BOOL __cdecl DUNGEON_IsTownLevelId(int nLevelId)
 {
 	return DRLG_IsTownLevel(nLevelId);
 }
 
 //D2Common.0x6FD8D0E0 (#10082)
-BOOL __stdcall DUNGEON_IsRoomInTown(struct D2ActiveRoom* pRoom)
+BOOL __cdecl DUNGEON_IsRoomInTown(struct D2ActiveRoom* pRoom)
 {
 	if (pRoom)
 	{
@@ -999,7 +999,7 @@ BOOL __stdcall DUNGEON_IsRoomInTown(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8D100 (#10083)
-int __stdcall D2COMMON_10083_Return0(struct D2ActiveRoom* pRoom)
+int __cdecl D2COMMON_10083_Return0(struct D2ActiveRoom* pRoom)
 {
 	//if (pRoom)
 	//{
@@ -1012,13 +1012,13 @@ int __stdcall D2COMMON_10083_Return0(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8D130 (#10084)
-int __stdcall D2Common_10084(struct D2ActiveRoom* pRoom)
+int __cdecl D2Common_10084(struct D2ActiveRoom* pRoom)
 {
 	return pRoom->dwFlags & 4;
 }
 
 //D2Common.0x6FD8D140 (#10085)
-int __stdcall DUNGEON_GetTownLevelIdFromActNo(uint8_t nAct)
+int __cdecl DUNGEON_GetTownLevelIdFromActNo(uint8_t nAct)
 {
 	static const int gnTownLevelIds[] = { LEVEL_ROGUEENCAMPMENT, LEVEL_LUTGHOLEIN, LEVEL_KURASTDOCKTOWN, LEVEL_THEPANDEMONIUMFORTRESS, LEVEL_HARROGATH };
 
@@ -1028,7 +1028,7 @@ int __stdcall DUNGEON_GetTownLevelIdFromActNo(uint8_t nAct)
 }
 
 //D2Common.0x6FD8D180 (#10087)
-int __stdcall D2Common_10087(struct D2ActiveRoom* pRoom)
+int __cdecl D2Common_10087(struct D2ActiveRoom* pRoom)
 {
 	D2_ASSERT(pRoom);
 
@@ -1036,13 +1036,13 @@ int __stdcall D2Common_10087(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8D1C0 (#10090)
-int __stdcall DUNGEON_GetNumberOfPopulatedRoomsInLevel(struct D2DrlgAct* pAct, int nLevelId)
+int __cdecl DUNGEON_GetNumberOfPopulatedRoomsInLevel(struct D2DrlgAct* pAct, int nLevelId)
 {
 	return DRLG_GetNumberOfPopulatedRoomsInLevel(pAct->pDrlg, nLevelId);
 }
 
 //D2Common.0x6FD8D1E0 (#10025)
-int* __stdcall DUNGEON_GetWarpCoordinatesFromRoom(struct D2ActiveRoom* pRoom)
+int* __cdecl DUNGEON_GetWarpCoordinatesFromRoom(struct D2ActiveRoom* pRoom)
 {
 	D2_ASSERT(pRoom);
 
@@ -1050,7 +1050,7 @@ int* __stdcall DUNGEON_GetWarpCoordinatesFromRoom(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8D220 (#10091)
-void __stdcall DUNGEON_UpdateWarpRoomSelect(struct D2ActiveRoom* pRoom, int nLevelId)
+void __cdecl DUNGEON_UpdateWarpRoomSelect(struct D2ActiveRoom* pRoom, int nLevelId)
 {
 	D2_ASSERT(pRoom);
 
@@ -1058,7 +1058,7 @@ void __stdcall DUNGEON_UpdateWarpRoomSelect(struct D2ActiveRoom* pRoom, int nLev
 }
 
 //D2Common.0x6FD8D260 (#10092)
-void __stdcall DUNGEON_UpdateWarpRoomDeselect(struct D2ActiveRoom* pRoom, int nLevelId)
+void __cdecl DUNGEON_UpdateWarpRoomDeselect(struct D2ActiveRoom* pRoom, int nLevelId)
 {
 	D2_ASSERT(pRoom);
 
@@ -1066,7 +1066,7 @@ void __stdcall DUNGEON_UpdateWarpRoomDeselect(struct D2ActiveRoom* pRoom, int nL
 }
 
 //D2Common.0x6FD8D2A0 (#10093)
-void __stdcall DUNGEON_UpdatePops(struct D2ActiveRoom* pRoom, int nX, int nY, BOOL bOtherRoom)
+void __cdecl DUNGEON_UpdatePops(struct D2ActiveRoom* pRoom, int nX, int nY, BOOL bOtherRoom)
 {
 	D2_ASSERT(pRoom);
 
@@ -1074,13 +1074,13 @@ void __stdcall DUNGEON_UpdatePops(struct D2ActiveRoom* pRoom, int nX, int nY, BO
 }
 
 //D2Common.0x6FD8D2E0 (#10094)
-void __stdcall DUNGEON_GetTombStoneTileCoords(struct D2ActiveRoom* pRoom, struct D2Coord** ppTombStoneTiles, int* pnTombStoneTiles)
+void __cdecl DUNGEON_GetTombStoneTileCoords(struct D2ActiveRoom* pRoom, struct D2Coord** ppTombStoneTiles, int* pnTombStoneTiles)
 {
 	return DRLGPRESET_GetTombStoneTileCoords(pRoom->pDrlgRoom, ppTombStoneTiles, pnTombStoneTiles);
 }
 
 //D2Common.0x6FD8D300 (#10095)
-int __stdcall D2Common_10095(struct D2ActiveRoom* pRoom, int nX, int nY)
+int __cdecl D2Common_10095(struct D2ActiveRoom* pRoom, int nX, int nY)
 {
 	struct D2ActiveRoom* pNearRoom = NULL;
 
@@ -1107,19 +1107,19 @@ int __stdcall D2Common_10095(struct D2ActiveRoom* pRoom, int nX, int nY)
 }
 
 //D2Common.0x6FD8D3A0 (#10096)
-struct D2RoomCoordList* __stdcall D2Common_10096(struct D2ActiveRoom* pRoom, int nX, int nY)
+struct D2RoomCoordList* __cdecl D2Common_10096(struct D2ActiveRoom* pRoom, int nX, int nY)
 {
 	return sub_6FD77110(pRoom->pDrlgRoom, nX, nY);
 }
 
 //D2Common.0x6FD8D3C0 (#10097)
-struct D2RoomCoordList* __stdcall DUNGEON_GetRoomCoordList(struct D2ActiveRoom* pRoom)
+struct D2RoomCoordList* __cdecl DUNGEON_GetRoomCoordList(struct D2ActiveRoom* pRoom)
 {
 	return DRLGLOGIC_GetRoomCoordList(pRoom->pDrlgRoom);
 }
 
 //D2Common.0x6FD8D3D0 (#10098)
-void __stdcall DUNGEON_GetPortalLevelArrayFromPortalFlags(void* pMemPool, int nFlags, int** ppLevels, int* pnLevels)
+void __cdecl DUNGEON_GetPortalLevelArrayFromPortalFlags(void* pMemPool, int nFlags, int** ppLevels, int* pnLevels)
 {
 	int* pPortalLevels = NULL;
 	int nPortalLevels = 0;
@@ -1153,7 +1153,7 @@ void __stdcall DUNGEON_GetPortalLevelArrayFromPortalFlags(void* pMemPool, int nF
 }
 
 //D2Common.0x6FD8D4B0 (#10099)
-int __stdcall DUNGEON_GetPortalFlagFromLevelId(int nPortalLevelId)
+int __cdecl DUNGEON_GetPortalFlagFromLevelId(int nPortalLevelId)
 {
 	int* pPortalLevels = NULL;
 	int nPortalLevels = 0;
@@ -1172,7 +1172,7 @@ int __stdcall DUNGEON_GetPortalFlagFromLevelId(int nPortalLevelId)
 }
 
 //D2Common.0x6FD8D4F0 (#10037)
-int __stdcall DUNGEON_GetTownLevelIdFromAct(struct D2DrlgAct* pAct)
+int __cdecl DUNGEON_GetTownLevelIdFromAct(struct D2DrlgAct* pAct)
 {
 	D2_ASSERT(pAct);
 
@@ -1180,7 +1180,7 @@ int __stdcall DUNGEON_GetTownLevelIdFromAct(struct D2DrlgAct* pAct)
 }
 
 //D2Common.0x6FD8D520 (#10047)
-int __stdcall DUNGEON_GetHoradricStaffTombLevelId(struct D2DrlgAct* pAct)
+int __cdecl DUNGEON_GetHoradricStaffTombLevelId(struct D2DrlgAct* pAct)
 {
 	if (pAct)
 	{
@@ -1191,7 +1191,7 @@ int __stdcall DUNGEON_GetHoradricStaffTombLevelId(struct D2DrlgAct* pAct)
 }
 
 //D2Common.0x6FD8D540 (#10102)
-void __stdcall DUNGEON_ToggleHasPortalFlag(struct D2ActiveRoom* pRoom, BOOL bReset)
+void __cdecl DUNGEON_ToggleHasPortalFlag(struct D2ActiveRoom* pRoom, BOOL bReset)
 {
 	if (pRoom)
 	{
@@ -1200,7 +1200,7 @@ void __stdcall DUNGEON_ToggleHasPortalFlag(struct D2ActiveRoom* pRoom, BOOL bRes
 }
 
 //D2Common.0x6FD8D560 (#10104)
-void __stdcall DUNGEON_AnimateTiles(struct D2ActiveRoom* pRoom)
+void __cdecl DUNGEON_AnimateTiles(struct D2ActiveRoom* pRoom)
 {
 	if (pRoom)
 	{
@@ -1209,7 +1209,7 @@ void __stdcall DUNGEON_AnimateTiles(struct D2ActiveRoom* pRoom)
 }
 
 //D2Common.0x6FD8D580 (#10105)
-void __stdcall DUNGEON_InitRoomTileAnimation(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom1, struct D2ActiveRoom* pRoom2)
+void __cdecl DUNGEON_InitRoomTileAnimation(struct D2DrlgAct* pAct, struct D2ActiveRoom* pRoom1, struct D2ActiveRoom* pRoom2)
 {
 	struct D2DrlgRoom* pDrlgRoom1 = NULL;
 	struct D2ActiveRoom* pRoom = NULL;
@@ -1237,7 +1237,7 @@ void __stdcall DUNGEON_InitRoomTileAnimation(struct D2DrlgAct* pAct, struct D2Ac
 }
 
 //D2Common.0x6FD8D5C0 (#10103)
-void __stdcall DUNGEON_SetActCallbackFunc(struct D2DrlgAct* pAct, ACTCALLBACKFN pActCallbackFunction)
+void __cdecl DUNGEON_SetActCallbackFunc(struct D2DrlgAct* pAct, ACTCALLBACKFN pActCallbackFunction)
 {
 	if (pAct)
 	{
@@ -1250,7 +1250,7 @@ void __stdcall DUNGEON_SetActCallbackFunc(struct D2DrlgAct* pAct, ACTCALLBACKFN 
 }
 
 //D2Common.0x6FD8D600 (#10106)
-void __stdcall DUNGEON_SaveKilledUnitGUID(struct D2ActiveRoom* pRoom, D2UnitGUID nUnitGUID)
+void __cdecl DUNGEON_SaveKilledUnitGUID(struct D2ActiveRoom* pRoom, D2UnitGUID nUnitGUID)
 {
 	if (pRoom)
 	{
@@ -1260,7 +1260,7 @@ void __stdcall DUNGEON_SaveKilledUnitGUID(struct D2ActiveRoom* pRoom, D2UnitGUID
 }
 
 //D2Common.0x6FD8D690 (#10107)
-void __stdcall DUNGEON_ClientToGameTileCoords(int* pX, int* pY)
+void __cdecl DUNGEON_ClientToGameTileCoords(int* pX, int* pY)
 {
 	const int nOutX = (2 * *pY + *pX) / 160;
 	const int nOutY = (2 * *pY - *pX) / 160;
@@ -1270,7 +1270,7 @@ void __stdcall DUNGEON_ClientToGameTileCoords(int* pX, int* pY)
 }
 
 //D2Common.0x6FD8D870 (#10108)
-void __stdcall DUNGEON_ClientToGameSubtileCoords(int* pX, int* pY)
+void __cdecl DUNGEON_ClientToGameSubtileCoords(int* pX, int* pY)
 {
 	const int nOutX = (2 * *pY + *pX) / 32;
 	const int nOutY = (2 * *pY - *pX) / 32;
@@ -1280,7 +1280,7 @@ void __stdcall DUNGEON_ClientToGameSubtileCoords(int* pX, int* pY)
 }
 
 //D2Common.0x6FD8D8A0 (#10109)
-void __stdcall DUNGEON_ClientToGameCoords(int* pX, int* pY)
+void __cdecl DUNGEON_ClientToGameCoords(int* pX, int* pY)
 {
 	int nX = 2 * *pY + *pX;
 	int nY = 2 * *pY - *pX;
@@ -1290,7 +1290,7 @@ void __stdcall DUNGEON_ClientToGameCoords(int* pX, int* pY)
 }
 
 //D2Common.0x6FD8D6E0 (#10110)
-void __stdcall DUNGEON_GameTileToClientCoords(int* pX, int* pY)
+void __cdecl DUNGEON_GameTileToClientCoords(int* pX, int* pY)
 {
 	int nX = *pX;
 	int nY = *pY;
@@ -1300,7 +1300,7 @@ void __stdcall DUNGEON_GameTileToClientCoords(int* pX, int* pY)
 }
 
 //D2Common.0x6FD8D630 (#10111)
-void __stdcall DUNGEON_GameSubtileToClientCoords(int* pX, int* pY)
+void __cdecl DUNGEON_GameSubtileToClientCoords(int* pX, int* pY)
 {
 	const int nOutX = 16 * (*pX - *pY);
 	const int nOutY =  8 * (*pX + *pY);
@@ -1310,7 +1310,7 @@ void __stdcall DUNGEON_GameSubtileToClientCoords(int* pX, int* pY)
 }
 
 //D2Common.0x6FD8D660 (#10112)
-void __stdcall DUNGEON_GameToClientCoords(int* pX, int* pY)
+void __cdecl DUNGEON_GameToClientCoords(int* pX, int* pY)
 {
 	const int nOutX = (*pX - *pY) / 2;
 	const int nOutY = (*pX + *pY) / 4;
@@ -1320,14 +1320,14 @@ void __stdcall DUNGEON_GameToClientCoords(int* pX, int* pY)
 }
 
 //D2Common.0x6FD8D8C0 (#10113)
-void __stdcall DUNGEON_GameTileToSubtileCoords(int* pX, int* pY)
+void __cdecl DUNGEON_GameTileToSubtileCoords(int* pX, int* pY)
 {
 	*pX *= 5;
 	*pY *= 5;
 }
 
 //D2Common.0x6FD8D710 (#10114)
-void __stdcall DUNGEON_ClientTileDrawPositionToGameCoords(int nX, int nY, int* pX, int* pY)
+void __cdecl DUNGEON_ClientTileDrawPositionToGameCoords(int nX, int nY, int* pX, int* pY)
 {
 	*pX = 2 * nY + nX;
 	*pY = 2 * nY - nX;
@@ -1352,7 +1352,7 @@ void __stdcall DUNGEON_ClientTileDrawPositionToGameCoords(int nX, int nY, int* p
 }
 
 //D2Common.0x6FD8D790 (#10115)
-void __stdcall DUNGEON_GameToClientTileDrawPositionCoords(int nX, int nY, int* pX, int* pY)
+void __cdecl DUNGEON_GameToClientTileDrawPositionCoords(int nX, int nY, int* pX, int* pY)
 {
 	*pX = 80 * (nX - nY);
 	*pY = 40 * (nX + nY);
@@ -1361,7 +1361,7 @@ void __stdcall DUNGEON_GameToClientTileDrawPositionCoords(int nX, int nY, int* p
 }
 
 //D2Common.0x6FD8D7D0 (#10116)
-void __stdcall DUNGEON_ClientSubileDrawPositionToGameCoords(int nX, int nY, int* pX, int* pY)
+void __cdecl DUNGEON_ClientSubileDrawPositionToGameCoords(int nX, int nY, int* pX, int* pY)
 {
 	*pX = 2 * nY + nX;
 	*pY = 2 * nY - nX;
@@ -1386,7 +1386,7 @@ void __stdcall DUNGEON_ClientSubileDrawPositionToGameCoords(int nX, int nY, int*
 }
 
 //D2Common.0x6FD8D830 (#10117)
-void __stdcall DUNGEON_GameToClientSubtileDrawPositionCoords(int nX, int nY, int* pX, int* pY)
+void __cdecl DUNGEON_GameToClientSubtileDrawPositionCoords(int nX, int nY, int* pX, int* pY)
 {
 	*pX = 16 * (nX - nY);
 	*pY = 8 * (nX + nY);
@@ -1395,7 +1395,7 @@ void __stdcall DUNGEON_GameToClientSubtileDrawPositionCoords(int nX, int nY, int
 }
 
 // Helper function
-struct D2ActiveRoom* __fastcall DUNGEON_GetRoomAtPosition(struct D2ActiveRoom* pRoom, int32_t nSubtileX, int32_t nSubtileY)
+struct D2ActiveRoom* __cdecl DUNGEON_GetRoomAtPosition(struct D2ActiveRoom* pRoom, int32_t nSubtileX, int32_t nSubtileY)
 {
     if (!pRoom)
     {

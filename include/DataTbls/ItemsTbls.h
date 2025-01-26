@@ -594,131 +594,131 @@ struct D2QualityItemDataTbl							//sgptDataTable + 0xEE4
 #pragma pack()
 
 //D2Common.0x6FD550E0
-int __fastcall DATATBLS_MapItemsTxtKeywordToNumber(char* szKey);
+int __cdecl DATATBLS_MapItemsTxtKeywordToNumber(char* szKey);
 //D2Common.0x6FD55140
-int __fastcall DATATBLS_Return2(int);
+int __cdecl DATATBLS_Return2(int);
 //D2Common.0x6FD55150
-int __fastcall sub_6FD55150(char* szText, int* a2, int a3, int nKeywordNumber);
+int __cdecl sub_6FD55150(char* szText, int* a2, int a3, int nKeywordNumber);
 //D2Common.0x6FD551E0
-void __fastcall DATATBLS_ItemCalcLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
+void __cdecl DATATBLS_ItemCalcLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
 //D2Common.0x6FD55280
-void __fastcall DATATBLS_LoadItemsTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadItemsTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD575D0
-void __fastcall DATATBLS_UnloadItemsTxt(void);
+void __cdecl DATATBLS_UnloadItemsTxt(void);
 //D2Common.0x6FD57620 (#10599)
-D2COMMON_DLL_DECL struct D2ItemDataTbl* __stdcall DATATBLS_GetItemDataTables(void);
+D2COMMON_DLL_DECL struct D2ItemDataTbl* __cdecl DATATBLS_GetItemDataTables(void);
 //D2Common.0x6FD57630 (#10597)
-D2COMMON_DLL_DECL int __stdcall DATATBLS_MapOldItemIndexToCurrent(int nItemId);
+D2COMMON_DLL_DECL int __cdecl DATATBLS_MapOldItemIndexToCurrent(int nItemId);
 //D2Common.0x6FD57680 (#10600)
-D2COMMON_DLL_DECL struct D2ItemsTxt* __stdcall DATATBLS_GetItemsTxtRecord(int nItemId);
+D2COMMON_DLL_DECL struct D2ItemsTxt* __cdecl DATATBLS_GetItemsTxtRecord(int nItemId);
 //D2Common.0x6FD576D0 (#10601)
-D2COMMON_DLL_DECL struct D2ItemsTxt* __stdcall DATATBLS_GetItemRecordFromItemCode(uint32_t dwCode, int* pItemId);
+D2COMMON_DLL_DECL struct D2ItemsTxt* __cdecl DATATBLS_GetItemRecordFromItemCode(uint32_t dwCode, int* pItemId);
 //D2Common.0x6FD57720 (#10602)
-D2COMMON_DLL_DECL int __stdcall DATATBLS_GetItemIdFromItemCode(uint32_t dwCode);
+D2COMMON_DLL_DECL int __cdecl DATATBLS_GetItemIdFromItemCode(uint32_t dwCode);
 //D2Common.0x6FD57740
-void __fastcall DATATBLS_ItemParamLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
+void __cdecl DATATBLS_ItemParamLinker(char* pSrc, void* pRecord, int nOffset, int nPosition, int nTxtRow, int nTxtColumn);
 //D2Common.0x6FD57820
-void __fastcall DATATBLS_LoadMagicSuffix_Prefix_AutomagicTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadMagicSuffix_Prefix_AutomagicTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD58080
-void __fastcall DATATBLS_UnloadMagicSuffix_Prefix_AutomagicTxt(void);
+void __cdecl DATATBLS_UnloadMagicSuffix_Prefix_AutomagicTxt(void);
 //D2Common.0x6FD580B0 (#10603)
-D2COMMON_DLL_DECL struct D2MagicAffixDataTbl* __stdcall DATATBLS_GetMagicAffixDataTables(void);
+D2COMMON_DLL_DECL struct D2MagicAffixDataTbl* __cdecl DATATBLS_GetMagicAffixDataTables(void);
 //D2Common.0x6FD580C0 (#10604)
-D2COMMON_DLL_DECL struct D2MagicAffixTxt* __stdcall DATATBLS_GetMagicAffixTxtRecord(int nIndex);
+D2COMMON_DLL_DECL struct D2MagicAffixTxt* __cdecl DATATBLS_GetMagicAffixTxtRecord(int nIndex);
 //D2Common.0x6FD58110
-void __fastcall DATATBLS_LoadRareSuffix_PrefixTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadRareSuffix_PrefixTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD58450
-void __fastcall DATATBLS_UnloadRareSuffix_PrefixTxt(void);
+void __cdecl DATATBLS_UnloadRareSuffix_PrefixTxt(void);
 //D2Common.0x6FD58480 (#10605)
-D2COMMON_DLL_DECL struct D2RareAffixDataTbl* __fastcall DATATBLS_GetRareAffixDataTables(void);
+D2COMMON_DLL_DECL struct D2RareAffixDataTbl* __cdecl DATATBLS_GetRareAffixDataTables(void);
 //D2Common.0x6FD58490 (#10606)
-D2COMMON_DLL_DECL struct D2RareAffixTxt* __stdcall DATATBLS_GetRareAffixTxtRecord(int nId);
+D2COMMON_DLL_DECL struct D2RareAffixTxt* __cdecl DATATBLS_GetRareAffixTxtRecord(int nId);
 //D2Common.0x6FD584E0
-void __fastcall DATATBLS_LoadUniqueItemsTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadUniqueItemsTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD59110
-void __fastcall DATATBLS_UnloadUniqueItemsTxt(void);
+void __cdecl DATATBLS_UnloadUniqueItemsTxt(void);
 //D2Common.0x6FD59140
-void __fastcall DATATBLS_LoadSets_SetItemsTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadSets_SetItemsTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD5AE00
-void __fastcall DATATBLS_UnloadSets_SetItemsTxt(void);
+void __cdecl DATATBLS_UnloadSets_SetItemsTxt(void);
 // Inlined
-struct D2SetItemsTxt* __stdcall DATATBLS_GetSetItemsTxtRecord(int nSetItemId);
+struct D2SetItemsTxt* __cdecl DATATBLS_GetSetItemsTxtRecord(int nSetItemId);
 // Inlined
-struct D2SetsTxt* __stdcall DATATBLS_GetSetsTxtRecord(int nSetId);
+struct D2SetsTxt* __cdecl DATATBLS_GetSetsTxtRecord(int nSetId);
 // Inlined
-struct D2SetsTxt* __stdcall DATATBLS_GetSetsTxtRecordFromSetItemId(int nSetItemId);
+struct D2SetsTxt* __cdecl DATATBLS_GetSetsTxtRecordFromSetItemId(int nSetItemId);
 //D2Common.0x6FD5AE40
-void __fastcall DATATBLS_LoadQualityItemsTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadQualityItemsTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD5B250
-void __fastcall DATATBLS_UnloadQualityItemsTxt(void);
+void __cdecl DATATBLS_UnloadQualityItemsTxt(void);
 //D2Common.0x6FD5B260 (#10611)
-D2COMMON_DLL_DECL struct D2QualityItemDataTbl* __fastcall DATATBLS_GetQualityItemDataTables(void);
+D2COMMON_DLL_DECL struct D2QualityItemDataTbl* __cdecl DATATBLS_GetQualityItemDataTables(void);
 //D2Common.0x6FD5B270 (#10612)
-D2COMMON_DLL_DECL struct D2QualityItemsTxt* __stdcall DATATBLS_GetQualityItemsTxtRecord(int nIndex);
+D2COMMON_DLL_DECL struct D2QualityItemsTxt* __cdecl DATATBLS_GetQualityItemsTxtRecord(int nIndex);
 //D2Common.0x6FD5B2F0
-void __fastcall DATATBLS_LoadGemsTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadGemsTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD5BAE0
-void __fastcall DATATBLS_UnloadGemsTxt(void);
+void __cdecl DATATBLS_UnloadGemsTxt(void);
 //D2Common.0x6FD5BAF0 (#10615)
-D2COMMON_DLL_DECL struct D2GemDataTbl* __fastcall DATATBLS_GetGemDataTables(void);
+D2COMMON_DLL_DECL struct D2GemDataTbl* __cdecl DATATBLS_GetGemDataTables(void);
 //D2Common.0x6FD5BB00 (#10616)
-D2COMMON_DLL_DECL struct D2GemsTxt* __stdcall DATATBLS_GetGemsTxtRecord(int nGemId);
+D2COMMON_DLL_DECL struct D2GemsTxt* __cdecl DATATBLS_GetGemsTxtRecord(int nGemId);
 //D2Common.0x6FD5BB70
-void __fastcall DATATBLS_LoadBooksTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadBooksTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD5BD10
-void __fastcall DATATBLS_UnloadBooksTxt(void);
+void __cdecl DATATBLS_UnloadBooksTxt(void);
 //D2Common.0x6FD5BD20 (#10617)
-D2COMMON_DLL_DECL struct D2BookDataTbl* __fastcall DATATBLS_GetBookDataTables(void);
+D2COMMON_DLL_DECL struct D2BookDataTbl* __cdecl DATATBLS_GetBookDataTables(void);
 //D2Common.0x6FD5BD30 (#10618)
-D2COMMON_DLL_DECL struct D2BooksTxt* __stdcall DATATBLS_GetBooksTxtRecord(int nBookId);
+D2COMMON_DLL_DECL struct D2BooksTxt* __cdecl DATATBLS_GetBooksTxtRecord(int nBookId);
 //D2Common.0x6FD5BDA0
-void __fastcall DATATBLS_LoadLowQualityItemsTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadLowQualityItemsTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD5BE40
-void __fastcall DATATBLS_UnloadLowQualityItemsTxt(void);
+void __cdecl DATATBLS_UnloadLowQualityItemsTxt(void);
 //D2Common.0x6FD5BE50 (#10613)
-D2COMMON_DLL_DECL struct D2LowQualityItemDataTbl* __fastcall DATATBLS_GetLowQualityItemDataTables(void);
+D2COMMON_DLL_DECL struct D2LowQualityItemDataTbl* __cdecl DATATBLS_GetLowQualityItemDataTables(void);
 //D2Common.0x6FD5BE60 (#10614)
-D2COMMON_DLL_DECL struct D2LowQualityItemsTxt* __stdcall DATATBLS_GetLowQualityItemsTxtRecord(int nId);
+D2COMMON_DLL_DECL struct D2LowQualityItemsTxt* __cdecl DATATBLS_GetLowQualityItemsTxtRecord(int nId);
 //D2Common.0x6FD5BED0
-void __fastcall DATATBLS_LoadItemRatioTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadItemRatioTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD5C200
-void __fastcall DATATBLS_UnloadItemRatioTxt(void);
+void __cdecl DATATBLS_UnloadItemRatioTxt(void);
 //D2Common.0x6FD5C210 (#10622)
-D2COMMON_DLL_DECL struct D2ItemRatioDataTbl* __fastcall DATATBLS_GetItemRatioDataTables(void);
+D2COMMON_DLL_DECL struct D2ItemRatioDataTbl* __cdecl DATATBLS_GetItemRatioDataTables(void);
 //D2Common.0x6FD5C220 (#10623)
-D2COMMON_DLL_DECL struct D2ItemRatioTxt* __stdcall DATATBLS_GetItemRatioTxtRecord(int nItemId, uint8_t nDifficulty, uint16_t wVersion);
+D2COMMON_DLL_DECL struct D2ItemRatioTxt* __cdecl DATATBLS_GetItemRatioTxtRecord(int nItemId, uint8_t nDifficulty, uint16_t wVersion);
 //D2Common.0x6FD5C2F0
 int __cdecl DATATBLS_CompareItemStatCostDescs(const void* pRecord1, const void* pRecord2);
 //D2Common.0x6FD5C320
-void __fastcall DATATBLS_LoadItemStatCostTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadItemStatCostTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD5D070
-void __fastcall DATATBLS_UnloadItemStatCostTxt(void);
+void __cdecl DATATBLS_UnloadItemStatCostTxt(void);
 //D2Common.0x6FD5D0D0
-void __fastcall DATATBLS_LoadPropertiesTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadPropertiesTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD5D5E0
-void __fastcall DATATBLS_UnloadPropertiesTxt(void);
+void __cdecl DATATBLS_UnloadPropertiesTxt(void);
 //D2Common.0x6FD5D600
-void __fastcall DATATBLS_LoadGambleTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadGambleTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD5D790
 int __cdecl DATATBLS_CompareGambleTxtRecords(const void* pRecord1, const void* pRecord2);
 //D2Common.0x6FD5D7B0
-void __fastcall DATATBLS_UnloadGambleTxt(void);
+void __cdecl DATATBLS_UnloadGambleTxt(void);
 //D2Common.0x6FD5D7F0 (#10671)
-D2COMMON_DLL_DECL struct D2GambleDataTbl* __fastcall DATATBLS_GetGambleDataTables(void);
+D2COMMON_DLL_DECL struct D2GambleDataTbl* __cdecl DATATBLS_GetGambleDataTables(void);
 //D2Common.0x6FD5D800
-BOOL __fastcall DATATBLS_CheckItemTypesEquivalenceNested(int nItemType1, int nItemType2);
+BOOL __cdecl DATATBLS_CheckItemTypesEquivalenceNested(int nItemType1, int nItemType2);
 //D2Common.0x6FD5D8C0
-void __fastcall DATATBLS_LoadItemTypesTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadItemTypesTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD5DFE0
-void __fastcall DATATBLS_UnloadItemTypesTxt(void);
+void __cdecl DATATBLS_UnloadItemTypesTxt(void);
 //D2Common.0x6FD5E020
-void __fastcall DATATBLS_LoadRunesTxt(HD2ARCHIVE hArchive);
+void __cdecl DATATBLS_LoadRunesTxt(HD2ARCHIVE hArchive);
 //D2Common.0x6FD5E9C0
-void __fastcall DATATBLS_UnloadRunesTxt(void);
+void __cdecl DATATBLS_UnloadRunesTxt(void);
 //D2Common.0x6FD5E9E0 (#10619)
-D2COMMON_DLL_DECL struct D2RuneDataTbl* __fastcall DATATBLS_GetRuneDataTables(void);
+D2COMMON_DLL_DECL struct D2RuneDataTbl* __cdecl DATATBLS_GetRuneDataTables(void);
 //D2Common.0x6FD5E9F0 (#10621)
-D2COMMON_DLL_DECL void __stdcall DATATBLS_AddOrChangeRunesTxtRecord(int nRecordId, struct D2RunesTxt* pRecord);
+D2COMMON_DLL_DECL void __cdecl DATATBLS_AddOrChangeRunesTxtRecord(int nRecordId, struct D2RunesTxt* pRecord);
 //D2Common.0x6FD5EAA0 (#10620)
-D2COMMON_DLL_DECL struct D2RunesTxt* __stdcall DATATBLS_GetRunesTxtRecord(int nRunewordId);
+D2COMMON_DLL_DECL struct D2RunesTxt* __cdecl DATATBLS_GetRunesTxtRecord(int nRunewordId);
 

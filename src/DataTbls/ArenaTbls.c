@@ -3,7 +3,7 @@
 static const int NUM_ARENA_TYPES = 1;
 
 //D2Common.0x6FD47840
-void __fastcall DATATBLS_LoadArenaTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadArenaTxt(HD2ARCHIVE hArchive)
 {
 	struct D2BinField pTbl[] =
 	{
@@ -21,7 +21,7 @@ void __fastcall DATATBLS_LoadArenaTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD47970 (#10596)
-struct D2ArenaTxt* __fastcall DATATBLS_GetArenaTxtRecord(int nArenaType)
+struct D2ArenaTxt* __cdecl DATATBLS_GetArenaTxtRecord(int nArenaType)
 {
 	D2_ASSERT(nArenaType < NUM_ARENA_TYPES);
 
@@ -29,14 +29,14 @@ struct D2ArenaTxt* __fastcall DATATBLS_GetArenaTxtRecord(int nArenaType)
 }
 
 //D2Common.0x6FD479B0
-void __fastcall DATATBLS_UnloadArenaTxt()
+void __cdecl DATATBLS_UnloadArenaTxt()
 {
 	DATATBLS_UnloadBin(gpArenaTxtTable);
 	gpArenaTxtTable = NULL;
 }
 
 //D2Common.0x6FD479D0
-void __fastcall DATATBLS_LoadCharTemplateTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadCharTemplateTxt(HD2ARCHIVE hArchive)
 {
 	int nMaxLevel = 0;
 	int nLevel = 0;
@@ -143,20 +143,20 @@ void __fastcall DATATBLS_LoadCharTemplateTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD48770
-void __fastcall DATATBLS_UnloadCharTemplateTxt()
+void __cdecl DATATBLS_UnloadCharTemplateTxt()
 {
 	DATATBLS_UnloadBin(gpCharTemplateTxtTable);
 	gpCharTemplateTxtTable = NULL;
 }
 
 //D2Common.0x6FD48790 (#10664)
-int __fastcall DATATBLS_GetCharTemplateTxtRecordCount()
+int __cdecl DATATBLS_GetCharTemplateTxtRecordCount()
 {
 	return gnCharTemplateTxtTableRecordCount;
 }
 
 //D2Common.0x6FD487A0 (#10665)
-struct D2CharTemplateTxt* __fastcall DATATBLS_GetCharTemplateTxtRecord(int nTemplate, int nLevel)
+struct D2CharTemplateTxt* __cdecl DATATBLS_GetCharTemplateTxtRecord(int nTemplate, int nLevel)
 {
 	D2_ASSERT(nTemplate > 0);
 	const int nIndex = gnCharTemplateStartIds[nLevel] + nTemplate - 1;
@@ -166,7 +166,7 @@ struct D2CharTemplateTxt* __fastcall DATATBLS_GetCharTemplateTxtRecord(int nTemp
 }
 
 //D2Common.0x6FD48810 (#10666)
-int __fastcall DATATBLS_GetClassFromCharTemplateTxtRecord(int nTemplate, int nLevel)
+int __cdecl DATATBLS_GetClassFromCharTemplateTxtRecord(int nTemplate, int nLevel)
 {
 	return DATATBLS_GetCharTemplateTxtRecord(nTemplate, nLevel)->nClass;
 }

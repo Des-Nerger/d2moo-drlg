@@ -37,7 +37,7 @@ int32_t dword_6FDD1BE0[8][8] = {
 
 //1.10f: Inlined
 //1.13c: D2Common.0x6FDC0BB0
-int __fastcall PATH_IdaStar_ComputePathWithRooms(struct D2DrlgCoords* pRoomCoords, struct D2PathInfo* pPathInfo)
+int __cdecl PATH_IdaStar_ComputePathWithRooms(struct D2DrlgCoords* pRoomCoords, struct D2PathInfo* pPathInfo)
 {
     D2_ASSERT(pRoomCoords->nSubtileHeight * pRoomCoords->nSubtileWidth <= IDASTAR_MAXPROOM);
     struct D2PathIDAStarContext tContext;
@@ -129,7 +129,7 @@ int __fastcall PATH_IdaStar_ComputePathWithRooms(struct D2DrlgCoords* pRoomCoord
 
 //1.10f: D2Common.0x6FDA7970
 //1.13c: D2Common.0x6FDC0E40
-int __fastcall PATH_IdaStar_6FDA7970(struct D2PathInfo* pPathInfo)
+int __cdecl PATH_IdaStar_6FDA7970(struct D2PathInfo* pPathInfo)
 {
 	pPathInfo->field_14 *= 2;
 	struct D2DrlgCoords tStartRoomCoords;
@@ -189,7 +189,7 @@ int __fastcall PATH_IdaStar_6FDA7970(struct D2PathInfo* pPathInfo)
 
 //1.10f: Inlined
 //1.13c: Inlined
-struct D2PathIDAStarNode* __fastcall PATH_IDAStar_GetNewNode(struct D2PathIDAStarContext* pContext)
+struct D2PathIDAStarNode* __cdecl PATH_IDAStar_GetNewNode(struct D2PathIDAStarContext* pContext)
 {
     if (pContext->nNodesCount == ARRAY_SIZE(pContext->aNodesStorage))
     {
@@ -202,7 +202,7 @@ struct D2PathIDAStarNode* __fastcall PATH_IDAStar_GetNewNode(struct D2PathIDASta
 
 //1.10f: D2Common.0x6FDA7D40
 //1.13c: D2Common.0x6FDC08F0
-struct D2PathIDAStarNode* __fastcall PATH_IDAStar_VisitNodes(struct D2PathIDAStarContext* pContext, int nFScoreCutoff, struct D2PathInfo* pPathInfo)
+struct D2PathIDAStarNode* __cdecl PATH_IDAStar_VisitNodes(struct D2PathIDAStarContext* pContext, int nFScoreCutoff, struct D2PathInfo* pPathInfo)
 {
     struct D2PathIDAStarNode* pCurrentNode = pContext->pCurrentNode;
     int nIterations = 0;
@@ -309,7 +309,7 @@ int dword_6FDD1CE0[32] = {
 
 //1.10c: D2Common.0x6FDA81C0
 //1.13f: D2Common.0x6FDC07E0
-void __fastcall PATH_IDAStar_GetNextNeighborIndex(struct D2PathIDAStarNode* pNode, struct D2PathIDAStarContext* pContext)
+void __cdecl PATH_IDAStar_GetNextNeighborIndex(struct D2PathIDAStarNode* pNode, struct D2PathIDAStarContext* pContext)
 {
 	if (pContext->bRandomDirection)
 	{
@@ -326,7 +326,7 @@ void __fastcall PATH_IDAStar_GetNextNeighborIndex(struct D2PathIDAStarNode* pNod
 
 //1.10f: Inlined
 //1.13c: D2Common.0x6FDC0840
-struct D2PathIDAStarNode* __fastcall sub_6FDC0840(struct D2PathIDAStarNode* pNode, struct D2PathIDAStarContext* pContext)
+struct D2PathIDAStarNode* __cdecl sub_6FDC0840(struct D2PathIDAStarNode* pNode, struct D2PathIDAStarContext* pContext)
 {
     if (pNode->nEvaluationsCount < 4)
     {
@@ -358,7 +358,7 @@ struct D2PathIDAStarNode* __fastcall sub_6FDC0840(struct D2PathIDAStarNode* pNod
 
 //1.10f: Inlined
 //1.13c: D2Common.0x6FDC0650
-signed int __fastcall PATH_IDAStar_FlushNodeToDynamicPath(struct D2PathIDAStarNode* pNode, struct D2PathInfo* pPathInfo)
+signed int __cdecl PATH_IDAStar_FlushNodeToDynamicPath(struct D2PathIDAStarNode* pNode, struct D2PathInfo* pPathInfo)
 {
     if (!pNode)
     {

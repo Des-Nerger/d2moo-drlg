@@ -27,42 +27,42 @@ Function:		BITMANIP_Initialize
 Address:		Fog.#10126
 Notes:
 */
-FOG_DLL_DECL void __stdcall BITMANIP_Initialize(struct D2BitBuffer* pBuffer, uint8_t* pBitStream, size_t nSize);
+FOG_DLL_DECL void __cdecl BITMANIP_Initialize(struct D2BitBuffer* pBuffer, uint8_t* pBitStream, size_t nSize);
 
 /*
 Function:		BITMANIP_GetSize
 Address:		Fog.#10127
 Notes:
 */
-FOG_DLL_DECL size_t __stdcall BITMANIP_GetSize(struct D2BitBuffer* pBuffer);
+FOG_DLL_DECL size_t __cdecl BITMANIP_GetSize(struct D2BitBuffer* pBuffer);
 
 /*
 Function:		BITMANIP_Write
 Address:		Fog.#10128
 Notes:
 */
-FOG_DLL_DECL void __stdcall BITMANIP_Write(struct D2BitBuffer* pBuffer, uint32_t dwValue, uint32_t dwBits);
+FOG_DLL_DECL void __cdecl BITMANIP_Write(struct D2BitBuffer* pBuffer, uint32_t dwValue, uint32_t dwBits);
 
 /*
 Function:		BITMANIP_ReadSigned
 Address:		Fog.#10129
 Notes:
 */
-FOG_DLL_DECL int __stdcall BITMANIP_ReadSigned(struct D2BitBuffer* pBuffer, int nBits);
+FOG_DLL_DECL int __cdecl BITMANIP_ReadSigned(struct D2BitBuffer* pBuffer, int nBits);
 
 /*
 Function:		BITMANIP_Read
 Address:		Fog.#10130
 Notes:
 */
-FOG_DLL_DECL uint32_t __stdcall BITMANIP_Read(struct D2BitBuffer* pBuffer, int nBits);
+FOG_DLL_DECL uint32_t __cdecl BITMANIP_Read(struct D2BitBuffer* pBuffer, int nBits);
 
 /*
 Function:		BITMANIP_GoToNextByte
 Address:		Fog.#10131
 Notes:
 */
-FOG_DLL_DECL void __stdcall BITMANIP_GoToNextByte(struct D2BitBuffer* pBuffer);
+FOG_DLL_DECL void __cdecl BITMANIP_GoToNextByte(struct D2BitBuffer* pBuffer);
 
 
 
@@ -72,21 +72,21 @@ Function:		BITMANIP_SetBitState
 Address:		Fog.#10118
 Notes:
 */
-FOG_DLL_DECL void __stdcall BITMANIP_SetBitState(uint8_t* pBitStream, int nBit);
+FOG_DLL_DECL void __cdecl BITMANIP_SetBitState(uint8_t* pBitStream, int nBit);
 
 /*
 Function:		BITMANIP_GoToNextByte
 Address:		Fog.#10119
 Notes:
 */
-FOG_DLL_DECL int __stdcall BITMANIP_GetBitState(uint8_t* pBitStream, int nBit);
+FOG_DLL_DECL int __cdecl BITMANIP_GetBitState(uint8_t* pBitStream, int nBit);
 
 /*
 Function:		BITMANIP_GoToNextByte
 Address:		Fog.#10120
 Notes:
 */
-FOG_DLL_DECL void __stdcall BITMANIP_MaskBitstate(uint8_t* pBitStream, int nBit);
+FOG_DLL_DECL void __cdecl BITMANIP_MaskBitstate(uint8_t* pBitStream, int nBit);
 
 #define IMPLEMENT_BITMANIP_SetBitsValueForMask_ON(T) \
 /* Sets bits of the mask to newBitValue, and returns wether the value changed */ \

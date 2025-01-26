@@ -140,238 +140,238 @@ struct D2SkillTreeChart
 
 
 //D2Common.0x6FDAEB10 (#10938)
-D2COMMON_DLL_DECL short __stdcall SKILLS_GetPassiveState(int nSkillId);
+D2COMMON_DLL_DECL short __cdecl SKILLS_GetPassiveState(int nSkillId);
 //D2Common.0x6FDAEB60 (#11271)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetSpecialParamValue(struct D2Unit* pUnit, uint8_t nParamId, int nSkillId, int nSkillLevel);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetSpecialParamValue(struct D2Unit* pUnit, uint8_t nParamId, int nSkillId, int nSkillLevel);
 //D2Common.0x6FDAF6A0
-int __fastcall sub_6FDAF6A0(int32_t nParamId, void* pUserData);
+int __cdecl sub_6FDAF6A0(int32_t nParamId, void* pUserData);
 //D2Common.0x6FDAF6C0
-int __fastcall sub_6FDAF6C0(int nSkillId, int nParamId, int nUnused, void* pUserData);
+int __cdecl sub_6FDAF6C0(int nSkillId, int nParamId, int nUnused, void* pUserData);
 //D2Common.0x6FDAF780
-int __fastcall sub_6FDAF780(int nMissileId, int nParamId, int nUnused, void* pUserData);
+int __cdecl sub_6FDAF780(int nMissileId, int nParamId, int nUnused, void* pUserData);
 //D2Common.0x6FDAF7A0
-int __fastcall sub_6FDAF7A0(int nSkillId, int a2, int a3 , void* pUserData);
+int __cdecl sub_6FDAF7A0(int nSkillId, int a2, int a3 , void* pUserData);
 //D2Common.0x6FDAF7E0 (#11276)
-D2COMMON_DLL_DECL int __stdcall SKILLS_EvaluateSkillFormula(struct D2Unit* pUnit, unsigned int nCalc, int nSkillId, int nSkillLevel);
+D2COMMON_DLL_DECL int __cdecl SKILLS_EvaluateSkillFormula(struct D2Unit* pUnit, unsigned int nCalc, int nSkillId, int nSkillLevel);
 //D2Common.0x6FDAF850 (#11302)
-D2COMMON_DLL_DECL int __stdcall SKILLS_EvaluateSkillDescFormula(struct D2Unit* pUnit, unsigned int nCalc, int nSkillId, int nSkillLevel);
+D2COMMON_DLL_DECL int __cdecl SKILLS_EvaluateSkillDescFormula(struct D2Unit* pUnit, unsigned int nCalc, int nSkillId, int nSkillLevel);
 //D2Common.0x6FDAF8C0 (#10940)
-D2COMMON_DLL_DECL void __stdcall SKILLS_RefreshSkill(struct D2Unit* pUnit, int nSkillId);
+D2COMMON_DLL_DECL void __cdecl SKILLS_RefreshSkill(struct D2Unit* pUnit, int nSkillId);
 //D2Common.0x6FDAFB40 (#10941)
-D2COMMON_DLL_DECL void __stdcall SKILLS_RefreshPassiveSkills(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl SKILLS_RefreshPassiveSkills(struct D2Unit* pUnit);
 //D2Common.0x6FDAFC30
-struct D2Skill* __fastcall SKILLS_GetHighestLevelSkillFromSkillId(struct D2Unit* pUnit, int nSkillId);
+struct D2Skill* __cdecl SKILLS_GetHighestLevelSkillFromSkillId(struct D2Unit* pUnit, int nSkillId);
 //D2Common.0x6FDAFC80 (#10942)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetSkillModeFromUnit(struct D2Unit* pUnit, struct D2Skill* pSkill);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetSkillModeFromUnit(struct D2Unit* pUnit, struct D2Skill* pSkill);
 //D2Common.0x6FDAFCA0 (#11049)
-D2COMMON_DLL_DECL int __stdcall SKILLS_Return1(int a1);
+D2COMMON_DLL_DECL int __cdecl SKILLS_Return1(int a1);
 //D2Common.0x6FDAFCB0 (#10944)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetRange(struct D2Skill* pSkill);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetRange(struct D2Skill* pSkill);
 //D2Common.0x6FDAFCD0 (#10945)
-D2COMMON_DLL_DECL struct D2SkillList* __stdcall SKILLS_AllocSkillList(void* pMemPool);
+D2COMMON_DLL_DECL struct D2SkillList* __cdecl SKILLS_AllocSkillList(void* pMemPool);
 //D2Common.0x6FDAFD10 (#10946)
-D2COMMON_DLL_DECL void __stdcall SKILLS_InitSkillList(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl SKILLS_InitSkillList(struct D2Unit* pUnit);
 //D2Common.0x6FDAFEA0 (#10947)
-D2COMMON_DLL_DECL struct D2Skill* __stdcall SKILLS_GetNextSkill(struct D2Skill* pSkill);
+D2COMMON_DLL_DECL struct D2Skill* __cdecl SKILLS_GetNextSkill(struct D2Skill* pSkill);
 //D2Common.0x6FDAFEA0 (#10948)
-D2COMMON_DLL_DECL struct D2Skill* __stdcall SKILLS_GetFirstSkillFromSkillList(struct D2SkillList* pSkillList);
+D2COMMON_DLL_DECL struct D2Skill* __cdecl SKILLS_GetFirstSkillFromSkillList(struct D2SkillList* pSkillList);
 //D2Common.0x6FDAFEC0
-struct D2Skill* __fastcall SKILLS_GetLeftSkillFromSkillList(struct D2SkillList* pSkillList);
+struct D2Skill* __cdecl SKILLS_GetLeftSkillFromSkillList(struct D2SkillList* pSkillList);
 //D2Common.0x6FDAFEF0
-struct D2Skill* __fastcall SKILLS_GetRightSkillFromSkillList(struct D2SkillList* pSkillList);
+struct D2Skill* __cdecl SKILLS_GetRightSkillFromSkillList(struct D2SkillList* pSkillList);
 //D2Common.0x6FDAFF20
-void __fastcall SKILLS_SetUsedSkillInSkillList(struct D2SkillList* pSkillList, struct D2Skill* pUsedSkill);
+void __cdecl SKILLS_SetUsedSkillInSkillList(struct D2SkillList* pSkillList, struct D2Skill* pUsedSkill);
 //D2Common.0x6FDAFF30
-struct D2Skill* __fastcall SKILLS_GetUsedSkillFromSkillList(struct D2SkillList* pSkillList);
+struct D2Skill* __cdecl SKILLS_GetUsedSkillFromSkillList(struct D2SkillList* pSkillList);
 //D2Common.0x6FDAFF40 (#10949)
-D2COMMON_DLL_DECL struct D2Skill* __fastcall SKILLS_GetSkillById(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID);
+D2COMMON_DLL_DECL struct D2Skill* __cdecl SKILLS_GetSkillById(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID);
 //D2Common.0x6FDAFF80 (#10950)
-D2COMMON_DLL_DECL struct D2Skill* __fastcall SKILLS_GetHighestLevelSkillFromUnitAndId(struct D2Unit* pUnit, int nSkillId);
+D2COMMON_DLL_DECL struct D2Skill* __cdecl SKILLS_GetHighestLevelSkillFromUnitAndId(struct D2Unit* pUnit, int nSkillId);
 //D2Common.0x6FDAFFD0 (#10951)
-D2COMMON_DLL_DECL void __stdcall SKILLS_RemoveSkill(struct D2Unit* pUnit, int nSkillId, const char* szFile, int nLine);
+D2COMMON_DLL_DECL void __cdecl SKILLS_RemoveSkill(struct D2Unit* pUnit, int nSkillId, const char* szFile, int nLine);
 //D2Common.0x6FDAFFF0
-void __fastcall D2COMMON_SKILLS_RemoveSkill_6FDAFFF0(struct D2Unit* pUnit, int nSkillId, int bDecrementAndCheckSkillLevel, const char* szFile, int nLine);
+void __cdecl D2COMMON_SKILLS_RemoveSkill_6FDAFFF0(struct D2Unit* pUnit, int nSkillId, int bDecrementAndCheckSkillLevel, const char* szFile, int nLine);
 //D2Common.0x6FDB0270 (#10958)
-D2COMMON_DLL_DECL void* __stdcall D2Common_10958(struct D2Unit* pUnit, void* a2);
+D2COMMON_DLL_DECL void* __cdecl D2Common_10958(struct D2Unit* pUnit, void* a2);
 //D2Common.0x6FDB02A0 (#10959)
-D2COMMON_DLL_DECL void* __stdcall D2Common_10959(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void* __cdecl D2Common_10959(struct D2Unit* pUnit);
 //D2Common.0x6FDB02C0 (#10960)
-D2COMMON_DLL_DECL void __stdcall SKILLS_FreeSkillList(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL void __cdecl SKILLS_FreeSkillList(struct D2Unit* pUnit);
 //D2Common.0x6FDB0320 (#10952)
-D2COMMON_DLL_DECL struct D2Skill* __stdcall SKILLS_AddSkill(struct D2Unit* pUnit, int nSkillId);
+D2COMMON_DLL_DECL struct D2Skill* __cdecl SKILLS_AddSkill(struct D2Unit* pUnit, int nSkillId);
 //D2Common.0x6FDB04D0 (#10953)
-D2COMMON_DLL_DECL void __stdcall SKILLS_AssignSkill(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL bRemove, const char* szFile, int nLine);
+D2COMMON_DLL_DECL void __cdecl SKILLS_AssignSkill(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL bRemove, const char* szFile, int nLine);
 //D2Common.0x6FDB05E0 (#10954)
-D2COMMON_DLL_DECL void __stdcall D2Common_10954(struct D2Unit* pUnit, D2UnitGUID nOwnerGUID, int nSkillId, int nSkillLevel, int nCharges, BOOL bFreeMemory);
+D2COMMON_DLL_DECL void __cdecl D2Common_10954(struct D2Unit* pUnit, D2UnitGUID nOwnerGUID, int nSkillId, int nSkillLevel, int nCharges, BOOL bFreeMemory);
 //D2Common.0x6FDB08C0 (#10957)
-D2COMMON_DLL_DECL D2UnitGUID __stdcall SKILLS_GetOwnerGUIDFromSkill(struct D2Skill* pSkill);
+D2COMMON_DLL_DECL D2UnitGUID __cdecl SKILLS_GetOwnerGUIDFromSkill(struct D2Skill* pSkill);
 //D2Common.0x6FDB08F0 (#10955)
-D2COMMON_DLL_DECL BOOL __stdcall SKILLS_GetSkillInfo(struct D2Skill* pSkill, D2UnitGUID* pOwnerGUID, int* pSkillId, int* pSkillLevel, int* pCharges);
+D2COMMON_DLL_DECL BOOL __cdecl SKILLS_GetSkillInfo(struct D2Skill* pSkill, D2UnitGUID* pOwnerGUID, int* pSkillId, int* pSkillLevel, int* pCharges);
 //D2Common.0x6FDB0960 (#10956)
-D2COMMON_DLL_DECL BOOL __stdcall SKILLS_SetCharges(struct D2Skill* pSkill, int nCharges);
+D2COMMON_DLL_DECL BOOL __cdecl SKILLS_SetCharges(struct D2Skill* pSkill, int nCharges);
 //D2Common.0x6FDB09A0 (#10961)
-D2COMMON_DLL_DECL void __stdcall SKILLS_SetLeftActiveSkill(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID);
+D2COMMON_DLL_DECL void __cdecl SKILLS_SetLeftActiveSkill(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID);
 //D2Common.0x6FDB0A30 (#10962)
-D2COMMON_DLL_DECL void __stdcall SKILLS_SetRightActiveSkill(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID);
+D2COMMON_DLL_DECL void __cdecl SKILLS_SetRightActiveSkill(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID);
 //D2Common.0x6FDB0AC0 (#10963)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetSkillIdFromSkill(struct D2Skill* pSkill, const char* szFile, int nLine);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetSkillIdFromSkill(struct D2Skill* pSkill, const char* szFile, int nLine);
 //D2Common.0x6FDB0AF0 (#10965)
-D2COMMON_DLL_DECL int __fastcall SKILLS_GetSeqNumFromSkill(struct D2Unit* pUnit, struct D2Skill* pSkill);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetSeqNumFromSkill(struct D2Unit* pUnit, struct D2Skill* pSkill);
 //D2Common.0x6FDB0B70 (#10964)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetUseState(struct D2Unit* pUnit, struct D2Skill* pSkill);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetUseState(struct D2Unit* pUnit, struct D2Skill* pSkill);
 //D2Common.0x6FDB0F50
-BOOL __fastcall D2Common_SKILLMANA_CheckStat_6FDB0F50(struct D2Unit* pUnit, struct D2Skill* pSkill);
+BOOL __cdecl D2Common_SKILLMANA_CheckStat_6FDB0F50(struct D2Unit* pUnit, struct D2Skill* pSkill);
 //D2Common.0x6FDB1050
-struct D2Unit* __fastcall sub_6FDB1050(struct D2Inventory* pInventory, int nBodyLoc);
+struct D2Unit* __cdecl sub_6FDB1050(struct D2Inventory* pInventory, int nBodyLoc);
 //D2Common.0x6FDB1070
-BOOL __fastcall sub_6FDB1070(struct D2Unit* pUnit, struct D2Skill* pSkill);
+BOOL __cdecl sub_6FDB1070(struct D2Unit* pUnit, struct D2Skill* pSkill);
 //D2Common.0x6FDB1130
-BOOL __fastcall sub_6FDB1130(struct D2Unit* pItem, struct D2Unit* pUnit, struct D2SkillsTxt* pSkillsTxtRecord, int nType);
+BOOL __cdecl sub_6FDB1130(struct D2Unit* pItem, struct D2Unit* pUnit, struct D2SkillsTxt* pSkillsTxtRecord, int nType);
 //D2Common.0x6FDB1380
-BOOL __fastcall D2Common_SKILLS_CheckShapeRestriction_6FDB1380(struct D2Unit* pUnit, struct D2Skill* pSkill);
+BOOL __cdecl D2Common_SKILLS_CheckShapeRestriction_6FDB1380(struct D2Unit* pUnit, struct D2Skill* pSkill);
 //D2Common.0x6FDB1400
-BOOL __fastcall D2Common_SKILLMANA_CheckStartStat_6FDB1400(struct D2Unit* pUnit, struct D2Skill* pSkill);
+BOOL __cdecl D2Common_SKILLMANA_CheckStartStat_6FDB1400(struct D2Unit* pUnit, struct D2Skill* pSkill);
 //D2Common.0x6FDB1450
-BOOL __fastcall SKILLS_CheckSkillDelay(struct D2Unit* pUnit, struct D2Skill* pSkill);
+BOOL __cdecl SKILLS_CheckSkillDelay(struct D2Unit* pUnit, struct D2Skill* pSkill);
 //D2Common.0x6FDB1540 (#10966)
-D2COMMON_DLL_DECL struct D2SkillsTxt* __fastcall SKILLS_GetSkillsTxtRecordFromSkill(struct D2Skill* pSkill);
+D2COMMON_DLL_DECL struct D2SkillsTxt* __cdecl SKILLS_GetSkillsTxtRecordFromSkill(struct D2Skill* pSkill);
 //D2Common.0x6FDB1550 (#10967)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetShrineSkillLevelBonus(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetShrineSkillLevelBonus(struct D2Unit* pUnit);
 //D2Common.0x6FDB1580
-int __fastcall SKILLS_GetBonusSkillLevel(struct D2Unit* pUnit, struct D2Skill* pSkill);
+int __cdecl SKILLS_GetBonusSkillLevel(struct D2Unit* pUnit, struct D2Skill* pSkill);
 //D2Common.0x6FDB1700 (#10968)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetSkillLevel(struct D2Unit* pUnit, struct D2Skill* pSkill, BOOL bBonus);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetSkillLevel(struct D2Unit* pUnit, struct D2Skill* pSkill, BOOL bBonus);
 //D2Common.0x6FDB1750 (#11029)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetBonusSkillLevelFromSkillId(struct D2Unit* pUnit, int nSkillId);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetBonusSkillLevelFromSkillId(struct D2Unit* pUnit, int nSkillId);
 //D2Common.0x6FDB17A0 (#11030)
-D2COMMON_DLL_DECL void __stdcall D2Common_11030(struct D2Unit* pUnit, int nSkillId, int a3);
+D2COMMON_DLL_DECL void __cdecl D2Common_11030(struct D2Unit* pUnit, int nSkillId, int a3);
 //D2Common.0x6FDB1820 (#11031)
-D2COMMON_DLL_DECL void __stdcall D2Common_11031(struct D2Unit* pUnit, int nSkillId, int a3);
+D2COMMON_DLL_DECL void __cdecl D2Common_11031(struct D2Unit* pUnit, int nSkillId, int a3);
 //D2Common.0x6FDB18B0 (#10974)
-D2COMMON_DLL_DECL void __stdcall SKILLS_SetSkillMode(struct D2Skill* pSkill, int nSkillMode);
+D2COMMON_DLL_DECL void __cdecl SKILLS_SetSkillMode(struct D2Skill* pSkill, int nSkillMode);
 //D2Common.0x6FDB18D0 (#10975)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetSkillMode(struct D2Skill* pSkill);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetSkillMode(struct D2Skill* pSkill);
 //D2Common.0x6FDB18F0 (#10969)
-D2COMMON_DLL_DECL int __stdcall D2Common_10969(struct D2Skill* pSkill);
+D2COMMON_DLL_DECL int __cdecl D2Common_10969(struct D2Skill* pSkill);
 //D2Common.0x6FDB1920 (#10970)
-D2COMMON_DLL_DECL void __stdcall D2Common_10970(struct D2Skill* pSkill, int nUnknown);
+D2COMMON_DLL_DECL void __cdecl D2Common_10970(struct D2Skill* pSkill, int nUnknown);
 //D2Common.0x6FDB1950 (#10971)
-D2COMMON_DLL_DECL int __stdcall D2Common_10971(struct D2Skill* pSkill);
+D2COMMON_DLL_DECL int __cdecl D2Common_10971(struct D2Skill* pSkill);
 //D2Common.0x6FDB1980 (#10972)
-D2COMMON_DLL_DECL void __stdcall D2Common_10972(struct D2Skill* pSkill, int nUnknown);
+D2COMMON_DLL_DECL void __cdecl D2Common_10972(struct D2Skill* pSkill, int nUnknown);
 //D2Common.0x6FDB19B0 (#10973)
-D2COMMON_DLL_DECL void __stdcall D2Common_10973(struct D2Skill* pSkill);
+D2COMMON_DLL_DECL void __cdecl D2Common_10973(struct D2Skill* pSkill);
 //D2Common.0x6FDB19F0 (#10976)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetParam1(struct D2Skill* pSkill);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetParam1(struct D2Skill* pSkill);
 //D2Common.0x6FDB1A20 (#10977)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetParam2(struct D2Skill* pSkill);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetParam2(struct D2Skill* pSkill);
 //D2Common.0x6FDB1A50 (#10978)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetParam3(struct D2Skill* pSkill);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetParam3(struct D2Skill* pSkill);
 //D2Common.0x6FDB1A80 (#10979)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetParam4(struct D2Skill* pSkill);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetParam4(struct D2Skill* pSkill);
 //D2Common.0x6FDB1AB0 (#10980)
-D2COMMON_DLL_DECL void __stdcall SKILLS_SetParam1(struct D2Skill* pSkill, int nPar1);
+D2COMMON_DLL_DECL void __cdecl SKILLS_SetParam1(struct D2Skill* pSkill, int nPar1);
 //D2Common.0x6FDB1AE0 (#10981)
-D2COMMON_DLL_DECL void __stdcall SKILLS_SetParam2(struct D2Skill* pSkill, int nPar2);
+D2COMMON_DLL_DECL void __cdecl SKILLS_SetParam2(struct D2Skill* pSkill, int nPar2);
 //D2Common.0x6FDB1B10 (#10982)
-D2COMMON_DLL_DECL void __stdcall SKILLS_SetParam3(struct D2Skill* pSkill, int nPar3);
+D2COMMON_DLL_DECL void __cdecl SKILLS_SetParam3(struct D2Skill* pSkill, int nPar3);
 //D2Common.0x6FDB1B40 (#10983)
-D2COMMON_DLL_DECL void __stdcall SKILLS_SetParam4(struct D2Skill* pSkill, int nPar4);
+D2COMMON_DLL_DECL void __cdecl SKILLS_SetParam4(struct D2Skill* pSkill, int nPar4);
 //D2Common.0x6FDB1B70 (#10984)
-D2COMMON_DLL_DECL void __stdcall SKILLS_SetFlags(struct D2Skill* pSkill, int nFlags);
+D2COMMON_DLL_DECL void __cdecl SKILLS_SetFlags(struct D2Skill* pSkill, int nFlags);
 //D2Common.0x6FDB1BA0 (#10985)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetFlags(struct D2Skill* pSkill);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetFlags(struct D2Skill* pSkill);
 //D2Common.0x6FDB1BC0 (#10986)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetRequiredLevel(int nSkillId);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetRequiredLevel(int nSkillId);
 //D2Common.0x6FDB1C00 (#10987)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetRequiredLevelBasedOnCurrent(struct D2Unit* pUnit, int nSkillId);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetRequiredLevelBasedOnCurrent(struct D2Unit* pUnit, int nSkillId);
 //D2Common.0x6FDB1C80 (#10988)
-D2COMMON_DLL_DECL BOOL __stdcall SKILLS_CheckRequiredSkills(struct D2Unit* pUnit, int nSkillId);
+D2COMMON_DLL_DECL BOOL __cdecl SKILLS_CheckRequiredSkills(struct D2Unit* pUnit, int nSkillId);
 //D2Common.0x6FDB1F80
-struct D2Skill* __fastcall SKILLS_GetSkill(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID);
+struct D2Skill* __cdecl SKILLS_GetSkill(struct D2Unit* pUnit, int nSkillId, D2UnitGUID nOwnerGUID);
 //D2Common.0x6FDB1FC0 (#10989)
-D2COMMON_DLL_DECL BOOL __stdcall SKILLS_CheckRequiredAttributes(struct D2Unit* pUnit, int nSkillId);
+D2COMMON_DLL_DECL BOOL __cdecl SKILLS_CheckRequiredAttributes(struct D2Unit* pUnit, int nSkillId);
 //D2Common.0x6FDB2110 (#10999)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetToHitFactor(struct D2Unit* pUnit, int nSkillId, int nSkillLevel);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetToHitFactor(struct D2Unit* pUnit, int nSkillId, int nSkillLevel);
 //D2Common.0x6FDB21E0 (#11000)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetHighestSkillLevelById(struct D2Unit* pUnit, int nSkillId);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetHighestSkillLevelById(struct D2Unit* pUnit, int nSkillId);
 //D2Common.0x6FDB2280 (#11001)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetManaCosts(int nSkillId, int nSkillLevel);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetManaCosts(int nSkillId, int nSkillLevel);
 //D2Common.0x6FDB22E0
-int __fastcall SKILLS_CalculateDamageBonusByLevel(int nLevel, int* pLevelDamage);
+int __cdecl SKILLS_CalculateDamageBonusByLevel(int nLevel, int* pLevelDamage);
 //D2Common.0x6FDB2390 (#11002)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetMinPhysDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetMinPhysDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4);
 //D2Common.0x6FDB25D0 (#11003)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetMaxPhysDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetMaxPhysDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4);
 //D2Common.0x6FDB2810 (#11004)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetMinElemDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetMinElemDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4);
 //D2Common.0x6FDB29D0
-int __fastcall SKILLS_CalculateMasteryBonus(struct D2Unit* pUnit, int nElemType, int nSrcDamage);
+int __cdecl SKILLS_CalculateMasteryBonus(struct D2Unit* pUnit, int nElemType, int nSrcDamage);
 //D2Common.0x6FDB2B00 (#11005)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetMaxElemDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetMaxElemDamage(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL a4);
 //D2Common.0x6FDB2CA0 (#11006)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetElementalLength(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL bUnused);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetElementalLength(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, BOOL bUnused);
 //D2Common.0x6FDB2E70 (#11239)
-D2COMMON_DLL_DECL int __stdcall SKILLS_Return0(int arg);
+D2COMMON_DLL_DECL int __cdecl SKILLS_Return0(int arg);
 //D2Common.0x6FDB2E80 (#11008)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetClassIdFromSkillId(int nSkillId);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetClassIdFromSkillId(int nSkillId);
 //D2Common.0x6FDB2EC0 (#11010)
-D2COMMON_DLL_DECL BOOL __stdcall SKILLS_IsPlayerClassSkill(int nSkillId, int* pPlayerClass);
+D2COMMON_DLL_DECL BOOL __cdecl SKILLS_IsPlayerClassSkill(int nSkillId, int* pPlayerClass);
 //D2Common.0x6FDB2F40 (#11011)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetQuantity(struct D2Skill* pSkill);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetQuantity(struct D2Skill* pSkill);
 //D2Common.0x6FDB2F70 (#11012)
-D2COMMON_DLL_DECL void __stdcall SKILLS_SetQuantity(struct D2Skill* pSkill, int nQuantity);
+D2COMMON_DLL_DECL void __cdecl SKILLS_SetQuantity(struct D2Skill* pSkill, int nQuantity);
 //D2Common.0x6FDB2FA0 (#11014)
-D2COMMON_DLL_DECL int __stdcall D2Common_11014_ConvertShapeShiftedMode(int nArrayIndex, int nMonsterId);
+D2COMMON_DLL_DECL int __cdecl D2Common_11014_ConvertShapeShiftedMode(int nArrayIndex, int nMonsterId);
 //D2Common.0x6FDB30A0 (#11013)
-D2COMMON_DLL_DECL void __stdcall D2COMMON_11013_ConvertMode(struct D2Unit* pUnit, int* pType, int* pClass, int* pMode, const char* szFile, int nLine);
+D2COMMON_DLL_DECL void __cdecl D2COMMON_11013_ConvertMode(struct D2Unit* pUnit, int* pType, int* pClass, int* pMode, const char* szFile, int nLine);
 //D2Common.0x6FDB3290 (#11015)
-D2COMMON_DLL_DECL void __stdcall D2Common_11015(struct D2Unit* pUnit, int a2, int nSkillId);
+D2COMMON_DLL_DECL void __cdecl D2Common_11015(struct D2Unit* pUnit, int a2, int nSkillId);
 //D2Common.0x6FDB3340 (#11016)
-D2COMMON_DLL_DECL int __stdcall D2Common_11016(struct D2Unit* pUnit, struct D2Skill* pSkill);
+D2COMMON_DLL_DECL int __cdecl D2Common_11016(struct D2Unit* pUnit, struct D2Skill* pSkill);
 //D2Common.0x6FDB33A0 (#11017)
-D2COMMON_DLL_DECL BOOL __stdcall D2COMMON_11017_CheckUnitIfConsumeable(struct D2Unit* pUnit, int a2);
+D2COMMON_DLL_DECL BOOL __cdecl D2COMMON_11017_CheckUnitIfConsumeable(struct D2Unit* pUnit, int a2);
 //D2Common.0x6FDB3480 (#11020)
-D2COMMON_DLL_DECL BOOL __stdcall D2Common_11020(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl D2Common_11020(struct D2Unit* pUnit);
 //D2Common.0x6FDB3520 (#11022)
-D2COMMON_DLL_DECL BOOL __stdcall SKILLS_CanUnitCorpseBeSelected(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl SKILLS_CanUnitCorpseBeSelected(struct D2Unit* pUnit);
 //D2Common.0x6FDB35B0 (#11024)
-D2COMMON_DLL_DECL int __stdcall D2Common_11024(struct D2Unit* pUnit, struct D2Unit* pItem, struct D2Skill* pSkill, int nType, BOOL* pHasThrowBonus);
+D2COMMON_DLL_DECL int __cdecl D2Common_11024(struct D2Unit* pUnit, struct D2Unit* pItem, struct D2Skill* pSkill, int nType, BOOL* pHasThrowBonus);
 //D2Common.0x6FDB36D0 (#11023)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetWeaponMasteryBonus(struct D2Unit* pUnit, struct D2Unit* pItem, struct D2Skill* pSkill, int nType);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetWeaponMasteryBonus(struct D2Unit* pUnit, struct D2Unit* pItem, struct D2Skill* pSkill, int nType);
 //D2Common.0x6FDB37B0 (#11032)
-D2COMMON_DLL_DECL int __stdcall D2Common_11032(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, int nType);
+D2COMMON_DLL_DECL int __cdecl D2Common_11032(struct D2Unit* pUnit, int nSkillId, int nSkillLevel, int nType);
 //D2Common.0x6FDB3910 (#11025)
-D2COMMON_DLL_DECL BOOL __stdcall D2Common_11025(int nX1, int nY1, int nX2, int nY2, struct D2ActiveRoom* pRoom, int a6);
+D2COMMON_DLL_DECL BOOL __cdecl D2Common_11025(int nX1, int nY1, int nX2, int nY2, struct D2ActiveRoom* pRoom, int a6);
 //D2Common.0x6FDB3960 (#11026)
-D2COMMON_DLL_DECL BOOL __stdcall D2Common_11026(int nX, int nY, struct D2Unit* pUnit, uint16_t nColMask);
+D2COMMON_DLL_DECL BOOL __cdecl D2Common_11026(int nX, int nY, struct D2Unit* pUnit, uint16_t nColMask);
 //D2Common.0x6FDB3A10 (#11027)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetShiftedManaCosts(int nSkillId, int nLevel);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetShiftedManaCosts(int nSkillId, int nLevel);
 //D2Common.0x6FDB3A90 (#11028)
-D2COMMON_DLL_DECL int __stdcall D2Common_11028(int a1);
+D2COMMON_DLL_DECL int __cdecl D2Common_11028(int a1);
 //D2Common.0x6FDB3AB0 (#11033)
-D2COMMON_DLL_DECL int __stdcall D2Common_11033(int nLevel, int nParam, int nMax);
+D2COMMON_DLL_DECL int __cdecl D2Common_11033(int nLevel, int nParam, int nMax);
 //D2Common.0x6FDB3B00 (#11034)
-D2COMMON_DLL_DECL int __stdcall D2Common_11034(int nLevel, int nSkillId);
+D2COMMON_DLL_DECL int __cdecl D2Common_11034(int nLevel, int nSkillId);
 //D2Common.0x6FDB3B90 (#11035)
-D2COMMON_DLL_DECL int __stdcall D2Common_11035(int nLevel, int nSkillId);
+D2COMMON_DLL_DECL int __cdecl D2Common_11035(int nLevel, int nSkillId);
 //D2Common.0x6FDB3C20 (#11036)
-D2COMMON_DLL_DECL int __stdcall D2COMMON_11036_GetMonCurseResistanceSubtraction(int nLevel, int nSkillId);
+D2COMMON_DLL_DECL int __cdecl D2COMMON_11036_GetMonCurseResistanceSubtraction(int nLevel, int nSkillId);
 //D2Common.0x6FDB3CB0 (#11037)
-D2COMMON_DLL_DECL BOOL __stdcall SKILLS_CheckIfCanLeapTo(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int* pX, int* pY);
+D2COMMON_DLL_DECL BOOL __cdecl SKILLS_CheckIfCanLeapTo(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int* pX, int* pY);
 //D2Common.0x6FDB3F60 (#11039)
-D2COMMON_DLL_DECL int __stdcall D2COMMON_11039_CheckWeaponIsMissileBased(struct D2Unit* pUnit, int* pValue);
+D2COMMON_DLL_DECL int __cdecl D2COMMON_11039_CheckWeaponIsMissileBased(struct D2Unit* pUnit, int* pValue);
 //D2Common.0x6FDB4020 (#11040)
-D2COMMON_DLL_DECL BOOL __stdcall SKILLS_IsEnhanceable(int nSkillId);
+D2COMMON_DLL_DECL BOOL __cdecl SKILLS_IsEnhanceable(int nSkillId);
 //D2Common.0x6FDB4070 (#11230)
-D2COMMON_DLL_DECL BOOL __stdcall SKILLS_RemoveTransformStatesFromShapeshiftedUnit(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL BOOL __cdecl SKILLS_RemoveTransformStatesFromShapeshiftedUnit(struct D2Unit* pUnit);
 //D2Common.0x6FDB4100 (#11041)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetClassSkillId(int nClassId, int nPosition);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetClassSkillId(int nClassId, int nPosition);
 //D2Common.0x6FDB4150 (#11042)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetPlayerSkillCount(int nClassId);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetPlayerSkillCount(int nClassId);
 //D2Common.0x6FDB4180 (#11043)
-D2COMMON_DLL_DECL int __stdcall D2Common_11043(struct D2Unit* pUnit);
+D2COMMON_DLL_DECL int __cdecl D2Common_11043(struct D2Unit* pUnit);
 //D2Common.0x6FDB41D0 (#11047)
-D2COMMON_DLL_DECL int __stdcall SKILLS_GetConcentrationDamageBonus(struct D2Unit* pUnit, int nSkillId);
+D2COMMON_DLL_DECL int __cdecl SKILLS_GetConcentrationDamageBonus(struct D2Unit* pUnit, int nSkillId);
 //D2Common.0x6FDB4260 (#11283)
-D2COMMON_DLL_DECL void __stdcall SKILLS_CalculateKickDamage(struct D2Unit* pUnit, int* pMinDamage, int* pMaxDamage, int* pDamagePercent);
+D2COMMON_DLL_DECL void __cdecl SKILLS_CalculateKickDamage(struct D2Unit* pUnit, int* pMinDamage, int* pMaxDamage, int* pDamagePercent);

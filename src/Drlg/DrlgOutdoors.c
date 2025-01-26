@@ -19,7 +19,7 @@
 
 
 //D2Common.0x6FD7DC20
-int __fastcall DRLGOUTDOORS_GetOutLinkVisFlag(struct D2DrlgLevel* pLevel, struct D2DrlgVertex* pDrlgVertex)
+int __cdecl DRLGOUTDOORS_GetOutLinkVisFlag(struct D2DrlgLevel* pLevel, struct D2DrlgVertex* pDrlgVertex)
 {
 	static const struct D2Coord pOffsetCoords[] =
 	{
@@ -82,7 +82,7 @@ int __fastcall DRLGOUTDOORS_GetOutLinkVisFlag(struct D2DrlgLevel* pLevel, struct
 }
 
 //D2Common.0x6FD7DD00
-int __fastcall DRLGOUTDOORS_GetPresetIndexFromGridCell(struct D2DrlgLevel* pLevel, int nX, int nY)
+int __cdecl DRLGOUTDOORS_GetPresetIndexFromGridCell(struct D2DrlgLevel* pLevel, int nX, int nY)
 {
 	if (DRLGOUTDOORS_GetPackedGrid2Info(pLevel->pOutdoors, nX, nY).bHasPickedFile)
 	{
@@ -93,14 +93,14 @@ int __fastcall DRLGOUTDOORS_GetPresetIndexFromGridCell(struct D2DrlgLevel* pLeve
 }
 
 //D2Common.0x6FD7DD40
-void __fastcall DRLGOUTDOORS_AlterAdjacentPresetGridCells(struct D2DrlgLevel* pLevel, int nX, int nY)
+void __cdecl DRLGOUTDOORS_AlterAdjacentPresetGridCells(struct D2DrlgLevel* pLevel, int nX, int nY)
 {
 	DRLGGRID_AlterGridFlag(&pLevel->pOutdoors->pGrid[0], nX, nY, 0, FLAG_OPERATION_OVERWRITE);
 	DRLGGRID_AlterGridFlag(&pLevel->pOutdoors->pGrid[2], nX, nY, 0, FLAG_OPERATION_OVERWRITE);
 }
 
 //D2Common.0x6FD7DD70
-void __fastcall DRLGOUTDOORS_SetBlankGridCell(struct D2DrlgLevel* pLevel, int nX, int nY)
+void __cdecl DRLGOUTDOORS_SetBlankGridCell(struct D2DrlgLevel* pLevel, int nX, int nY)
 {
 	DRLGGRID_AlterGridFlag(&pLevel->pOutdoors->pGrid[0], nX, nY, 0, FLAG_OPERATION_OVERWRITE);
 	union D2DrlgOutdoorPackedGrid2Info tPackedInfo = { 0 };
@@ -109,13 +109,13 @@ void __fastcall DRLGOUTDOORS_SetBlankGridCell(struct D2DrlgLevel* pLevel, int nX
 }
 
 //D2Common.0x6FD7DDB0
-unsigned int __fastcall DRLGOUTDOORS_TestGridCellNonLvlLink(struct D2DrlgLevel* pLevel, int nX, int nY)
+unsigned int __cdecl DRLGOUTDOORS_TestGridCellNonLvlLink(struct D2DrlgLevel* pLevel, int nX, int nY)
 {
 	return DRLGOUTDOORS_GetPackedGrid2Info(pLevel->pOutdoors, nX, nY).bLvlLink == 0;
 }
 
 //D2Common.0x6FD7DDD0
-BOOL __fastcall DRLGOUTDOORS_TestGridCellSpawnValid(struct D2DrlgLevel* pLevel, int nX, int nY)
+BOOL __cdecl DRLGOUTDOORS_TestGridCellSpawnValid(struct D2DrlgLevel* pLevel, int nX, int nY)
 {
 	union D2DrlgOutdoorPackedGrid2Info tPackedInfo = DRLGOUTDOORS_GetPackedGrid2Info(pLevel->pOutdoors, nX, nY);
 	// ! (nVal & 0x1B81)
@@ -123,7 +123,7 @@ BOOL __fastcall DRLGOUTDOORS_TestGridCellSpawnValid(struct D2DrlgLevel* pLevel, 
 }
 
 //D2Common.0x6FD7DDF0
-BOOL __fastcall DRLGOUTDOORS_TestOutdoorLevelPreset(struct D2DrlgLevel* pLevel, int nX, int nY, int nLevelPrestId, int nOffset, char nFlags)
+BOOL __cdecl DRLGOUTDOORS_TestOutdoorLevelPreset(struct D2DrlgLevel* pLevel, int nX, int nY, int nLevelPrestId, int nOffset, char nFlags)
 {
 	struct D2LvlPrestTxt* pLvlPrestTxtRecord = NULL;
 	int nXStart = 0;
@@ -191,7 +191,7 @@ BOOL __fastcall DRLGOUTDOORS_TestOutdoorLevelPreset(struct D2DrlgLevel* pLevel, 
 }
 
 //D2Common.0x6FD7DEF0
-void __fastcall DRLGOUTDOORS_SpawnOutdoorLevelPresetEx(struct D2DrlgLevel* pLevel, int nX, int nY, int nLevelPrestId, int nPickedFile, BOOL bBorder)
+void __cdecl DRLGOUTDOORS_SpawnOutdoorLevelPresetEx(struct D2DrlgLevel* pLevel, int nX, int nY, int nLevelPrestId, int nPickedFile, BOOL bBorder)
 {
 	struct D2LvlPrestTxt* pLvlPrestTxtRecord = NULL;
 	struct D2DrlgBuild* pDrlgBuild = NULL;
@@ -257,7 +257,7 @@ void __fastcall DRLGOUTDOORS_SpawnOutdoorLevelPresetEx(struct D2DrlgLevel* pLeve
 }
 
 //D2Common.0x6FD7E0F0
-BOOL __fastcall DRLGOUTDOORS_SpawnPresetFarAway(struct D2DrlgLevel* pLevel, struct D2DrlgCoord* pDrlgCoord, int nLvlPrestId, int nRand, int nOffset, char nFlags)
+BOOL __cdecl DRLGOUTDOORS_SpawnPresetFarAway(struct D2DrlgLevel* pLevel, struct D2DrlgCoord* pDrlgCoord, int nLvlPrestId, int nRand, int nOffset, char nFlags)
 {
 	int nHeight = 0;
 	int nWidth = 0;
@@ -338,7 +338,7 @@ BOOL __fastcall DRLGOUTDOORS_SpawnPresetFarAway(struct D2DrlgLevel* pLevel, stru
 }
 
 //D2Common.0x6FD7E330
-BOOL __fastcall DRLGOUTDOORS_SpawnOutdoorLevelPreset(struct D2DrlgLevel* pLevel, int nLevelPrestId, int nRand, int nOffset, char nFlags)
+BOOL __cdecl DRLGOUTDOORS_SpawnOutdoorLevelPreset(struct D2DrlgLevel* pLevel, int nLevelPrestId, int nRand, int nOffset, char nFlags)
 {
 	struct D2Coord pCoord[256] = {};
 	int nWidth = 0;
@@ -391,7 +391,7 @@ BOOL __fastcall DRLGOUTDOORS_SpawnOutdoorLevelPreset(struct D2DrlgLevel* pLevel,
 }
 
 //D2Common.0x6FD7E4D0
-BOOL __fastcall DRLGOUTDOORS_SpawnRandomOutdoorDS1(struct D2DrlgLevel* pLevel, int nLvlPrestId, int nRand)
+BOOL __cdecl DRLGOUTDOORS_SpawnRandomOutdoorDS1(struct D2DrlgLevel* pLevel, int nLvlPrestId, int nRand)
 {
 	static const char nOffsetX[] =
 	{
@@ -470,7 +470,7 @@ BOOL __fastcall DRLGOUTDOORS_SpawnRandomOutdoorDS1(struct D2DrlgLevel* pLevel, i
 }
 
 //D2Common.0x6FD7E6D0
-void __fastcall DRLGOUTDOORS_SpawnAct12Waypoint(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTDOORS_SpawnAct12Waypoint(struct D2DrlgLevel* pLevel)
 {
 	struct D2Coord pCoord[256] = {};
 	int* pVisArray = NULL;
@@ -574,7 +574,7 @@ void __fastcall DRLGOUTDOORS_SpawnAct12Waypoint(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7E940
-void __fastcall DRLGOUTDOORS_SpawnAct12Shrines(struct D2DrlgLevel* pLevel, int nShrines)
+void __cdecl DRLGOUTDOORS_SpawnAct12Shrines(struct D2DrlgLevel* pLevel, int nShrines)
 {
 	static const int dword_6FDCF948[] =
 	{
@@ -647,7 +647,7 @@ void __fastcall DRLGOUTDOORS_SpawnAct12Shrines(struct D2DrlgLevel* pLevel, int n
 
 //D2Common.0x6FD7EB20
 //TODO: a1
-void __fastcall DRLGOUTDOORS_AddAct124SecondaryBorder(struct D2DrlgLevel* pLevel, int nLvlSubId, int nLevelPrestId)
+void __cdecl DRLGOUTDOORS_AddAct124SecondaryBorder(struct D2DrlgLevel* pLevel, int nLvlSubId, int nLevelPrestId)
 {
 	struct D2UnkOutdoor a1 = {};
 
@@ -668,14 +668,14 @@ void __fastcall DRLGOUTDOORS_AddAct124SecondaryBorder(struct D2DrlgLevel* pLevel
 }
 
 //D2Common.0x6FD7EBA0
-void __fastcall DRLGOUTDOORS_AllocOutdoorInfo(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTDOORS_AllocOutdoorInfo(struct D2DrlgLevel* pLevel)
 {
 	pLevel->pOutdoors = D2_CALLOC_STRC_POOL(pLevel->pDrlg->pMempool, struct D2DrlgOutdoorInfo);
 }
 
 //D2Common.0x6FD7EBD0
 //TODO: a6a, v13, v14
-void __fastcall DRLGOUTDOORS_GenerateLevel(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTDOORS_GenerateLevel(struct D2DrlgLevel* pLevel)
 {
 	struct D2DrlgCoord pDrlgCoord = {};
 	struct D2DrlgVertex** ppVertex = NULL;
@@ -823,7 +823,7 @@ void __fastcall DRLGOUTDOORS_GenerateLevel(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7EEE0
-void __fastcall DRLGOUTDOORS_FreeOutdoorInfo(struct D2DrlgLevel* pLevel, BOOL bKeepRoomData)
+void __cdecl DRLGOUTDOORS_FreeOutdoorInfo(struct D2DrlgLevel* pLevel, BOOL bKeepRoomData)
 {
 	if (pLevel->pOutdoors->dwFlags & 0x20)
 	{
@@ -899,7 +899,7 @@ static const uint8_t byte_6FDCF958[] =
 };
 
 //D2Common.0x6FD7EFE0
-void __fastcall DRLG_OUTDOORS_GenerateDirtPath(struct D2DrlgLevel* pLevel, struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLG_OUTDOORS_GenerateDirtPath(struct D2DrlgLevel* pLevel, struct D2DrlgRoom* pDrlgRoom)
 {
 
 	DRLGGRID_InitializeGridCells(pLevel->pDrlg->pMempool, &pDrlgRoom->pOutdoor->pDirtPathGrid, pDrlgRoom->nTileWidth + 3, pDrlgRoom->nTileHeight + 3);
@@ -984,7 +984,7 @@ void __fastcall DRLG_OUTDOORS_GenerateDirtPath(struct D2DrlgLevel* pLevel, struc
 }
 
 //D2Common.0x6FD7F250
-void __fastcall DRLGOUTDOORS_SpawnAct1DirtPaths(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTDOORS_SpawnAct1DirtPaths(struct D2DrlgLevel* pLevel)
 {
 	struct D2DrlgOutdoorInfo* pOutdoors = pLevel->pOutdoors;
 	pOutdoors->nVertices = 0;
@@ -1124,7 +1124,7 @@ void __fastcall DRLGOUTDOORS_SpawnAct1DirtPaths(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7F500
-void __fastcall DRLGOUTDOORS_CalculatePathCoordinates(struct D2DrlgLevel* pLevel, struct D2DrlgVertex* pVertex1, struct D2DrlgVertex* pVertex2)
+void __cdecl DRLGOUTDOORS_CalculatePathCoordinates(struct D2DrlgLevel* pLevel, struct D2DrlgVertex* pVertex1, struct D2DrlgVertex* pVertex2)
 {
 	pVertex2->nPosX = pVertex1->nPosX - pLevel->nPosX;
 	pVertex2->nPosY = pVertex1->nPosY - pLevel->nPosY;
@@ -1156,7 +1156,7 @@ void __fastcall DRLGOUTDOORS_CalculatePathCoordinates(struct D2DrlgLevel* pLevel
 }
 
 //D2Common.0x6FD7F5B0
-void __fastcall sub_6FD7F5B0(struct D2DrlgLevel* pLevel)
+void __cdecl sub_6FD7F5B0(struct D2DrlgLevel* pLevel)
 {
 	static const int nXOffsets[] =
 	{
@@ -1266,7 +1266,7 @@ void __fastcall sub_6FD7F5B0(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD7F810
-void __fastcall sub_6FD7F810(struct D2DrlgLevel* pLevel, int nVertexId)
+void __cdecl sub_6FD7F810(struct D2DrlgLevel* pLevel, int nVertexId)
 {
 	static const int nXOffsets[] =
 	{
@@ -1334,7 +1334,7 @@ void __fastcall sub_6FD7F810(struct D2DrlgLevel* pLevel, int nVertexId)
 }
 
 //D2Common.0x6FD7F9B0
-void __fastcall DRLGOUTDOORS_InitAct4OutdoorLevel(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTDOORS_InitAct4OutdoorLevel(struct D2DrlgLevel* pLevel)
 {
 	static const int nMesaLvlPrestIds[] =
 	{

@@ -12,7 +12,7 @@
 
 
 //D2Common.0x6FD75480
-void __fastcall DRLGANIM_InitCache(struct D2Drlg* pDrlg, struct D2DrlgTileData* pTileData)
+void __cdecl DRLGANIM_InitCache(struct D2Drlg* pDrlg, struct D2DrlgTileData* pTileData)
 {
 	struct D2TileLibraryEntry* ppTileLibraryEntry[40] = {};
 	int nSequence = 0;
@@ -46,7 +46,7 @@ void __fastcall DRLGANIM_InitCache(struct D2Drlg* pDrlg, struct D2DrlgTileData* 
 }
 
 //D2Common.0x6FD75560
-void __fastcall DRLGANIM_TestLoadAnimatedRoomTiles(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pDrlgGrid, struct D2DrlgGrid* pTileTypeGrid, int nTileType, int nTileX, int nTileY)
+void __cdecl DRLGANIM_TestLoadAnimatedRoomTiles(struct D2DrlgRoom* pDrlgRoom, struct D2DrlgGrid* pDrlgGrid, struct D2DrlgGrid* pTileTypeGrid, int nTileType, int nTileX, int nTileY)
 {
 	struct D2TileLibraryEntry* ppTileLibraryEntry[40] = {};
 
@@ -101,7 +101,7 @@ static int AnimationFrameIntegerToFixedPoint(int nIntegerPart)
 }
 
 //D2Common.0x6FD756B0
-void __fastcall DRLGANIM_AnimateTiles(struct D2DrlgRoom* pDrlgRoom)
+void __cdecl DRLGANIM_AnimateTiles(struct D2DrlgRoom* pDrlgRoom)
 {
 
 	for (int i = 0; i < pDrlgRoom->nRoomsNear; ++i)
@@ -131,7 +131,7 @@ void __fastcall DRLGANIM_AnimateTiles(struct D2DrlgRoom* pDrlgRoom)
 }
 
 //D2Common.0x6FD75740
-void __fastcall DRLGANIM_AllocAnimationTileGrids(struct D2DrlgRoom* pDrlgRoom, int nAnimationSpeed, struct D2DrlgGrid* pWallGrid, int nWalls, struct D2DrlgGrid* pFloorGrid, int nFloors, struct D2DrlgGrid* pShadowGrid)
+void __cdecl DRLGANIM_AllocAnimationTileGrids(struct D2DrlgRoom* pDrlgRoom, int nAnimationSpeed, struct D2DrlgGrid* pWallGrid, int nWalls, struct D2DrlgGrid* pFloorGrid, int nFloors, struct D2DrlgGrid* pShadowGrid)
 {
 	DRLGANIM_AllocAnimationTileGrid(pDrlgRoom, nAnimationSpeed, pDrlgRoom->pTileGrid->pTiles.pWallTiles, pDrlgRoom->pTileGrid->nWalls, pWallGrid, nWalls);
 	DRLGANIM_AllocAnimationTileGrid(pDrlgRoom, nAnimationSpeed, pDrlgRoom->pTileGrid->pTiles.pFloorTiles, pDrlgRoom->pTileGrid->nFloors, pFloorGrid, nFloors);
@@ -155,7 +155,7 @@ struct D2TileLibraryEntry* DRLGANIM_FindAnimatedTileFrame(struct D2TileLibraryEn
 }
 
 //D2Common.0x6FD757B0
-void __fastcall DRLGANIM_AllocAnimationTileGrid(struct D2DrlgRoom* pDrlgRoom, int nAnimationSpeed, struct D2DrlgTileData* pTiles, int nTiles, struct D2DrlgGrid* pDrlgGrid, int nUnused)
+void __cdecl DRLGANIM_AllocAnimationTileGrid(struct D2DrlgRoom* pDrlgRoom, int nAnimationSpeed, struct D2DrlgTileData* pTiles, int nTiles, struct D2DrlgGrid* pDrlgGrid, int nUnused)
 {
 	D2_MAYBE_UNUSED(nUnused);
 	if (!pTiles)
@@ -225,7 +225,7 @@ void __fastcall DRLGANIM_AllocAnimationTileGrid(struct D2DrlgRoom* pDrlgRoom, in
 }
 
 //D2Common.0x6FD75B00
-void __fastcall DRLGANIM_UpdateFrameInAdjacentRooms(struct D2DrlgRoom* pDrlgRoom1, struct D2DrlgRoom* pDrlgRoom2)
+void __cdecl DRLGANIM_UpdateFrameInAdjacentRooms(struct D2DrlgRoom* pDrlgRoom1, struct D2DrlgRoom* pDrlgRoom2)
 {
 	if (!pDrlgRoom2)
 	{

@@ -35,7 +35,7 @@
  * 1.00: D2Lang.0x1000109B (#10053)
  * 1.10: D2Lang.0x6FC11C20 (#10055)
  */
-char* __fastcall Unicode_unicode2Win(char* dest, const struct Unicode* src, int count)
+char* __cdecl Unicode_unicode2Win(char* dest, const struct Unicode* src, int count)
 {
 	char* current_dest = dest;
 	while (count > 1 && src->ch != L'\0')
@@ -57,7 +57,7 @@ char* __fastcall Unicode_unicode2Win(char* dest, const struct Unicode* src, int 
  * 1.00: D2Lang.0x10001122 (#10059)
  * 1.10: D2Lang.0x6FC11BD0 (#10062)
  */
-struct Unicode* __fastcall Unicode_win2Unicode(struct Unicode* dest, const char* src, int count)
+struct Unicode* __cdecl Unicode_win2Unicode(struct Unicode* dest, const char* src, int count)
 {
 	int i;
 	// Copy the source string as-is to the destination.

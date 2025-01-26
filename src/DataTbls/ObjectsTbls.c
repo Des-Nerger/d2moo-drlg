@@ -3,7 +3,7 @@
 
 
 //D2Common.0x6FD6FDF0
-void __fastcall DATATBLS_LoadObjectsTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadObjectsTxt(HD2ARCHIVE hArchive)
 {
 	struct D2BinField pTbl[] =
 	{
@@ -182,7 +182,7 @@ void __fastcall DATATBLS_LoadObjectsTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD718F0 (#10626)
-struct D2ObjectsTxt* __stdcall DATATBLS_GetObjectsTxtRecord(int nObjectId)
+struct D2ObjectsTxt* __cdecl DATATBLS_GetObjectsTxtRecord(int nObjectId)
 {
 	D2_ASSERT(nObjectId < sgptDataTables->nObjectsTxtRecordCount);
 	D2_ASSERT(nObjectId >= 0);
@@ -190,7 +190,7 @@ struct D2ObjectsTxt* __stdcall DATATBLS_GetObjectsTxtRecord(int nObjectId)
 }
 
 //D2Common.0x6FD71960
-void __fastcall DATATBLS_UnloadObjectsTxt()
+void __cdecl DATATBLS_UnloadObjectsTxt()
 {
 	DATATBLS_UnloadBin(sgptDataTables->pObjectsTxt);
 	sgptDataTables->pObjectsTxt = NULL;
@@ -198,7 +198,7 @@ void __fastcall DATATBLS_UnloadObjectsTxt()
 }
 
 //D2Common.0x6FD71980
-void __fastcall DATATBLS_UnloadObjGroupTxt()
+void __cdecl DATATBLS_UnloadObjGroupTxt()
 {
 	DATATBLS_UnloadBin(sgptDataTables->pObjGroupTxt);
 	sgptDataTables->pObjGroupTxt = NULL;
@@ -206,7 +206,7 @@ void __fastcall DATATBLS_UnloadObjGroupTxt()
 }
 
 //D2Common.0x6FD719A0
-void __fastcall DATATBLS_LoadObjGroupTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadObjGroupTxt(HD2ARCHIVE hArchive)
 {
 	struct D2BinField pTbl[] =
 	{
@@ -243,7 +243,7 @@ void __fastcall DATATBLS_LoadObjGroupTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD71E00 (#10627)
-struct D2ObjGroupTxt* __stdcall DATATBLS_GetObjGroupTxtRecord(int nId)
+struct D2ObjGroupTxt* __cdecl DATATBLS_GetObjGroupTxtRecord(int nId)
 {
 	if (nId < sgptDataTables->nObjGroupTxtRecordCount)
 	{
@@ -254,7 +254,7 @@ struct D2ObjGroupTxt* __stdcall DATATBLS_GetObjGroupTxtRecord(int nId)
 }
 
 //D2Common.0x6FD71E30
-void __fastcall DATATBLS_LoadShrinesTxt(HD2ARCHIVE hArchive)
+void __cdecl DATATBLS_LoadShrinesTxt(HD2ARCHIVE hArchive)
 {
 	struct D2BinField pTbl[] =
 	{
@@ -275,7 +275,7 @@ void __fastcall DATATBLS_LoadShrinesTxt(HD2ARCHIVE hArchive)
 }
 
 //D2Common.0x6FD72000 (#10624)
-struct D2ShrinesTxt* __stdcall DATATBLS_GetShrinesTxtRecord(int nShrineId)
+struct D2ShrinesTxt* __cdecl DATATBLS_GetShrinesTxtRecord(int nShrineId)
 {
 	D2_ASSERT(nShrineId < sgptDataTables->nShrinesTxtRecordCount);
 	D2_ASSERT(nShrineId >= 0);
@@ -283,13 +283,13 @@ struct D2ShrinesTxt* __stdcall DATATBLS_GetShrinesTxtRecord(int nShrineId)
 }
 
 //D2Common.0x6FD72070 (#10625)
-int __stdcall DATATBLS_GetShrinesTxtRecordCount()
+int __cdecl DATATBLS_GetShrinesTxtRecordCount()
 {
 	return sgptDataTables->nShrinesTxtRecordCount;
 }
 
 //D2Common.0x6FD72080
-void __fastcall DATATBLS_UnloadShrinesTxt()
+void __cdecl DATATBLS_UnloadShrinesTxt()
 {
 	DATATBLS_UnloadBin(sgptDataTables->pShrinesTxt);
 	sgptDataTables->pShrinesTxt = NULL;

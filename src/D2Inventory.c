@@ -321,7 +321,7 @@ BOOL gbComponentArrayInitialized;
 
 
 //D2Common.0x6FD8E210
-BOOL __fastcall INVENTORY_RemoveItem(struct D2Unit* pItem)
+BOOL __cdecl INVENTORY_RemoveItem(struct D2Unit* pItem)
 {
 	struct D2ItemExtraData* pItemExtraData = INVENTORY_GetItemExtraDataFromItem(pItem);
 
@@ -466,7 +466,7 @@ BOOL __fastcall INVENTORY_RemoveItem(struct D2Unit* pItem)
 }
 
 //D2Common.0x6FD8E4A0
-struct D2ItemExtraData* __fastcall INVENTORY_GetItemExtraDataFromItem(struct D2Unit* pItem)
+struct D2ItemExtraData* __cdecl INVENTORY_GetItemExtraDataFromItem(struct D2Unit* pItem)
 {
 	struct D2ItemData* pItemData = ITEMS_GetItemData(pItem);
 	if (pItemData)
@@ -478,7 +478,7 @@ struct D2ItemExtraData* __fastcall INVENTORY_GetItemExtraDataFromItem(struct D2U
 }
 
 //D2Common.0x6FD8E4C0 (#10240)
-struct D2Inventory* __stdcall INVENTORY_AllocInventory(void* pMemPool, struct D2Unit* pOwner)
+struct D2Inventory* __cdecl INVENTORY_AllocInventory(void* pMemPool, struct D2Unit* pOwner)
 {
 	if (!pMemPool && pOwner)
 	{
@@ -505,7 +505,7 @@ struct D2Inventory* __stdcall INVENTORY_AllocInventory(void* pMemPool, struct D2
 }
 
 //D2Common.0x6FD8E520 (#10241)
-void __stdcall INVENTORY_FreeInventory(struct D2Inventory* pInventory)
+void __cdecl INVENTORY_FreeInventory(struct D2Inventory* pInventory)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -557,7 +557,7 @@ void __stdcall INVENTORY_FreeInventory(struct D2Inventory* pInventory)
 }
 
 //D2Common.0x6FD8E620 (#10244)
-BOOL __stdcall INVENTORY_CompareWithItemsParentInventory(struct D2Inventory* pInventory, struct D2Unit* pItem)
+BOOL __cdecl INVENTORY_CompareWithItemsParentInventory(struct D2Inventory* pInventory, struct D2Unit* pItem)
 {
 	if (pInventory)
 	{
@@ -569,7 +569,7 @@ BOOL __stdcall INVENTORY_CompareWithItemsParentInventory(struct D2Inventory* pIn
 }
 
 //D2Common.0x6FD8E660 (#10243)
-struct D2Unit* __stdcall INVENTORY_RemoveItemFromInventory(struct D2Inventory* pInventory, struct D2Unit* pItem)
+struct D2Unit* __cdecl INVENTORY_RemoveItemFromInventory(struct D2Inventory* pInventory, struct D2Unit* pItem)
 {
 	if (INVENTORY_CompareWithItemsParentInventory(pInventory, pItem))
 	{
@@ -581,7 +581,7 @@ struct D2Unit* __stdcall INVENTORY_RemoveItemFromInventory(struct D2Inventory* p
 }
 
 //D2Common.0x6FD8E6A0 (#10242)
-BOOL __stdcall INVENTORY_PlaceItemInSocket(struct D2Inventory* pInventory, struct D2Unit* pItem, int nUnused)
+BOOL __cdecl INVENTORY_PlaceItemInSocket(struct D2Inventory* pInventory, struct D2Unit* pItem, int nUnused)
 {
 	D2_MAYBE_UNUSED(nUnused);
 	if (!INVENTORY_GetPtrIfValid(pInventory))
@@ -634,7 +634,7 @@ BOOL __stdcall INVENTORY_PlaceItemInSocket(struct D2Inventory* pInventory, struc
 }
 
 //D2Common.0x6FD8E7A0 (#10277)
-struct D2Unit* __stdcall INVENTORY_GetFirstItem(struct D2Inventory* pInventory)
+struct D2Unit* __cdecl INVENTORY_GetFirstItem(struct D2Inventory* pInventory)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -645,7 +645,7 @@ struct D2Unit* __stdcall INVENTORY_GetFirstItem(struct D2Inventory* pInventory)
 }
 
 //D2Common.0x6FD8E7C0 (#10278)
-struct D2Unit* __stdcall INVENTORY_GetLastItem(struct D2Inventory* pInventory)
+struct D2Unit* __cdecl INVENTORY_GetLastItem(struct D2Inventory* pInventory)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -656,7 +656,7 @@ struct D2Unit* __stdcall INVENTORY_GetLastItem(struct D2Inventory* pInventory)
 }
 
 //D2Common.0x6FD8E7E0 (#10245)
-BOOL __stdcall INVENTORY_GetFreePosition(struct D2Inventory* pInventory, struct D2Unit* pItem, int nInventoryRecordId, int* pFreeX, int* pFreeY, uint8_t nPage)
+BOOL __cdecl INVENTORY_GetFreePosition(struct D2Inventory* pInventory, struct D2Unit* pItem, int nInventoryRecordId, int* pFreeX, int* pFreeY, uint8_t nPage)
 {
 	if (!INVENTORY_GetPtrIfValid(pInventory) || !ITEMS_GetItemData(pItem))
 	{
@@ -713,7 +713,7 @@ BOOL __stdcall INVENTORY_GetFreePosition(struct D2Inventory* pInventory, struct 
 }
 
 //D2Common.0x6FD8EAF0
-struct D2InventoryGrid* __fastcall INVENTORY_GetGrid(struct D2Inventory* pInventory, int nInventoryGrid, struct D2InventoryGridInfo* pInventoryGridInfo)
+struct D2InventoryGrid* __cdecl INVENTORY_GetGrid(struct D2Inventory* pInventory, int nInventoryGrid, struct D2InventoryGridInfo* pInventoryGridInfo)
 {
 	struct D2InventoryGrid* pInventoryGrid = nullptr;
 
@@ -762,7 +762,7 @@ struct D2InventoryGrid* __fastcall INVENTORY_GetGrid(struct D2Inventory* pInvent
 }
 
 //D2Common.0x6FD8EC70
-BOOL __fastcall INVENTORY_CanItemBePlacedAtPos(struct D2InventoryGrid* pInventoryGrid, int nX, int nY, uint8_t nItemWidth, uint8_t nItemHeight)
+BOOL __cdecl INVENTORY_CanItemBePlacedAtPos(struct D2InventoryGrid* pInventoryGrid, int nX, int nY, uint8_t nItemWidth, uint8_t nItemHeight)
 {
 	if (nItemWidth + nX > pInventoryGrid->nGridWidth || nItemHeight + nY > pInventoryGrid->nGridHeight)
 	{
@@ -784,7 +784,7 @@ BOOL __fastcall INVENTORY_CanItemBePlacedAtPos(struct D2InventoryGrid* pInventor
 }
 
 //D2Common.0x6FD8ECF0
-BOOL __fastcall INVENTORY_FindFreePositionBottomRightToTopLeftWithWeight(struct D2InventoryGrid* pInventoryGrid, int* pFreeX, int* pFreeY, uint8_t nItemWidth, uint8_t nItemHeight)
+BOOL __cdecl INVENTORY_FindFreePositionBottomRightToTopLeftWithWeight(struct D2InventoryGrid* pInventoryGrid, int* pFreeX, int* pFreeY, uint8_t nItemWidth, uint8_t nItemHeight)
 {
 	if (pInventoryGrid->nGridWidth < 1 || pInventoryGrid->nGridHeight < 1)
 	{
@@ -819,7 +819,7 @@ BOOL __fastcall INVENTORY_FindFreePositionBottomRightToTopLeftWithWeight(struct 
 }
 
 //D2Common.0x6FD8EE20
-uint8_t __fastcall INVENTORY_GetPlacementWeight(struct D2InventoryGrid* pInventoryGrid, int nXPos, int nYPos, uint8_t nItemWidth, uint8_t nItemHeight)
+uint8_t __cdecl INVENTORY_GetPlacementWeight(struct D2InventoryGrid* pInventoryGrid, int nXPos, int nYPos, uint8_t nItemWidth, uint8_t nItemHeight)
 {
 	uint8_t nResult = 0;
 
@@ -892,7 +892,7 @@ uint8_t __fastcall INVENTORY_GetPlacementWeight(struct D2InventoryGrid* pInvento
 }
 
 //D2Common.0x6FD8EFB0
-BOOL __fastcall INVENTORY_FindFreePositionTopLeftToBottomRightWithWeight(struct D2InventoryGrid* pInventoryGrid, int* pFreeX, int* pFreeY, uint8_t nItemWidth, uint8_t nItemHeight)
+BOOL __cdecl INVENTORY_FindFreePositionTopLeftToBottomRightWithWeight(struct D2InventoryGrid* pInventoryGrid, int* pFreeX, int* pFreeY, uint8_t nItemWidth, uint8_t nItemHeight)
 {
 	if (pInventoryGrid->nGridWidth <= 0 || pInventoryGrid->nGridHeight <= 0)
 	{
@@ -927,7 +927,7 @@ BOOL __fastcall INVENTORY_FindFreePositionTopLeftToBottomRightWithWeight(struct 
 }
 
 //D2Common.0x6FD8F0E0
-BOOL __fastcall INVENTORY_FindFreePositionTopLeftToBottomRight(struct D2InventoryGrid* pInventoryGrid, int* pFreeX, int* pFreeY, uint8_t nItemWidth, uint8_t nItemHeight)
+BOOL __cdecl INVENTORY_FindFreePositionTopLeftToBottomRight(struct D2InventoryGrid* pInventoryGrid, int* pFreeX, int* pFreeY, uint8_t nItemWidth, uint8_t nItemHeight)
 {
 	for (int nX = 0; nX < pInventoryGrid->nGridWidth; ++nX)
 	{
@@ -946,7 +946,7 @@ BOOL __fastcall INVENTORY_FindFreePositionTopLeftToBottomRight(struct D2Inventor
 }
 
 //D2Common.0x6FD8F1E0 (#10246)
-BOOL __stdcall INVENTORY_PlaceItemAtFreePosition(struct D2Inventory* pInventory, struct D2Unit* pItem, int nInventoryRecordId, BOOL bUnused, uint8_t nPage, const char* szFile, int nLine)
+BOOL __cdecl INVENTORY_PlaceItemAtFreePosition(struct D2Inventory* pInventory, struct D2Unit* pItem, int nInventoryRecordId, BOOL bUnused, uint8_t nPage, const char* szFile, int nLine)
 {
 	int nX = 0;
 	int nY = 0;
@@ -959,7 +959,7 @@ BOOL __stdcall INVENTORY_PlaceItemAtFreePosition(struct D2Inventory* pInventory,
 }
 
 //D2Common.0x6FD8F250
-BOOL __fastcall INVENTORY_PlaceItemInGrid(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryGrid, int nInventoryRecordId, BOOL bUnused)
+BOOL __cdecl INVENTORY_PlaceItemInGrid(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryGrid, int nInventoryRecordId, BOOL bUnused)
 {
 	D2_MAYBE_UNUSED(bUnused);
 	if (!INVENTORY_GetPtrIfValid(pInventory))
@@ -1115,7 +1115,7 @@ BOOL __fastcall INVENTORY_PlaceItemInGrid(struct D2Inventory* pInventory, struct
 }
 
 //D2Common.0x6FD8F600 (#10247)
-BOOL __stdcall INVENTORY_CanItemBePlaced(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryRecordId, struct D2Unit** ppExchangeItem, unsigned int* pHoveredItems, uint8_t nPage)
+BOOL __cdecl INVENTORY_CanItemBePlaced(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryRecordId, struct D2Unit** ppExchangeItem, unsigned int* pHoveredItems, uint8_t nPage)
 {
 	*pHoveredItems = 0;
 
@@ -1180,7 +1180,7 @@ BOOL __stdcall INVENTORY_CanItemBePlaced(struct D2Inventory* pInventory, struct 
 }
 
 //D2Common.0x6FD8F780 (#10248)
-BOOL __stdcall INVENTORY_CanItemsBeExchanged(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryRecordId, struct D2Unit** ppExchangeItem, uint8_t nPage, BOOL bCheckIfCube)
+BOOL __cdecl INVENTORY_CanItemsBeExchanged(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryRecordId, struct D2Unit** ppExchangeItem, uint8_t nPage, BOOL bCheckIfCube)
 {
 	if (!INVENTORY_GetPtrIfValid(pInventory) || !INVENTORY_UnitIsItem(pItem) || nPage == (uint8_t)(-1) || nXPos < 0 || nYPos < 0)
 	{
@@ -1247,7 +1247,7 @@ BOOL __stdcall INVENTORY_CanItemsBeExchanged(struct D2Inventory* pInventory, str
 }
 
 //D2Common.0x6FD8F930 (#10249)
-BOOL __stdcall INVENTORY_PlaceItemAtInventoryPage(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryRecordId, BOOL bUnused, uint8_t nPage)
+BOOL __cdecl INVENTORY_PlaceItemAtInventoryPage(struct D2Inventory* pInventory, struct D2Unit* pItem, int nXPos, int nYPos, int nInventoryRecordId, BOOL bUnused, uint8_t nPage)
 {
 	if (pInventory)
 	{
@@ -1258,13 +1258,13 @@ BOOL __stdcall INVENTORY_PlaceItemAtInventoryPage(struct D2Inventory* pInventory
 }
 
 //D2Common.0x6FD8F970 (#10250)
-void __stdcall INVENTORY_Return(const char* szFile, int nLine, struct D2Inventory* pInventory, int nX, int nY, int nInventoryRecordId, BOOL bClient, uint8_t nPage)
+void __cdecl INVENTORY_Return(const char* szFile, int nLine, struct D2Inventory* pInventory, int nX, int nY, int nInventoryRecordId, BOOL bClient, uint8_t nPage)
 {
 	return;
 }
 
 //D2Common.0x6FD8F980 (#10252)
-struct D2Unit* __stdcall INVENTORY_GetItemFromInventoryPage(struct D2Inventory* pInventory, int nGridX, int nGridY, int* pX, int* pY, int nInventoryRecordId, uint8_t nPage)
+struct D2Unit* __cdecl INVENTORY_GetItemFromInventoryPage(struct D2Inventory* pInventory, int nGridX, int nGridY, int* pX, int* pY, int nInventoryRecordId, uint8_t nPage)
 {
 	if (!INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -1310,7 +1310,7 @@ struct D2Unit* __stdcall INVENTORY_GetItemFromInventoryPage(struct D2Inventory* 
 }
 
 //D2Common.0x6FD8FAB0 (#10253)
-BOOL __stdcall INVENTORY_PlaceItemInBodyLoc(struct D2Inventory* pInventory, struct D2Unit* pItem, int nBodyLoc)
+BOOL __cdecl INVENTORY_PlaceItemInBodyLoc(struct D2Inventory* pInventory, struct D2Unit* pItem, int nBodyLoc)
 {
 	if (pInventory && INVENTORY_ValidateBodyLoc(nBodyLoc))
 	{
@@ -1321,7 +1321,7 @@ BOOL __stdcall INVENTORY_PlaceItemInBodyLoc(struct D2Inventory* pInventory, stru
 }
 
 //D2Common.0x6FD8FAE0 (#10257)
-struct D2Unit* __stdcall INVENTORY_GetItemFromBodyLoc(struct D2Inventory* pInventory, int nBodyLoc)
+struct D2Unit* __cdecl INVENTORY_GetItemFromBodyLoc(struct D2Inventory* pInventory, int nBodyLoc)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory) && INVENTORY_ValidateBodyLoc(nBodyLoc))
 	{
@@ -1336,7 +1336,7 @@ struct D2Unit* __stdcall INVENTORY_GetItemFromBodyLoc(struct D2Inventory* pInven
 }
 
 //D2Common.0x6FD8FB20 (#10255)
-void __stdcall INVENTORY_GetSecondWieldingWeapon(struct D2Unit* pPlayer, struct D2Inventory* pInventory, struct D2Unit** ppItem, int nBodyLoc)
+void __cdecl INVENTORY_GetSecondWieldingWeapon(struct D2Unit* pPlayer, struct D2Inventory* pInventory, struct D2Unit** ppItem, int nBodyLoc)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory) && !*ppItem && INVENTORY_ValidateBodyLoc(nBodyLoc))
 	{
@@ -1362,7 +1362,7 @@ void __stdcall INVENTORY_GetSecondWieldingWeapon(struct D2Unit* pPlayer, struct 
 }
 
 //D2Common.0x6FD8FBB0 (#10256)
-BOOL __stdcall INVENTORY_CheckEquipmentForWeaponByClass(struct D2Inventory* pInventory, int nWeaponClass)
+BOOL __cdecl INVENTORY_CheckEquipmentForWeaponByClass(struct D2Inventory* pInventory, int nWeaponClass)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -1387,7 +1387,7 @@ BOOL __stdcall INVENTORY_CheckEquipmentForWeaponByClass(struct D2Inventory* pInv
 }
 
 //D2Common.0x6FD8FC60 (#10258)
-struct D2Unit* __stdcall INVENTORY_GetLeftHandWeapon(struct D2Inventory* pInventory)
+struct D2Unit* __cdecl INVENTORY_GetLeftHandWeapon(struct D2Inventory* pInventory)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory) && pInventory->dwLeftItemGUID != D2UnitInvalidGUID)
 	{
@@ -1412,7 +1412,7 @@ struct D2Unit* __stdcall INVENTORY_GetLeftHandWeapon(struct D2Inventory* pInvent
 }
 
 //D2Common.0x6FD8FD10 (#11301)
-struct D2Unit* __stdcall INVENTORY_GetSecondaryWeapon(struct D2Inventory* pInventory)
+struct D2Unit* __cdecl INVENTORY_GetSecondaryWeapon(struct D2Inventory* pInventory)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory) && pInventory->dwLeftItemGUID != D2UnitInvalidGUID)
 	{
@@ -1447,7 +1447,7 @@ struct D2Unit* __stdcall INVENTORY_GetSecondaryWeapon(struct D2Inventory* pInven
 }
 
 //D2Common.0x6FD8FDD0 (#10259)
-struct D2Unit* __stdcall INVENTORY_GetCompositItem(struct D2Inventory* pInventory, int nComponent)
+struct D2Unit* __cdecl INVENTORY_GetCompositItem(struct D2Inventory* pInventory, int nComponent)
 {
 	if (!INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -1494,7 +1494,7 @@ struct D2Unit* __stdcall INVENTORY_GetCompositItem(struct D2Inventory* pInventor
 }
 
 //D2Common.0x6FD8FE80 (#10260)
-int __stdcall INVENTORY_GetBodyLocFromEquippedItem(struct D2Inventory* pInventory, struct D2Unit* pItem)
+int __cdecl INVENTORY_GetBodyLocFromEquippedItem(struct D2Inventory* pInventory, struct D2Unit* pItem)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory) && INVENTORY_UnitIsItem(pItem) && pItem->pStaticPath->tGameCoords.nX < 11)
 	{
@@ -1505,7 +1505,7 @@ int __stdcall INVENTORY_GetBodyLocFromEquippedItem(struct D2Inventory* pInventor
 }
 
 //D2Common.0x6FD8FED0 (#11278)
-int __stdcall INVENTORY_GetItemsXPosition(struct D2Inventory* pInventory, struct D2Unit* pItem)
+int __cdecl INVENTORY_GetItemsXPosition(struct D2Inventory* pInventory, struct D2Unit* pItem)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory) && INVENTORY_UnitIsItem(pItem))
 	{
@@ -1516,7 +1516,7 @@ int __stdcall INVENTORY_GetItemsXPosition(struct D2Inventory* pInventory, struct
 }
 
 //D2Common.0x6FD8FF20 (#10261)
-void __stdcall INVENTORY_SetCursorItem(struct D2Inventory* pInventory, struct D2Unit* pItem)
+void __cdecl INVENTORY_SetCursorItem(struct D2Inventory* pInventory, struct D2Unit* pItem)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -1537,7 +1537,7 @@ void __stdcall INVENTORY_SetCursorItem(struct D2Inventory* pInventory, struct D2
 }
 
 //D2Common.0x6FD8FF80 (#10262)
-struct D2Unit* __stdcall INVENTORY_GetCursorItem(struct D2Inventory* pInventory)
+struct D2Unit* __cdecl INVENTORY_GetCursorItem(struct D2Inventory* pInventory)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -1548,7 +1548,7 @@ struct D2Unit* __stdcall INVENTORY_GetCursorItem(struct D2Inventory* pInventory)
 }
 
 //D2Common.0x6FD8FFA0 (#10263)
-struct D2Unit* __stdcall INVENTORY_FindBackPackItemForStack(struct D2Inventory* pInventory, struct D2Unit* pStackable, struct D2Unit* pCheckItem)
+struct D2Unit* __cdecl INVENTORY_FindBackPackItemForStack(struct D2Inventory* pInventory, struct D2Unit* pStackable, struct D2Unit* pCheckItem)
 {
 	if (!INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -1600,7 +1600,7 @@ struct D2Unit* __stdcall INVENTORY_FindBackPackItemForStack(struct D2Inventory* 
 }
 
 //D2Common.0x6FD90080 (#10264)
-struct D2Unit* __stdcall INVENTORY_FindEquippedItemForStack(struct D2Inventory* pInventory, struct D2Unit* pStackable, struct D2Unit* pCheckItem)
+struct D2Unit* __cdecl INVENTORY_FindEquippedItemForStack(struct D2Inventory* pInventory, struct D2Unit* pStackable, struct D2Unit* pCheckItem)
 {
 	if (!INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -1641,7 +1641,7 @@ struct D2Unit* __stdcall INVENTORY_FindEquippedItemForStack(struct D2Inventory* 
 }
 
 //D2Common.0x6FD90130 (#10265)
-struct D2Unit* __stdcall INVENTORY_FindFillableBook(struct D2Inventory* pInventory, struct D2Unit* pScrolls, struct D2Unit* pCheckItem)
+struct D2Unit* __cdecl INVENTORY_FindFillableBook(struct D2Inventory* pInventory, struct D2Unit* pScrolls, struct D2Unit* pCheckItem)
 {
 	if (!INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -1693,7 +1693,7 @@ struct D2Unit* __stdcall INVENTORY_FindFillableBook(struct D2Inventory* pInvento
 }
 
 //D2Common.0x6FD90230 (#10266)
-BOOL __stdcall INVENTORY_PlaceItemInBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem, int nSlot)
+BOOL __cdecl INVENTORY_PlaceItemInBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem, int nSlot)
 {
 	if (INVENTORY_UnitIsItem(pItem) && ITEMS_CheckIfBeltable(pItem))
 	{
@@ -1712,7 +1712,7 @@ BOOL __stdcall INVENTORY_PlaceItemInBeltSlot(struct D2Inventory* pInventory, str
 }
 
 //D2Common.0x6FD902B0 (#10268)
-BOOL __stdcall INVENTORY_HasSimilarPotionInBelt(struct D2Inventory* pInventory, struct D2Unit* pPotion)
+BOOL __cdecl INVENTORY_HasSimilarPotionInBelt(struct D2Inventory* pInventory, struct D2Unit* pPotion)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory) && INVENTORY_UnitIsItem(pPotion))
 	{
@@ -1737,7 +1737,7 @@ BOOL __stdcall INVENTORY_HasSimilarPotionInBelt(struct D2Inventory* pInventory, 
 }
 
 //D2Common.0x6FD90340 (#10269)
-BOOL __stdcall INVENTORY_GetFreeBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem, int* pFreeSlotId)
+BOOL __cdecl INVENTORY_GetFreeBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem, int* pFreeSlotId)
 {
 	if (!INVENTORY_GetPtrIfValid(pInventory) || !INVENTORY_UnitIsItem(pItem) || !ITEMS_CheckIfBeltable(pItem))
 	{
@@ -1806,7 +1806,7 @@ BOOL __stdcall INVENTORY_GetFreeBeltSlot(struct D2Inventory* pInventory, struct 
 }
 
 //D2Common.0x6FD904F0 (#10270)
-BOOL __stdcall INVENTORY_PlaceItemInFreeBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem)
+BOOL __cdecl INVENTORY_PlaceItemInFreeBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem)
 {
 	int nFreeSlot = 0;
 	if (INVENTORY_GetFreeBeltSlot(pInventory, pItem, &nFreeSlot) && pInventory && INVENTORY_UnitIsItem(pItem) && nFreeSlot >= 0 && nFreeSlot < 16)
@@ -1818,7 +1818,7 @@ BOOL __stdcall INVENTORY_PlaceItemInFreeBeltSlot(struct D2Inventory* pInventory,
 }
 
 //D2Common.0x6FD90550 (#10271)
-struct D2Unit* __stdcall INVENTORY_GetItemFromBeltSlot(struct D2Inventory* pInventory, int nSlotId)
+struct D2Unit* __cdecl INVENTORY_GetItemFromBeltSlot(struct D2Inventory* pInventory, int nSlotId)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -1833,7 +1833,7 @@ struct D2Unit* __stdcall INVENTORY_GetItemFromBeltSlot(struct D2Inventory* pInve
 }
 
 //D2Common.0x6FD90590 (#10272)
-BOOL __stdcall INVENTORY_GetUseableItemFromBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem, int nSlotId, struct D2Unit** ppItem)
+BOOL __cdecl INVENTORY_GetUseableItemFromBeltSlot(struct D2Inventory* pInventory, struct D2Unit* pItem, int nSlotId, struct D2Unit** ppItem)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -1868,7 +1868,7 @@ BOOL __stdcall INVENTORY_GetUseableItemFromBeltSlot(struct D2Inventory* pInvento
 }
 
 //D2Common.0x6FD90690 (#10273)
-BOOL __stdcall INVENTORY_GetEquippedShield(struct D2Inventory* pInventory, struct D2Unit** ppItem)
+BOOL __cdecl INVENTORY_GetEquippedShield(struct D2Inventory* pInventory, struct D2Unit** ppItem)
 {
 	if (!INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -1922,7 +1922,7 @@ BOOL __stdcall INVENTORY_GetEquippedShield(struct D2Inventory* pInventory, struc
 }
 
 //D2Common.0x6FD90760 (#10274)
-BOOL __stdcall INVENTORY_GetEquippedWeapon(struct D2Inventory* pInventory, struct D2Unit** ppItem, int* pBodyLoc, BOOL* pIsLeftHandItem)
+BOOL __cdecl INVENTORY_GetEquippedWeapon(struct D2Inventory* pInventory, struct D2Unit** ppItem, int* pBodyLoc, BOOL* pIsLeftHandItem)
 {
 	if (!INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -1973,7 +1973,7 @@ BOOL __stdcall INVENTORY_GetEquippedWeapon(struct D2Inventory* pInventory, struc
 }
 
 //D2Common.0x6FD90850 (#10275)
-BOOL __stdcall INVENTORY_HasBodyArmorEquipped(struct D2Inventory* pInventory)
+BOOL __cdecl INVENTORY_HasBodyArmorEquipped(struct D2Inventory* pInventory)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -1988,7 +1988,7 @@ BOOL __stdcall INVENTORY_HasBodyArmorEquipped(struct D2Inventory* pInventory)
 }
 
 //D2Common.0x6FD908A0 (#10276)
-BOOL __stdcall INVENTORY_IsItemBodyLocFree(struct D2Inventory* pInventory, struct D2Unit* pItem, int nBodyLoc, int nInventoryRecordId)
+BOOL __cdecl INVENTORY_IsItemBodyLocFree(struct D2Inventory* pInventory, struct D2Unit* pItem, int nBodyLoc, int nInventoryRecordId)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory) && INVENTORY_ValidateBodyLoc(nBodyLoc))
 	{
@@ -2006,7 +2006,7 @@ BOOL __stdcall INVENTORY_IsItemBodyLocFree(struct D2Inventory* pInventory, struc
 }
 
 //D2Common.0x6FD90910 (#10279)
-void __stdcall INVENTORY_RemoveInventoryItems(struct D2Inventory* pInventory)
+void __cdecl INVENTORY_RemoveInventoryItems(struct D2Inventory* pInventory)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -2018,7 +2018,7 @@ void __stdcall INVENTORY_RemoveInventoryItems(struct D2Inventory* pInventory)
 }
 
 //D2Common.0x6FD90940 (#10280)
-struct D2InventoryNode* __stdcall INVENTORY_GetTradeInventory(struct D2Inventory* pInventory)
+struct D2InventoryNode* __cdecl INVENTORY_GetTradeInventory(struct D2Inventory* pInventory)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -2029,7 +2029,7 @@ struct D2InventoryNode* __stdcall INVENTORY_GetTradeInventory(struct D2Inventory
 }
 
 //D2Common.0x6FD90960 (#10281)
-void __stdcall INVENTORY_FreeTradeInventory(struct D2Inventory* pInventory)
+void __cdecl INVENTORY_FreeTradeInventory(struct D2Inventory* pInventory)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -2046,7 +2046,7 @@ void __stdcall INVENTORY_FreeTradeInventory(struct D2Inventory* pInventory)
 }
 
 //D2Common.0x6FD909B0 (#10282)
-BOOL __stdcall INVENTORY_CheckForItemInTradeInventory(struct D2Inventory* pInventory, int nItemId)
+BOOL __cdecl INVENTORY_CheckForItemInTradeInventory(struct D2Inventory* pInventory, int nItemId)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -2063,7 +2063,7 @@ BOOL __stdcall INVENTORY_CheckForItemInTradeInventory(struct D2Inventory* pInven
 }
 
 //D2Common.0x6FD909F0 (#10283)
-void __stdcall INVENTORY_AddItemToTradeInventory(struct D2Inventory* pInventory, struct D2Unit* pItem)
+void __cdecl INVENTORY_AddItemToTradeInventory(struct D2Inventory* pInventory, struct D2Unit* pItem)
 {
 	if (INVENTORY_UnitIsItem(pItem))
 	{
@@ -2093,7 +2093,7 @@ void __stdcall INVENTORY_AddItemToTradeInventory(struct D2Inventory* pInventory,
 
 //D2Common.0x6FD90AB0 (#10316)
 //TODO: Find a name
-int __stdcall D2Common_10316(struct D2Corpse* pCorpse)
+int __cdecl D2Common_10316(struct D2Corpse* pCorpse)
 {
 	if (pCorpse)
 	{
@@ -2105,7 +2105,7 @@ int __stdcall D2Common_10316(struct D2Corpse* pCorpse)
 }
 
 //D2Common.0x6FD90AC0 (#10284)
-int __stdcall INVENTORY_GetItemCount(struct D2Inventory* pInventory)
+int __cdecl INVENTORY_GetItemCount(struct D2Inventory* pInventory)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -2116,7 +2116,7 @@ int __stdcall INVENTORY_GetItemCount(struct D2Inventory* pInventory)
 }
 
 //D2Common.0x6FD90AE0 (#10285)
-struct D2Unit* __stdcall INVENTORY_GetBackPackItemByType(struct D2Inventory* pInventory, int nItemType, struct D2Unit* pCheckItem)
+struct D2Unit* __cdecl INVENTORY_GetBackPackItemByType(struct D2Inventory* pInventory, int nItemType, struct D2Unit* pCheckItem)
 {
 	if (!INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -2170,7 +2170,7 @@ struct D2Unit* __stdcall INVENTORY_GetBackPackItemByType(struct D2Inventory* pIn
 }
 
 //D2Common.0x6FD90BC0 (#10286)
-struct D2Unit* __stdcall INVENTORY_GetEquippedItemByType(struct D2Inventory* pInventory, int nItemType, struct D2Unit* pCheckItem)
+struct D2Unit* __cdecl INVENTORY_GetEquippedItemByType(struct D2Inventory* pInventory, int nItemType, struct D2Unit* pCheckItem)
 {
 	if (!INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -2211,7 +2211,7 @@ struct D2Unit* __stdcall INVENTORY_GetEquippedItemByType(struct D2Inventory* pIn
 }
 
 //D2Common.0x6FD90C80 (#10287)
-struct D2Unit* __stdcall INVENTORY_GetEquippedItemByCode(struct D2Inventory* pInventory, int nItemCode, struct D2Unit* pCheckItem)
+struct D2Unit* __cdecl INVENTORY_GetEquippedItemByCode(struct D2Inventory* pInventory, int nItemCode, struct D2Unit* pCheckItem)
 {
 	int nClassId = 0;
 	if (!INVENTORY_GetPtrIfValid(pInventory) || !DATATBLS_GetItemRecordFromItemCode(nItemCode, &nClassId))
@@ -2253,7 +2253,7 @@ struct D2Unit* __stdcall INVENTORY_GetEquippedItemByCode(struct D2Inventory* pIn
 }
 
 //D2Common.0x6FD90D50 (#11306)
-struct D2Unit* __stdcall INVENTORY_GetBackPackItemByCode(struct D2Inventory* pInventory, int nItemCode, struct D2Unit* pCheckItem)
+struct D2Unit* __cdecl INVENTORY_GetBackPackItemByCode(struct D2Inventory* pInventory, int nItemCode, struct D2Unit* pCheckItem)
 {
 	int nClassId = 0;
 	if (!INVENTORY_GetPtrIfValid(pInventory) || !DATATBLS_GetItemRecordFromItemCode(nItemCode, &nClassId))
@@ -2295,7 +2295,7 @@ struct D2Unit* __stdcall INVENTORY_GetBackPackItemByCode(struct D2Inventory* pIn
 }
 
 //D2Common.0x6FD90E20 (#10288)
-int __stdcall INVENTORY_GetSetItemEquipCountByFileIndex(struct D2Inventory* pInventory, int nItemFileIndex)
+int __cdecl INVENTORY_GetSetItemEquipCountByFileIndex(struct D2Inventory* pInventory, int nItemFileIndex)
 {
 	if (!INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -2324,7 +2324,7 @@ int __stdcall INVENTORY_GetSetItemEquipCountByFileIndex(struct D2Inventory* pInv
 }
 
 //D2Common.0x6FD90ED0 (#10289)
-void __stdcall INVENTORY_UpdateWeaponGUIDOnInsert(struct D2Inventory* pInventory, struct D2Unit* pItem)
+void __cdecl INVENTORY_UpdateWeaponGUIDOnInsert(struct D2Inventory* pInventory, struct D2Unit* pItem)
 {
 	if (pInventory && INVENTORY_UnitIsItem(pItem) && ITEMS_CheckItemTypeId(pItem, ITEMTYPE_WEAPON))
 	{
@@ -2352,7 +2352,7 @@ void __stdcall INVENTORY_UpdateWeaponGUIDOnInsert(struct D2Inventory* pInventory
 }
 
 //D2Common.0x6FD90F80 (#10290)
-void __stdcall INVENTORY_UpdateWeaponGUIDOnRemoval(struct D2Inventory* pInventory, struct D2Unit* pItem)
+void __cdecl INVENTORY_UpdateWeaponGUIDOnRemoval(struct D2Inventory* pInventory, struct D2Unit* pItem)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory) && INVENTORY_UnitIsItem(pItem) && ITEMS_CheckItemTypeId(pItem, ITEMTYPE_WEAPON))
 	{
@@ -2388,7 +2388,7 @@ void __stdcall INVENTORY_UpdateWeaponGUIDOnRemoval(struct D2Inventory* pInventor
 }
 
 //D2Common.0x6FD91050 (#10291)
-int __stdcall INVENTORY_GetWieldType(struct D2Unit* pPlayer, struct D2Inventory* pInventory)
+int __cdecl INVENTORY_GetWieldType(struct D2Unit* pPlayer, struct D2Inventory* pInventory)
 {
 	if (pInventory)
 	{
@@ -2468,7 +2468,7 @@ int __stdcall INVENTORY_GetWieldType(struct D2Unit* pPlayer, struct D2Inventory*
 }
 
 //D2Common.0x6FD91140 (#10292)
-void __stdcall INVENTORY_SetOwnerId(struct D2Inventory* pInventory, D2UnitGUID nOwnerGuid)
+void __cdecl INVENTORY_SetOwnerId(struct D2Inventory* pInventory, D2UnitGUID nOwnerGuid)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -2477,7 +2477,7 @@ void __stdcall INVENTORY_SetOwnerId(struct D2Inventory* pInventory, D2UnitGUID n
 }
 
 //D2Common.0x6FD91160 (#10293)
-int __stdcall INVENTORY_GetOwnerId(struct D2Inventory* pInventory)
+int __cdecl INVENTORY_GetOwnerId(struct D2Inventory* pInventory)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -2488,7 +2488,7 @@ int __stdcall INVENTORY_GetOwnerId(struct D2Inventory* pInventory)
 }
 
 //D2Common.0x6FD91190 (#10294)
-void __stdcall INVENTORY_CreateCorpseForPlayer(struct D2Inventory* pInventory, int nUnitId, int a3, int a4)
+void __cdecl INVENTORY_CreateCorpseForPlayer(struct D2Inventory* pInventory, int nUnitId, int a3, int a4)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -2517,7 +2517,7 @@ void __stdcall INVENTORY_CreateCorpseForPlayer(struct D2Inventory* pInventory, i
 }
 
 //D2Common.0x6FD91210 (#10295)
-BOOL __stdcall INVENTORY_FreeCorpse(struct D2Inventory* pInventory, int nUnitId, int a3)
+BOOL __cdecl INVENTORY_FreeCorpse(struct D2Inventory* pInventory, int nUnitId, int a3)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory) && pInventory->pFirstCorpse)
 	{
@@ -2564,7 +2564,7 @@ BOOL __stdcall INVENTORY_FreeCorpse(struct D2Inventory* pInventory, int nUnitId,
 }
 
 //D2Common.0x6FD91290 (#10296)
-struct D2Corpse* __stdcall INVENTORY_GetFirstCorpse(struct D2Inventory* pInventory)
+struct D2Corpse* __cdecl INVENTORY_GetFirstCorpse(struct D2Inventory* pInventory)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -2575,7 +2575,7 @@ struct D2Corpse* __stdcall INVENTORY_GetFirstCorpse(struct D2Inventory* pInvento
 }
 
 //D2Common.0x6FD912B0 (#10297)
-int __stdcall INVENTORY_GetCorpseCount(struct D2Inventory* pInventory)
+int __cdecl INVENTORY_GetCorpseCount(struct D2Inventory* pInventory)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -2586,7 +2586,7 @@ int __stdcall INVENTORY_GetCorpseCount(struct D2Inventory* pInventory)
 }
 
 //D2Common.0x6FD912D0 (#10313)
-struct D2Corpse* __stdcall INVENTORY_GetNextCorpse(struct D2Corpse* pCorpse)
+struct D2Corpse* __cdecl INVENTORY_GetNextCorpse(struct D2Corpse* pCorpse)
 {
 	if (pCorpse)
 	{
@@ -2598,7 +2598,7 @@ struct D2Corpse* __stdcall INVENTORY_GetNextCorpse(struct D2Corpse* pCorpse)
 }
 
 //D2Common.0x6FDAFEA0 (#10314)
-D2UnitGUID __stdcall INVENTORY_GetUnitGUIDFromCorpse(struct D2Corpse* pCorpse)
+D2UnitGUID __cdecl INVENTORY_GetUnitGUIDFromCorpse(struct D2Corpse* pCorpse)
 {
 	if (pCorpse)
 	{
@@ -2611,7 +2611,7 @@ D2UnitGUID __stdcall INVENTORY_GetUnitGUIDFromCorpse(struct D2Corpse* pCorpse)
 
 //D2Common.0x6FDB18D0 (#10315)
 //TODO: Find a name
-int __stdcall D2Common_10315(struct D2Corpse* pCorpse)
+int __cdecl D2Common_10315(struct D2Corpse* pCorpse)
 {
 	if (pCorpse)
 	{
@@ -2650,7 +2650,7 @@ inline int INVENTORY_GetComponentArrayIndexFromArmTypeTxtRecord(struct D2ArmType
 }
 
 //D2Common.0x6FD912F0 (#10298)
-void __stdcall INVENTORY_GetItemSaveGfxInfo(struct D2Unit* pPlayer, uint8_t* pComponents, uint8_t* pColor)
+void __cdecl INVENTORY_GetItemSaveGfxInfo(struct D2Unit* pPlayer, uint8_t* pComponents, uint8_t* pColor)
 {
 	for (struct D2Unit* pItem = INVENTORY_GetFirstItem(pPlayer->pInventory); pItem; pItem = INVENTORY_GetNextItem(pItem))
 	{
@@ -2762,7 +2762,7 @@ void __stdcall INVENTORY_GetItemSaveGfxInfo(struct D2Unit* pPlayer, uint8_t* pCo
 }
 
 //D2Common.0x6FD915C0
-void __fastcall INVENTORY_InitializeComponentArray()
+void __cdecl INVENTORY_InitializeComponentArray()
 {
 	if (!gbComponentArrayInitialized)
 	{
@@ -2847,7 +2847,7 @@ void __fastcall INVENTORY_InitializeComponentArray()
 
 //D2Common.0x6FD917B0
 //TODO: Find a name
-void __fastcall sub_6FD917B0(struct D2Unit* pUnit, uint8_t* a2, uint8_t* pColor, struct D2Unit* pItem)
+void __cdecl sub_6FD917B0(struct D2Unit* pUnit, uint8_t* a2, uint8_t* pColor, struct D2Unit* pItem)
 {
 	D2_ASSERT(pUnit);
 	D2_ASSERT(pItem);
@@ -2914,7 +2914,7 @@ void __fastcall sub_6FD917B0(struct D2Unit* pUnit, uint8_t* a2, uint8_t* pColor,
 
 //D2Common.0x6FD91B60 (#10299)
 //TODO: Find a name
-int __stdcall D2Common_10299(struct D2Unit* pUnit, int nBodyLoc, struct D2Unit* pItem, BOOL bDontCheckReqs)
+int __cdecl D2Common_10299(struct D2Unit* pUnit, int nBodyLoc, struct D2Unit* pItem, BOOL bDontCheckReqs)
 {
 	if (pUnit && pUnit->pInventory)
 	{
@@ -3006,7 +3006,7 @@ int __stdcall D2Common_10299(struct D2Unit* pUnit, int nBodyLoc, struct D2Unit* 
 
 //D2Common.0x6FD91D50
 //TODO: Find names for function and arguments
-int __fastcall sub_6FD91D50(struct D2Unit* pPlayer, int a2, int nBodyLoc, struct D2Unit* a3, struct D2Unit* a4, struct D2Unit* pItem, int nUnused)
+int __cdecl sub_6FD91D50(struct D2Unit* pPlayer, int a2, int nBodyLoc, struct D2Unit* a3, struct D2Unit* a4, struct D2Unit* pItem, int nUnused)
 {
 	D2_MAYBE_UNUSED(nUnused);
 	if (!a3)
@@ -3061,7 +3061,7 @@ int __fastcall sub_6FD91D50(struct D2Unit* pPlayer, int a2, int nBodyLoc, struct
 
 //D2Common.0x6FD91E80
 //TODO: Find a name
-BOOL __fastcall sub_6FD91E80(struct D2Unit* pUnit, struct D2Unit* pItem1, struct D2Unit* pItem2)
+BOOL __cdecl sub_6FD91E80(struct D2Unit* pUnit, struct D2Unit* pItem1, struct D2Unit* pItem2)
 {
 	if (!pItem1 || !pItem2
 		|| ITEMS_GetAmmoType(pItem1) && ITEMS_CheckItemTypeId(pItem2, ITEMS_GetAmmoType(pItem1))
@@ -3152,7 +3152,7 @@ BOOL __fastcall sub_6FD91E80(struct D2Unit* pUnit, struct D2Unit* pItem1, struct
 }
 
 //D2Common.0x6FD92080 (#10304)
-struct D2Unit* __stdcall INVENTORY_GetNextItem(struct D2Unit* pItem)
+struct D2Unit* __cdecl INVENTORY_GetNextItem(struct D2Unit* pItem)
 {
 	struct D2ItemExtraData* pItemExtraData = INVENTORY_GetItemExtraDataFromItem(pItem);
 	if (pItemExtraData)
@@ -3164,7 +3164,7 @@ struct D2Unit* __stdcall INVENTORY_GetNextItem(struct D2Unit* pItem)
 }
 
 //Inlined at various places
-struct D2Unit* __stdcall INVENTORY_GetUnknownItem(struct D2Unit* pItem)
+struct D2Unit* __cdecl INVENTORY_GetUnknownItem(struct D2Unit* pItem)
 {
 	struct D2ItemExtraData* pItemExtraData = INVENTORY_GetItemExtraDataFromItem(pItem);
 	if (pItemExtraData)
@@ -3176,13 +3176,13 @@ struct D2Unit* __stdcall INVENTORY_GetUnknownItem(struct D2Unit* pItem)
 }
 
 //D2Common.0x6FD920C0 (#10305)
-struct D2Unit* __stdcall INVENTORY_UnitIsItem(struct D2Unit* pItem)
+struct D2Unit* __cdecl INVENTORY_UnitIsItem(struct D2Unit* pItem)
 {
 	return pItem && pItem->dwUnitType == UNIT_ITEM ? pItem : nullptr;
 }
 
 //D2Common.0x6FD920E0 (#10306)
-D2UnitGUID __stdcall INVENTORY_GetItemGUID(struct D2Unit* pItem)
+D2UnitGUID __cdecl INVENTORY_GetItemGUID(struct D2Unit* pItem)
 {
 	if (INVENTORY_UnitIsItem(pItem))
 	{
@@ -3193,7 +3193,7 @@ D2UnitGUID __stdcall INVENTORY_GetItemGUID(struct D2Unit* pItem)
 }
 
 //D2Common.0x6FD92100 (#10307)
-int __stdcall INVENTORY_GetItemNodePage(struct D2Unit* pItem)
+int __cdecl INVENTORY_GetItemNodePage(struct D2Unit* pItem)
 {
 	struct D2ItemExtraData* pItemExtraData = INVENTORY_GetItemExtraDataFromItem(pItem);
 	if (pItemExtraData)
@@ -3205,7 +3205,7 @@ int __stdcall INVENTORY_GetItemNodePage(struct D2Unit* pItem)
 }
 
 //D2Common.0x6FD92140 (#10310)
-struct D2Unit* __stdcall INVENTORY_IsItemInInventory(struct D2Inventory* pInventory, struct D2Unit* pItem)
+struct D2Unit* __cdecl INVENTORY_IsItemInInventory(struct D2Inventory* pInventory, struct D2Unit* pItem)
 {
 	if (pInventory)
 	{
@@ -3220,7 +3220,7 @@ struct D2Unit* __stdcall INVENTORY_IsItemInInventory(struct D2Inventory* pInvent
 }
 
 //D2Common.0x6FDAFEA0 (#10311)
-struct D2InventoryNode* __stdcall INVENTORY_GetNextNode(struct D2InventoryNode* pNode)
+struct D2InventoryNode* __cdecl INVENTORY_GetNextNode(struct D2InventoryNode* pNode)
 {
 	if (pNode)
 	{
@@ -3231,7 +3231,7 @@ struct D2InventoryNode* __stdcall INVENTORY_GetNextNode(struct D2InventoryNode* 
 }
 
 //D2Common.0x6FD90AB0 (#10312)
-D2UnitGUID __stdcall INVENTORY_GetItemGUIDFromNode(struct D2InventoryNode* pNode)
+D2UnitGUID __cdecl INVENTORY_GetItemGUIDFromNode(struct D2InventoryNode* pNode)
 {
 	if (pNode)
 	{
@@ -3242,7 +3242,7 @@ D2UnitGUID __stdcall INVENTORY_GetItemGUIDFromNode(struct D2InventoryNode* pNode
 }
 
 //D2Common.0x6FD92180 (#10300)
-BOOL __stdcall INVENTORY_RemoveAllItems(struct D2Inventory* pInventory)
+BOOL __cdecl INVENTORY_RemoveAllItems(struct D2Inventory* pInventory)
 {
 	if (!INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -3264,7 +3264,7 @@ BOOL __stdcall INVENTORY_RemoveAllItems(struct D2Inventory* pInventory)
 }
 
 // Helper function
-BOOL __fastcall INVENTORY_CanItemBePlacedInTradeInventory(struct D2Inventory* pTradeInventory, struct D2Unit* pPlayer1, struct D2Unit* pPlayer2)
+BOOL __cdecl INVENTORY_CanItemBePlacedInTradeInventory(struct D2Inventory* pTradeInventory, struct D2Unit* pPlayer1, struct D2Unit* pPlayer2)
 {
 	for (struct D2Unit* pItem = INVENTORY_GetFirstItem(pPlayer1->pInventory); pItem; pItem = INVENTORY_GetNextItem(pItem))
 	{
@@ -3279,7 +3279,7 @@ BOOL __fastcall INVENTORY_CanItemBePlacedInTradeInventory(struct D2Inventory* pT
 }
 
 //D2Common.0x6FD921D0 (#10302)
-BOOL __stdcall INVENTORY_CanItemsBeTraded(void* pMemPool, struct D2Unit* pPlayer1, struct D2Unit* pPlayer2, enum D2TradeStates* pTradeState)
+BOOL __cdecl INVENTORY_CanItemsBeTraded(void* pMemPool, struct D2Unit* pPlayer1, struct D2Unit* pPlayer2, enum D2TradeStates* pTradeState)
 {	
 	struct D2Inventory* pTradeInventory1 = INVENTORY_AllocInventory(pMemPool, nullptr);
 	struct D2Inventory* pTradeInventory2 = INVENTORY_AllocInventory(pMemPool, nullptr);
@@ -3314,7 +3314,7 @@ BOOL __stdcall INVENTORY_CanItemsBeTraded(void* pMemPool, struct D2Unit* pPlayer
 }
 
 //D2Common.0x6FD923C0
-BOOL __fastcall INVENTORY_CopyUnitItemsToTradeInventory(struct D2Inventory* pTradeInventory, struct D2Unit* pUnit)
+BOOL __cdecl INVENTORY_CopyUnitItemsToTradeInventory(struct D2Inventory* pTradeInventory, struct D2Unit* pUnit)
 {
 	if (INVENTORY_GetPtrIfValid(pTradeInventory))
 	{
@@ -3343,7 +3343,7 @@ BOOL __fastcall INVENTORY_CopyUnitItemsToTradeInventory(struct D2Inventory* pTra
 }
 
 //D2Common.0x6FD92490
-BOOL __fastcall INVENTORY_CanItemBePlacedInInventory(struct D2Unit* pPlayer, struct D2Unit* pItem, struct D2Inventory* pInventory)
+BOOL __cdecl INVENTORY_CanItemBePlacedInInventory(struct D2Unit* pPlayer, struct D2Unit* pItem, struct D2Inventory* pInventory)
 {
 	if (INVENTORY_GetPtrIfValid(pInventory))
 	{
@@ -3381,7 +3381,7 @@ BOOL __fastcall INVENTORY_CanItemBePlacedInInventory(struct D2Unit* pPlayer, str
 }
 
 //D2Common.0x6FD925E0
-int __fastcall UNITS_GetXPosition(struct D2Unit* pUnit)
+int __cdecl UNITS_GetXPosition(struct D2Unit* pUnit)
 {
 	switch (pUnit->dwUnitType)
 	{
@@ -3400,7 +3400,7 @@ int __fastcall UNITS_GetXPosition(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FD92610
-int __fastcall UNITS_GetYPosition(struct D2Unit* pUnit)
+int __cdecl UNITS_GetYPosition(struct D2Unit* pUnit)
 {
 	switch (pUnit->dwUnitType)
 	{

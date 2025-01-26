@@ -4,7 +4,6 @@ const debug = std.debug;
 const std = @import("std");
 
 pub fn main() void {
-    debug.print("Hello, world.\n", .{});
     var act = c.D2DrlgAct{
         .nAct = c.ACT_I,
         .dwInitSeed = 0,

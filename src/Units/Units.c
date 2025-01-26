@@ -25,7 +25,7 @@
 #include <D2Math.h>
 
 //D2Common.0x6FDBD520 (#10457)
-uint8_t __stdcall UNITS_GetDirection(struct D2Unit* pUnit)
+uint8_t __cdecl UNITS_GetDirection(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -40,28 +40,28 @@ uint8_t __stdcall UNITS_GetDirection(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBD570 (#10320)
-struct D2Skill* __stdcall UNITS_GetStartSkill(struct D2Unit* pUnit)
+struct D2Skill* __cdecl UNITS_GetStartSkill(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 	return SKILLS_GetFirstSkillFromSkillList(pUnit->pSkills);
 }
 
 //D2Common.0x6FDBD5B0 (#10321)
-struct D2Skill* __stdcall UNITS_GetLeftSkill(struct D2Unit* pUnit)
+struct D2Skill* __cdecl UNITS_GetLeftSkill(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 	return SKILLS_GetLeftSkillFromSkillList(pUnit->pSkills);
 }
 
 //D2Common.0x6FDBD5F0 (#10322)
-struct D2Skill* __stdcall UNITS_GetRightSkill(struct D2Unit* pUnit)
+struct D2Skill* __cdecl UNITS_GetRightSkill(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 	return SKILLS_GetRightSkillFromSkillList(pUnit->pSkills);
 }
 
 //D2Common.0x6FDBD630 (#10324)
-void __stdcall UNITS_SetUsedSkill(struct D2Unit* pUnit, struct D2Skill* pUsedSkill)
+void __cdecl UNITS_SetUsedSkill(struct D2Unit* pUnit, struct D2Skill* pUsedSkill)
 {
 	D2_ASSERT(pUnit);
 	SKILLS_SetUsedSkillInSkillList(pUnit->pSkills, pUsedSkill);
@@ -69,14 +69,14 @@ void __stdcall UNITS_SetUsedSkill(struct D2Unit* pUnit, struct D2Skill* pUsedSki
 
 //1.10f: D2Common.0x6FDBD670 (#10323)
 //1.13c: D2Common.0x6FD803A0 (#10511)
-struct D2Skill* __stdcall UNITS_GetUsedSkill(struct D2Unit* pUnit)
+struct D2Skill* __cdecl UNITS_GetUsedSkill(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 	return SKILLS_GetUsedSkillFromSkillList(pUnit->pSkills);
 }
 
 //D2Common.0x6FDBD6B0 (#11259)
-struct D2Unit* __stdcall UNITS_AllocUnit(void* pMemPool, int nUnitType)
+struct D2Unit* __cdecl UNITS_AllocUnit(void* pMemPool, int nUnitType)
 {
 	struct D2Unit* pUnit = D2_CALLOC_STRC_POOL(pMemPool, struct D2Unit);
 
@@ -92,7 +92,7 @@ struct D2Unit* __stdcall UNITS_AllocUnit(void* pMemPool, int nUnitType)
 }
 
 //D2Common.0x6FDBD720 (#11260)
-void __stdcall UNITS_FreeUnit(struct D2Unit* pUnit)
+void __cdecl UNITS_FreeUnit(struct D2Unit* pUnit)
 {
 	if (pUnit)
 	{
@@ -112,7 +112,7 @@ void __stdcall UNITS_FreeUnit(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBD780 (#10327)
-int __stdcall UNITS_GetPrecisionX(struct D2Unit* pUnit)
+int __cdecl UNITS_GetPrecisionX(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -134,7 +134,7 @@ int __stdcall UNITS_GetPrecisionX(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBD7D0 (#10330)
-int __stdcall UNITS_GetPrecisionY(struct D2Unit* pUnit)
+int __cdecl UNITS_GetPrecisionY(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -157,7 +157,7 @@ int __stdcall UNITS_GetPrecisionY(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBD820 (#10328)
-void __stdcall UNITS_SetXForStaticUnit(struct D2Unit* pUnit, int nX)
+void __cdecl UNITS_SetXForStaticUnit(struct D2Unit* pUnit, int nX)
 {
 	D2_ASSERT(pUnit);
 
@@ -175,7 +175,7 @@ void __stdcall UNITS_SetXForStaticUnit(struct D2Unit* pUnit, int nX)
 }
 
 //D2Common.0x6FDBD890 (#10331)
-void __stdcall UNITS_SetYForStaticUnit(struct D2Unit* pUnit, int nY)
+void __cdecl UNITS_SetYForStaticUnit(struct D2Unit* pUnit, int nY)
 {
 	D2_ASSERT(pUnit);
 
@@ -193,7 +193,7 @@ void __stdcall UNITS_SetYForStaticUnit(struct D2Unit* pUnit, int nY)
 }
 
 //D2Common.0x6FDBD900 (#10336)
-int __stdcall UNITS_GetUnitSizeX(struct D2Unit* pUnit)
+int __cdecl UNITS_GetUnitSizeX(struct D2Unit* pUnit)
 {
 	struct D2MonStats2Txt* pMonStats2TxtRecord = NULL;
 	struct D2MissilesTxt* pMissilesTxtRecord = NULL;
@@ -236,7 +236,7 @@ int __stdcall UNITS_GetUnitSizeX(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBDA00 (#10337)
-int __stdcall UNITS_GetUnitSizeY(struct D2Unit* pUnit)
+int __cdecl UNITS_GetUnitSizeY(struct D2Unit* pUnit)
 {
 	struct D2MonStats2Txt* pMonStats2TxtRecord = NULL;
 	struct D2MissilesTxt* pMissilesTxtRecord = NULL;
@@ -279,7 +279,7 @@ int __stdcall UNITS_GetUnitSizeY(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBDB10 (#10333)
-int __stdcall UNITS_GetClientCoordX(struct D2Unit* pUnit)
+int __cdecl UNITS_GetClientCoordX(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -301,7 +301,7 @@ int __stdcall UNITS_GetClientCoordX(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBDB60 (#10334)
-int __stdcall UNITS_GetClientCoordY(struct D2Unit* pUnit)
+int __cdecl UNITS_GetClientCoordY(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -323,7 +323,7 @@ int __stdcall UNITS_GetClientCoordY(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBDBB0 (#10411)
-int __stdcall UNITS_GetAbsoluteXDistance(struct D2Unit* pUnit1, struct D2Unit* pUnit2)
+int __cdecl UNITS_GetAbsoluteXDistance(struct D2Unit* pUnit1, struct D2Unit* pUnit2)
 {
 	int nDistance = 0;
 	int nX1 = 0;
@@ -379,7 +379,7 @@ int __stdcall UNITS_GetAbsoluteXDistance(struct D2Unit* pUnit1, struct D2Unit* p
 }
 
 //D2Common.0x6FDBDC20 (#10412)
-int __stdcall UNITS_GetAbsoluteYDistance(struct D2Unit* pUnit1, struct D2Unit* pUnit2)
+int __cdecl UNITS_GetAbsoluteYDistance(struct D2Unit* pUnit1, struct D2Unit* pUnit2)
 {
 	int nDistance = 0;
 	int nY1 = 0;
@@ -435,7 +435,7 @@ int __stdcall UNITS_GetAbsoluteYDistance(struct D2Unit* pUnit1, struct D2Unit* p
 }
 
 //D2Common.0x6FDBDC90 (#10340)
-void __stdcall UNITS_SetTargetX(struct D2Unit* pUnit, int nTargetX)
+void __cdecl UNITS_SetTargetX(struct D2Unit* pUnit, int nTargetX)
 {
 	D2_ASSERT(pUnit);
 
@@ -443,7 +443,7 @@ void __stdcall UNITS_SetTargetX(struct D2Unit* pUnit, int nTargetX)
 }
 
 //D2Common.0x6FDBDCD0 (#10341)
-void __stdcall UNITS_SetTargetY(struct D2Unit* pUnit, int nTargetY)
+void __cdecl UNITS_SetTargetY(struct D2Unit* pUnit, int nTargetY)
 {
 	D2_ASSERT(pUnit);
 
@@ -451,7 +451,7 @@ void __stdcall UNITS_SetTargetY(struct D2Unit* pUnit, int nTargetY)
 }
 
 //D2Common.0x6FDBDD10 (#10332)
-void __stdcall UNITS_GetCoords(struct D2Unit* pUnit, struct D2Coord* pCoord)
+void __cdecl UNITS_GetCoords(struct D2Unit* pUnit, struct D2Coord* pCoord)
 {
 	D2_ASSERT(pUnit);
 
@@ -480,7 +480,7 @@ void __stdcall UNITS_GetCoords(struct D2Unit* pUnit, struct D2Coord* pCoord)
 }
 
 //D2Common.0x6FDBDDA0 (#10335)
-void __stdcall UNITS_GetClientCoords(struct D2Unit* pUnit, struct D2Coord* pClientCoords)
+void __cdecl UNITS_GetClientCoords(struct D2Unit* pUnit, struct D2Coord* pClientCoords)
 {
 	D2_ASSERT(pUnit);
 
@@ -501,7 +501,7 @@ void __stdcall UNITS_GetClientCoords(struct D2Unit* pUnit, struct D2Coord* pClie
 }
 
 //D2Common.0x6FDBDE10 (#10338)
-int __fastcall UNITS_GetCollisionMask(struct D2Unit* pUnit)
+int __cdecl UNITS_GetCollisionMask(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -551,7 +551,7 @@ int __fastcall UNITS_GetCollisionMask(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBDEC0 (#10352)
-void __stdcall UNITS_FreeCollisionPath(struct D2Unit* pUnit)
+void __cdecl UNITS_FreeCollisionPath(struct D2Unit* pUnit)
 {
 	struct D2Coord pCoords = {};
 
@@ -561,7 +561,7 @@ void __stdcall UNITS_FreeCollisionPath(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBE060 (#10351)
-void __stdcall UNITS_BlockCollisionPath(struct D2Unit* pUnit, struct D2ActiveRoom* pRoom, int nX, int nY)
+void __cdecl UNITS_BlockCollisionPath(struct D2Unit* pUnit, struct D2ActiveRoom* pRoom, int nX, int nY)
 {
 	int nSizeX = 0;
 	int nSizeY = 0;
@@ -578,7 +578,7 @@ void __stdcall UNITS_BlockCollisionPath(struct D2Unit* pUnit, struct D2ActiveRoo
 }
 
 //D2Common.0x6FDBE1A0 (#10350)
-void __stdcall UNITS_InitializeStaticPath(struct D2Unit* pUnit, struct D2ActiveRoom* pRoom, int nX, int nY)
+void __cdecl UNITS_InitializeStaticPath(struct D2Unit* pUnit, struct D2ActiveRoom* pRoom, int nX, int nY)
 {
 	D2_ASSERT(pUnit);
 
@@ -594,7 +594,7 @@ void __stdcall UNITS_InitializeStaticPath(struct D2Unit* pUnit, struct D2ActiveR
 }
 
 //D2Common.0x6FDBE210 (#10343)
-void __stdcall UNITS_ResetRoom(struct D2Unit* pUnit)
+void __cdecl UNITS_ResetRoom(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -617,7 +617,7 @@ void __stdcall UNITS_ResetRoom(struct D2Unit* pUnit)
 
 //1.10f: D2Common.0x6FDBE270 (#10342)
 //1.13c: D2Common.0x6FD7FE10 (#10331)
-struct D2ActiveRoom* __stdcall UNITS_GetRoom(struct D2Unit* pUnit)
+struct D2ActiveRoom* __cdecl UNITS_GetRoom(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -637,7 +637,7 @@ struct D2ActiveRoom* __stdcall UNITS_GetRoom(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBE2D0 (#10344)
-void __stdcall UNITS_SetTargetUnitForDynamicUnit(struct D2Unit* pUnit, struct D2Unit* pTargetUnit)
+void __cdecl UNITS_SetTargetUnitForDynamicUnit(struct D2Unit* pUnit, struct D2Unit* pTargetUnit)
 {
 	D2_ASSERT(pUnit);
 	D2_ASSERT((pUnit->dwUnitType == UNIT_PLAYER) || (pUnit->dwUnitType == UNIT_MONSTER) || (pUnit->dwUnitType == UNIT_MISSILE));
@@ -645,7 +645,7 @@ void __stdcall UNITS_SetTargetUnitForDynamicUnit(struct D2Unit* pUnit, struct D2
 }
 
 //D2Common.0x6FDBE330 (#10345)
-int __stdcall UNITS_GetTargetTypeFromDynamicUnit(struct D2Unit* pUnit)
+int __cdecl UNITS_GetTargetTypeFromDynamicUnit(struct D2Unit* pUnit)
 {
 	int nUnitType = 0;
 	D2UnitGUID nUnitId = 0;
@@ -657,7 +657,7 @@ int __stdcall UNITS_GetTargetTypeFromDynamicUnit(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBE3A0 (#10346)
-D2UnitGUID __stdcall UNITS_GetTargetGUIDFromDynamicUnit(struct D2Unit* pUnit)
+D2UnitGUID __cdecl UNITS_GetTargetGUIDFromDynamicUnit(struct D2Unit* pUnit)
 {
 	int nUnitType = 0;
 	D2UnitGUID nUnitId = 0;
@@ -669,7 +669,7 @@ D2UnitGUID __stdcall UNITS_GetTargetGUIDFromDynamicUnit(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBE410 (#10347)
-void __stdcall UNITS_SetTargetUnitForPlayerOrMonster(struct D2Unit* pUnit, struct D2Unit* pTargetUnit)
+void __cdecl UNITS_SetTargetUnitForPlayerOrMonster(struct D2Unit* pUnit, struct D2Unit* pTargetUnit)
 {
 	D2_ASSERT(pUnit);
 	D2_ASSERT((pUnit->dwUnitType == UNIT_PLAYER) || (pUnit->dwUnitType == UNIT_MONSTER));
@@ -678,7 +678,7 @@ void __stdcall UNITS_SetTargetUnitForPlayerOrMonster(struct D2Unit* pUnit, struc
 }
 
 //D2Common.0x6FDBE470 (#10354)
-void __stdcall UNITS_GetRunAndWalkSpeedForPlayer(int nUnused, int nCharId, int* pWalkSpeed, int* pRunSpeed)
+void __cdecl UNITS_GetRunAndWalkSpeedForPlayer(int nUnused, int nCharId, int* pWalkSpeed, int* pRunSpeed)
 {
 	D2_MAYBE_UNUSED(nUnused);
 	if (nCharId >= 0 && nCharId < sgptDataTables->nCharStatsTxtRecordCount)
@@ -690,14 +690,14 @@ void __stdcall UNITS_GetRunAndWalkSpeedForPlayer(int nUnused, int nCharId, int* 
 
 //1.10f: D2Common.0x6FDBE4C0 (#10325)
 //1.13c: D2Common.0x6FD82670 (#11122)
-void __stdcall UNITS_SetAnimData(struct D2Unit* pUnit, int nUnitType, int nClassId, int nMode)
+void __cdecl UNITS_SetAnimData(struct D2Unit* pUnit, int nUnitType, int nClassId, int nMode)
 {
 	D2_ASSERT(pUnit);
 	pUnit->pAnimData = DATATBLS_GetAnimDataRecord(pUnit, nClassId, nMode, nUnitType, pUnit->pInventory);
 }
 
 //Helper function
-void __stdcall UNITS_CharacterStartRunningOrKnockback(struct D2Unit* pUnit, int nClassId)
+void __cdecl UNITS_CharacterStartRunningOrKnockback(struct D2Unit* pUnit, int nClassId)
 {
 	struct D2StatList* pStatList = STATLIST_AllocStatList(pUnit->pMemoryPool, STATLIST_TEMPONLY, 0, pUnit->dwUnitType, pUnit->dwUnitId);
 	struct D2CharStatsTxt* pCharStatsTxtRecord = UNITS_GetCharStatsTxtRecord(nClassId);
@@ -712,7 +712,7 @@ void __stdcall UNITS_CharacterStartRunningOrKnockback(struct D2Unit* pUnit, int 
 }
 
 //D2Common.0x6FDBE510 (#10349)
-void __stdcall UNITS_SetAnimStartFrame(struct D2Unit* pUnit)
+void __cdecl UNITS_SetAnimStartFrame(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -823,7 +823,7 @@ void __stdcall UNITS_SetAnimStartFrame(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBEA60 (#10348)
-BOOL __stdcall UNITS_ChangeAnimMode(struct D2Unit* pUnit, int nMode)
+BOOL __cdecl UNITS_ChangeAnimMode(struct D2Unit* pUnit, int nMode)
 {
 	if (pUnit && pUnit->dwUnitType != UNIT_TILE)
 	{
@@ -849,7 +849,7 @@ BOOL __stdcall UNITS_ChangeAnimMode(struct D2Unit* pUnit, int nMode)
 
 //D2Common.0x6FDBEAD0 (#10355)
 //TODO: Find a name
-int __stdcall UNITS_IsCurrentRoomInvalid(struct D2Unit* pUnit)
+int __cdecl UNITS_IsCurrentRoomInvalid(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -865,7 +865,7 @@ int __stdcall UNITS_IsCurrentRoomInvalid(struct D2Unit* pUnit)
 
 //D2Common.0x6FDBEB20 (#10356)
 //TODO: Find a name
-void __stdcall UNITS_SetCurrentRoomInvalid(struct D2Unit* pUnit, int a2)
+void __cdecl UNITS_SetCurrentRoomInvalid(struct D2Unit* pUnit, int a2)
 {
 	D2_ASSERT(pUnit);
 
@@ -889,7 +889,7 @@ void __stdcall UNITS_SetCurrentRoomInvalid(struct D2Unit* pUnit, int a2)
 }
 
 //D2Common.0x6FDBEB80 (#10357)
-void __stdcall UNITS_RefreshInventory(struct D2Unit* pUnit, BOOL bSetFlag)
+void __cdecl UNITS_RefreshInventory(struct D2Unit* pUnit, BOOL bSetFlag)
 {
 	if (bSetFlag)
 	{
@@ -916,7 +916,7 @@ void __stdcall UNITS_RefreshInventory(struct D2Unit* pUnit, BOOL bSetFlag)
 }
 
 //D2Common.0x6FDBEBE0 (#10409)
-int __stdcall UNITS_GetInventoryRecordId(struct D2Unit* pUnit, int nInvPage, BOOL bLoD)
+int __cdecl UNITS_GetInventoryRecordId(struct D2Unit* pUnit, int nInvPage, BOOL bLoD)
 {
 	static const int nInventoryRecordMappings[NUMBER_OF_PLAYERCLASSES] =
 	{
@@ -974,7 +974,7 @@ int __stdcall UNITS_GetInventoryRecordId(struct D2Unit* pUnit, int nInvPage, BOO
 }
 
 //D2Common.0x6FDBECD0 (#10383)
-struct D2GfxLight* __stdcall UNITS_ResetLightMap(struct D2Unit* pUnit)
+struct D2GfxLight* __cdecl UNITS_ResetLightMap(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -985,7 +985,7 @@ struct D2GfxLight* __stdcall UNITS_ResetLightMap(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBED10 (#10369)
-int __stdcall UNITS_GetAnimOrSeqMode(struct D2Unit* pUnit)
+int __cdecl UNITS_GetAnimOrSeqMode(struct D2Unit* pUnit)
 {
 	if (pUnit)
 	{
@@ -1003,7 +1003,7 @@ int __stdcall UNITS_GetAnimOrSeqMode(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBED40 (#10370)
-void __stdcall UNITS_SetAnimOrSeqMode(struct D2Unit* pUnit, int nAnimMode)
+void __cdecl UNITS_SetAnimOrSeqMode(struct D2Unit* pUnit, int nAnimMode)
 {
 	D2_ASSERT(pUnit);
 
@@ -1018,7 +1018,7 @@ void __stdcall UNITS_SetAnimOrSeqMode(struct D2Unit* pUnit, int nAnimMode)
 }
 
 //D2Common.0x6FDBED90 (#10371)
-void __stdcall UNITS_InitializeSequence(struct D2Unit* pUnit)
+void __cdecl UNITS_InitializeSequence(struct D2Unit* pUnit)
 {
 	if (pUnit)
 	{
@@ -1043,7 +1043,7 @@ void __stdcall UNITS_InitializeSequence(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBEE20 (#10372)
-void __stdcall UNITS_SetAnimationFrame(struct D2Unit* pUnit, int nFrame)
+void __cdecl UNITS_SetAnimationFrame(struct D2Unit* pUnit, int nFrame)
 {
 	D2_ASSERT(pUnit);
 
@@ -1051,7 +1051,7 @@ void __stdcall UNITS_SetAnimationFrame(struct D2Unit* pUnit, int nFrame)
 }
 
 //D2Common.0x6FDBEE60 (#10373)
-void __stdcall UNITS_StopSequence(struct D2Unit* pUnit)
+void __cdecl UNITS_StopSequence(struct D2Unit* pUnit)
 {
 	pUnit->nActionFrame = 0;
 
@@ -1115,7 +1115,7 @@ void __stdcall UNITS_StopSequence(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBEFF0 (#10374)
-void __stdcall UNITS_UpdateFrame(struct D2Unit* pUnit)
+void __cdecl UNITS_UpdateFrame(struct D2Unit* pUnit)
 {
 	pUnit->nSeqCurrentFramePrecise += pUnit->wAnimSpeed;
 
@@ -1126,7 +1126,7 @@ void __stdcall UNITS_UpdateFrame(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBF020 (#10375)
-void __stdcall D2COMMON_10375_UNITS_SetFrameNonRate(struct D2Unit* pUnit, int nRate, int nFailRate)
+void __cdecl D2COMMON_10375_UNITS_SetFrameNonRate(struct D2Unit* pUnit, int nRate, int nFailRate)
 {
 	pUnit->nSeqCurrentFramePrecise += pUnit->wAnimSpeed;
 
@@ -1338,7 +1338,7 @@ BOOL UNITS_CanAnimModeUseAttackRate(int nUnitType, int nAnimMode, struct D2Unit*
 	return FALSE;
 }
 
-__forceinline void __fastcall UNITS_UpdateAttackAnimRateAndVelocity(struct D2Unit* pUnit)
+__forceinline void __cdecl UNITS_UpdateAttackAnimRateAndVelocity(struct D2Unit* pUnit)
 {
 	struct D2Unit* pRightWeapon = NULL;
 	struct D2Unit* pLeftWeapon = NULL;
@@ -1438,7 +1438,7 @@ BOOL UNITS_IsAnimModeBlocking(int nUnitType, int nAnimMode)
 	}
 }
 
-__forceinline void __fastcall UNITS_UpdateBlockAnimRateAndVelocity(struct D2Unit* pUnit)
+__forceinline void __cdecl UNITS_UpdateBlockAnimRateAndVelocity(struct D2Unit* pUnit)
 {
 	int nFasterBlockRate = 0;
 	int nBlockRateBonus = 0;
@@ -1501,7 +1501,7 @@ BOOL UNITS_IsSeqAnimSpeedModulatedByFCR(struct D2Unit* pUnit, int nUnitType, int
 	}
 }
 
-__forceinline void __fastcall UNITS_UpdateCastAnimRateAndVelocity(struct D2Unit* pUnit)
+__forceinline void __cdecl UNITS_UpdateCastAnimRateAndVelocity(struct D2Unit* pUnit)
 {
 	int nFasterCastRate = 0;
 	int nAnimSpeed = 0;
@@ -1541,7 +1541,7 @@ BOOL UNITS_IsAnimModeGetHit(int nUnitType, int nAnimMode)
 	}
 }
 
-__forceinline void __fastcall UNITS_UpdateGetHitAnimRateAndVelocity(struct D2Unit* pUnit)
+__forceinline void __cdecl UNITS_UpdateGetHitAnimRateAndVelocity(struct D2Unit* pUnit)
 {
 	int nFasterGetHitRate = 0;
 	int nAnimSpeed = 0;
@@ -1572,7 +1572,7 @@ BOOL UNITS_IsAnimModeKnockBack(int nUnitType, int nAnimMode)
 	}
 }
 
-__forceinline void __fastcall UNITS_UpdateKnockbackAnimRateAndVelocity(struct D2Unit* pUnit, int nAnimMode, int nUnitType, int nClassId)
+__forceinline void __cdecl UNITS_UpdateKnockbackAnimRateAndVelocity(struct D2Unit* pUnit, int nAnimMode, int nUnitType, int nClassId)
 {
 	int nAnimSpeed = UNITS_GetBaseAnimSpeed(nUnitType, nClassId, nAnimMode);
 
@@ -1602,7 +1602,7 @@ BOOL UNITS_AnimModeAllowsAnimSpeed(int nUnitType, int nAnimMode, int nClassId)
 	}
 }
 
-__forceinline void __fastcall UNITS_UpdateOtherAnimRateAndVelocity(struct D2Unit* pUnit, int nAnimMode, int nUnitType, int nClassId)
+__forceinline void __cdecl UNITS_UpdateOtherAnimRateAndVelocity(struct D2Unit* pUnit, int nAnimMode, int nUnitType, int nClassId)
 {
 	int nAnimSpeed = 0;
 	if (UNITS_AnimModeAllowsAnimSpeed(nUnitType, nAnimMode, nClassId))
@@ -1672,7 +1672,7 @@ BOOL UNITS_CanAnimModeUseVelocityModifier(int nUnitType, int nAnimMode, struct D
 	return FALSE;
 }
 
-__forceinline void __fastcall UNITS_UpdateRunWalkAnimRateAndVelocity(struct D2Unit* pUnit, int nAnimMode, int nUnitType, int nClassId, const char* szFile, int nLine)
+__forceinline void __cdecl UNITS_UpdateRunWalkAnimRateAndVelocity(struct D2Unit* pUnit, int nAnimMode, int nUnitType, int nClassId, const char* szFile, int nLine)
 {
 	int nFasterMoveVelocity = 0;
 	int nVelocityPercent = 0;
@@ -1707,7 +1707,7 @@ __forceinline void __fastcall UNITS_UpdateRunWalkAnimRateAndVelocity(struct D2Un
 
 //1.10f: D2Common.0x6FDBF050 (#10376)
 //1.13c: D2Common.0x6FD83110 (#10819)
-void __stdcall UNITS_UpdateAnimRateAndVelocity(struct D2Unit* pUnit, const char* szFile, int nLine)
+void __cdecl UNITS_UpdateAnimRateAndVelocity(struct D2Unit* pUnit, const char* szFile, int nLine)
 {
 	if (!pUnit)
 	{
@@ -1763,13 +1763,13 @@ void __stdcall UNITS_UpdateAnimRateAndVelocity(struct D2Unit* pUnit, const char*
 }
 
 //D2Common.0x6FDBF8D0 (#10377)
-void __stdcall UNITS_SetAnimationSpeed(struct D2Unit* pUnit, int nSpeed)
+void __cdecl UNITS_SetAnimationSpeed(struct D2Unit* pUnit, int nSpeed)
 {
 	pUnit->wAnimSpeed = (int16_t)(D2Clamp(nSpeed, 0, INT16_MAX));
 }
 
 //D2Common.0x6FDBF910 (#10378)
-int __stdcall UNITS_IsAtEndOfFrameCycle(struct D2Unit* pUnit)
+int __cdecl UNITS_IsAtEndOfFrameCycle(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 	
@@ -1784,7 +1784,7 @@ int __stdcall UNITS_IsAtEndOfFrameCycle(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBF970 (#10379)
-void __stdcall UNITS_GetShiftedFrameMetrics(struct D2Unit* pUnit, int* pFrameNo, int* pFrameCount)
+void __cdecl UNITS_GetShiftedFrameMetrics(struct D2Unit* pUnit, int* pFrameNo, int* pFrameCount)
 {
 	D2_ASSERT(pUnit);
 
@@ -1801,7 +1801,7 @@ void __stdcall UNITS_GetShiftedFrameMetrics(struct D2Unit* pUnit, int* pFrameNo,
 }
 
 //D2Common.0x6FDBF9E0 (#10380)
-void __stdcall UNITS_GetFrameMetrics(struct D2Unit* pUnit, int* pFrame, int* pFrameCount)
+void __cdecl UNITS_GetFrameMetrics(struct D2Unit* pUnit, int* pFrame, int* pFrameCount)
 {
 	if (pUnit)
 	{
@@ -1824,7 +1824,7 @@ void __stdcall UNITS_GetFrameMetrics(struct D2Unit* pUnit, int* pFrame, int* pFr
 }
 
 //D2Common.0x6FDBFA40 (#10381)
-void __stdcall UNITS_SetAnimActionFrame(struct D2Unit* pUnit, int nFrame)
+void __cdecl UNITS_SetAnimActionFrame(struct D2Unit* pUnit, int nFrame)
 {
 	if (pUnit && pUnit->pAnimData)
 	{
@@ -1851,7 +1851,7 @@ void __stdcall UNITS_SetAnimActionFrame(struct D2Unit* pUnit, int nFrame)
 }
 
 //D2Common.0x6FDBFA90 (#10382)
-int __stdcall UNITS_GetEventFrameInfo(struct D2Unit* pUnit, int nFrame)
+int __cdecl UNITS_GetEventFrameInfo(struct D2Unit* pUnit, int nFrame)
 {
 	D2_ASSERT(pUnit);
 
@@ -1886,7 +1886,7 @@ int __stdcall UNITS_GetEventFrameInfo(struct D2Unit* pUnit, int nFrame)
 }
 
 //D2Common.0x6FDBFB40 (#10410)
-BOOL __stdcall UNITS_HasCollision(struct D2Unit* pUnit)
+BOOL __cdecl UNITS_HasCollision(struct D2Unit* pUnit)
 {
 	if (pUnit->dwUnitType == UNIT_OBJECT)
 	{
@@ -1897,7 +1897,7 @@ BOOL __stdcall UNITS_HasCollision(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBFB70 (#10358)
-struct D2Skill* __stdcall UNITS_GetSkillFromSkillId(struct D2Unit* pUnit, int nSkillId)
+struct D2Skill* __cdecl UNITS_GetSkillFromSkillId(struct D2Unit* pUnit, int nSkillId)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = DATATBLS_GetSkillsTxtRecord(nSkillId);
 
@@ -1914,7 +1914,7 @@ struct D2Skill* __stdcall UNITS_GetSkillFromSkillId(struct D2Unit* pUnit, int nS
 
 //1.10f: D2Common.0x6FDBFC10 (#10392)
 //1.13c: D2Common.0x6FD7EDA0 (#11020)
-BOOL __stdcall UNITS_IsDoor(struct D2Unit* pUnit)
+BOOL __cdecl UNITS_IsDoor(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -1927,7 +1927,7 @@ BOOL __stdcall UNITS_IsDoor(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBFC50
-bool __fastcall UNITS_CheckIfObjectOrientationIs1(struct D2Unit* pUnit)
+bool __cdecl UNITS_CheckIfObjectOrientationIs1(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -1935,7 +1935,7 @@ bool __fastcall UNITS_CheckIfObjectOrientationIs1(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBFC90 (#10393)
-BOOL __stdcall UNITS_IsShrine(struct D2Unit* pUnit)
+BOOL __cdecl UNITS_IsShrine(struct D2Unit* pUnit)
 {
 	if (pUnit->dwUnitType == UNIT_OBJECT && pUnit->pObjectData->pObjectTxt->nSubClass & OBJSUBCLASS_SHRINE)
 	{
@@ -1946,7 +1946,7 @@ BOOL __stdcall UNITS_IsShrine(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBFCB0 (#10394)
-struct D2ObjectsTxt* __stdcall UNITS_GetObjectTxtRecordFromObject(struct D2Unit* pUnit)
+struct D2ObjectsTxt* __cdecl UNITS_GetObjectTxtRecordFromObject(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -1960,7 +1960,7 @@ struct D2ObjectsTxt* __stdcall UNITS_GetObjectTxtRecordFromObject(struct D2Unit*
 }
 
 //D2Common.0x6FDBFD00 (#10395)
-struct D2ShrinesTxt* __stdcall UNITS_GetShrineTxtRecordFromObject(struct D2Unit* pUnit)
+struct D2ShrinesTxt* __cdecl UNITS_GetShrineTxtRecordFromObject(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -1975,7 +1975,7 @@ struct D2ShrinesTxt* __stdcall UNITS_GetShrineTxtRecordFromObject(struct D2Unit*
 }
 
 //D2Common.0x6FDBFD50 (#10396)
-void __stdcall UNITS_SetShrineTxtRecordInObjectData(struct D2Unit* pUnit, struct D2ShrinesTxt* pShrinesTxtRecord)
+void __cdecl UNITS_SetShrineTxtRecordInObjectData(struct D2Unit* pUnit, struct D2ShrinesTxt* pShrinesTxtRecord)
 {
 	D2_ASSERT(pUnit);
 
@@ -1989,7 +1989,7 @@ void __stdcall UNITS_SetShrineTxtRecordInObjectData(struct D2Unit* pUnit, struct
 }
 
 //D2Common.0x6FDBFDB0 (#10413)
-void __stdcall UNITS_UpdateDirectionAndSpeed(struct D2Unit* pUnit, int nX, int nY)
+void __cdecl UNITS_UpdateDirectionAndSpeed(struct D2Unit* pUnit, int nX, int nY)
 {
 	if (pUnit->pDynamicPath)
 	{
@@ -1998,7 +1998,7 @@ void __stdcall UNITS_UpdateDirectionAndSpeed(struct D2Unit* pUnit, int nX, int n
 }
 
 //D2Common.0x6FDBFDD0 (#10414)
-int __stdcall UNITS_GetNewDirection(struct D2Unit* pUnit)
+int __cdecl UNITS_GetNewDirection(struct D2Unit* pUnit)
 {
 	int nX = 0;
 	int nY = 0;
@@ -2021,13 +2021,13 @@ int __stdcall UNITS_GetNewDirection(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDBFF20 (#10416)
-void __stdcall UNITS_StoreOwnerTypeAndGUID(struct D2Unit* pUnit, int nOwnerType, D2UnitGUID nOwnerId)
+void __cdecl UNITS_StoreOwnerTypeAndGUID(struct D2Unit* pUnit, int nOwnerType, D2UnitGUID nOwnerId)
 {
 	UNITS_StoreOwnerInfo(pUnit, nOwnerType, nOwnerId);
 }
 
 //D2Common.0x6FDBFF40
-void __fastcall UNITS_StoreOwnerInfo(struct D2Unit* pUnit, int nOwnerType, int nOwnerId)
+void __cdecl UNITS_StoreOwnerInfo(struct D2Unit* pUnit, int nOwnerType, int nOwnerId)
 {
 	struct D2StatList* pStatList = NULL;
 
@@ -2061,7 +2061,7 @@ void __fastcall UNITS_StoreOwnerInfo(struct D2Unit* pUnit, int nOwnerType, int n
 }
 
 //D2Common.0x6FDBFFE0 (#10415)
-void __stdcall UNITS_StoreOwner(struct D2Unit* pUnit, struct D2Unit* pOwner)
+void __cdecl UNITS_StoreOwner(struct D2Unit* pUnit, struct D2Unit* pOwner)
 {
 	struct D2StatList* pStatList = NULL;
 
@@ -2094,7 +2094,7 @@ void __stdcall UNITS_StoreOwner(struct D2Unit* pUnit, struct D2Unit* pOwner)
 }
 
 //D2Common.0x6FDC0060 (#10417)
-void __stdcall UNITS_StoreLastAttacker(struct D2Unit* pUnit, struct D2Unit* pKiller)
+void __cdecl UNITS_StoreLastAttacker(struct D2Unit* pUnit, struct D2Unit* pKiller)
 {
 	D2_ASSERT(pUnit);
 
@@ -2113,7 +2113,7 @@ void __stdcall UNITS_StoreLastAttacker(struct D2Unit* pUnit, struct D2Unit* pKil
 }
 
 //D2Common.0x6FDC00E0 (#10418)
-int __stdcall UNITS_GetDirectionToCoords(struct D2Unit* pUnit, int nNewX, int nNewY)
+int __cdecl UNITS_GetDirectionToCoords(struct D2Unit* pUnit, int nNewX, int nNewY)
 {
 	struct D2Coord pCoords = {};
 
@@ -2123,7 +2123,7 @@ int __stdcall UNITS_GetDirectionToCoords(struct D2Unit* pUnit, int nNewX, int nN
 }
 
 //D2Common.0x6FDC0160 (#10437)
-void __stdcall UNITS_SetOverlay(struct D2Unit* pUnit, int nOverlay, int nUnused)
+void __cdecl UNITS_SetOverlay(struct D2Unit* pUnit, int nOverlay, int nUnused)
 {
 	struct D2StatList* pStatList = NULL;
 
@@ -2151,7 +2151,7 @@ void __stdcall UNITS_SetOverlay(struct D2Unit* pUnit, int nOverlay, int nUnused)
 }
 
 //D2Common.0x6FDC01F0 (#10367)
-int __stdcall UNITS_GetBeltType(struct D2Unit* pUnit)
+int __cdecl UNITS_GetBeltType(struct D2Unit* pUnit)
 {
 	struct D2ItemsTxt* pItemsTxtRecord = NULL;
 
@@ -2164,7 +2164,7 @@ int __stdcall UNITS_GetBeltType(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC0260 (#10368)
-int __stdcall UNITS_GetCurrentLifePercentage(struct D2Unit* pUnit)
+int __cdecl UNITS_GetCurrentLifePercentage(struct D2Unit* pUnit)
 {
 	const int nHp = STAT_HitPointsFixedPointToInt(STATLIST_UnitGetStatValue(pUnit, STAT_HITPOINTS, 0));
 	const int nMaxHp = STAT_HitPointsFixedPointToInt(STATLIST_GetMaxLifeFromUnit(pUnit));
@@ -2177,7 +2177,7 @@ int __stdcall UNITS_GetCurrentLifePercentage(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC02A0 (#10359)
-BOOL __stdcall UNITS_IsSoftMonster(struct D2Unit* pUnit)
+BOOL __cdecl UNITS_IsSoftMonster(struct D2Unit* pUnit)
 {
 	if (pUnit && pUnit->dwUnitType == UNIT_MONSTER)
 	{
@@ -2191,7 +2191,7 @@ BOOL __stdcall UNITS_IsSoftMonster(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC0320 (#10420)
-void __stdcall UNITS_AllocPlayerData(struct D2Unit* pUnit)
+void __cdecl UNITS_AllocPlayerData(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 	D2_ASSERT(!pUnit->pPlayerData);
@@ -2212,7 +2212,7 @@ void __stdcall UNITS_AllocPlayerData(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC03F0 (#10421)
-void __stdcall UNITS_FreePlayerData(void* pMemPool, struct D2Unit* pPlayer)
+void __cdecl UNITS_FreePlayerData(void* pMemPool, struct D2Unit* pPlayer)
 {
 	D2_ASSERT(pPlayer);
 	D2_ASSERT(pPlayer->pPlayerData);
@@ -2231,7 +2231,7 @@ void __stdcall UNITS_FreePlayerData(void* pMemPool, struct D2Unit* pPlayer)
 }
 
 //D2Common.0x6FDC04A0 (#10422)
-void __stdcall UNITS_SetNameInPlayerData(struct D2Unit* pUnit, char* szName)
+void __cdecl UNITS_SetNameInPlayerData(struct D2Unit* pUnit, char* szName)
 {
 	D2_ASSERT(pUnit);
 	D2_ASSERT(pUnit->pPlayerData);
@@ -2242,7 +2242,7 @@ void __stdcall UNITS_SetNameInPlayerData(struct D2Unit* pUnit, char* szName)
 }
 
 //D2Common.0x6FDC0530 (#10423)
-char* __stdcall UNITS_GetPlayerName(struct D2Unit* pUnit)
+char* __cdecl UNITS_GetPlayerName(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 	D2_ASSERT(pUnit->pPlayerData);
@@ -2252,7 +2252,7 @@ char* __stdcall UNITS_GetPlayerName(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC05B0 (#10424)
-struct D2PlayerData* __stdcall UNITS_GetPlayerData(struct D2Unit* pUnit)
+struct D2PlayerData* __cdecl UNITS_GetPlayerData(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -2262,7 +2262,7 @@ struct D2PlayerData* __stdcall UNITS_GetPlayerData(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC0600 (#10425)
-void __stdcall UNITS_SetPlayerPortalFlags(struct D2Unit* pUnit, int nPortalFlags)
+void __cdecl UNITS_SetPlayerPortalFlags(struct D2Unit* pUnit, int nPortalFlags)
 {
 	D2_ASSERT(pUnit);
 	D2_ASSERT(pUnit->dwUnitType == UNIT_PLAYER);
@@ -2271,7 +2271,7 @@ void __stdcall UNITS_SetPlayerPortalFlags(struct D2Unit* pUnit, int nPortalFlags
 }
 
 //D2Common.0x6FDC0660 (#10426)
-int __stdcall UNITS_GetPlayerPortalFlags(struct D2Unit* pUnit)
+int __cdecl UNITS_GetPlayerPortalFlags(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 	D2_ASSERT(pUnit->dwUnitType == UNIT_PLAYER);
@@ -2280,7 +2280,7 @@ int __stdcall UNITS_GetPlayerPortalFlags(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC06C0 (#10353)
-uint32_t __stdcall UNITS_GetNameOffsetFromObject(struct D2Unit* pUnit)
+uint32_t __cdecl UNITS_GetNameOffsetFromObject(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -2293,7 +2293,7 @@ uint32_t __stdcall UNITS_GetNameOffsetFromObject(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC0700 (#10427)
-uint8_t __stdcall UNITS_GetObjectPortalFlags(struct D2Unit* pUnit)
+uint8_t __cdecl UNITS_GetObjectPortalFlags(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 	D2_ASSERT(pUnit->dwUnitType == UNIT_OBJECT);
@@ -2301,7 +2301,7 @@ uint8_t __stdcall UNITS_GetObjectPortalFlags(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC0760 (#10428)
-void __stdcall UNITS_SetObjectPortalFlags(struct D2Unit* pUnit, uint8_t nPortalFlag)
+void __cdecl UNITS_SetObjectPortalFlags(struct D2Unit* pUnit, uint8_t nPortalFlag)
 {
 	D2_ASSERT(pUnit);
 	D2_ASSERT(pUnit->dwUnitType == UNIT_OBJECT);
@@ -2309,7 +2309,7 @@ void __stdcall UNITS_SetObjectPortalFlags(struct D2Unit* pUnit, uint8_t nPortalF
 }
 
 //D2Common.0x6FDC07C0 (#10429)
-BOOL __stdcall UNITS_CheckObjectPortalFlag(struct D2Unit* pUnit, uint8_t nFlag)
+BOOL __cdecl UNITS_CheckObjectPortalFlag(struct D2Unit* pUnit, uint8_t nFlag)
 {
 	D2_ASSERT(pUnit);
 	D2_ASSERT(pUnit->dwUnitType == UNIT_OBJECT);
@@ -2318,7 +2318,7 @@ BOOL __stdcall UNITS_CheckObjectPortalFlag(struct D2Unit* pUnit, uint8_t nFlag)
 }
 
 //D2Common.0x6FDC0820 (#10430)
-int __stdcall UNITS_GetOverlayHeight(struct D2Unit* pUnit)
+int __cdecl UNITS_GetOverlayHeight(struct D2Unit* pUnit)
 {
 	struct D2MonStats2Txt* pMonStats2TxtRecord = NULL;
 
@@ -2342,7 +2342,7 @@ int __stdcall UNITS_GetOverlayHeight(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC08B0 (#10431)
-int __stdcall UNITS_GetDefense(struct D2Unit* pUnit)
+int __cdecl UNITS_GetDefense(struct D2Unit* pUnit)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
 	struct D2StatList* pStatList = NULL;
@@ -2400,7 +2400,7 @@ int __stdcall UNITS_GetDefense(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC0AC0 (#10432)
-int __stdcall UNITS_GetAttackRate(struct D2Unit* pAttacker)
+int __cdecl UNITS_GetAttackRate(struct D2Unit* pAttacker)
 {
 	struct D2CharStatsTxt* pCharStatsTxtRecord = NULL;
 	int nAttackRate = 0;
@@ -2427,7 +2427,7 @@ int __stdcall UNITS_GetAttackRate(struct D2Unit* pAttacker)
 
 //D2Common.0x6FDC0B60 (#10433)
 //TODO: v8
-int __stdcall UNITS_GetBlockRate(struct D2Unit* pUnit, BOOL bExpansion)
+int __cdecl UNITS_GetBlockRate(struct D2Unit* pUnit, BOOL bExpansion)
 {
 	static const int dword_6FDE5CEC[] =
 	{
@@ -2544,7 +2544,7 @@ int __stdcall UNITS_GetBlockRate(struct D2Unit* pUnit, BOOL bExpansion)
 
 //D2Common.0x6FDC0DA0 (#10434)
 //TODO: Find a name, v14
-struct D2Unit* __stdcall D2Common_10434(struct D2Unit* pUnit, BOOL a2)
+struct D2Unit* __cdecl D2Common_10434(struct D2Unit* pUnit, BOOL a2)
 {
 	struct D2SkillsTxt* pSkillsTxtRecord = NULL;
 	struct D2Skill* pSkill = NULL;
@@ -2649,7 +2649,7 @@ struct D2Unit* __stdcall D2Common_10434(struct D2Unit* pUnit, BOOL a2)
 }
 
 //D2Common.0x6FDC0F70 (#10435)
-struct D2Unit* __stdcall UNITS_GetEquippedWeaponFromMonster(struct D2Unit* pMonster)
+struct D2Unit* __cdecl UNITS_GetEquippedWeaponFromMonster(struct D2Unit* pMonster)
 {
 	struct D2Unit* pItem = NULL;
 	BOOL bIsLeftHandItem = FALSE;
@@ -2667,7 +2667,7 @@ struct D2Unit* __stdcall UNITS_GetEquippedWeaponFromMonster(struct D2Unit* pMons
 }
 
 //D2Common.0x6FDC0FC0 (#10436)
-int __stdcall UNITS_GetFrameBonus(struct D2Unit* pUnit)
+int __cdecl UNITS_GetFrameBonus(struct D2Unit* pUnit)
 {
 	static const int gaClassesWeaponFrameBonus_6FDD3078[NUM_WEAPON_CLASSES][NUMBER_OF_PLAYERCLASSES] =
 	{
@@ -2744,7 +2744,7 @@ int __stdcall UNITS_GetFrameBonus(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC1120 (#10360)
-int __stdcall UNITS_GetMeleeRange(struct D2Unit* pUnit)
+int __cdecl UNITS_GetMeleeRange(struct D2Unit* pUnit)
 {
 	struct D2MonStats2Txt* pMonStats2TxtRecord = NULL;
 	BOOL bIsLeftHandItem = FALSE;
@@ -2779,7 +2779,7 @@ int __stdcall UNITS_GetMeleeRange(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC1230 (#10364)
-BOOL __stdcall UNITS_TestCollisionByCoordinates(struct D2Unit* pUnit, int nX, int nY, int nFlags)
+BOOL __cdecl UNITS_TestCollisionByCoordinates(struct D2Unit* pUnit, int nX, int nY, int nFlags)
 {
 	struct D2ActiveRoom* pRoom = NULL;
 	struct D2Coord pCoords = {};
@@ -2801,7 +2801,7 @@ BOOL __stdcall UNITS_TestCollisionByCoordinates(struct D2Unit* pUnit, int nX, in
 }
 
 //D2Common.0x6FDC13D0
-BOOL __fastcall UNITS_TestCollision(int nX1, int nY1, int nSize1, int nX2, int nY2, int nSize2, struct D2ActiveRoom* pRoom, int nCollisionMask)
+BOOL __cdecl UNITS_TestCollision(int nX1, int nY1, int nSize1, int nX2, int nY2, int nSize2, struct D2ActiveRoom* pRoom, int nCollisionMask)
 {
 	struct D2Coord pCoords1 = {};
 	struct D2Coord pCoords2 = {};
@@ -2875,7 +2875,7 @@ BOOL __fastcall UNITS_TestCollision(int nX1, int nY1, int nSize1, int nX2, int n
 }
 
 //D2Common.0x6FDC14C0 (#10362)
-BOOL __stdcall UNITS_TestCollisionWithUnit(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int nCollisionMask)
+BOOL __cdecl UNITS_TestCollisionWithUnit(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int nCollisionMask)
 {
 	struct D2ActiveRoom* pRoom = NULL;
 	struct D2Coord pCoords1 = {};
@@ -2897,7 +2897,7 @@ BOOL __stdcall UNITS_TestCollisionWithUnit(struct D2Unit* pUnit1, struct D2Unit*
 }
 
 //D2Common.0x6FDC1760
-void __fastcall UNITS_ToggleUnitFlag(struct D2Unit* pUnit, int nFlag, BOOL bSet)
+void __cdecl UNITS_ToggleUnitFlag(struct D2Unit* pUnit, int nFlag, BOOL bSet)
 {
 	if (pUnit)
 	{
@@ -2914,7 +2914,7 @@ void __fastcall UNITS_ToggleUnitFlag(struct D2Unit* pUnit, int nFlag, BOOL bSet)
 
 //D2Common.0x6FDC1790 (#10363)
 //TODO: v4 + v26
-BOOL __stdcall UNITS_TestCollisionBetweenInteractingUnits(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int nCollisionMask)
+BOOL __cdecl UNITS_TestCollisionBetweenInteractingUnits(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int nCollisionMask)
 {
 	struct D2Coord pCoords1 = {};
 	struct D2Coord pCoords2 = {};
@@ -2963,7 +2963,7 @@ BOOL __stdcall UNITS_TestCollisionBetweenInteractingUnits(struct D2Unit* pUnit1,
 }
 
 //D2Common.0x6FDC1A70 (#10361)
-BOOL __stdcall UNITS_IsInMeleeRange(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int nRangeBonus)
+BOOL __cdecl UNITS_IsInMeleeRange(struct D2Unit* pUnit1, struct D2Unit* pUnit2, int nRangeBonus)
 {
 	int nDistance = 0;
 	int nClassId = 0;
@@ -2999,7 +2999,7 @@ BOOL __stdcall UNITS_IsInMeleeRange(struct D2Unit* pUnit1, struct D2Unit* pUnit2
 }
 
 //D2Common.0x6FDC1B40 (#10318)
-BOOL __stdcall UNITS_IsInMovingMode(struct D2Unit* pUnit)
+BOOL __cdecl UNITS_IsInMovingMode(struct D2Unit* pUnit)
 {
 	if (pUnit == nullptr)
 	{
@@ -3037,13 +3037,13 @@ BOOL __stdcall UNITS_IsInMovingMode(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC1C30 (#10319)
-BOOL __stdcall UNITS_IsInMovingModeEx(struct D2Unit* pUnit)
+BOOL __cdecl UNITS_IsInMovingModeEx(struct D2Unit* pUnit)
 {
 	return UNITS_IsInMovingMode(pUnit) != 0;
 }
 
 //D2Common.0x6FDC1C50 (#10365)
-int __fastcall UNITS_GetHitClass(struct D2Unit* pUnit)
+int __cdecl UNITS_GetHitClass(struct D2Unit* pUnit)
 {
 	if (pUnit)
 	{
@@ -3073,7 +3073,7 @@ int __fastcall UNITS_GetHitClass(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC1CE0 (#10366)
-int __fastcall UNITS_GetWeaponClass(struct D2Unit* pUnit)
+int __cdecl UNITS_GetWeaponClass(struct D2Unit* pUnit)
 {
 	struct D2Unit* pItem = D2Common_10434(pUnit, TRUE);
 	if (pItem)
@@ -3085,7 +3085,7 @@ int __fastcall UNITS_GetWeaponClass(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC1D00 (#10438)
-unsigned int __stdcall UNITS_GetHealingCost(struct D2Unit* pUnit)
+unsigned int __cdecl UNITS_GetHealingCost(struct D2Unit* pUnit)
 {
 	int nShiftedLifeDifference = 0;
 	int nShiftedManaDifference = 0;
@@ -3118,14 +3118,14 @@ unsigned int __stdcall UNITS_GetHealingCost(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC1D90 (#10439)
-unsigned int __stdcall UNITS_GetInventoryGoldLimit(struct D2Unit* pUnit)
+unsigned int __cdecl UNITS_GetInventoryGoldLimit(struct D2Unit* pUnit)
 {
 	return 10000 * STATLIST_UnitGetStatValue(pUnit, STAT_LEVEL, 0);
 }
 
 //D2Common.0x6FDC1DB0 (#10440)
 //TODO: v5
-void __stdcall UNITS_MergeDualWieldWeaponStatLists(struct D2Unit* pUnit, int a2)
+void __cdecl UNITS_MergeDualWieldWeaponStatLists(struct D2Unit* pUnit, int a2)
 {
 	struct D2Unit* v5 = NULL;
 	struct D2Unit* pPrimaryWeapon = NULL;
@@ -3176,7 +3176,7 @@ void __stdcall UNITS_MergeDualWieldWeaponStatLists(struct D2Unit* pUnit, int a2)
 }
 
 //D2Common.0x6FDC1EE0
-struct D2MonStats2Txt* __fastcall UNITS_GetMonStats2TxtRecord(int nRecordId)
+struct D2MonStats2Txt* __cdecl UNITS_GetMonStats2TxtRecord(int nRecordId)
 {
 	if (nRecordId >= 0 && nRecordId < sgptDataTables->nMonStats2TxtRecordCount)
 	{
@@ -3187,7 +3187,7 @@ struct D2MonStats2Txt* __fastcall UNITS_GetMonStats2TxtRecord(int nRecordId)
 }
 
 //D2Common.0x6FDC1F10 (#10442)
-uint8_t __stdcall UNITS_GetItemComponentId(struct D2Unit* pUnit, struct D2Unit* pItem)
+uint8_t __cdecl UNITS_GetItemComponentId(struct D2Unit* pUnit, struct D2Unit* pItem)
 {
 	struct D2Unit* pRightHandItem = NULL;
 	struct D2Unit* pLeftHandItem = NULL;
@@ -3242,7 +3242,7 @@ uint8_t __stdcall UNITS_GetItemComponentId(struct D2Unit* pUnit, struct D2Unit* 
 }
 
 //D2Common.0x6FDC1FE0
-struct D2MonStats2Txt* __fastcall UNITS_GetMonStats2TxtRecordFromMonsterId(int nMonsterId)
+struct D2MonStats2Txt* __cdecl UNITS_GetMonStats2TxtRecordFromMonsterId(int nMonsterId)
 {
 	int nMonStatsEx = DATATBLS_GetMonStatsTxtRecord(nMonsterId)->wMonStatsEx;
 
@@ -3255,7 +3255,7 @@ struct D2MonStats2Txt* __fastcall UNITS_GetMonStats2TxtRecordFromMonsterId(int n
 }
 
 //D2Common.0x6FDC2030 (#10443)
-void __stdcall UNITS_InitRightSkill(struct D2Unit* pUnit)
+void __cdecl UNITS_InitRightSkill(struct D2Unit* pUnit)
 {
 	struct D2Skill* pSkill = NULL;
 
@@ -3271,7 +3271,7 @@ void __stdcall UNITS_InitRightSkill(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC20A0 (#10444)
-void __stdcall UNITS_InitLeftSkill(struct D2Unit* pUnit)
+void __cdecl UNITS_InitLeftSkill(struct D2Unit* pUnit)
 {
 	struct D2Skill* pSkill = NULL;
 
@@ -3287,7 +3287,7 @@ void __stdcall UNITS_InitLeftSkill(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC2110 (#10445)
-void __stdcall UNITS_InitSwitchRightSkill(struct D2Unit* pUnit)
+void __cdecl UNITS_InitSwitchRightSkill(struct D2Unit* pUnit)
 {
 	struct D2Skill* pSkill = NULL;
 
@@ -3303,7 +3303,7 @@ void __stdcall UNITS_InitSwitchRightSkill(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC2180 (#10446)
-void __stdcall UNITS_InitSwitchLeftSkill(struct D2Unit* pUnit)
+void __cdecl UNITS_InitSwitchLeftSkill(struct D2Unit* pUnit)
 {
 	struct D2Skill* pSkill = NULL;
 
@@ -3319,7 +3319,7 @@ void __stdcall UNITS_InitSwitchLeftSkill(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC21F0 (#10447)
-void __stdcall UNITS_GetRightSkillData(struct D2Unit* pUnit, int* pRightSkillId, int* pRightSkillFlags)
+void __cdecl UNITS_GetRightSkillData(struct D2Unit* pUnit, int* pRightSkillId, int* pRightSkillFlags)
 {
 	if (pUnit && pUnit->dwUnitType == UNIT_PLAYER)
 	{
@@ -3336,7 +3336,7 @@ void __stdcall UNITS_GetRightSkillData(struct D2Unit* pUnit, int* pRightSkillId,
 }
 
 //D2Common.0x6FDC2250 (#10448)
-void __stdcall UNITS_GetLeftSkillData(struct D2Unit* pUnit, int* pLeftSkillId, int* pLeftSkillFlags)
+void __cdecl UNITS_GetLeftSkillData(struct D2Unit* pUnit, int* pLeftSkillId, int* pLeftSkillFlags)
 {
 	if (pUnit && pUnit->dwUnitType == UNIT_PLAYER)
 	{
@@ -3353,7 +3353,7 @@ void __stdcall UNITS_GetLeftSkillData(struct D2Unit* pUnit, int* pLeftSkillId, i
 }
 
 //D2Common.0x6FDC22B0 (#10449)
-void __stdcall UNITS_GetSwitchRightSkillDataResetRightSkill(struct D2Unit* pUnit, int* pSwitchRightSkillId, int* pSwitchRightSkillFlags)
+void __cdecl UNITS_GetSwitchRightSkillDataResetRightSkill(struct D2Unit* pUnit, int* pSwitchRightSkillId, int* pSwitchRightSkillFlags)
 {
 	if (pUnit && pUnit->dwUnitType == UNIT_PLAYER)
 	{
@@ -3375,7 +3375,7 @@ void __stdcall UNITS_GetSwitchRightSkillDataResetRightSkill(struct D2Unit* pUnit
 }
 
 //D2Common.0x6FDC2330 (#10450)
-void __stdcall UNITS_GetSwitchLeftSkillDataResetLeftSkill(struct D2Unit* pUnit, int* pSwitchLeftSkillId, int* pSwitchLeftSkillFlags)
+void __cdecl UNITS_GetSwitchLeftSkillDataResetLeftSkill(struct D2Unit* pUnit, int* pSwitchLeftSkillId, int* pSwitchLeftSkillFlags)
 {
 	if (pUnit && pUnit->dwUnitType == UNIT_PLAYER)
 	{
@@ -3397,7 +3397,7 @@ void __stdcall UNITS_GetSwitchLeftSkillDataResetLeftSkill(struct D2Unit* pUnit, 
 }
 
 //D2Common.0x6FDC23B0 (#10451)
-void __stdcall UNITS_GetSwitchLeftSkillData(struct D2Unit* pUnit, int* pSwitchLeftSkillId, int* pSwitchLeftSkillFlags)
+void __cdecl UNITS_GetSwitchLeftSkillData(struct D2Unit* pUnit, int* pSwitchLeftSkillId, int* pSwitchLeftSkillFlags)
 {
 	if (pUnit && pUnit->dwUnitType == UNIT_PLAYER)
 	{
@@ -3414,7 +3414,7 @@ void __stdcall UNITS_GetSwitchLeftSkillData(struct D2Unit* pUnit, int* pSwitchLe
 }
 
 //D2Common.0x6FDC2420 (#10452)
-void __stdcall UNITS_GetSwitchRightSkillData(struct D2Unit* pUnit, int* pSwitchRightSkillId, int* pSwitchRightSkillFlags)
+void __cdecl UNITS_GetSwitchRightSkillData(struct D2Unit* pUnit, int* pSwitchRightSkillId, int* pSwitchRightSkillFlags)
 {
 	if (pUnit && pUnit->dwUnitType == UNIT_PLAYER)
 	{
@@ -3431,7 +3431,7 @@ void __stdcall UNITS_GetSwitchRightSkillData(struct D2Unit* pUnit, int* pSwitchR
 }
 
 //D2Common.0x6FDC2490 (#10453)
-void __stdcall UNITS_SetSwitchLeftSkill(struct D2Unit* pUnit, int nSwitchLeftSkillId, int nSwitchLeftSkillFlags)
+void __cdecl UNITS_SetSwitchLeftSkill(struct D2Unit* pUnit, int nSwitchLeftSkillId, int nSwitchLeftSkillFlags)
 {
 	if (pUnit && pUnit->dwUnitType == UNIT_PLAYER)
 	{
@@ -3443,7 +3443,7 @@ void __stdcall UNITS_SetSwitchLeftSkill(struct D2Unit* pUnit, int nSwitchLeftSki
 }
 
 //D2Common.0x6FDC24E0 (#10454)
-void __stdcall UNITS_SetSwitchRightSkill(struct D2Unit* pUnit, int nSwitchRightSkillId, int nSwitchRightSkillFlags)
+void __cdecl UNITS_SetSwitchRightSkill(struct D2Unit* pUnit, int nSwitchRightSkillId, int nSwitchRightSkillFlags)
 {
 	if (pUnit && pUnit->dwUnitType == UNIT_PLAYER)
 	{
@@ -3455,7 +3455,7 @@ void __stdcall UNITS_SetSwitchRightSkill(struct D2Unit* pUnit, int nSwitchRightS
 }
 
 //D2Common.0x6FDC2530 (#10455)
-void __stdcall UNITS_SetWeaponGUID(struct D2Unit* pUnit, struct D2Unit* pWeapon)
+void __cdecl UNITS_SetWeaponGUID(struct D2Unit* pUnit, struct D2Unit* pWeapon)
 {
 	if (pUnit && pUnit->dwUnitType == UNIT_PLAYER)
 	{
@@ -3475,7 +3475,7 @@ void __stdcall UNITS_SetWeaponGUID(struct D2Unit* pUnit, struct D2Unit* pWeapon)
 }
 
 //D2Common.0x6FDC25B0 (#10456)
-D2UnitGUID __stdcall UNITS_GetWeaponGUID(struct D2Unit* pUnit)
+D2UnitGUID __cdecl UNITS_GetWeaponGUID(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 	D2_ASSERT(pUnit->dwUnitType == UNIT_PLAYER);
@@ -3485,7 +3485,7 @@ D2UnitGUID __stdcall UNITS_GetWeaponGUID(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC2630 (#10339)
-unsigned int __stdcall UNITS_GetStashGoldLimit(struct D2Unit* pUnit)
+unsigned int __cdecl UNITS_GetStashGoldLimit(struct D2Unit* pUnit)
 {
 	int nMultiplier = 0;
 	int nLevel = 0;
@@ -3504,7 +3504,7 @@ unsigned int __stdcall UNITS_GetStashGoldLimit(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC2680 (#10317)
-BOOL __fastcall UNITS_CanSwitchAI(int nMonsterId)
+BOOL __cdecl UNITS_CanSwitchAI(int nMonsterId)
 {
 	struct D2MonStatsTxt* pMonStatsTxtRecord = DATATBLS_GetMonStatsTxtRecord(nMonsterId);
 	if (pMonStatsTxtRecord)
@@ -3523,7 +3523,7 @@ BOOL __fastcall UNITS_CanSwitchAI(int nMonsterId)
 }
 
 //D2Common.0x6FDC2720 (#10458)
-void __fastcall UNITS_SetTimerArg(struct D2Unit* pUnit, struct D2TimerArg* pTimerArg)
+void __cdecl UNITS_SetTimerArg(struct D2Unit* pUnit, struct D2TimerArg* pTimerArg)
 {
 	D2_ASSERT(pUnit);
 
@@ -3531,7 +3531,7 @@ void __fastcall UNITS_SetTimerArg(struct D2Unit* pUnit, struct D2TimerArg* pTime
 }
 
 //D2Common.0x6FDC2750 (#10459)
-struct D2TimerArg* __fastcall UNITS_GetTimerArg(struct D2Unit* pUnit)
+struct D2TimerArg* __cdecl UNITS_GetTimerArg(struct D2Unit* pUnit)
 {
 	D2_ASSERT(pUnit);
 
@@ -3539,7 +3539,7 @@ struct D2TimerArg* __fastcall UNITS_GetTimerArg(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC2780 (#10460)
-void __stdcall UNITS_AllocStaticPath(struct D2Unit* pUnit)
+void __cdecl UNITS_AllocStaticPath(struct D2Unit* pUnit)
 {
 	if (!pUnit->pStaticPath)
 	{
@@ -3548,7 +3548,7 @@ void __stdcall UNITS_AllocStaticPath(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC27C0 (#10461)
-void __stdcall UNITS_FreeStaticPath(struct D2Unit* pUnit)
+void __cdecl UNITS_FreeStaticPath(struct D2Unit* pUnit)
 {
 	if (pUnit->pStaticPath)
 	{
@@ -3558,7 +3558,7 @@ void __stdcall UNITS_FreeStaticPath(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC27F0 (#10462)
-BOOL __stdcall UNITS_CanDualWield(struct D2Unit* pUnit)
+BOOL __cdecl UNITS_CanDualWield(struct D2Unit* pUnit)
 {
 	if (pUnit)
 	{
@@ -3586,7 +3586,7 @@ BOOL __stdcall UNITS_CanDualWield(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC2860 (#11238)
-BOOL __stdcall UNITS_IsCorpseUseable(struct D2Unit* pUnit)
+BOOL __cdecl UNITS_IsCorpseUseable(struct D2Unit* pUnit)
 {
 	struct D2MonStats2Txt* pMonStats2TxtRecord = NULL;
 
@@ -3609,7 +3609,7 @@ BOOL __stdcall UNITS_IsCorpseUseable(struct D2Unit* pUnit)
 }
 
 //D2Common.0x6FDC2910 (#11307)
-BOOL __stdcall UNITS_IsObjectInInteractRange(struct D2Unit* pUnit, struct D2Unit* pObject)
+BOOL __cdecl UNITS_IsObjectInInteractRange(struct D2Unit* pUnit, struct D2Unit* pObject)
 {
 	int nSizeX2 = 0;
 	int nSizeY1 = 0;
@@ -3692,7 +3692,7 @@ BOOL __stdcall UNITS_IsObjectInInteractRange(struct D2Unit* pUnit, struct D2Unit
 }
 
 //D2Common.0x6FDC2C80
-struct D2CharStatsTxt* __fastcall UNITS_GetCharStatsTxtRecord(int nRecordId)
+struct D2CharStatsTxt* __cdecl UNITS_GetCharStatsTxtRecord(int nRecordId)
 {
 	if (nRecordId >= 0 && nRecordId < sgptDataTables->nCharStatsTxtRecordCount)
 	{
@@ -3705,7 +3705,7 @@ struct D2CharStatsTxt* __fastcall UNITS_GetCharStatsTxtRecord(int nRecordId)
 //1.10f: D2Common.0x6FDC2CB0 (#10399)
 //1.13c: D2Common.0x6FDCFCD0 (#10407)
 //TODO: Find a name
-int __stdcall D2Common_10399(struct D2Unit* pUnit1, struct D2Unit* pUnit2)
+int __cdecl D2Common_10399(struct D2Unit* pUnit1, struct D2Unit* pUnit2)
 {
 	static const int dword_6FDD3200[] =
 	{
@@ -3805,7 +3805,7 @@ int __stdcall D2Common_10399(struct D2Unit* pUnit1, struct D2Unit* pUnit2)
 }
 
 //D2Common.0x6FDC2E40 (#10397)
-int __stdcall UNITS_GetDistanceToOtherUnit(struct D2Unit* pUnit1, struct D2Unit* pUnit2)
+int __cdecl UNITS_GetDistanceToOtherUnit(struct D2Unit* pUnit1, struct D2Unit* pUnit2)
 {
 	struct D2Coord pCoords1 = {};
 	struct D2Coord pCoords2 = {};
@@ -3856,7 +3856,7 @@ int __stdcall UNITS_GetDistanceToOtherUnit(struct D2Unit* pUnit1, struct D2Unit*
 }
 
 //D2Common.0x6FDC2F50 (#10398)
-unsigned int __stdcall UNITS_GetDistanceToCoordinates(struct D2Unit* pUnit, int nX, int nY)
+unsigned int __cdecl UNITS_GetDistanceToCoordinates(struct D2Unit* pUnit, int nX, int nY)
 {
 	struct D2Coord pCoords = {};
 	int nDistanceX = 0;
@@ -3897,7 +3897,7 @@ unsigned int __stdcall UNITS_GetDistanceToCoordinates(struct D2Unit* pUnit, int 
 }
 
 //D2Common.0x6FDC2FF0 (#10400)
-BOOL __stdcall UNITS_IsInRange(struct D2Unit* pUnit, struct D2Coord* pCoord, int nDistance)
+BOOL __cdecl UNITS_IsInRange(struct D2Unit* pUnit, struct D2Coord* pCoord, int nDistance)
 {
 	struct D2Coord pCoords = {};
 	int nDistanceX = 0;
@@ -3922,7 +3922,7 @@ BOOL __stdcall UNITS_IsInRange(struct D2Unit* pUnit, struct D2Coord* pCoord, int
 
 //Used in D2Common.#10406 and D2Common.#10407
 //TODO: Find a name
-struct D2Unit* __stdcall D2Common_10407_Impl(struct D2ActiveRoom* pRoom, int nX, int nY, int(__fastcall* pCallback)(struct D2Unit*, void*), void* a5, int a6, struct D2Unit* a7)
+struct D2Unit* __cdecl D2Common_10407_Impl(struct D2ActiveRoom* pRoom, int nX, int nY, int(__cdecl* pCallback)(struct D2Unit*, void*), void* a5, int a6, struct D2Unit* a7)
 {
 	struct D2DrlgCoords pDrlgCoords = {};
 	struct D2ActiveRoom** ppRoomList = NULL;
@@ -4091,20 +4091,20 @@ struct D2Unit* __stdcall D2Common_10407_Impl(struct D2ActiveRoom* pRoom, int nX,
 
 //D2Common.0x6FDC3090 (#10406)
 //TODO: Find a name
-struct D2Unit* __stdcall D2Common_10406(struct D2Unit* pUnit, int (__fastcall* pCallback)(struct D2Unit*, void*), void* a3)
+struct D2Unit* __cdecl D2Common_10406(struct D2Unit* pUnit, int (__cdecl* pCallback)(struct D2Unit*, void*), void* a3)
 {
 	return D2Common_10407_Impl(UNITS_GetRoom(pUnit), UNITS_GetXPosition(pUnit), UNITS_GetYPosition(pUnit), pCallback, a3, UNITS_GetUnitSizeX(pUnit), pUnit);
 }
 
 //D2Common.0x6FDC33C0 (#10407)
 //TODO: Find a name
-struct D2Unit* __stdcall D2Common_10407(struct D2ActiveRoom* pRoom, int nX, int nY, int (__fastcall* pCallback)(struct D2Unit*, void*), void* a5, int a6)
+struct D2Unit* __cdecl D2Common_10407(struct D2ActiveRoom* pRoom, int nX, int nY, int (__cdecl* pCallback)(struct D2Unit*, void*), void* a5, int a6)
 {
 	return D2Common_10407_Impl(pRoom, nX, nY, pCallback, a5, a6, NULL);
 }
 
 //D2Common.0x6FDC3680 (#10419)
-void __fastcall UNITS_SetInteractData(struct D2Unit* pUnit, int nSkillId, int nUnitType, D2UnitGUID nUnitGUID)
+void __cdecl UNITS_SetInteractData(struct D2Unit* pUnit, int nSkillId, int nUnitType, D2UnitGUID nUnitGUID)
 {
 	if (pUnit && pUnit->dwUnitType == UNIT_PLAYER && pUnit->pPlayerData)
 	{

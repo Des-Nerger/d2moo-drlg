@@ -138,7 +138,7 @@ unsigned short Unicode_toUpperTable[256] = {
   0x9F
 };
 
-BOOL __fastcall Unicode_compare(struct Unicode lhs, struct Unicode rhs) {
+BOOL __cdecl Unicode_compare(struct Unicode lhs, struct Unicode rhs) {
   return Unicode_toUpper(lhs).ch == Unicode_toUpper(rhs).ch;
 }
 
@@ -251,7 +251,7 @@ BOOL Unicode_isAlpha(struct Unicode self) {
   return (Unicode_isASCII(self) && isalpha((char)self.ch));
 }
 
-BOOL __fastcall Unicode_isLineBreak(const struct Unicode* str, size_t count)
+BOOL __cdecl Unicode_isLineBreak(const struct Unicode* str, size_t count)
 {
     if (!count)
     {

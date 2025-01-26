@@ -9,7 +9,7 @@
 #include <DataTbls/LevelsIds.h>
 
 //D2Common.0x6FD84CA0
-void __fastcall DRLGOUTWILD_GetBridgeCoords(struct D2DrlgLevel* pLevel, int* pX, int* pY)
+void __cdecl DRLGOUTWILD_GetBridgeCoords(struct D2DrlgLevel* pLevel, int* pX, int* pY)
 {
 	int nX = pLevel->pOutdoors->nGridWidth / 2 - 1;
 
@@ -30,7 +30,7 @@ void __fastcall DRLGOUTWILD_GetBridgeCoords(struct D2DrlgLevel* pLevel, int* pX,
 
 //D2Common.0x6FD84D30
 //TODO: Check v21, v22
-void __fastcall DRLGOUTWILD_InitAct1OutdoorLevel(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTWILD_InitAct1OutdoorLevel(struct D2DrlgLevel* pLevel)
 {
 	int nX = 0;
 	int nY = 0;
@@ -223,7 +223,7 @@ void __fastcall DRLGOUTWILD_InitAct1OutdoorLevel(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD85060
-BOOL __fastcall DRLGOUTWILD_TestSpawnRiver(struct D2DrlgLevel* pLevel, int nX)
+BOOL __cdecl DRLGOUTWILD_TestSpawnRiver(struct D2DrlgLevel* pLevel, int nX)
 {
 	for (int nY = 0; nY < pLevel->pOutdoors->nGridHeight; ++nY)
 	{
@@ -292,7 +292,7 @@ void DRLGOUTWILD_SpawnRiverPreset(struct D2DrlgLevel* pLevel, int nX, int nY, bo
 
 }
 //D2Common.0x6FD850B0
-void __fastcall DRLGOUTWILD_SpawnRiver(struct D2DrlgLevel* pLevel, int nX)
+void __cdecl DRLGOUTWILD_SpawnRiver(struct D2DrlgLevel* pLevel, int nX)
 {
 	for (int nY = 0; nY < pLevel->pOutdoors->nGridHeight; ++nY)
 	{
@@ -323,7 +323,7 @@ void __fastcall DRLGOUTWILD_SpawnRiver(struct D2DrlgLevel* pLevel, int nX)
 }
 
 //D2Common.0x6FD85300
-BOOL __fastcall sub_6FD85300(struct D2DrlgVertex* pDrlgVertex)
+BOOL __cdecl sub_6FD85300(struct D2DrlgVertex* pDrlgVertex)
 {
 	struct D2DrlgVertex* pNext = pDrlgVertex->pNext;
 
@@ -339,7 +339,7 @@ BOOL __fastcall sub_6FD85300(struct D2DrlgVertex* pDrlgVertex)
 }
 
 //D2Common.0x6FD85350
-BOOL __fastcall sub_6FD85350(struct D2DrlgVertex* pDrlgVertex)
+BOOL __cdecl sub_6FD85350(struct D2DrlgVertex* pDrlgVertex)
 {
 	struct D2DrlgVertex* pNext = pDrlgVertex->pNext;
 
@@ -355,7 +355,7 @@ BOOL __fastcall sub_6FD85350(struct D2DrlgVertex* pDrlgVertex)
 }
 
 //D2Common.0x6FD85390
-BOOL __fastcall DRLGOUTWILD_SpawnCliffCaves(struct D2DrlgLevel* pLevel, int nX, int nY)
+BOOL __cdecl DRLGOUTWILD_SpawnCliffCaves(struct D2DrlgLevel* pLevel, int nX, int nY)
 {
 	switch (DRLGGRID_GetGridEntry(pLevel->pOutdoors->pGrid, nX, nY))
 	{
@@ -375,7 +375,7 @@ BOOL __fastcall DRLGOUTWILD_SpawnCliffCaves(struct D2DrlgLevel* pLevel, int nX, 
 }
 
 //D2Common.0x6FD853F0
-void __fastcall DRLGOUTWILD_SpawnTownTransitionsAndCaves(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTWILD_SpawnTownTransitionsAndCaves(struct D2DrlgLevel* pLevel)
 {
 	int fAdded = 0;
 	int nX = 0;
@@ -449,7 +449,7 @@ void __fastcall DRLGOUTWILD_SpawnTownTransitionsAndCaves(struct D2DrlgLevel* pLe
 }
 
 //D2Common.0x6FD85520
-void __fastcall DRLGOUTWILD_SpawnSpecialPresets(struct D2DrlgLevel* pLevel)
+void __cdecl DRLGOUTWILD_SpawnSpecialPresets(struct D2DrlgLevel* pLevel)
 {
 	switch (pLevel->nLevelId)
 	{
@@ -602,7 +602,7 @@ void __fastcall DRLGOUTWILD_SpawnSpecialPresets(struct D2DrlgLevel* pLevel)
 }
 
 //D2Common.0x6FD85920
-void __fastcall DRLGOUTWILD_SpawnCottage(struct D2DrlgLevel* pLevel, int nLvlPrestId, int a3)
+void __cdecl DRLGOUTWILD_SpawnCottage(struct D2DrlgLevel* pLevel, int nLvlPrestId, int a3)
 {
 	if (SEED_RollRandomNumber(&pLevel->pSeed) & 3)
 	{

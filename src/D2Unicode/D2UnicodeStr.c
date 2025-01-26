@@ -33,7 +33,7 @@
 
 #include "Fog.h"
 
-BOOL __fastcall Unicode_isWordEnd(const struct Unicode* str, size_t index) {
+BOOL __cdecl Unicode_isWordEnd(const struct Unicode* str, size_t index) {
   if (index == 0) {
     return FALSE;
   }
@@ -193,7 +193,7 @@ void __cdecl Unicode_sprintf(
   va_end(args);
 }
 
-struct Unicode* __fastcall Unicode_strcat(struct Unicode* dest, const struct Unicode* src) {
+struct Unicode* __cdecl Unicode_strcat(struct Unicode* dest, const struct Unicode* src) {
   size_t i = 0;
   while (dest[i].ch != L'\0') {
     ++i;
@@ -204,7 +204,7 @@ struct Unicode* __fastcall Unicode_strcat(struct Unicode* dest, const struct Uni
   return dest;
 }
 
-struct Unicode* __fastcall Unicode_strchr(const struct Unicode* str, struct Unicode ch) {
+struct Unicode* __cdecl Unicode_strchr(const struct Unicode* str, struct Unicode ch) {
   for (size_t i = 0; str[i].ch != L'\0'; ++i) {
     if (str[i].ch == ch.ch) {
       return (struct Unicode*)&str[i];
@@ -214,7 +214,7 @@ struct Unicode* __fastcall Unicode_strchr(const struct Unicode* str, struct Unic
   return NULL;
 }
 
-int __fastcall Unicode_strcmp(const struct Unicode* str1, const struct Unicode* str2) {
+int __cdecl Unicode_strcmp(const struct Unicode* str1, const struct Unicode* str2) {
   /*
    * This loop does not run beyond the end of either string. If the
    * end of only one string is reached, then a comparison between '\0'
@@ -232,7 +232,7 @@ int __fastcall Unicode_strcmp(const struct Unicode* str1, const struct Unicode* 
   return 0;
 }
 
-struct Unicode* __fastcall Unicode_strcpy(struct Unicode* dest, const struct Unicode* src) {
+struct Unicode* __cdecl Unicode_strcpy(struct Unicode* dest, const struct Unicode* src) {
   size_t i = 0;
   do {
     dest[i].ch = src[i].ch;
@@ -241,7 +241,7 @@ struct Unicode* __fastcall Unicode_strcpy(struct Unicode* dest, const struct Uni
   return dest;
 }
 
-int __fastcall Unicode_stricmp(const struct Unicode* str1, const struct Unicode* str2) {
+int __cdecl Unicode_stricmp(const struct Unicode* str1, const struct Unicode* str2) {
   /*
    * This loop does not run beyond the end of either string. If the
    * end of only one string is reached, then a comparison between '\0'
@@ -262,7 +262,7 @@ int __fastcall Unicode_stricmp(const struct Unicode* str1, const struct Unicode*
   return 0;
 }
 
-int __fastcall Unicode_strnicmp(const struct Unicode* str1, const struct Unicode* str2, size_t count) {
+int __cdecl Unicode_strnicmp(const struct Unicode* str1, const struct Unicode* str2, size_t count) {
     /*
      * This loop does not run beyond the end of either string. If the
      * end of only one string is reached, then a comparison between '\0'
@@ -284,7 +284,7 @@ int __fastcall Unicode_strnicmp(const struct Unicode* str1, const struct Unicode
     return 0;
 }
 
-int __fastcall Unicode_strlen(const struct Unicode* str) {
+int __cdecl Unicode_strlen(const struct Unicode* str) {
   if (str == NULL) {
     return 0;
   }
@@ -297,7 +297,7 @@ int __fastcall Unicode_strlen(const struct Unicode* str) {
   return i;
 }
 
-struct Unicode* __fastcall Unicode_strncat(
+struct Unicode* __cdecl Unicode_strncat(
     struct Unicode* dest,
     const struct Unicode* src,
     int count) {
@@ -316,7 +316,7 @@ struct Unicode* __fastcall Unicode_strncat(
   return dest;
 }
 
-int __fastcall Unicode_strncmp(
+int __cdecl Unicode_strncmp(
     const struct Unicode* str1,
     const struct Unicode* str2,
     size_t count) {
@@ -346,7 +346,7 @@ int __fastcall Unicode_strncmp(
  * 1.13c: D2Lang.0x6FC0B0D0 (#10044)
  * ?strncpy@Unicode@@SIPAU1@PAU1@PBU1@H@Z
  */
-struct Unicode* __fastcall Unicode_strncpy(
+struct Unicode* __cdecl Unicode_strncpy(
     struct Unicode* dest, const struct Unicode* src, int count)
 {
   // Copy src into dest, up to count characters.
@@ -365,7 +365,7 @@ struct Unicode* __fastcall Unicode_strncpy(
   return dest;
 }
 
-struct Unicode* __fastcall Unicode_strstr(
+struct Unicode* __cdecl Unicode_strstr(
     const struct Unicode* str,
     const struct Unicode* substr) {
   if (str == NULL || substr == NULL) {
