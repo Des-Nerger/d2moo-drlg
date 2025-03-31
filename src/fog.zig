@@ -1,32 +1,34 @@
+const assert = debug.assert;
 const c = @import("c.zig");
 const debug = std.debug;
+const fs = std.fs;
+const main = @import("main.zig");
 const math = std.math;
+const mem = std.mem;
 const std = @import("std");
 
 pub fn FOG_AllocPool(
-    pMemPool: ?*anyopaque,
+    _: ?*anyopaque, // -pMemPool
     nSize: c_int,
     szFile: [*c]const u8,
     nLine: c_int,
     n0: c_int,
 ) callconv(.c) ?*anyopaque {
-    _ = .{ pMemPool, szFile, nLine, n0 };
-    return c.malloc(@intCast(nSize));
+    return FOG_Alloc(nSize, szFile, nLine, n0);
 }
 
 pub fn FOG_FreePool(
-    pMemPool: ?*anyopaque,
+    _: ?*anyopaque, // -pMemPool
     pFree: ?*anyopaque,
     szFile: [*c]const u8,
     nLine: c_int,
     n0: c_int,
 ) callconv(.c) void {
-    _ = .{ pMemPool, szFile, nLine, n0 };
-    c.free(pFree);
+    return FOG_Free(pFree, szFile, nLine, n0);
 }
 
 pub fn FOG_DisplayAssert(szMsg: [*c]const u8, szFile: [*c]const u8, nLine: c_int) callconv(.c) void {
-    debug.print("{s}\n", .{@src().fn_name});
+    debug.print("{s}(\"{s}\", \"{s}\", {})\n", .{ @src().fn_name, szMsg, szFile, nLine });
     _ = .{ szMsg, szFile, nLine };
 }
 
@@ -57,34 +59,35 @@ pub fn FOG_DisplayError(
 
 pub fn FOG_Alloc(
     nSize: c_int,
-    szFile: [*c]const u8,
-    nLine: c_int,
-    n0: c_int,
+    _: [*c]const u8, // -szFile
+    _: c_int, // -nLine
+    _: c_int, // -n0
 ) callconv(.c) ?*anyopaque {
-    _ = .{ szFile, nLine, n0 };
-    return c.malloc(@intCast(nSize));
+    return (main.allocator.alloc(u8, @intCast(nSize)) catch unreachable).ptr; // .alignedAlloc(u8, 4
 }
 
 pub fn FOG_Free(
-    pFree: ?*anyopaque,
-    szFile: [*c]const u8,
-    nLine: c_int,
-    n0: c_int,
-) callconv(.c) void {
-    _ = .{ szFile, nLine, n0 };
-    return c.free(pFree);
-}
+    _: ?*anyopaque, // -pFree
+    _: [*c]const u8, // -szFile
+    _: c_int, // -nLine
+    _: c_int, // -n0
+) callconv(.c) void {}
 
 pub fn FOG_ReallocPool(
-    pMemPool: ?*anyopaque,
+    _: ?*anyopaque, // -pMemPool
     pMemory: ?*anyopaque,
     nSize: c_int,
-    szFile: [*c]const u8,
-    nLine: c_int,
-    n0: c_int,
+    _: [*c]const u8, // -szFile
+    _: c_int, // -nLine
+    _: c_int, // -n0
 ) callconv(.c) ?*anyopaque {
-    _ = .{ pMemPool, szFile, nLine, n0 };
-    return c.realloc(pMemory, @intCast(nSize));
+    debug.print("{s}( .nsize = {}_bytes )\n", .{ @src().fn_name, nSize });
+    const dest = main.allocator.alloc(u8, @intCast(nSize)) catch unreachable; // .alignedAlloc(u8, 4
+    if (pMemory) |src_opaque| {
+        const src: [*]u8 = @ptrCast(src_opaque);
+        @memcpy(dest.ptr, src[0..@min(@as(usize, @intCast(nSize)), dest.ptr - src)]);
+    }
+    return dest.ptr;
 }
 
 pub fn FOG_10050_EnterCriticalSection(
@@ -99,14 +102,12 @@ pub fn FOG_FOpenFile(
     szFile: [*c]const u8,
     pFileHandle: [*c]c.HSFILE,
 ) callconv(.c) c.BOOL {
-    debug.print("{s}\n", .{@src().fn_name});
-    _ = .{ szFile, pFileHandle };
-    return @intFromBool(false);
+    pFileHandle.* = @alignCast(@ptrCast((fs.cwd().openFileZ(szFile, .{}) catch unreachable).handle));
+    return @intFromBool(true);
 }
 
 pub fn FOG_FCloseFile(pFile: c.HSFILE) callconv(.c) void {
-    debug.print("{s}\n", .{@src().fn_name});
-    _ = .{pFile};
+    (fs.File{ .handle = @ptrCast(pFile) }).close();
 }
 
 pub fn FOG_FReadFile(
@@ -118,18 +119,16 @@ pub fn FOG_FReadFile(
     n1: u32,
     n2: u32,
 ) callconv(.c) c.BOOL {
-    debug.print("{s}\n", .{@src().fn_name});
-    _ = .{ pFile, pBuffer, nSize, nBytesRead, n0, n1, n2 };
-    return @intFromBool(false);
+    assert(0 == n0 and 0 == n1 and 0 == n2);
+    nBytesRead.* = @intCast((fs.File{ .handle = @ptrCast(pFile) }).readAll(@as([*]u8, @ptrCast(pBuffer.?))[0..nSize]) catch unreachable);
+    return @intFromBool(true);
 }
 
 pub fn FOG_FGetFileSize(
     pFileHandle: c.HSFILE,
-    lpFileSizeHigh: [*c]u32,
+    _: [*c]u32, // -lpFileSizeHigh
 ) callconv(.c) u32 {
-    debug.print("{s}\n", .{@src().fn_name});
-    _ = .{ pFileHandle, lpFileSizeHigh };
-    return 0;
+    return @intCast((fs.File{ .handle = @ptrCast(pFileHandle) }).getEndPos() catch unreachable);
 }
 
 pub fn FOG_FSetFilePointer(
@@ -175,9 +174,11 @@ pub fn FOG_GetRecordCountFromBinFile(pBinFile: [*c]c.D2BinFile) callconv(.c) c_i
 }
 
 pub fn FOG_AllocLinker(szFile: [*c]const u8, nLine: c_int) callconv(.c) ?*anyopaque {
-    debug.print("{s}\n", .{@src().fn_name});
     _ = .{ szFile, nLine };
-    return null;
+    debug.print("{s}(\"{s}\", {})\n", .{ @src().fn_name, szFile, nLine });
+    const l = main.allocator.create(c.D2TxtLink) catch unreachable;
+    l.* = mem.zeroInit(@TypeOf(l.*), .{});
+    return l;
 }
 
 pub fn FOG_FreeLinker(pLinker: ?*anyopaque) callconv(.c) void {
@@ -186,7 +187,6 @@ pub fn FOG_FreeLinker(pLinker: ?*anyopaque) callconv(.c) void {
 }
 
 pub fn FOG_IsExpansion() callconv(.c) c_int {
-    debug.print("{s}\n", .{@src().fn_name});
     return @intFromBool(true);
 }
 
@@ -217,8 +217,8 @@ pub fn FOG_GetStringFromLinkIndex(
 }
 
 pub fn FOG_10215(pBin: ?*anyopaque, a2: c_int) callconv(.c) c_int {
-    debug.print("{s}\n", .{@src().fn_name});
-    _ = .{ pBin, a2 };
+    debug.print("{s}(_, {})\n", .{ @src().fn_name, a2 });
+    _ = .{pBin};
     return -1;
 }
 

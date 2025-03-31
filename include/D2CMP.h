@@ -64,18 +64,16 @@ struct D2TileLibraryEntry
 	int32_t nSequence;							//0x1C aka nSubIndex
 	int32_t nRarity_Frame;						//0x20 By default this is the rarity of the tile, for animated tiles this is the frame index.
 	int32_t transparentColorRGB24;				//0x24
-	uint8_t dwTileFlags[4];						//0x28 Collision info
-	int32_t dwBlockOffset_pBlock;				//0x2C
-	int32_t nBlockSize;							//0x30
-	int32_t nBlocks;							//0x34
-	struct D2TileRecord* pParent;					//0x38
-	uint16_t unk0x3C;							//0x3C
-	uint16_t nCacheIndex;						//0x3E
-	uint32_t unk0x40[4];						//0x40
-	//int32_t field_50;
-	//int32_t field_54;
-	//int32_t field_58;
-	//int32_t field_5C;
+	uint8_t nTileFlags[25];						//0x28 Collision info
+	uint8_t nZeroByte;                          //0x41
+	uint16_t nCacheIndex;                       //0x42
+	uint32_t unk0x44;                           //0x44
+	int32_t dwBlockOffset_pBlock;				//0x48
+	int32_t nBlockSize;							//0x4C
+	int32_t nBlocks;							//0x50
+	struct D2TileLibraryBlock* pBlock;			//0x54
+	const char* pLibraryName;                   //0x58 - runtime only
+	void* pLRUCacheBlock;                       //0x5C - runtime only
 };
 
 struct D2Tile

@@ -45,7 +45,7 @@ enum Unicode_Direction {
 * mangled names the same as the ones in D2Lang.
 */
 struct D2LANG_DLL_DECL Unicode {
-  unsigned short ch;
+  /* unsigned short */ char ch;
 };
 
 /**

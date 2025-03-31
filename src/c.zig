@@ -1,13 +1,11 @@
 pub usingnamespace @cImport({
-    @cInclude("D2Lang.h");
-    @cInclude("Drlg/D2DrlgDrlg.h");
-    @cInclude("Storm.h");
+    @cInclude("c.h");
 });
 
 comptime {
     for (.{
-        @import("d2CMP.zig"),
-        @import("d2Lang.zig"),
+        @import("d2cmp.zig"),
+        @import("d2lang.zig"),
         @import("fog.zig"),
         @import("storm.zig"),
     }) |Struct|

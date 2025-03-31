@@ -24,9 +24,8 @@ pub fn SFileGetFileName(
     buffer: [*c]u8,
     length: c_int,
 ) callconv(.c) c.BOOL {
-    debug.print("{s}\n", .{@src().fn_name});
-    _ = .{ hFile, buffer, length };
-    return @intFromBool(false);
+    _ = c.GetFinalPathNameByHandleA(hFile, buffer, @intCast(length), 0); // -effective_len
+    return @intFromBool(true);
 }
 
 pub fn SStrCmpI(

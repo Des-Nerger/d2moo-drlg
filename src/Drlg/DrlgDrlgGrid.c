@@ -81,7 +81,7 @@ int* __cdecl DRLGGRID_GetGridFlagsPointer(struct D2DrlgGrid* pDrlgGrid, int nX, 
 int __cdecl DRLGGRID_GetGridEntry(struct D2DrlgGrid* pDrlgGrid, int nX, int nY)
 {
 	return pDrlgGrid->pCellsFlags[nX + pDrlgGrid->pCellsRowOffsets[nY]];
-}
+} // Alternatively, use memcpy to please UBSan.
 
 //D2Common.0x6FD75CC0
 void __cdecl DRLGGRID_AlterAllGridFlags(struct D2DrlgGrid* pDrlgGrid, int nFlag, enum FlagOperation eOperation)

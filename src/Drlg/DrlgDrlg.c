@@ -620,6 +620,12 @@ void __cdecl DRLG_InitLevel(struct D2DrlgLevel* pLevel)
 	}
 
 	DRLG_ComputeLevelWarpInfo(pLevel);
+
+	for (auto pDrlgRoom = pLevel->pFirstRoomEx; pDrlgRoom != NULL; pDrlgRoom = pDrlgRoom->pDrlgRoomNext)
+		fprintf(stderr, "%d, %d, %d, %d:'%s'\n",
+		    pDrlgRoom->nTileXPos, pDrlgRoom->nTileYPos, pDrlgRoom->nTileWidth, pDrlgRoom->nTileWidth,
+		    DRLGPRESET_GetPickedLevelPrestFilePathFromRoomEx(pDrlgRoom)
+	    );
 }
 
 //D2Common.0x6FD74D50

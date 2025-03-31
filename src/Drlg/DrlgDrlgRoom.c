@@ -36,6 +36,14 @@ struct D2DrlgRoom* __cdecl DRLGROOM_AllocRoomEx(struct D2DrlgLevel* pLevel, int 
 		DRLGPRESET_AllocPresetRoomData(pDrlgRoom);
 	}
 
+    // fprintf(
+    //     stderr,
+    //     "%s(%d, %d)->pTileGrid == %p\n",
+    //     __func__,
+    //     pLevel->nRooms,
+    //     nType,
+    //     pDrlgRoom->pTileGrid);
+
 	return pDrlgRoom;
 }
 

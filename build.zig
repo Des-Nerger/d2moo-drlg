@@ -22,6 +22,7 @@ pub fn build(b: *Build) void {
             .optimize = b.standardOptimizeOption(.{ .preferred_optimize_mode = .ReleaseSafe }),
         }),
     });
+    exe.root_module.sanitize_c = false;
     exe.want_lto = false;
     exe.linkLibC();
     exe.addIncludePath(b.path("include"));
@@ -110,6 +111,7 @@ pub fn build(b: *Build) void {
     b.installArtifact(exe);
 
     const run_cmd = b.addRunArtifact(exe);
+    if (b.args) |args| run_cmd.addArgs(args);
     run_cmd.step.dependOn(b.getInstallStep());
     b.step("run", "Run the app").dependOn(&run_cmd.step);
 }

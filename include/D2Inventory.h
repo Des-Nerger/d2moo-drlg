@@ -168,7 +168,7 @@ struct D2ItemExtraData
 // Check if the header signature is correct. Assumes non null ptr.
 inline bool INVENTORY_CheckSignature(struct D2Inventory* pInventory) { return pInventory->dwSignature == D2C_InventoryHeader; }
 // Check if ptr is non null and if header signature is correct.
-inline struct D2Inventory* INVENTORY_GetPtrIfValid(struct D2Inventory* pInventory) { return (pInventory && INVENTORY_CheckSignature(pInventory)) ? pInventory : nullptr; }
+inline struct D2Inventory* INVENTORY_GetPtrIfValid(struct D2Inventory* pInventory) { return (pInventory && INVENTORY_CheckSignature(pInventory)) ? pInventory : NULL; }
 // Return true if matches a valid body location
 inline bool INVENTORY_ValidateBodyLoc(int nBodyLoc) { return nBodyLoc >= 0 && nBodyLoc < NUM_BODYLOC; }
 

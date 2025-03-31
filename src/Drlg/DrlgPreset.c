@@ -118,7 +118,11 @@ struct D2DS1File
 
 static int32_t ReadInt32(int32_t** pData)
 {
-	return *((*pData)++);
+    int32_t nData;
+    nData = **pData; // alternatively, do this to avoid 'load of misaligned address':
+    // memcpy((void *) &nData, (const void *) *pData, sizeof(int32_t));
+    (*pData)++;
+	return nData;
 }
 
 static void SkipInt32s(int32_t** pData, uint32_t nbToSkip)
@@ -486,6 +490,7 @@ void __cdecl DRLGPRESET_ParseDS1File(struct D2DrlgFile* pDrlgFile, HD2ARCHIVE hA
 //D2Common.0x6FD86050
 void __cdecl DRLGPRESET_LoadDrlgFile(struct D2DrlgFile** ppDrlgFile, HD2ARCHIVE hArchive, const char* szFile)
 {
+    // fprintf(stderr, "%s(_, _, '%s')\n", __func__, szFile);
 	if (gpLvlSubTypeFilesCriticalSection)
 	{
 		FOG_10050_EnterCriticalSection(gpLvlSubTypeFilesCriticalSection, 754);
